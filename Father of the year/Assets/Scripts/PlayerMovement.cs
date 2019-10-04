@@ -36,7 +36,6 @@ public class PlayerMovement : MonoBehaviour
         {
             playerBody.AddForce(jump*jumpSpeed);
         }
-        Debug.Log(moveHorizontal);
     }
 
 }
