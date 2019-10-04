@@ -7,36 +7,55 @@ public class PlayerMovement : MonoBehaviour
 
     private Rigidbody2D playerBody;
     public float playerSpeed;
-    public float jumpSpeed;
+    public float jumpForce;
     private float fallVelocity;
     private Animator PlayerAnim;
+    Vector2 antiGravity = new Vector2(0, 1);
+    public float jumpHeight;
 
     void Awake()
     {
         playerBody = GetComponent<Rigidbody2D>();
         PlayerAnim = GetComponent<Animator>();
 
-}
+    }
+
+    public static float CalculateJumpForce(float playerGravity, float jumpHeight)
+    {
+        return Mathf.Sqrt(2 * playerGravity * jumpHeight);
+    }
 
     // Update is called once per frame
     void FixedUpdate()
     {
         float moveHorizontal = Input.GetAxis("Horizontal"); // left is -1, stopped is 0, right is 1
         fallVelocity = playerBody.velocity.y;
+        jumpForce = CalculateJumpForce(playerBody.gravityScale, jumpHeight);
 
         Vector2 movementPlayer = new Vector2(moveHorizontal, 0);
 
-        if (Mathf.Abs(playerBody.velocity.x) > 10)
+        if (Mathf.Abs(playerBody.velocity.x) > 10 && JumpDetector.OnGround)
         {
             playerSpeed = 20.75f;
         }
-        else if (Mathf.Abs(playerBody.velocity.x) < 3)
+        else if (Mathf.Abs(playerBody.velocity.x) < 3 && JumpDetector.OnGround)
         {
             playerSpeed = 40;
         }
-        else
+        else if (JumpDetector.OnGround)
         {
             playerSpeed = 21.5f;
+        }
+
+        if (Mathf.Abs(playerBody.velocity.x) > 10 && !JumpDetector.OnGround)
+        {
+            playerBody.AddForce(movementPlayer * playerSpeed*-1);
+        }
+
+
+        if (fallVelocity < -10)
+        {
+            playerBody.AddForce(antiGravity * playerBody.gravityScale * 10);
         }
 
         ///// RUNNING
@@ -62,9 +81,8 @@ public class PlayerMovement : MonoBehaviour
 
     public void Jump()
     {
-        Vector2 jump = new Vector2(0, 50);
-
-        playerBody.AddForce(jump * jumpSpeed);
+        Vector2 jump = new Vector2(0, 180);
+        playerBody.AddForce(jump * jumpForce);
         PlayerAnim.SetTrigger("Jump");
     }
 
