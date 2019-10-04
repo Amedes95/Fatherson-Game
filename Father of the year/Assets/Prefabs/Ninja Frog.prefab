@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 5981030734712421033}
   - component: {fileID: 5981030734712421046}
   - component: {fileID: 5981030734712421036}
+  - component: {fileID: 227443779}
   m_Layer: 0
   m_Name: Ninja Frog
   m_TagString: Player
@@ -73,7 +74,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 4652dd5530400754eb8cf99e0158b912, type: 3}
+  m_Sprite: {fileID: -6367560908665664636, guid: fb16db0fb7a675446a741e6a8feb287c,
+    type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -96,8 +98,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0ba927b58233e46978b638501992445f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerSpeed: 20
-  jumpSpeed: 8
+  playerSpeed: 10
+  jumpSpeed: 20
 --- !u!50 &5981030734712421033
 Rigidbody2D:
   serializedVersion: 4
@@ -113,7 +115,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 1
+  m_GravityScale: 4
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
@@ -132,18 +134,18 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0.0004955828, y: 0.0001010187}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.32, y: 0.32}
+    oldSize: {x: 0.23, y: 0.24}
     newSize: {x: 0.32, y: 0.32}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.32, y: 0.32}
+  m_Size: {x: 0.22981721, y: 0.24057934}
   m_EdgeRadius: 0
 --- !u!114 &5981030734712421036
 MonoBehaviour:
@@ -157,3 +159,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6047032c153e642deb00510118942077, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!95 &227443779
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5981030734712421047}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 6fef0536f0ccd446786fc5aadd9200fd, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0

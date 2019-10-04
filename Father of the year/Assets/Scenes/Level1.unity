@@ -120,31 +120,6 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!1 &227443777 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5981030734712421047, guid: b5bdddb827a561143a0adac71f74a341,
-    type: 3}
-  m_PrefabInstance: {fileID: 1841825594}
-  m_PrefabAsset: {fileID: 0}
---- !u!95 &227443779
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 227443777}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 6fef0536f0ccd446786fc5aadd9200fd, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &591927042
 GameObject:
   m_ObjectHideFlags: 0
@@ -1275,67 +1250,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5981030734712421035, guid: b5bdddb827a561143a0adac71f74a341,
-        type: 3}
-      propertyPath: m_WasSpriteAssigned
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5981030734712421035, guid: b5bdddb827a561143a0adac71f74a341,
-        type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: -6367560908665664636, guid: fb16db0fb7a675446a741e6a8feb287c,
-        type: 3}
-    - target: {fileID: 5981030734712421032, guid: b5bdddb827a561143a0adac71f74a341,
-        type: 3}
-      propertyPath: jumpSpeed
-      value: 20
-      objectReference: {fileID: 0}
-    - target: {fileID: 5981030734712421032, guid: b5bdddb827a561143a0adac71f74a341,
-        type: 3}
-      propertyPath: playerSpeed
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 5981030734712421033, guid: b5bdddb827a561143a0adac71f74a341,
-        type: 3}
-      propertyPath: m_GravityScale
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 5981030734712421033, guid: b5bdddb827a561143a0adac71f74a341,
-        type: 3}
-      propertyPath: m_LinearDrag
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5981030734712421046, guid: b5bdddb827a561143a0adac71f74a341,
-        type: 3}
-      propertyPath: m_Offset.y
-      value: 0.0001010187
-      objectReference: {fileID: 0}
-    - target: {fileID: 5981030734712421046, guid: b5bdddb827a561143a0adac71f74a341,
-        type: 3}
-      propertyPath: m_SpriteTilingProperty.oldSize.x
-      value: 0.23
-      objectReference: {fileID: 0}
-    - target: {fileID: 5981030734712421046, guid: b5bdddb827a561143a0adac71f74a341,
-        type: 3}
-      propertyPath: m_SpriteTilingProperty.oldSize.y
-      value: 0.24
-      objectReference: {fileID: 0}
-    - target: {fileID: 5981030734712421046, guid: b5bdddb827a561143a0adac71f74a341,
-        type: 3}
-      propertyPath: m_Size.y
-      value: 0.24057934
-      objectReference: {fileID: 0}
-    - target: {fileID: 5981030734712421046, guid: b5bdddb827a561143a0adac71f74a341,
-        type: 3}
-      propertyPath: m_Offset.x
-      value: 0.0004955828
-      objectReference: {fileID: 0}
-    - target: {fileID: 5981030734712421046, guid: b5bdddb827a561143a0adac71f74a341,
-        type: 3}
-      propertyPath: m_Size.x
-      value: 0.22981721
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b5bdddb827a561143a0adac71f74a341, type: 3}
