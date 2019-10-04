@@ -23,6 +23,7 @@ public class JumpDetector : MonoBehaviour
         if (collision.tag == "Player")
         {
             OnGround = true;
+            collision.GetComponent<Animator>().SetBool("Grounded", true);
         }
     }
 
@@ -31,6 +32,7 @@ public class JumpDetector : MonoBehaviour
         if (collision.tag == "Player")
         {
             OnGround = false;
+            collision.GetComponent<Animator>().SetBool("Grounded", false);
         }
     }
 }

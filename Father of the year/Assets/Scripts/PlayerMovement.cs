@@ -9,10 +9,12 @@ public class PlayerMovement : MonoBehaviour
     public float playerSpeed;
     public float jumpSpeed;
     private float fallVelocity;
+    private Animator PlayerAnim;
 
     void Awake()
     {
         playerBody = GetComponent<Rigidbody2D>();
+        PlayerAnim = GetComponent<Animator>();
 
 }
 
@@ -25,18 +27,31 @@ public class PlayerMovement : MonoBehaviour
         Vector2 movementPlayer = new Vector2(moveHorizontal, 0);
         Vector2 jump = new Vector2(0, 50);
 
-        if (moveHorizontal > 0f)
+
+        ///// RUNNING
+        if (moveHorizontal > 0f) // player is moving right
         {
             playerBody.AddForce(movementPlayer * playerSpeed);
+            PlayerAnim.SetBool("Running", true);
+            transform.localScale = new Vector2(Mathf.Abs(transform.localScale.x), transform.localScale.y);
         }
-        if (moveHorizontal < 0f)
+        if (moveHorizontal < 0f) // player is moving left
         {
             playerBody.AddForce(movementPlayer * playerSpeed);
+            PlayerAnim.SetBool("Running", true);
+            transform.localScale = new Vector2(-Mathf.Abs(transform.localScale.x), transform.localScale.y);
+        }
+        if (moveHorizontal == 0f) // player is stopped
+        {
+            PlayerAnim.SetBool("Running", false);
         }
 
-        if (Input.GetKeyDown(KeyCode.W) && JumpDetector.OnGround)
+
+        //// JUMPING
+        if (Input.GetKeyDown(KeyCode.W) && JumpDetector.OnGround) // checks to see if player is on ground
         {
             playerBody.AddForce(jump*jumpSpeed);
+            PlayerAnim.SetTrigger("Jump");
         }
     }
 
