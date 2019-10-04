@@ -41,7 +41,7 @@ public class PlayerMovement : MonoBehaviour
             PlayerAnim.SetBool("Running", true);
             transform.localScale = new Vector2(-Mathf.Abs(transform.localScale.x), transform.localScale.y);
         }
-        if (moveHorizontal == 0f) // player is stopped
+        if (Mathf.Abs(moveHorizontal) < .01) // player is stopped
         {
             PlayerAnim.SetBool("Running", false);
         }
