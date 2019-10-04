@@ -25,8 +25,19 @@ public class PlayerMovement : MonoBehaviour
         fallVelocity = playerBody.velocity.y;
 
         Vector2 movementPlayer = new Vector2(moveHorizontal, 0);
-        Vector2 jump = new Vector2(0, 50);
 
+        if (Mathf.Abs(playerBody.velocity.x) > 10)
+        {
+            playerSpeed = 20.75f;
+        }
+        else if (Mathf.Abs(playerBody.velocity.x) < 3)
+        {
+            playerSpeed = 40;
+        }
+        else
+        {
+            playerSpeed = 21.5f;
+        }
 
         ///// RUNNING
         if (moveHorizontal > 0f) // player is moving right
@@ -46,13 +57,23 @@ public class PlayerMovement : MonoBehaviour
             PlayerAnim.SetBool("Running", false);
         }
 
+        Debug.Log(playerBody.velocity.x);
+    }
 
+    public void Jump()
+    {
+        Vector2 jump = new Vector2(0, 50);
+
+        playerBody.AddForce(jump * jumpSpeed);
+        PlayerAnim.SetTrigger("Jump");
+    }
+
+    private void Update()
+    {
         //// JUMPING
         if (Input.GetKeyDown(KeyCode.W) && JumpDetector.OnGround) // checks to see if player is on ground
         {
-            playerBody.AddForce(jump*jumpSpeed);
-            PlayerAnim.SetTrigger("Jump");
+            Jump();
         }
     }
-
 }
