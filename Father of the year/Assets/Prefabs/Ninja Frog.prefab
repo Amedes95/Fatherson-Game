@@ -45,6 +45,7 @@ GameObject:
   - component: {fileID: 5981030734712421046}
   - component: {fileID: 5981030734712421036}
   - component: {fileID: 227443779}
+  - component: {fileID: 1705240154}
   m_Layer: 0
   m_Name: Ninja Frog
   m_TagString: Player
@@ -132,6 +133,7 @@ MonoBehaviour:
   playerSpeed: 10
   jumpForce: 0
   jumpHeight: 5
+  PlayerSpawn: {fileID: 0}
 --- !u!50 &5981030734712421033
 Rigidbody2D:
   serializedVersion: 4
@@ -210,3 +212,15 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &1705240154
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5981030734712421047}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5ebe860797b276e4ab09033af53cc31a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
