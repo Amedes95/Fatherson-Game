@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class JumpDetector : MonoBehaviour
 {
-    //public int jumpCount; // to be incorporated later (e.g. tile where you have 3 air jumps instead of 1)
 
     public static bool OnGround;
     // Start is called before the first frame update
@@ -21,21 +20,21 @@ public class JumpDetector : MonoBehaviour
 
     private void OnTriggerStay2D(Collider2D collision)
     {
-        if (collision.tag == "Player")
+        if (collision.tag == "Feet")
         {
             OnGround = true;
             PlayerMovement.isJumping = false;
             PlayerMovement.jumpCount = 1;
-            collision.GetComponent<Animator>().SetBool("Grounded", true);
+            collision.GetComponentInParent<Animator>().SetBool("Grounded", true);
         }
     }
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        if (collision.tag == "Player")
+        if (collision.tag == "Feet")
         {
             OnGround = false;
-            collision.GetComponent<Animator>().SetBool("Grounded", false);
+            collision.GetComponentInParent<Animator>().SetBool("Grounded", false);
         }
     }
 }
