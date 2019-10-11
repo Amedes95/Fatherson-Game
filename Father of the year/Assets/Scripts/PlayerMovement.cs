@@ -8,10 +8,12 @@ public class PlayerMovement : MonoBehaviour
     private Rigidbody2D playerBody;
     public float playerSpeed;
     public float jumpForce;
+    public float counterJumpForce;
     private float fallVelocity;
     private Animator PlayerAnim;
-    Vector2 antiGravity = new Vector2(0, 1);
     public float jumpHeight;
+    bool isJumping;
+    bool jumpKeyHeld;
 
     public Transform PlayerSpawn; // passed in through editor
 
@@ -60,7 +62,7 @@ public class PlayerMovement : MonoBehaviour
 
             if (fallVelocity < -10)
             {
-                playerBody.AddForce(antiGravity * playerBody.gravityScale * 10);
+                playerBody.AddForce(Vector2.up * playerBody.gravityScale * 10);
             }
 
             ///// RUNNING
@@ -81,7 +83,13 @@ public class PlayerMovement : MonoBehaviour
                 PlayerAnim.SetBool("Running", false);
             }
 
-            Debug.Log(playerBody.velocity.x);
+            if (isJumping)
+            {
+                if (!jumpKeyHeld && Vector2.Dot(playerBody.velocity, Vector2.up) > 0)
+                {
+                    playerBody.AddForce(counterJumpForce * playerBody.mass * Vector2.down);
+                }
+            }
         }
         
     }
@@ -98,9 +106,20 @@ public class PlayerMovement : MonoBehaviour
         if (PlayerHealth.Dead == false) // Only allow inputs if alive
         {
             //// JUMPING
-            if (Input.GetKeyDown(KeyCode.W) && JumpDetector.OnGround) // checks to see if player is on ground
+            if (Input.GetKeyDown(KeyCode.W))
             {
-                Jump();
+                jumpKeyHeld = true;
+
+                if (JumpDetector.OnGround) // Checks to see if player is on ground before jumping
+                { 
+                    Jump();
+                    isJumping = true;
+                }
+                
+            }
+            else if (Input.GetKeyUp(KeyCode.W))
+            {
+                jumpKeyHeld = false;
             }
         }
 
