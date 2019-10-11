@@ -14,6 +14,7 @@ public class PlayerMovement : MonoBehaviour
     public float jumpHeight;
     public static bool isJumping;
     bool jumpKeyHeld;
+    public static int jumpCount;
 
     public Transform PlayerSpawn; // passed in through editor
 
@@ -91,7 +92,7 @@ public class PlayerMovement : MonoBehaviour
                 }
             }
         }
-        Debug.Log(isJumping);
+        //Debug.Log(isJumping);
     }
 
     public void Jump()
@@ -110,8 +111,15 @@ public class PlayerMovement : MonoBehaviour
             {
                 jumpKeyHeld = true;
 
+                if (!JumpDetector.OnGround && jumpCount > 0)
+                {
+                    playerBody.velocity = new Vector2(playerBody.velocity.x, 0);
+                    Jump();
+                    jumpCount -= 1;
+                }
+
                 if (JumpDetector.OnGround) // Checks to see if player is on ground before jumping
-                { 
+                {
                     Jump();
                     isJumping = true;
                 }
