@@ -23,6 +23,7 @@ public class JumpDetector : MonoBehaviour
         if (collision.tag == "Player")
         {
             OnGround = true;
+            PlayerMovement.isJumping = false;
             collision.GetComponent<Animator>().SetBool("Grounded", true);
         }
     }

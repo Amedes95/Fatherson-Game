@@ -12,7 +12,7 @@ public class PlayerMovement : MonoBehaviour
     private float fallVelocity;
     private Animator PlayerAnim;
     public float jumpHeight;
-    bool isJumping;
+    public static bool isJumping;
     bool jumpKeyHeld;
 
     public Transform PlayerSpawn; // passed in through editor
@@ -85,13 +85,13 @@ public class PlayerMovement : MonoBehaviour
 
             if (isJumping)
             {
-                if (!jumpKeyHeld && Vector2.Dot(playerBody.velocity, Vector2.up) > 0)
+                if (!jumpKeyHeld && Vector2.Dot(playerBody.velocity, Vector2.up) > - 0)
                 {
                     playerBody.AddForce(counterJumpForce * playerBody.mass * Vector2.down);
                 }
             }
         }
-        
+        Debug.Log(isJumping);
     }
 
     public void Jump()
