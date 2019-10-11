@@ -13,8 +13,8 @@ TagManager:
   - UI
   - 
   - 
-  - 
-  - 
+  - Ground
+  - Player
   - 
   - 
   - 
@@ -46,4 +46,10 @@ TagManager:
     locked: 0
   - name: Floors
     uniqueID: 1512684217
+    locked: 0
+  - name: Player
+    uniqueID: 2100415251
+    locked: 0
+  - name: Enemies
+    uniqueID: 2094072539
     locked: 0
