@@ -92,7 +92,7 @@ public class PlayerMovement : MonoBehaviour
                 }
             }
         }
-        Debug.Log(playerBody.velocity.x);
+        //Debug.Log(playerBody.velocity.x);
     }
 
     public void Jump()

@@ -26,7 +26,6 @@ public class BasicPatrol : MonoBehaviour
                 gameObject.GetComponent<Animator>().SetTrigger("Attack");
             }
         }
-
     }
 
     void Raycasting()
@@ -40,7 +39,8 @@ public class BasicPatrol : MonoBehaviour
 
     public void WalkAround()
     {
-        gameObject.GetComponent<Rigidbody2D>().AddForce(PatrolDirection * PatrolSpeed);
+        //gameObject.GetComponent<Rigidbody2D>().AddForce(PatrolDirection * PatrolSpeed);
+        gameObject.GetComponent<Rigidbody2D>().velocity = PatrolDirection * PatrolSpeed;
     }
 
     public void FlipCharacter()
