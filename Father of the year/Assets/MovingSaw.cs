@@ -9,7 +9,7 @@ public class MovingSaw : MonoBehaviour
 
     Transform TargetPosition;
 
-    public bool Reversable;
+    public bool Reversible;
 
 
     private void Awake()
@@ -36,12 +36,12 @@ public class MovingSaw : MonoBehaviour
             {
                 if (i+1 == MoveLocations.Count) // quick check to see if its the last node in the list
                 {
-                    if (Reversable == false) // If it's not reversable, then just teleport it back to node 0
+                    if (Reversible == false) // If it's not reversible, then just teleport it back to node 0
                     {
                         transform.position = MoveLocations[0].position;
                         TargetPosition = MoveLocations[0];
                     }
-                    else // but if it is reversable...
+                    else // but if it is reversible...
                     {
                         // reverse the list
                         MoveLocations.Reverse();

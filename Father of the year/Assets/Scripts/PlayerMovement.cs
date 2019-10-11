@@ -39,13 +39,13 @@ public class PlayerMovement : MonoBehaviour
 
             Vector2 movementPlayer = new Vector2(moveHorizontal, 0);
 
-            if (Mathf.Abs(playerBody.velocity.x) > 10 && JumpDetector.OnGround)
+            if (Mathf.Abs(playerBody.velocity.x) > 7 && JumpDetector.OnGround)
             {
-                playerSpeed = 20.75f;
+                playerSpeed = 16f;
             }
             else if (Mathf.Abs(playerBody.velocity.x) < 3 && JumpDetector.OnGround)
             {
-                playerSpeed = 40;
+                playerSpeed = 60;
             }
             else if (JumpDetector.OnGround)
             {
