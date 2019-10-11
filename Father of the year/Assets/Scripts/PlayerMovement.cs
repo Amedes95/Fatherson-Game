@@ -42,20 +42,20 @@ public class PlayerMovement : MonoBehaviour
 
             Vector2 movementPlayer = new Vector2(moveHorizontal, 0);
 
-            if (Mathf.Abs(playerBody.velocity.x) > 7 && JumpDetector.OnGround)
+            if (Mathf.Abs(playerBody.velocity.x) > 7 && JumpDetector.OnGround) //ground speed cap
             {
                 playerSpeed = 16f;
             }
-            else if (Mathf.Abs(playerBody.velocity.x) < 3 && JumpDetector.OnGround)
+            else if (Mathf.Abs(playerBody.velocity.x) < 3 && JumpDetector.OnGround) //quick movement from rest
             {
                 playerSpeed = 60;
             }
             else if (JumpDetector.OnGround)
             {
-                playerSpeed = 21.5f;
+                playerSpeed = 18;
             }
 
-            if (Mathf.Abs(playerBody.velocity.x) > 10 && !JumpDetector.OnGround)
+            if (Mathf.Abs(playerBody.velocity.x) > 10 && !JumpDetector.OnGround) //air speed cap
             {
                 playerBody.AddForce(movementPlayer * playerSpeed * -1);
             }
@@ -92,7 +92,7 @@ public class PlayerMovement : MonoBehaviour
                 }
             }
         }
-        //Debug.Log(isJumping);
+        Debug.Log(playerBody.velocity.x);
     }
 
     public void Jump()

@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class JumpDetector : MonoBehaviour
 {
+    //public int jumpCount; // to be incorporated later (e.g. tile where you have 3 air jumps instead of 1)
 
     public static bool OnGround;
     // Start is called before the first frame update
