@@ -6,35 +6,29 @@ public class JumpDetector : MonoBehaviour
 {
 
     public static bool OnGround;
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    public Transform EndLine;
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 
-    private void OnTriggerStay2D(Collider2D collision)
+    private void Update()
     {
-        if (collision.tag == "Feet")
+        Raycasting();
+        if (OnGround)
         {
-            OnGround = true;
             PlayerMovement.isJumping = false;
             PlayerMovement.jumpCount = 1;
-            collision.GetComponentInParent<Animator>().SetBool("Grounded", true);
+            gameObject.GetComponent<Animator>().SetBool("Grounded", true);
+        }
+        else
+        {
+            OnGround = false;
+            gameObject.GetComponent<Animator>().SetBool("Grounded", false);
         }
     }
 
-    private void OnTriggerExit2D(Collider2D collision)
+
+    void Raycasting()
     {
-        if (collision.tag == "Feet")
-        {
-            OnGround = false;
-            collision.GetComponentInParent<Animator>().SetBool("Grounded", false);
-        }
+        Debug.DrawLine(transform.position, EndLine.position, Color.green); 
+        OnGround = Physics2D.Linecast(transform.position, EndLine.position, 1 << LayerMask.NameToLayer("JumpZone"));
     }
 }
