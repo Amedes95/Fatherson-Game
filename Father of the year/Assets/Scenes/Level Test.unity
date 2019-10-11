@@ -5845,6 +5845,14 @@ PrefabInstance:
       propertyPath: PlayerSpawn
       value: 
       objectReference: {fileID: 31052030}
+    - target: {fileID: 834077213, guid: b5bdddb827a561143a0adac71f74a341, type: 3}
+      propertyPath: m_Offset.y
+      value: -0.029099673
+      objectReference: {fileID: 0}
+    - target: {fileID: 834077213, guid: b5bdddb827a561143a0adac71f74a341, type: 3}
+      propertyPath: m_Size.y
+      value: 0.18447572
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b5bdddb827a561143a0adac71f74a341, type: 3}
 --- !u!1 &1855297244
@@ -5862,7 +5870,7 @@ GameObject:
   - component: {fileID: 1855297248}
   - component: {fileID: 1855297247}
   - component: {fileID: 1855297246}
-  m_Layer: 10
+  m_Layer: 0
   m_Name: jumpzones
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5890,12 +5898,11 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1855297244}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3d30c5c258e2d403791434e8672b8dc7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  EndLine: {fileID: 0}
 --- !u!19719996 &1855297247
 TilemapCollider2D:
   m_ObjectHideFlags: 0
