@@ -182,8 +182,6 @@ MonoBehaviour:
   jumpForce: 0
   counterJumpForce: 50
   jumpHeight: 5
-  fallForce: 0
-  fallSpeedCap: 0
   PlayerSpawn: {fileID: 0}
 --- !u!50 &5981030734712421033
 Rigidbody2D:
@@ -196,8 +194,8 @@ Rigidbody2D:
   m_BodyType: 0
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 1
-  m_Mass: 0.5426164
+  m_UseAutoMass: 0
+  m_Mass: 1
   m_LinearDrag: 1.75
   m_AngularDrag: 0.05
   m_GravityScale: 1

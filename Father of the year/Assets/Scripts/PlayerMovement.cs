@@ -44,7 +44,7 @@ public class PlayerMovement : MonoBehaviour
 
             Vector2 movementPlayer = new Vector2(moveHorizontal, 0);
 
-            if (playerBody.velocity.y < -1)
+            if (playerBody.velocity.y < 0)
             {
                 playerBody.AddForce(new Vector2(0, -1)*fallForce);
             }
@@ -70,7 +70,7 @@ public class PlayerMovement : MonoBehaviour
 
             if (fallVelocity < -fallSpeedCap) //fall speed cap
             {
-                playerBody.AddForce(Vector2.up * playerBody.gravityScale * 10 + Vector2.up * fallForce);
+                playerBody.AddForce(Vector2.up * playerBody.gravityScale * 10);
             }
 
             ///// RUNNING
@@ -104,8 +104,8 @@ public class PlayerMovement : MonoBehaviour
 
     public void Jump()
     {
-        Vector2 jump = new Vector2(0, 180/playerBody.gravityScale); //dividing by gravity scale keeps jump height consistent while adjusting gravity for faster/slower jumps
-        playerBody.AddForce(jump * (jumpForce + 0));
+        Vector2 jump = new Vector2(0, 180);
+        playerBody.AddForce(jump * jumpForce);
         PlayerAnim.SetTrigger("Jump");
         isJumping = true;
     }
@@ -129,6 +129,7 @@ public class PlayerMovement : MonoBehaviour
                 if (JumpDetector.OnGround) // Checks to see if player is on ground before jumping
                 {
                     Jump();
+                    //isJumping = true;
                 }
                 
             }
