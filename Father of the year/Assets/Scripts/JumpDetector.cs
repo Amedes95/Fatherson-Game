@@ -22,10 +22,14 @@ public class JumpDetector : MonoBehaviour
     {
         if (collision.tag == "Feet")
         {
-            OnGround = true;
-            PlayerMovement.isJumping = false;
-            PlayerMovement.jumpCount = 1;
-            collision.GetComponentInParent<Animator>().SetBool("Grounded", true);
+            if (!PlayerHealth.Dead)
+            {
+                OnGround = true;
+                PlayerMovement.isJumping = false;
+                PlayerMovement.jumpCount = 1;
+                collision.GetComponentInParent<Animator>().SetBool("Grounded", true);
+            }
+
         }
     }
 
@@ -33,8 +37,12 @@ public class JumpDetector : MonoBehaviour
     {
         if (collision.tag == "Feet")
         {
-            OnGround = false;
-            collision.GetComponentInParent<Animator>().SetBool("Grounded", false);
+            if (!PlayerHealth.Dead)
+            {
+                OnGround = false;
+                collision.GetComponentInParent<Animator>().SetBool("Grounded", false);
+            }
+
         }
     }
 }
