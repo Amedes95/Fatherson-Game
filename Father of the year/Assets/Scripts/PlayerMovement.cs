@@ -15,6 +15,8 @@ public class PlayerMovement : MonoBehaviour
     public static bool isJumping;
     bool jumpKeyHeld;
     public static int jumpCount;
+    public float fallForce;
+    public float fallSpeedCap;
 
     public Transform PlayerSpawn; // passed in through editor
 
@@ -42,6 +44,11 @@ public class PlayerMovement : MonoBehaviour
 
             Vector2 movementPlayer = new Vector2(moveHorizontal, 0);
 
+            if (playerBody.velocity.y < 0)
+            {
+                playerBody.AddForce(new Vector2(0, -1)*fallForce);
+            }
+
             if (Mathf.Abs(playerBody.velocity.x) > 7 && JumpDetector.OnGround) //ground speed cap
             {
                 playerSpeed = 16f;
@@ -55,13 +62,13 @@ public class PlayerMovement : MonoBehaviour
                 playerSpeed = 18;
             }
 
-            if (Mathf.Abs(playerBody.velocity.x) > 10 && !JumpDetector.OnGround) //air speed cap
+            if (Mathf.Abs(playerBody.velocity.x) > 7 && !JumpDetector.OnGround) //air speed cap
             {
                 playerBody.AddForce(movementPlayer * playerSpeed * -1);
             }
 
 
-            if (fallVelocity < -10)
+            if (fallVelocity < -fallSpeedCap) //fall speed cap
             {
                 playerBody.AddForce(Vector2.up * playerBody.gravityScale * 10);
             }
@@ -92,7 +99,7 @@ public class PlayerMovement : MonoBehaviour
                 }
             }
         }
-        //Debug.Log(playerBody.velocity.x);
+        Debug.Log(playerBody.velocity.y);
     }
 
     public void Jump()
@@ -131,7 +138,6 @@ public class PlayerMovement : MonoBehaviour
                 jumpKeyHeld = false;
             }
         }
-        Debug.Log(isJumping);
     }
 
     public void Respawn()
