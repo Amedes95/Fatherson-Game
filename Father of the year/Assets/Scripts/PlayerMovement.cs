@@ -17,6 +17,11 @@ public class PlayerMovement : MonoBehaviour
     public static int jumpCount;
     public float fallForce;
     public float fallSpeedCap;
+    public float startSpeed;
+    public float midSpeed;
+    public float fullSpeed;
+    public float maxVelocity;
+    public float midVelocity;
 
     public Transform PlayerSpawn; // passed in through editor
 
@@ -25,6 +30,12 @@ public class PlayerMovement : MonoBehaviour
         playerBody = GetComponent<Rigidbody2D>();
         PlayerAnim = GetComponent<Animator>();
         transform.position = PlayerSpawn.position; // spawn
+        startSpeed = 60;
+        midSpeed = 18;
+        fullSpeed = 14; //full speed should always be less than mid speed
+        maxVelocity = 5;
+        midVelocity = 3;
+        
 
     }
 
@@ -49,23 +60,39 @@ public class PlayerMovement : MonoBehaviour
                 playerBody.AddForce(new Vector2(0, -1)*fallForce);
             }
 
-             //if (Input.GetKey(KeyCode.LeftShift)) 
-
-
-            if (Mathf.Abs(playerBody.velocity.x) > 7 && JumpDetector.OnGround) //ground speed cap
+             if (Input.GetKey(KeyCode.LeftShift))
             {
-                playerSpeed = 16f;
+                startSpeed = 200;
+                midSpeed = 23;
+                fullSpeed = 20;
+                maxVelocity = 7;
+                midVelocity = 5;
             }
-            else if (Mathf.Abs(playerBody.velocity.x) < 3 && JumpDetector.OnGround) //quick movement from rest
+
+             if (Input.GetKeyUp(KeyCode.LeftShift))
             {
-                playerSpeed = 60;
+                startSpeed = 60;
+                midSpeed = 18;
+                fullSpeed = 14;
+                maxVelocity = 5;
+                midVelocity = 3;
+            }
+
+
+            if (Mathf.Abs(playerBody.velocity.x) > maxVelocity && JumpDetector.OnGround) //ground speed cap
+            {
+                playerSpeed = fullSpeed;
+            }
+            else if (Mathf.Abs(playerBody.velocity.x) < midVelocity && JumpDetector.OnGround) //quick movement from rest
+            {
+                playerSpeed = startSpeed;
             }
             else if (JumpDetector.OnGround)
             {
-                playerSpeed = 18;
+                playerSpeed = midSpeed;
             }
 
-            if (Mathf.Abs(playerBody.velocity.x) > 7 && !JumpDetector.OnGround) //air speed cap
+            if (Mathf.Abs(playerBody.velocity.x) > maxVelocity && !JumpDetector.OnGround) //air speed cap
             {
                 playerBody.AddForce(movementPlayer * playerSpeed * -1);
             }

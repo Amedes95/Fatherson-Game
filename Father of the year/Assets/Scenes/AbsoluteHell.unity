@@ -285,16 +285,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: SawMotionPaths
       objectReference: {fileID: 0}
-    - target: {fileID: 4547548701293862613, guid: 34f33cfa32c5da34790afc7db91aa29f,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -1027.57
-      objectReference: {fileID: 0}
-    - target: {fileID: 4547548701293862613, guid: 34f33cfa32c5da34790afc7db91aa29f,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -615.43
-      objectReference: {fileID: 0}
     - target: {fileID: 4547548701028841075, guid: 34f33cfa32c5da34790afc7db91aa29f,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -349,6 +339,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4547548701293862613, guid: 34f33cfa32c5da34790afc7db91aa29f,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -1027.57
+      objectReference: {fileID: 0}
+    - target: {fileID: 4547548701293862613, guid: 34f33cfa32c5da34790afc7db91aa29f,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -615.43
       objectReference: {fileID: 0}
     - target: {fileID: 4547548701788839030, guid: 34f33cfa32c5da34790afc7db91aa29f,
         type: 3}
@@ -59254,6 +59254,12 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: -178.632, y: -0.15499878, z: 48.28299}
+--- !u!4 &1712365602 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 31052030, guid: b5bdddb827a561143a0adac71f74a341,
+    type: 3}
+  m_PrefabInstance: {fileID: 1841825594}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1752528681
 GameObject:
   m_ObjectHideFlags: 0
@@ -59570,15 +59576,20 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1705240154, guid: b5bdddb827a561143a0adac71f74a341, type: 3}
-      propertyPath: deathParticles
+    - target: {fileID: 5981030734712421032, guid: b5bdddb827a561143a0adac71f74a341,
+        type: 3}
+      propertyPath: PlayerSpawn
       value: 
-      objectReference: {fileID: 1622474732}
+      objectReference: {fileID: 1712365602}
     - target: {fileID: 5981030734712421033, guid: b5bdddb827a561143a0adac71f74a341,
         type: 3}
       propertyPath: m_GravityScale
       value: 1.5
       objectReference: {fileID: 0}
+    - target: {fileID: 1705240154, guid: b5bdddb827a561143a0adac71f74a341, type: 3}
+      propertyPath: deathParticles
+      value: 
+      objectReference: {fileID: 1622474732}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b5bdddb827a561143a0adac71f74a341, type: 3}
 --- !u!1 &1855297244
