@@ -44,10 +44,13 @@ public class PlayerMovement : MonoBehaviour
 
             Vector2 movementPlayer = new Vector2(moveHorizontal, 0);
 
-            if (playerBody.velocity.y < 0)
+            if (playerBody.velocity.y < -1)
             {
                 playerBody.AddForce(new Vector2(0, -1)*fallForce);
             }
+
+             //if (Input.GetKey(KeyCode.LeftShift)) 
+
 
             if (Mathf.Abs(playerBody.velocity.x) > 7 && JumpDetector.OnGround) //ground speed cap
             {
@@ -68,12 +71,14 @@ public class PlayerMovement : MonoBehaviour
             }
 
 
+
+
             if (fallVelocity < -fallSpeedCap) //fall speed cap
             {
                 playerBody.AddForce(Vector2.up * playerBody.gravityScale * 10);
             }
 
-            ///// RUNNING
+            ///// Movement left and right
             if (moveHorizontal > 0f) // player is moving right
             {
                 playerBody.AddForce(movementPlayer * playerSpeed);
@@ -93,19 +98,19 @@ public class PlayerMovement : MonoBehaviour
 
             if (isJumping)
             {
-                if (!jumpKeyHeld && Vector2.Dot(playerBody.velocity, Vector2.up) > - 0)
+                if (!jumpKeyHeld && Vector2.Dot(playerBody.velocity, Vector2.up) > 0)
                 {
                     playerBody.AddForce(counterJumpForce * playerBody.mass * Vector2.down);
                 }
             }
         }
-        Debug.Log(playerBody.velocity.y);
+        Debug.Log(playerBody.velocity.x);
     }
 
     public void Jump()
     {
-        Vector2 jump = Vector2.up; //comment
-        playerBody.AddForce(jump * jumpForce* 180); //ooga booga ooga booga
+        Vector2 jump = Vector2.up;
+        playerBody.AddForce(jump * jumpForce* 180);
         PlayerAnim.SetTrigger("Jump");
         isJumping = true;
     }
