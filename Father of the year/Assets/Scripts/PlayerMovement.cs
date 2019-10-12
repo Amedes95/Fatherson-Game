@@ -104,8 +104,8 @@ public class PlayerMovement : MonoBehaviour
 
     public void Jump()
     {
-        Vector2 jump = new Vector2(0, 180);
-        playerBody.AddForce(jump * jumpForce);
+        Vector2 jump = Vector2.up; //comment
+        playerBody.AddForce(jump * jumpForce* 180); //ooga booga ooga booga
         PlayerAnim.SetTrigger("Jump");
         isJumping = true;
     }
