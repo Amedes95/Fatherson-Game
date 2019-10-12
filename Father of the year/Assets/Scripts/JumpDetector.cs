@@ -6,44 +6,43 @@ public class JumpDetector : MonoBehaviour
 {
 
     public static bool OnGround;
-    public Transform EndLine;
-    public Transform EndLine2;
-    public static bool grounded2;
-
-
-
-    private void Update()
+    // Start is called before the first frame update
+    void Start()
     {
-        Raycasting();
-        if (grounded2)
-        {
-            OnGround = true;
-        }
-        if (OnGround)
-        {
-            grounded2 = true;
-        }
+        
+    }
 
-        if (OnGround)
+    // Update is called once per frame
+    void Update()
+    {
+        
+    }
+
+    private void OnTriggerStay2D(Collider2D collision)
+    {
+        if (collision.tag == "Feet")
         {
-            PlayerMovement.isJumping = false;
-            PlayerMovement.jumpCount = 1;
-            gameObject.GetComponent<Animator>().SetBool("Grounded", true);
-        }
-        else
-        {
-            OnGround = false;
-            gameObject.GetComponent<Animator>().SetBool("Grounded", false);
+            if (!PlayerHealth.Dead)
+            {
+                OnGround = true;
+                PlayerMovement.isJumping = false;
+                PlayerMovement.jumpCount = 1;
+                collision.GetComponentInParent<Animator>().SetBool("Grounded", true);
+            }
+
         }
     }
 
-
-    void Raycasting()
+    private void OnTriggerExit2D(Collider2D collision)
     {
-        Debug.DrawLine(transform.position, EndLine.position, Color.green);
-        Debug.DrawLine(transform.position, EndLine2.position, Color.green);
+        if (collision.tag == "Feet")
+        {
+            if (!PlayerHealth.Dead)
+            {
+                OnGround = false;
+                collision.GetComponentInParent<Animator>().SetBool("Grounded", false);
+            }
 
-        OnGround = Physics2D.Linecast(transform.position, EndLine.position, 1 << LayerMask.NameToLayer("Ground"));
-        grounded2 = Physics2D.Linecast(transform.position, EndLine2.position, 1 << LayerMask.NameToLayer("Ground"));
+        }
     }
 }
