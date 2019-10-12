@@ -8,7 +8,7 @@ public class JumpDetector : MonoBehaviour
     public static bool OnGround;
     public Transform EndLine;
     public Transform EndLine2;
-    bool grounded2;
+    public static bool grounded2;
 
 
 

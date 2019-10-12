@@ -100,6 +100,7 @@ public class PlayerMovement : MonoBehaviour
         Vector2 jump = new Vector2(0, 180);
         playerBody.AddForce(jump * jumpForce);
         PlayerAnim.SetTrigger("Jump");
+        isJumping = true;
     }
 
     private void Update()
@@ -121,7 +122,7 @@ public class PlayerMovement : MonoBehaviour
                 if (JumpDetector.OnGround) // Checks to see if player is on ground before jumping
                 {
                     Jump();
-                    isJumping = true;
+                    //isJumping = true;
                 }
                 
             }
@@ -130,7 +131,7 @@ public class PlayerMovement : MonoBehaviour
                 jumpKeyHeld = false;
             }
         }
-
+        Debug.Log(isJumping);
     }
 
     public void Respawn()
