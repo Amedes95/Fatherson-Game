@@ -60,7 +60,7 @@ public class PlayerMovement : MonoBehaviour
                 playerBody.AddForce(new Vector2(0, -1)*fallForce);
             }
 
-             if (Input.GetKey(KeyCode.LeftShift))
+             if (Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.RightShift))
             {
                 startSpeed = 200;
                 midSpeed = 23;
@@ -69,7 +69,7 @@ public class PlayerMovement : MonoBehaviour
                 midVelocity = 5;
             }
 
-             if (Input.GetKeyUp(KeyCode.LeftShift))
+             if (Input.GetKeyUp(KeyCode.LeftShift) || Input.GetKeyUp(KeyCode.RightShift))
             {
                 startSpeed = 60;
                 midSpeed = 18;
