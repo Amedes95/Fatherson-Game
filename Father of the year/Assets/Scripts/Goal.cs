@@ -1,11 +1,13 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Goal : MonoBehaviour
 {
     public static bool LevelComplete;
     public GameObject VictoryMenu;
+    public string NextLevel;
 
     // Start is called before the first frame update
     void Awake()
@@ -33,5 +35,10 @@ public class Goal : MonoBehaviour
             collision.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeAll;
             LevelComplete = true;
         }
+    }
+
+    public void LoadNextLevel()
+    {
+        SceneManager.LoadScene(NextLevel);
     }
 }
