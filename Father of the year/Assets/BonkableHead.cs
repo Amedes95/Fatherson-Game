@@ -11,7 +11,8 @@ public class BonkableHead : MonoBehaviour
 
     public void Awake()
     {
-        BonkForce = new Vector2(0, BounceHeight);
+        BonkForce = new Vector2(0, BounceHeight); // make this match player jump force, apply if (isJumping) script
+
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
