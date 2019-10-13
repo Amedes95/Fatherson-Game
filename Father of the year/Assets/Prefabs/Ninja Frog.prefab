@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 31052030}
   m_Layer: 0
   m_Name: PlayerSpawn
-  m_TagString: Untagged
+  m_TagString: PlayerSpawn
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -184,7 +184,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 2100415251
   m_SortingLayer: 5
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: -6367560908665664636, guid: fb16db0fb7a675446a741e6a8feb287c,
     type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -215,7 +215,11 @@ MonoBehaviour:
   jumpHeight: 5
   fallForce: 10
   fallSpeedCap: 10
-  PlayerSpawn: {fileID: 0}
+  startSpeed: 0
+  midSpeed: 0
+  fullSpeed: 0
+  maxVelocity: 0
+  midVelocity: 0
 --- !u!50 &5981030734712421033
 Rigidbody2D:
   serializedVersion: 4
@@ -280,7 +284,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5ebe860797b276e4ab09033af53cc31a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  deathParticles: {fileID: 0}
 --- !u!70 &1029529505
 CapsuleCollider2D:
   m_ObjectHideFlags: 0

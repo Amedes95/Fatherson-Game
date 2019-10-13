@@ -12,19 +12,16 @@ public class BasicPatrol : MonoBehaviour
 
     private void Update()
     {
-        if (PlayerHealth.Dead == false) // stop if player is dead
+        Raycasting();
+        WalkAround();
+        if (TouchingWall)
         {
-            Raycasting();
-            WalkAround();
-            if (TouchingWall)
-            {
-                FlipCharacter();
-                PatrolDirection = new Vector2(PatrolDirection.x * -1, 0);
-            }
-            if (TouchingPlayer)
-            {
-                gameObject.GetComponent<Animator>().SetTrigger("Attack");
-            }
+            FlipCharacter();
+            PatrolDirection = new Vector2(PatrolDirection.x * -1, 0);
+        }
+        if (TouchingPlayer)
+        {
+            gameObject.GetComponent<Animator>().SetTrigger("Attack");
         }
     }
 

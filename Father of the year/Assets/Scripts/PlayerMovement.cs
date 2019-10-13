@@ -22,11 +22,12 @@ public class PlayerMovement : MonoBehaviour
     public float fullSpeed;
     public float maxVelocity;
     public float midVelocity;
-
-    public Transform PlayerSpawn; // passed in through editor
+    public static bool Sprinting;
+    Transform PlayerSpawn; // passed in through editor
 
     void Awake()
     {
+        PlayerSpawn = GameObject.FindGameObjectWithTag("PlayerSpawn").GetComponent<Transform>();
         playerBody = GetComponent<Rigidbody2D>();
         PlayerAnim = GetComponent<Animator>();
         transform.position = PlayerSpawn.position; // spawn
@@ -60,8 +61,10 @@ public class PlayerMovement : MonoBehaviour
                 playerBody.AddForce(new Vector2(0, -1)*fallForce);
             }
 
-             if (Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.RightShift))
+            ///// Sprinting
+             if (Sprinting)
             {
+                PlayerAnim.SetFloat("SprintSpeed", 2);
                 startSpeed = 200;
                 midSpeed = 23;
                 fullSpeed = 20;
@@ -69,8 +72,9 @@ public class PlayerMovement : MonoBehaviour
                 midVelocity = 5;
             }
 
-             if (Input.GetKeyUp(KeyCode.LeftShift) || Input.GetKeyUp(KeyCode.RightShift))
+             if (!Sprinting)
             {
+                PlayerAnim.SetFloat("SprintSpeed", 1);
                 startSpeed = 60;
                 midSpeed = 18;
                 fullSpeed = 14;
@@ -131,7 +135,7 @@ public class PlayerMovement : MonoBehaviour
                 }
             }
         }
-        Debug.Log(playerBody.velocity.x);
+        //Debug.Log(playerBody.velocity.x);
     }
 
     public void Jump()
@@ -168,6 +172,16 @@ public class PlayerMovement : MonoBehaviour
             else if (Input.GetKeyUp(KeyCode.W))
             {
                 jumpKeyHeld = false;
+            }
+
+            if (Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.RightShift))
+            {
+                Sprinting = true;
+            }
+
+            if (Input.GetKeyUp(KeyCode.LeftShift) || Input.GetKeyUp(KeyCode.RightShift))
+            {
+                Sprinting = false;  
             }
         }
     }

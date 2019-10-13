@@ -4,11 +4,12 @@ using UnityEngine;
 
 public class PlayerHealth : MonoBehaviour
 {
-    public GameObject deathParticles;
+    GameObject deathParticles;
     public static bool Dead; // it's static because I refence it directly from the playermovement && and death canvas script
 
     void Awake() // we don't start dead when the scene loads now do we?
     {
+        deathParticles = GameObject.FindGameObjectWithTag("DeathParticle");
         Dead = false;
         deathParticles.SetActive(false);
     }

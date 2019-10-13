@@ -6,14 +6,10 @@ public class PlayerAnimator : MonoBehaviour
 {
     private Animator playerAnim;
 
+
     void Start()
     {
-        playerAnim = gameObject.GetComponent<Animator>();   
+        playerAnim = gameObject.GetComponent<Animator>();     
     }
 
-
-    void Update()
-    {
-        
-    }
 }
