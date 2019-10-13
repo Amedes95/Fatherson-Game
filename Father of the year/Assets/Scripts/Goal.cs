@@ -5,40 +5,25 @@ using UnityEngine.SceneManagement;
 
 public class Goal : MonoBehaviour
 {
-    public static bool LevelComplete;
-    public GameObject VictoryMenu;
-    public string NextLevel;
+    VictoryMenu VictoryScreen;
 
     // Start is called before the first frame update
     void Awake()
     {
-        LevelComplete = false;
+        VictoryScreen = GameObject.FindGameObjectWithTag("VictoryMenu").GetComponent<VictoryMenu>();
+        VictoryScreen.LevelComplete = false;
     }
 
 
-    private void Update()
-    {
-        if (LevelComplete)
-        {
-            VictoryMenu.SetActive(true);
-        }
-        else
-        {
-            VictoryMenu.SetActive(false);
-        }
-    }
-
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void OnTriggerEnter2D(Collider2D collision) // player completed level
     {
         if (collision.tag == "Player")
         {
-            collision.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeAll;
-            LevelComplete = true;
-        }
-    }
+            PlayerPrefs.SetInt(SceneManager.GetActiveScene().name, 1); // level beaten
 
-    public void LoadNextLevel()
-    {
-        SceneManager.LoadScene(NextLevel);
+            collision.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeAll;
+            VictoryScreen.LevelComplete = true;
+            Debug.Log(SceneManager.GetActiveScene().name);
+        }
     }
 }

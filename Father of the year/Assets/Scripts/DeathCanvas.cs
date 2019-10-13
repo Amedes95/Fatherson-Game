@@ -14,12 +14,17 @@ public class DeathCanvas : MonoBehaviour
         if (PlayerHealth.Dead)
         {
             DeathMenu.SetActive(true);
+            if (Input.GetKeyDown(KeyCode.Space))
+            {
+                ReloadScene();
+            }
         }
         else
         {
             DeathMenu.SetActive(false);
         }
     }
+
 
     // this function is called when the player clicks respawn
     public void ReloadScene()

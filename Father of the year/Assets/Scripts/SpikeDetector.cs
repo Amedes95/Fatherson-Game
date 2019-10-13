@@ -10,10 +10,7 @@ public class SpikeDetector : MonoBehaviour
     {
         if (collision.tag == "Player") // make sure it's the player
         {
-            if (Goal.LevelComplete == false) // don't die if you've already won ;)
-            {
-                collision.GetComponent<PlayerHealth>().KillPlayer(); // I reference the HP component on the player and call one of its functions
-            }
+            collision.GetComponent<PlayerHealth>().KillPlayer(); // I reference the HP component on the player and call one of its functions
         }
     }
 }

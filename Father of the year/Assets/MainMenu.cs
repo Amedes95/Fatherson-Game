@@ -7,18 +7,34 @@ using UnityEngine.SceneManagement;
 public class MainMenu : MonoBehaviour
 {
 
-    public void LoadWorldHub()
+    public GameObject MenuScreen;
+    public GameObject SettingsMenu;
+
+    public void LoadWorldHub() // Loads world hub scene
     {
         SceneManager.LoadScene("WorldHub");
     }
 
-    public void ExitGame()
+    public void ExitGame() // Closes the game (builds only)
     {
         Application.Quit();
     }
 
-    public void LoadSettings()
+    public void LoadSettings() // from menu to settings
     {
-        // Swap the UI on the main menu canvas with a settings canvas
+        MenuScreen.SetActive(false);
+        SettingsMenu.SetActive(true);
     }
+
+    public void ExitSettings() // settings to menu
+    {
+        MenuScreen.SetActive(true);
+        SettingsMenu.SetActive(false);
+    }
+
+    public void WipeProgress()
+    {
+        PlayerPrefs.DeleteAll();
+    }
+
 }
