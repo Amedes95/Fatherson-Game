@@ -21,9 +21,11 @@ public class BonkableHead : MonoBehaviour
         {
             if (!PlayerHealth.Dead)
             {
-                Debug.Log("Bonk");
+                //Debug.Log("Bonk");
                 PlayerMovement.jumpCount = 1;
                 collision.GetComponentInParent<Rigidbody2D>().AddForce(BonkForce * BonkBounceSpeed);
+                //collision.GetComponentInParent<PlayerMovement>().Jump();
+                //collision.GetComponentInParent<Rigidbody2D>().AddForce(Vector2.up * PlayerMovement.jumpForce * 180);
             }
         }
     }

@@ -7,7 +7,7 @@ public class PlayerMovement : MonoBehaviour
 
     private Rigidbody2D playerBody;
     public float playerSpeed;
-    public float jumpForce;
+    public static float jumpForce;
     public float counterJumpForce;
     private float fallVelocity;
     private Animator PlayerAnim;
@@ -141,7 +141,7 @@ public class PlayerMovement : MonoBehaviour
     public void Jump()
     {
         Vector2 jump = Vector2.up;
-        playerBody.AddForce(jump * jumpForce* 180);
+        playerBody.AddForce(jump * jumpForce *  180);
         PlayerAnim.SetTrigger("Jump");
         isJumping = true;
     }
