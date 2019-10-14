@@ -66,7 +66,7 @@ public class PlayerMovement : MonoBehaviour
             {
                 PlayerAnim.SetFloat("SprintSpeed", 2);
                 startSpeed = 200;
-                midSpeed = 23;
+                midSpeed = 26;
                 fullSpeed = 20;
                 maxVelocity = 8;
                 midVelocity = 5;
@@ -135,7 +135,7 @@ public class PlayerMovement : MonoBehaviour
                 }
             }
         }
-        //Debug.Log(playerBody.velocity.x);
+        Debug.Log(playerBody.velocity.x);
     }
 
     public void Jump()
