@@ -68,7 +68,7 @@ public class PlayerMovement : MonoBehaviour
                 startSpeed = 200;
                 midSpeed = 23;
                 fullSpeed = 20;
-                maxVelocity = 7;
+                maxVelocity = 8;
                 midVelocity = 5;
             }
 
@@ -78,7 +78,7 @@ public class PlayerMovement : MonoBehaviour
                 startSpeed = 60;
                 midSpeed = 18;
                 fullSpeed = 14;
-                maxVelocity = 5;
+                maxVelocity = 4;
                 midVelocity = 3;
             }
 
