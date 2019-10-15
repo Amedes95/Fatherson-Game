@@ -84,7 +84,14 @@ public class PlayerMovement : MonoBehaviour
             if (Sprinting)
             {
                 PlayerAnim.SetFloat("SprintSpeed", 2);
+                if (JumpDetector.OnGround && Mathf.Abs(playerBody.velocity.x) > 4)
+                {
                 WindEffect.SetBool("Blowing", true);
+                 }
+                else
+                {
+                    WindEffect.SetBool("Blowing", false);
+                }
                 startSpeed = 200;
                 midSpeed = 26;
                 fullSpeed = 20;
@@ -188,10 +195,12 @@ public class PlayerMovement : MonoBehaviour
             if (recentlyJumped) // timer creates a minimum jump height with counterjumpforce (without this timer tapping w makes you jump less than one block tall
             {
                 jumpFallCooldown -= Time.smoothDeltaTime;
+                playerSpeed = 0;
 
                 if (jumpFallCooldown <= 0)
                 {
                     recentlyJumped = false;
+                    playerSpeed = midSpeed;
                 }
                 else
                 {
@@ -228,7 +237,7 @@ public class PlayerMovement : MonoBehaviour
             // disable movement towards the wall
             if (wallJumping && recentlyJumped && Mathf.Sign(moveHorizontal) == Mathf.Sign(-playerDirection))
             {
-                playerBody.AddForce(-movementPlayer * playerSpeed);
+                playerBody.AddForce(2 * movementPlayer * playerSpeed * -1);
             }
             //Debug.Log(wallJumping);
         }
@@ -252,7 +261,6 @@ public class PlayerMovement : MonoBehaviour
         wallJumping = true;
         isJumping = false;
         GetComponent<Animator>().SetBool("onWall", false);
-        //FlipCharacter();
     }
 
     public void WallRaycasting()
@@ -263,7 +271,7 @@ public class PlayerMovement : MonoBehaviour
 
     public void FlipCharacter()
     {
-        transform.localScale = new Vector2(transform.localScale.x * -1, transform.localScale.y);
+            transform.localScale = new Vector2(transform.localScale.x * -1, transform.localScale.y);
     }
 
     private void Update()
@@ -314,12 +322,18 @@ public class PlayerMovement : MonoBehaviour
             ////Face direction of horizontal movement
             if (playerBody.velocity.x > .5f)
             {
-                transform.localScale = new Vector2(Mathf.Abs(transform.localScale.x), transform.localScale.y);
+                if (transform.localScale.x < 0 && !recentlyJumped)
+                {
+                    FlipCharacter();
+                }
             }
 
             if (playerBody.velocity.x < -.5f)
             {
-                transform.localScale = new Vector2(-Mathf.Abs(transform.localScale.x), transform.localScale.y);
+                if (transform.localScale.x > 0 && !recentlyJumped)
+                {
+                    FlipCharacter();
+                }
             }
         }
     }

@@ -3182,12 +3182,12 @@ PrefabInstance:
     - target: {fileID: 5981030734712421034, guid: b5bdddb827a561143a0adac71f74a341,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 11
+      value: -16.7
       objectReference: {fileID: 0}
     - target: {fileID: 5981030734712421034, guid: b5bdddb827a561143a0adac71f74a341,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 3
+      value: 8.7
       objectReference: {fileID: 0}
     - target: {fileID: 5981030734712421034, guid: b5bdddb827a561143a0adac71f74a341,
         type: 3}
@@ -3234,6 +3234,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5981030734712421032, guid: b5bdddb827a561143a0adac71f74a341,
+        type: 3}
+      propertyPath: WindEffect
+      value: 
+      objectReference: {fileID: 665554291}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b5bdddb827a561143a0adac71f74a341, type: 3}
 --- !u!4 &662811186 stripped
@@ -3241,6 +3246,12 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4547548701028841075, guid: 34f33cfa32c5da34790afc7db91aa29f,
     type: 3}
   m_PrefabInstance: {fileID: 507642635}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &665554291 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 983842179, guid: b5bdddb827a561143a0adac71f74a341,
+    type: 3}
+  m_PrefabInstance: {fileID: 594697090}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &713631572
 GameObject:
