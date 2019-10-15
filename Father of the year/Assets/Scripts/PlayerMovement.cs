@@ -30,6 +30,9 @@ public class PlayerMovement : MonoBehaviour
     bool touchingWall;
     int playerDirection;
     Vector2 walljumpVector;
+    bool isFloating;
+    public float floatingTimer;
+    public float playerGravity;
 
 
 
@@ -42,6 +45,9 @@ public class PlayerMovement : MonoBehaviour
         fullSpeed = 14; //full speed should always be less than mid speed
         maxVelocity = 5;
         midVelocity = 3;
+        floatingTimer = -1;
+        playerGravity = 2;
+
 
     }
 
@@ -155,7 +161,7 @@ public class PlayerMovement : MonoBehaviour
                 PlayerAnim.SetBool("Running", false);
             }
 
-            if (isJumping && !recentlyJumped)
+            if (isJumping && !recentlyJumped) // counter jump force: if you release W after jumping you don't jump as high. In other words the longer you hold W the higher you jump.
             {
                 if (!jumpKeyHeld && Vector2.Dot(playerBody.velocity, Vector2.up) > 0)
                 {
@@ -163,7 +169,7 @@ public class PlayerMovement : MonoBehaviour
                 }
             }
 
-            if (wallJumping && !recentlyJumped)
+            if (wallJumping && !recentlyJumped) // counter jump force but for wall jumps. If you release W you don't jump as high, if you hold opposite direction of your flight path you don't fly as far
             {
 
                 if (!jumpKeyHeld && Vector2.Dot(playerBody.velocity, Vector2.up) > 0)
@@ -175,9 +181,8 @@ public class PlayerMovement : MonoBehaviour
                     playerBody.AddForce(counterJumpForce / (2 * Mathf.Sqrt(2)) * playerBody.mass * new Vector2(-playerDirection, 0));
                     }
             }
-            if (recentlyJumped)
+            if (recentlyJumped) // timer creates a minimum jump height with counterjumpforce (without this timer tapping w makes you jump less than one block tall
             {
-
                 jumpFallCooldown -= Time.smoothDeltaTime;
 
                 if (jumpFallCooldown <= 0)
@@ -189,8 +194,34 @@ public class PlayerMovement : MonoBehaviour
                     recentlyJumped = true;
                 }
             }
+
+            if (isFloating)
+            {
+                floatingTimer -= Time.smoothDeltaTime;
+
+                if (floatingTimer <= 0)
+                {
+                    isFloating = false;
+                    playerBody.gravityScale = playerGravity;
+                }
+                else
+                {
+                    isFloating = true;
+                    playerBody.gravityScale = 0;
+                }
+            }
+
+            if (JumpDetector.OnGround)
+            {
+                isFloating = false;
+                floatingTimer = .1f;
+            }
+            else if (!(JumpDetector.OnGround || isJumping || touchingWall || wallJumping) && floatingTimer > 0)
+            {
+                isFloating = true;
+            }
         }
-        Debug.Log(jumpFallCooldown);
+        Debug.Log("On Ground: " + JumpDetector.OnGround.ToString() + " Touching Wall: " + touchingWall.ToString());
     }
 
     public void Jump()
