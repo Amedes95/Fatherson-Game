@@ -13,6 +13,7 @@ public class PlayerMovement : MonoBehaviour
     private Animator PlayerAnim;
     public float jumpHeight;
     public static bool isJumping;
+    public static bool wallJumping;
     bool jumpKeyHeld;
     public static int jumpCount;
     public float fallForce;
@@ -27,7 +28,8 @@ public class PlayerMovement : MonoBehaviour
     bool touchingWall;
     bool wallClinging;
     int playerDirection;
-    Vector2 walljump;
+    Vector2 walljumpVector;
+    Vector2 walljumpDamper;
 
     Transform PlayerSpawn; // passed in through editor
 
@@ -67,14 +69,15 @@ public class PlayerMovement : MonoBehaviour
             else
             { playerDirection = -1; }
 
-            walljump = new Vector2(-playerDirection, 1);
+            walljumpVector = new Vector2(-playerDirection, 1);
+            walljumpDamper = -walljumpVector;
             if (playerBody.velocity.y < -1)
             {
                 playerBody.AddForce(new Vector2(0, -1) * fallForce);
             }
 
             ///// Sprinting
-            if (Sprinting && JumpDetector.OnGround)
+            if (Sprinting)
             {
                 PlayerAnim.SetFloat("SprintSpeed", 2);
                 startSpeed = 200;
@@ -84,7 +87,7 @@ public class PlayerMovement : MonoBehaviour
                 midVelocity = 5;
             }
 
-            if (!Sprinting && !JumpDetector.OnGround)
+            if (!Sprinting)
             {
                 PlayerAnim.SetFloat("SprintSpeed", 1);
                 startSpeed = 60;
@@ -100,6 +103,7 @@ public class PlayerMovement : MonoBehaviour
                 {
                     GetComponent<Animator>().SetBool("onWall", true);
                     isJumping = false;
+                    wallJumping = false;
                     playerBody.velocity = new Vector2(playerBody.velocity.x, -1);
                 }
             }
@@ -159,6 +163,13 @@ public class PlayerMovement : MonoBehaviour
                     playerBody.AddForce(counterJumpForce * playerBody.mass * Vector2.down);
                 }
             }
+            if (wallJumping)
+            {
+                if (!jumpKeyHeld)
+                {
+                    playerBody.AddForce(counterJumpForce*playerBody.mass*new Vector2(-playerDirection, -1));
+                }
+            }
         }
     }
 
@@ -168,12 +179,14 @@ public class PlayerMovement : MonoBehaviour
         playerBody.AddForce(jump * jumpForce * 180);
         PlayerAnim.SetTrigger("Jump");
         isJumping = true;
+        wallJumping = false;
     }
 
     public void WallJump()
     {
-        playerBody.AddForce(walljump * jumpForce * 180);
-        isJumping = true;
+        playerBody.AddForce(walljumpVector * jumpForce * 180);
+        wallJumping = true;
+        isJumping = false;
         GetComponent<Animator>().SetBool("onWall", false);
     }
 
@@ -232,13 +245,11 @@ public class PlayerMovement : MonoBehaviour
             if (playerBody.velocity.x > .5f)
             {
                 transform.localScale = new Vector2(Mathf.Abs(transform.localScale.x), transform.localScale.y);
-                Debug.Log("Flip");
             }
 
             if (playerBody.velocity.x < -.5f)
             {
                 transform.localScale = new Vector2(-Mathf.Abs(transform.localScale.x), transform.localScale.y);
-                Debug.Log("Flip");
             }
         }
     }
