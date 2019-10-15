@@ -33,6 +33,7 @@ public class PlayerMovement : MonoBehaviour
     bool isFloating;
     public float floatingTimer;
     public float playerGravity;
+    public Animator WindEffect;
 
 
 
@@ -72,7 +73,8 @@ public class PlayerMovement : MonoBehaviour
             else
             { playerDirection = -1; }
 
-            walljumpVector = new Vector2(-playerDirection, 1);
+            walljumpVector = new Vector2(-playerDirection, 2);
+
             if (playerBody.velocity.y < -1)
             {
                 playerBody.AddForce(new Vector2(0, -1) * fallForce);
@@ -82,6 +84,7 @@ public class PlayerMovement : MonoBehaviour
             if (Sprinting)
             {
                 PlayerAnim.SetFloat("SprintSpeed", 2);
+                PlayerAnim.SetBool("Blowing", true);
                 startSpeed = 200;
                 midSpeed = 26;
                 fullSpeed = 20;
@@ -92,6 +95,7 @@ public class PlayerMovement : MonoBehaviour
             if (!Sprinting)
             {
                 PlayerAnim.SetFloat("SprintSpeed", 1);
+                PlayerAnim.SetBool("Blowing", false);
                 startSpeed = 60;
                 midSpeed = 18;
                 fullSpeed = 14;
@@ -174,12 +178,12 @@ public class PlayerMovement : MonoBehaviour
 
                 if (!jumpKeyHeld && Vector2.Dot(playerBody.velocity, Vector2.up) > 0)
                 {
-                    playerBody.AddForce(counterJumpForce/Mathf.Sqrt(2) * playerBody.mass * -Vector2.up);
+                    playerBody.AddForce(counterJumpForce / Mathf.Sqrt(2) * playerBody.mass * -Vector2.up);
                 }
                 if (Mathf.Sign(playerBody.velocity.x) != Mathf.Sign(Input.GetAxis("Horizontal")))
-                    {
+                {
                     playerBody.AddForce(counterJumpForce / (2 * Mathf.Sqrt(2)) * playerBody.mass * new Vector2(-playerDirection, 0));
-                    }
+                }
             }
             if (recentlyJumped) // timer creates a minimum jump height with counterjumpforce (without this timer tapping w makes you jump less than one block tall
             {
@@ -220,30 +224,35 @@ public class PlayerMovement : MonoBehaviour
             {
                 isFloating = true;
             }
+
+            // disable movement towards the wall
+            if (wallJumping && recentlyJumped && Mathf.Sign(moveHorizontal) == Mathf.Sign(-playerDirection))
+            {
+                playerBody.AddForce(-movementPlayer * playerSpeed);
+            }
+            //Debug.Log(wallJumping);
         }
-        Debug.Log("On Ground: " + JumpDetector.OnGround.ToString() + " Touching Wall: " + touchingWall.ToString());
     }
 
     public void Jump()
     {
         jumpFallCooldown = .1f;
+        recentlyJumped = true;
         playerBody.AddForce(Vector2.up * jumpForce * 180);
         PlayerAnim.SetTrigger("Jump");
         isJumping = true;
         wallJumping = false;
-        recentlyJumped = true;
     }
 
     public void WallJump()
     {
         jumpFallCooldown = .25f;
-        transform.localPosition = transform.position + new Vector3(.1f * playerDirection, 0, 0);
-        playerBody.AddForce(walljumpVector / Mathf.Sqrt(2) * jumpForce * 180);
+        recentlyJumped = true;
+        playerBody.AddForce(walljumpVector / Mathf.Sqrt(5) * jumpForce * 180);
         wallJumping = true;
         isJumping = false;
-        recentlyJumped = true;
         GetComponent<Animator>().SetBool("onWall", false);
-        FlipCharacter();
+        //FlipCharacter();
     }
 
     public void WallRaycasting()
