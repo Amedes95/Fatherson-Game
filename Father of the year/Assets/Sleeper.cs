@@ -1,0 +1,45 @@
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class Sleeper : MonoBehaviour
+{
+    public bool awake;
+    Transform Player;
+    bool SightBlocked;
+
+    private void Awake()
+    {
+        Player = GameObject.FindGameObjectWithTag("Player").transform;
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        Raycasting();
+        if (awake)
+        {
+            GetComponent<BasicPatrol>().enabled = true;
+        }
+    }
+
+    public void AwakenMe()
+    {
+        awake = true;
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.tag == "Player" && !SightBlocked)
+        {
+            GetComponent<Animator>().SetTrigger("Wake");
+        }
+    }
+
+    public void Raycasting() // Checks to see if there are walls between the enemy and player
+    {
+        Debug.DrawLine(transform.position, Player.position, Color.green);
+        SightBlocked = Physics2D.Linecast(transform.position, Player.position, 1 << LayerMask.NameToLayer("Ground"));
+    }
+
+}
