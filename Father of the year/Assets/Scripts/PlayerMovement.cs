@@ -84,7 +84,7 @@ public class PlayerMovement : MonoBehaviour
             if (Sprinting)
             {
                 PlayerAnim.SetFloat("SprintSpeed", 2);
-                PlayerAnim.SetBool("Blowing", true);
+                WindEffect.SetBool("Blowing", true);
                 startSpeed = 200;
                 midSpeed = 26;
                 fullSpeed = 20;
@@ -95,7 +95,7 @@ public class PlayerMovement : MonoBehaviour
             if (!Sprinting)
             {
                 PlayerAnim.SetFloat("SprintSpeed", 1);
-                PlayerAnim.SetBool("Blowing", false);
+                WindEffect.SetBool("Blowing", false);
                 startSpeed = 60;
                 midSpeed = 18;
                 fullSpeed = 14;
