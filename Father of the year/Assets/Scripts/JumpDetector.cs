@@ -26,6 +26,7 @@ public class JumpDetector : MonoBehaviour
             {
                 OnGround = true;
                 PlayerMovement.isJumping = false;
+                PlayerMovement.wallJumping = false;
                 PlayerMovement.jumpCount = 0;
                 collision.GetComponentInParent<Animator>().SetBool("Grounded", true);
             }

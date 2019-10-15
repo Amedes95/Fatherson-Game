@@ -14,6 +14,8 @@ public class PlayerMovement : MonoBehaviour
     public float jumpHeight;
     public static bool isJumping;
     public static bool wallJumping;
+    public static float jumpFallCooldown;
+    public static bool recentlyJumped;
     bool jumpKeyHeld;
     public static int jumpCount;
     public float fallForce;
@@ -26,10 +28,9 @@ public class PlayerMovement : MonoBehaviour
     public static bool Sprinting;
     public Transform wallEndLine;
     bool touchingWall;
-    bool wallClinging;
     int playerDirection;
     Vector2 walljumpVector;
-    Vector2 walljumpDamper;
+
 
     Transform PlayerSpawn; // passed in through editor
 
@@ -70,7 +71,6 @@ public class PlayerMovement : MonoBehaviour
             { playerDirection = -1; }
 
             walljumpVector = new Vector2(-playerDirection, 1);
-            walljumpDamper = -walljumpVector;
             if (playerBody.velocity.y < -1)
             {
                 playerBody.AddForce(new Vector2(0, -1) * fallForce);
@@ -97,20 +97,27 @@ public class PlayerMovement : MonoBehaviour
                 midVelocity = 3;
             }
 
-            if (touchingWall && !JumpDetector.OnGround)
+            if (touchingWall && !JumpDetector.OnGround) //Wall Slide
             {
-                if (playerBody.velocity.y < -.5f)
+                if (playerBody.velocity.y < 0)
                 {
                     GetComponent<Animator>().SetBool("onWall", true);
                     isJumping = false;
-                    playerBody.velocity = new Vector2(playerBody.velocity.x, -1);
+                    wallJumping = false;
+                    if (Mathf.Abs(Input.GetAxis("Horizontal")) > .7)
+                    {
+                        playerBody.velocity = new Vector2(0, 0);
+                    }
+                    if (Mathf.Abs(Input.GetAxis("Horizontal")) < .7)
+                    {
+                        playerBody.velocity = new Vector2(playerBody.velocity.x, -2);
+                    }
                 }
             }
-            else if (!touchingWall || (touchingWall && JumpDetector.OnGround))
+            else if (!touchingWall)
             {
                 GetComponent<Animator>().SetBool("onWall", false);
             }
-
 
             if (Mathf.Abs(playerBody.velocity.x) > maxVelocity && JumpDetector.OnGround) //ground speed cap
             {
@@ -129,9 +136,6 @@ public class PlayerMovement : MonoBehaviour
             {
                 playerBody.AddForce(movementPlayer * playerSpeed * -1);
             }
-
-
-
 
             if (fallVelocity < -fallSpeedCap) //fall speed cap
             {
@@ -155,48 +159,75 @@ public class PlayerMovement : MonoBehaviour
                 PlayerAnim.SetBool("Running", false);
             }
 
-            if (isJumping)
+            if (isJumping && !recentlyJumped)
             {
                 if (!jumpKeyHeld && Vector2.Dot(playerBody.velocity, Vector2.up) > 0)
                 {
                     playerBody.AddForce(counterJumpForce * playerBody.mass * Vector2.down);
                 }
             }
-            if (wallJumping)
+
+            if (wallJumping && !recentlyJumped)
             {
+
                 if (!jumpKeyHeld && Vector2.Dot(playerBody.velocity, Vector2.up) > 0)
                 {
                     playerBody.AddForce(counterJumpForce/Mathf.Sqrt(2) * playerBody.mass * -Vector2.up);
                 }
                 if (Mathf.Sign(playerBody.velocity.x) != Mathf.Sign(Input.GetAxis("Horizontal")))
                     {
-                    playerBody.AddForce(counterJumpForce / Mathf.Sqrt(2) * playerBody.mass * new Vector2(-playerDirection, 0));
+                    playerBody.AddForce(counterJumpForce / (2 * Mathf.Sqrt(2)) * playerBody.mass * new Vector2(-playerDirection, 0));
                     }
             }
+            if (recentlyJumped)
+            {
+
+                jumpFallCooldown -= Time.smoothDeltaTime;
+
+                if (jumpFallCooldown <= 0)
+                {
+                    recentlyJumped = false;
+                }
+                else
+                {
+                    recentlyJumped = true;
+                }
+            }
         }
-        Debug.Log(wallJumping);
+        Debug.Log(jumpFallCooldown);
     }
 
     public void Jump()
     {
+        jumpFallCooldown = .1f;
         playerBody.AddForce(Vector2.up * jumpForce * 180);
         PlayerAnim.SetTrigger("Jump");
         isJumping = true;
         wallJumping = false;
+        recentlyJumped = true;
     }
 
     public void WallJump()
     {
-        playerBody.AddForce(walljumpVector/Mathf.Sqrt(2) * jumpForce * 180);
+        jumpFallCooldown = .5f;
+        transform.localPosition = transform.position + new Vector3(.1f * playerDirection, 0, 0);
+        playerBody.AddForce(walljumpVector / Mathf.Sqrt(2) * jumpForce * 180);
         wallJumping = true;
         isJumping = false;
+        recentlyJumped = true;
         GetComponent<Animator>().SetBool("onWall", false);
+        FlipCharacter();
     }
 
     public void WallRaycasting()
     {
-        Debug.DrawLine(transform.position, wallEndLine.position, Color.green);  // during playtime, projects a line from a start point to and end point
+        Debug.DrawLine(transform.position, wallEndLine.position, Color.red);  // during playtime, projects a line from a start point to and end point
         touchingWall = Physics2D.Linecast(transform.position, wallEndLine.position, 1 << LayerMask.NameToLayer("Ground"));
+    }
+
+    public void FlipCharacter()
+    {
+        transform.localScale = new Vector2(transform.localScale.x * -1, transform.localScale.y);
     }
 
     private void Update()
@@ -208,19 +239,19 @@ public class PlayerMovement : MonoBehaviour
             {
                 jumpKeyHeld = true;
 
-                if (!JumpDetector.OnGround && touchingWall) //Walljump
+                if (!JumpDetector.OnGround && touchingWall && Mathf.Abs(Input.GetAxis("Horizontal")) < .7 ) //Walljump
                 { 
                     WallJump();
                 }
 
-                if (!JumpDetector.OnGround && jumpCount > 0 && !touchingWall) //Double jump
+                if (!JumpDetector.OnGround && jumpCount > 0) //Double jump
                 {
                     playerBody.velocity = new Vector2(playerBody.velocity.x, 0);
                     Jump();
                     jumpCount -= 1;
                 }
 
-                if (JumpDetector.OnGround) // Checks to see if player is on ground before jumping
+                if (JumpDetector.OnGround && !recentlyJumped) // Checks to see if player is on ground before jumping
                 {
                     Jump();
                 }
