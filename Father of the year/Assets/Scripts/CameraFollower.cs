@@ -7,10 +7,11 @@ public class CameraFollower : MonoBehaviour
     public GameObject FocusZone;
     public float CameraSpeed;
     Vector3 FocusZoneFix;
+
     // Start is called before the first frame update
     void Start()
     {
-
+        transform.position = FocusZone.transform.position;
     }
 
     // Update is called once per frame
