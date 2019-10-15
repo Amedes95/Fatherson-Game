@@ -5,33 +5,42 @@ using UnityEngine;
 public class BasicPatrol : MonoBehaviour
 {
     public Transform EndLine;
+    public Transform FloorLine;
     bool TouchingWall;
+    bool TouchingFloor;
     public float PatrolSpeed;
     Vector2 PatrolDirection = new Vector2(1, 0);
-    bool TouchingPlayer;
+    public bool avoidsLedges;
 
     private void Update()
     {
-        Raycasting();
+        RaycastingWall();
+        RaycastingFloor();
         WalkAround();
         if (TouchingWall)
         {
             FlipCharacter();
             PatrolDirection = new Vector2(PatrolDirection.x * -1, 0);
         }
-        if (TouchingPlayer)
+        if (avoidsLedges && !TouchingFloor)
         {
-            gameObject.GetComponent<Animator>().SetTrigger("Attack");
+            FlipCharacter();
+            PatrolDirection = new Vector2(PatrolDirection.x * -1, 0);
         }
     }
 
-    void Raycasting()
+    void RaycastingWall()
     {
         Debug.DrawLine(transform.position, EndLine.position, Color.green);  // during playtime, projects a line from a start point to and end point
         TouchingWall = Physics2D.Linecast(transform.position, EndLine.position, 1 << LayerMask.NameToLayer("Ground")); // returns true if line touches a ground tile
 
-        Debug.DrawLine(transform.position, EndLine.position, Color.green); 
-        TouchingPlayer = Physics2D.Linecast(transform.position, EndLine.position, 1 << LayerMask.NameToLayer("Player"));
+    }
+
+    void RaycastingFloor()
+    {
+        Debug.DrawLine(transform.position, FloorLine.position, Color.green);  // during playtime, projects a line from a start point to and end point
+        TouchingFloor = Physics2D.Linecast(transform.position, FloorLine.position, 1 << LayerMask.NameToLayer("Ground")); // returns true if line touches a ground tile
+
     }
 
     public void WalkAround()

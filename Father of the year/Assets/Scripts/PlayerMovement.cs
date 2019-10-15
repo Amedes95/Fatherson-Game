@@ -98,9 +98,14 @@ public class PlayerMovement : MonoBehaviour
             {
                 if (playerBody.velocity.y < -.5f)
                 {
+                    GetComponent<Animator>().SetBool("onWall", true);
                     isJumping = false;
-                    playerBody.velocity = new Vector2(playerBody.velocity.x, -.5f);
+                    playerBody.velocity = new Vector2(playerBody.velocity.x, -1);
                 }
+            }
+            else if (!touchingWall || (touchingWall && JumpDetector.OnGround))
+            {
+                GetComponent<Animator>().SetBool("onWall", false);
             }
 
 
@@ -169,6 +174,7 @@ public class PlayerMovement : MonoBehaviour
     {
         playerBody.AddForce(walljump * jumpForce * 180);
         isJumping = true;
+        GetComponent<Animator>().SetBool("onWall", false);
     }
 
     public void WallRaycasting()
@@ -187,7 +193,7 @@ public class PlayerMovement : MonoBehaviour
                 jumpKeyHeld = true;
 
                 if (!JumpDetector.OnGround && touchingWall) //Walljump
-                {
+                { 
                     WallJump();
                 }
 
