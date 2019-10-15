@@ -183,6 +183,7 @@ GameObject:
   - component: {fileID: 227443779}
   - component: {fileID: 1705240154}
   - component: {fileID: 1029529505}
+  - component: {fileID: 1516110846328749759}
   m_Layer: 9
   m_Name: Ninja Frog
   m_TagString: Player
@@ -362,3 +363,15 @@ CapsuleCollider2D:
   m_Offset: {x: 0.01, y: 0}
   m_Size: {x: 0.13, y: 0.2}
   m_Direction: 0
+--- !u!114 &1516110846328749759
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5981030734712421047}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0f8224a4bb8db2f4da963314362031e7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

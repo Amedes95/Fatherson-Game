@@ -32,20 +32,16 @@ public class PlayerMovement : MonoBehaviour
     Vector2 walljumpVector;
 
 
-    Transform PlayerSpawn; // passed in through editor
 
     void Awake()
     {
-        PlayerSpawn = GameObject.FindGameObjectWithTag("PlayerSpawn").GetComponent<Transform>();
         playerBody = GetComponent<Rigidbody2D>();
         PlayerAnim = GetComponent<Animator>();
-        transform.position = PlayerSpawn.position; // spawn
         startSpeed = 60;
         midSpeed = 18;
         fullSpeed = 14; //full speed should always be less than mid speed
         maxVelocity = 5;
         midVelocity = 3;
-
 
     }
 
@@ -286,11 +282,5 @@ public class PlayerMovement : MonoBehaviour
                 transform.localScale = new Vector2(-Mathf.Abs(transform.localScale.x), transform.localScale.y);
             }
         }
-    }
-
-    public void Respawn()
-    {
-        //moves the player to SpawnPosition
-        transform.position = PlayerSpawn.position;
     }
 }
