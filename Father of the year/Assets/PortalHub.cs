@@ -8,11 +8,13 @@ public class PortalHub : MonoBehaviour
 {
     public string SceneToLoad;
     public GameObject CompleteSymbol;
+    public int CurrentWorld;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.tag == "Player")
         {
+            PlayerPrefs.SetInt("CurrentWorld", CurrentWorld); // update the current world for respawning later in the hub
             SceneManager.LoadScene(SceneToLoad);
         }
     }
