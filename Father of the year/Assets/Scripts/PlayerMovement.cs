@@ -209,7 +209,7 @@ public class PlayerMovement : MonoBehaviour
 
     public void WallJump()
     {
-        jumpFallCooldown = .5f;
+        jumpFallCooldown = .25f;
         transform.localPosition = transform.position + new Vector3(.1f * playerDirection, 0, 0);
         playerBody.AddForce(walljumpVector / Mathf.Sqrt(2) * jumpForce * 180);
         wallJumping = true;
