@@ -164,10 +164,14 @@ public class PlayerMovement : MonoBehaviour
             }
             if (wallJumping)
             {
-                if (!jumpKeyHeld && Vector2.Dot(playerBody.velocity, new Vector2(1,1)) > 0)
+                if (!jumpKeyHeld && Vector2.Dot(playerBody.velocity, Vector2.up) > 0)
                 {
-                    playerBody.AddForce(counterJumpForce/Mathf.Sqrt(2) * playerBody.mass* new Vector2(-playerDirection, -1));
+                    playerBody.AddForce(counterJumpForce/Mathf.Sqrt(2) * playerBody.mass * -Vector2.up);
                 }
+                if (Mathf.Sign(playerBody.velocity.x) != Mathf.Sign(Input.GetAxis("Horizontal")))
+                    {
+                    playerBody.AddForce(counterJumpForce / Mathf.Sqrt(2) * playerBody.mass * new Vector2(-playerDirection, 0));
+                    }
             }
         }
         Debug.Log(wallJumping);
