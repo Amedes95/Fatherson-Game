@@ -103,7 +103,6 @@ public class PlayerMovement : MonoBehaviour
                 {
                     GetComponent<Animator>().SetBool("onWall", true);
                     isJumping = false;
-                    wallJumping = false;
                     playerBody.velocity = new Vector2(playerBody.velocity.x, -1);
                 }
             }
@@ -165,18 +164,18 @@ public class PlayerMovement : MonoBehaviour
             }
             if (wallJumping)
             {
-                if (!jumpKeyHeld)
+                if (!jumpKeyHeld && Vector2.Dot(playerBody.velocity, new Vector2(1,1)) > 0)
                 {
-                    playerBody.AddForce(counterJumpForce*playerBody.mass*new Vector2(-playerDirection, -1));
+                    playerBody.AddForce(counterJumpForce/Mathf.Sqrt(2) * playerBody.mass* new Vector2(-playerDirection, -1));
                 }
             }
         }
+        Debug.Log(wallJumping);
     }
 
     public void Jump()
     {
-        Vector2 jump = Vector2.up;
-        playerBody.AddForce(jump * jumpForce * 180);
+        playerBody.AddForce(Vector2.up * jumpForce * 180);
         PlayerAnim.SetTrigger("Jump");
         isJumping = true;
         wallJumping = false;
@@ -184,7 +183,7 @@ public class PlayerMovement : MonoBehaviour
 
     public void WallJump()
     {
-        playerBody.AddForce(walljumpVector * jumpForce * 180);
+        playerBody.AddForce(walljumpVector/Mathf.Sqrt(2) * jumpForce * 180);
         wallJumping = true;
         isJumping = false;
         GetComponent<Animator>().SetBool("onWall", false);
