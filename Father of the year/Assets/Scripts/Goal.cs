@@ -22,8 +22,14 @@ public class Goal : MonoBehaviour
             PlayerPrefs.SetInt(SceneManager.GetActiveScene().name, 1); // level beaten
 
             collision.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeAll;
-            VictoryScreen.LevelComplete = true;
-            Debug.Log(SceneManager.GetActiveScene().name);
+            //Debug.Log(SceneManager.GetActiveScene().name);
+            gameObject.GetComponent<Animator>().SetTrigger("Complete");
+            collision.gameObject.SetActive(false);
         }
+    }
+
+    public void DisplayVictoryScreen()
+    {
+        VictoryScreen.LevelComplete = true;
     }
 }
