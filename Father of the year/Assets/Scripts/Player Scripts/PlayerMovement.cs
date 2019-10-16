@@ -34,6 +34,8 @@ public class PlayerMovement : MonoBehaviour
     public float floatingTimer;
     public float playerGravity;
     public Animator WindEffect;
+    public float wallClingTimer;
+    public bool wallClinging;
 
 
 
@@ -117,14 +119,33 @@ public class PlayerMovement : MonoBehaviour
                     GetComponent<Animator>().SetBool("onWall", true);
                     isJumping = false;
                     wallJumping = false;
-                    if (Mathf.Abs(Input.GetAxis("Horizontal")) > .7)
+
+
+                    if ((Mathf.Sign(Input.GetAxis("Horizontal")) != playerDirection) && (wallClingTimer > 0))
+                    {
+                        wallClingTimer -= Time.smoothDeltaTime;
+                        playerSpeed = 0;
+                    }
+                    else
+                    {
+                        playerSpeed = midSpeed;
+                        wallClingTimer = .5f;
+                    }
+
+
+                    if (Mathf.Abs(playerDirection - Input.GetAxis("Horizontal")) < .3)
                     {
                         playerBody.velocity = new Vector2(0, 0);
                     }
-                    if (Mathf.Abs(Input.GetAxis("Horizontal")) < .7)
+                    if (Mathf.Abs(playerDirection - Input.GetAxis("Horizontal")) > .3)
                     {
-                        playerBody.velocity = new Vector2(playerBody.velocity.x, -2);
+                        playerBody.velocity = new Vector2(playerBody.velocity.x, -2);   
                     }
+
+
+
+
+
                 }
             }
             else if (!touchingWall)
@@ -235,10 +256,10 @@ public class PlayerMovement : MonoBehaviour
             }
 
             // disable movement towards the wall
-            if (wallJumping && recentlyJumped && Mathf.Sign(moveHorizontal) == Mathf.Sign(-playerDirection))
-            {
-                playerBody.AddForce(2 * movementPlayer * playerSpeed * -1);
-            }
+            //if (wallJumping && recentlyJumped && Mathf.Sign(moveHorizontal) == Mathf.Sign(-playerDirection))
+            //{
+            //    playerBody.AddForce(2 * movementPlayer * playerSpeed * -1);
+            //}
             //Debug.Log(wallJumping);
         }
     }
@@ -283,7 +304,7 @@ public class PlayerMovement : MonoBehaviour
             {
                 jumpKeyHeld = true;
 
-                if (!JumpDetector.OnGround && touchingWall && Mathf.Abs(Input.GetAxis("Horizontal")) < .7 ) //Walljump
+                if (!JumpDetector.OnGround && touchingWall && Mathf.Abs(playerDirection - Input.GetAxis("Horizontal")) > .3 ) //Walljump, can only jump if you are not holding into the wall
                 { 
                     WallJump();
                 }
