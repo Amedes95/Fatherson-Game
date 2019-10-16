@@ -7,6 +7,7 @@ public class Sleeper : MonoBehaviour
     public bool awake;
     Transform Player;
     public bool SightBlocked;
+    public GameObject BonkableHead;
 
     private void Awake()
     {
@@ -26,14 +27,7 @@ public class Sleeper : MonoBehaviour
     public void AwakenMe()
     {
         awake = true;
-    }
-
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (collision.tag == "Player" && !SightBlocked)
-        {
-            GetComponent<Animator>().SetTrigger("Wake");
-        }
+        BonkableHead.SetActive(false);
     }
 
     public void Raycasting() // Checks to see if there are walls between the enemy and player
