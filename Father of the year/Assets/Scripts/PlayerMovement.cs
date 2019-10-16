@@ -320,17 +320,17 @@ public class PlayerMovement : MonoBehaviour
             WallRaycasting();
 
             ////Face direction of horizontal movement
-            if (playerBody.velocity.x > .5f)
+            if (playerBody.velocity.x > .1f)
             {
-                if (transform.localScale.x < 0 && !recentlyJumped)
+                if (transform.localScale.x < 0)
                 {
                     FlipCharacter();
                 }
             }
 
-            if (playerBody.velocity.x < -.5f)
+            if (playerBody.velocity.x < -.1f)
             {
-                if (transform.localScale.x > 0 && !recentlyJumped)
+                if (transform.localScale.x > 0)
                 {
                     FlipCharacter();
                 }

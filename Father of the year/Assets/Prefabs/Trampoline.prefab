@@ -96,8 +96,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9bd21f1d72c167146a08551fd0a1fe0f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  BounceHeight: 100
-  BonkBounceSpeed: 100
+  BounceHeight: 90
+  BonkBounceSpeed: 0
 --- !u!61 &5715686377870296878
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -122,7 +122,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.19512425, y: 0.052059785}
+  m_Size: {x: 0.27, y: 0.05}
   m_EdgeRadius: 0
 --- !u!61 &5715686377870296879
 BoxCollider2D:
@@ -131,7 +131,7 @@ BoxCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5715686377870296883}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0

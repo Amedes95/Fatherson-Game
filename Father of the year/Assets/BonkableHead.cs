@@ -7,7 +7,6 @@ public class BonkableHead : MonoBehaviour
     Vector2 BonkForce;
     public float BounceHeight; // 100 is pretty good
     public float BonkBounceSpeed; // this should match jumpForce in PlayerMovement for consistency
-    //public Rigidbody2D playerBody;
 
 
     public void Awake()
@@ -23,13 +22,17 @@ public class BonkableHead : MonoBehaviour
         {
             if (!PlayerHealth.Dead)
             {
-                //Debug.Log("Bonk");
-                PlayerMovement.jumpCount = 1;
-                //collision.GetComponentInParent<Rigidbody2D>().AddForce(BonkForce * BonkBounceSpeed);
+                BonkForce = new Vector2(0, BounceHeight);
+                BonkBounceSpeed = PlayerMovement.jumpForce;
                 collision.GetComponentInParent<Rigidbody2D>().velocity =
                     new Vector2(collision.GetComponentInParent<Rigidbody2D>().velocity.x, 0);
+                collision.GetComponentInParent<Rigidbody2D>().AddForce(BonkForce * BonkBounceSpeed);
                 collision.GetComponentInParent<PlayerMovement>().Jump();
                 //collision.GetComponentInParent<Rigidbody2D>().AddForce(Vector2.up * PlayerMovement.jumpForce * 180);
+                if (gameObject.tag == "Trampoline")
+                {
+                    GetComponent<Animator>().SetTrigger("Bounce");
+                }
             }
         }
     }
