@@ -36,6 +36,7 @@ public class PlayerMovement : MonoBehaviour
     public Animator WindEffect;
     public float wallClingTimer;
     public bool wallClinging;
+    public bool flipOnSpawn;
 
 
 
@@ -50,6 +51,11 @@ public class PlayerMovement : MonoBehaviour
         midVelocity = 3;
         floatingTimer = -1;
         playerGravity = 2;
+
+        if (flipOnSpawn)
+        {
+            FlipCharacter();
+        }
 
 
     }
