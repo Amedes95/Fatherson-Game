@@ -381,15 +381,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5981030734712421032, guid: b5bdddb827a561143a0adac71f74a341,
-        type: 3}
-      propertyPath: WindEffect
-      value: 
-      objectReference: {fileID: 983842179}
-    - target: {fileID: 1029529505, guid: b5bdddb827a561143a0adac71f74a341, type: 3}
-      propertyPath: m_Material
-      value: 
-      objectReference: {fileID: 6200000, guid: ff15645d2274c4231bad93d859e3e93d, type: 2}
+    - target: {fileID: 983842180, guid: b5bdddb827a561143a0adac71f74a341, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.06000921
+      objectReference: {fileID: 0}
+    - target: {fileID: 983842180, guid: b5bdddb827a561143a0adac71f74a341, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.06000921
+      objectReference: {fileID: 0}
+    - target: {fileID: 983842178, guid: b5bdddb827a561143a0adac71f74a341, type: 3}
+      propertyPath: m_WasSpriteAssigned
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b5bdddb827a561143a0adac71f74a341, type: 3}
 --- !u!1001 &352463089
@@ -2701,12 +2704,6 @@ Transform:
   m_Father: {fileID: 828528027}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!95 &983842179 stripped
-Animator:
-  m_CorrespondingSourceObject: {fileID: 983842179, guid: b5bdddb827a561143a0adac71f74a341,
-    type: 3}
-  m_PrefabInstance: {fileID: 340966771}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1110414270
 PrefabInstance:
   m_ObjectHideFlags: 0
