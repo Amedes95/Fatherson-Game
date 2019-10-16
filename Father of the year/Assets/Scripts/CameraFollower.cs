@@ -17,6 +17,7 @@ public class CameraFollower : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        CameraSpeed = PlayerMovement.playerVelocity / PlayerMovement.maxVelocity * .1f + .1f;
         FocusZoneFix = new Vector3(FocusZone.transform.position.x, FocusZone.transform.position.y, -10f);
         transform.position = Vector3.MoveTowards(transform.position, FocusZoneFix, CameraSpeed);
     }

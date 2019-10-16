@@ -23,7 +23,7 @@ public class PlayerMovement : MonoBehaviour
     public float startSpeed;
     public float midSpeed;
     public float fullSpeed;
-    public float maxVelocity;
+    public static float maxVelocity;
     public float midVelocity;
     public static bool Sprinting;
     public Transform wallEndLine;
@@ -37,6 +37,7 @@ public class PlayerMovement : MonoBehaviour
     public float wallClingTimer;
     public bool wallClinging;
     public bool flipOnSpawn;
+    public static float playerVelocity;
 
 
 
@@ -75,6 +76,8 @@ public class PlayerMovement : MonoBehaviour
             jumpForce = CalculateJumpForce(playerBody.gravityScale, jumpHeight);
 
             Vector2 movementPlayer = new Vector2(moveHorizontal, 0);
+
+            playerVelocity = playerBody.velocity.magnitude;
 
             if (transform.localScale.x > 0)
             { playerDirection = 1; }
