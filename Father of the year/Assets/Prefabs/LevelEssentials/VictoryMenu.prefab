@@ -397,6 +397,8 @@ MonoBehaviour:
   NextLevel: 
   LevelComplete: 0
   VictoryScreen: {fileID: 4457717594240765798}
+  ShadowValueUp: 0.01
+  Transition1: {fileID: 11400000, guid: c2f1824c2e9aa5a4085ce361c3f59724, type: 2}
 --- !u!1 &4457717594200569837
 GameObject:
   m_ObjectHideFlags: 0
@@ -491,7 +493,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &4457717594240765817
 RectTransform:
   m_ObjectHideFlags: 0

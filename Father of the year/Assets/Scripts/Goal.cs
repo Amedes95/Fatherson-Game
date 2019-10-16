@@ -2,16 +2,22 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.PostProcessing;
+
 
 public class Goal : MonoBehaviour
 {
     VictoryMenu VictoryScreen;
+    public PostProcessingProfile Transition1;
 
     // Start is called before the first frame update
     void Awake()
     {
         VictoryScreen = GameObject.FindGameObjectWithTag("VictoryMenu").GetComponent<VictoryMenu>();
         VictoryScreen.LevelComplete = false;
+        var Chroma = Transition1.chromaticAberration.settings;
+        Chroma.intensity = 0;
+        Transition1.chromaticAberration.settings = Chroma;
     }
 
 
@@ -22,7 +28,6 @@ public class Goal : MonoBehaviour
             PlayerPrefs.SetInt(SceneManager.GetActiveScene().name, 1); // level beaten
 
             collision.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeAll;
-            //Debug.Log(SceneManager.GetActiveScene().name);
             gameObject.GetComponent<Animator>().SetTrigger("Complete");
             collision.gameObject.SetActive(false);
         }
@@ -31,5 +36,8 @@ public class Goal : MonoBehaviour
     public void DisplayVictoryScreen()
     {
         VictoryScreen.LevelComplete = true;
+        var Chroma = Transition1.chromaticAberration.settings;
+        Chroma.intensity = 1;
+        Transition1.chromaticAberration.settings = Chroma;
     }
 }
