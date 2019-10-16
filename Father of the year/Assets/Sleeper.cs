@@ -6,7 +6,7 @@ public class Sleeper : MonoBehaviour
 {
     public bool awake;
     Transform Player;
-    bool SightBlocked;
+    public bool SightBlocked;
 
     private void Awake()
     {

@@ -43,7 +43,7 @@ public class BasicPatrol : MonoBehaviour
             PatrolDirection = new Vector2(PatrolDirection.x * -1, 0);
         }
 
-        Debug.Log(TouchingEnemy);
+        //Debug.Log(TouchingEnemy);
     }
 
     void RaycastingWall()

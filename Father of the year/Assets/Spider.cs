@@ -12,6 +12,11 @@ public class Spider : MonoBehaviour
     public Transform EndLine;
     bool TouchingFloor;
 
+    public bool AlwaysShort;
+    public bool AlwaysMedium;
+    public bool AlwaysLong;
+    int Distance;
+
 
     // Start is called before the first frame update
     void Awake()
@@ -35,7 +40,22 @@ public class Spider : MonoBehaviour
 
     public void DecideLength()
     {
-        int Distance = Random.Range(1, 4); // Get a random distance (Returns 1,2, or 3)
+        if (AlwaysShort)
+        {
+            Distance = Random.Range(1, 2);
+        }
+        else if (AlwaysMedium)
+        {
+            Distance = Random.Range(2, 3);
+        }
+        else if (AlwaysLong)
+        {
+            Distance = Random.Range(3, 4);
+        }
+        else
+        {
+            Distance = Random.Range(1, 4); // Get a random distance (Returns 1,2, or 3)
+        }
 
         if (Distance == 1) // Short
         {
