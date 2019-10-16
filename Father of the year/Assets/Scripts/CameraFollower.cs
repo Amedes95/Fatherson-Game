@@ -12,7 +12,7 @@ public class CameraFollower : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        transform.position = new Vector3(FocusZone.transform.position.x, FocusZone.transform.position.y, -10f);
     }
 
     // Update is called once per frame
