@@ -1,24 +1,28 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PauseMenu : MonoBehaviour
 {
-    public static bool GameIsPaused;
+    public bool GameIsPaused;
     public GameObject PauseScreen;
     VictoryMenu VictoryScreen;
+    GameObject Player;
 
 
     // Start is called before the first frame update
     void Awake()
     {
+        GameIsPaused = false;
         VictoryScreen = GameObject.FindGameObjectWithTag("VictoryMenu").GetComponent<VictoryMenu>();
+        Player = GameObject.FindGameObjectWithTag("Player");
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Escape) && VictoryScreen.LevelComplete == false)
+        if (Input.GetKeyDown(KeyCode.Escape) && VictoryScreen.LevelComplete == false && Player.activeInHierarchy)
         {
             if (GameIsPaused)
             {
@@ -46,8 +50,17 @@ public class PauseMenu : MonoBehaviour
             Time.timeScale = 0f;
             GameIsPaused = true;
         }
+    }
 
+    public void Restart()
+    {
+        Time.timeScale = 1f;
+        VictoryScreen.ReloadScene();
+    }
 
-
+    public void QuitLevel()
+    {
+        Time.timeScale = 1f;
+        SceneManager.LoadScene("MainMenu");
     }
 }

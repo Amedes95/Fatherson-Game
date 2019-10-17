@@ -55,7 +55,6 @@ public class VictoryMenu : MonoBehaviour
             if (Vinny.intensity <= 0)
             {
                 Vinny.intensity = 0;
-                ResumeGame();
             }
         }
         Transition1.vignette.settings = Vinny;
@@ -74,15 +73,5 @@ public class VictoryMenu : MonoBehaviour
     public void ReloadScene() // Restart
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
-    }
-
-    public void PauseGame()
-    {
-        Time.timeScale = 0f;
-    }
-
-    public void ResumeGame()
-    {
-        Time.timeScale = 1f;
     }
 }
