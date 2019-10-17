@@ -128,7 +128,6 @@ public class PlayerMovement : MonoBehaviour
                 {
                     GetComponent<Animator>().SetBool("onWall", true);
                     isJumping = false;
-                    wallJumping = false;
 
 
                     if ((Mathf.Sign(Input.GetAxis("Horizontal")) != playerDirection) && (wallClingTimer > 0))
@@ -261,17 +260,13 @@ public class PlayerMovement : MonoBehaviour
                 isFloating = false;
                 floatingTimer = .1f;
             }
-            else if (!(JumpDetector.OnGround || isJumping || touchingWall || wallJumping) && floatingTimer > 0)
+            else if
+                (!(JumpDetector.OnGround || isJumping || touchingWall || wallJumping) && floatingTimer > 0)
             {
                 isFloating = true;
             }
 
-            // disable movement towards the wall
-            //if (wallJumping && recentlyJumped && Mathf.Sign(moveHorizontal) == Mathf.Sign(-playerDirection))
-            //{
-            //    playerBody.AddForce(2 * movementPlayer * playerSpeed * -1);
-            //}
-            //Debug.Log(wallJumping);
+            Debug.Log("On Ground: " + JumpDetector.OnGround.ToString() + ", is Jumping: " + isJumping.ToString() + ", Touching Wall: " + touchingWall.ToString() + ", Wall Jumping: " + wallJumping.ToString()) ;
         }
     }
 
