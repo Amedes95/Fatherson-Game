@@ -7,6 +7,7 @@ using UnityEngine.SceneManagement; // I added this to allow new functions
 public class DeathCanvas : MonoBehaviour
 {
     public GameObject DeathMenu; // I reference this object instead of the actual canvas because scripts don't run when they're disabled
+    public GameObject RespawnButton;
 
     void Update()
     {
@@ -14,7 +15,7 @@ public class DeathCanvas : MonoBehaviour
         if (PlayerHealth.Dead)
         {
             DeathMenu.SetActive(true);
-            if (Input.GetKeyDown(KeyCode.Space))
+            if (Input.GetKeyDown(KeyCode.Space) && RespawnButton.activeInHierarchy) // make them wait...
             {
                 ReloadScene();
             }
@@ -30,6 +31,11 @@ public class DeathCanvas : MonoBehaviour
     public void ReloadScene()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    }
+
+    public void GiveUp()
+    {
+        SceneManager.LoadScene("WorldHub");
     }
 
 }
