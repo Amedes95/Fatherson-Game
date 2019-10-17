@@ -20,6 +20,9 @@ public class VictoryMenu : MonoBehaviour
         var Vinny = Transition1.vignette.settings;
         Vinny.intensity = 1f;
         transitioning = false;
+        var Chroma = Transition1.chromaticAberration.settings;
+        Chroma.intensity = 0;
+        Transition1.chromaticAberration.settings = Chroma;
     }
 
     private void Update()
