@@ -35,6 +35,7 @@ public class PlayerMovement : MonoBehaviour
     public float playerGravity;
     public Animator WindEffect;
     public float wallClingTimer;
+    public float setWallClingTimer;
     public bool wallClinging;
     public bool flipOnSpawn;
     public static float playerVelocity;
@@ -138,7 +139,7 @@ public class PlayerMovement : MonoBehaviour
                     else
                     {
                         playerSpeed = midSpeed;
-                        wallClingTimer = .5f;
+                        wallClingTimer = setWallClingTimer;
                     }
 
 
