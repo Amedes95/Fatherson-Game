@@ -419,7 +419,8 @@ MonoBehaviour:
   floatingTimer: 0
   playerGravity: 0
   WindEffect: {fileID: 983842179}
-  setWallClingTimer: 0.5
+  wallClingTimer: 0
+  setWallClingTimer: 0.1
   wallClinging: 0
   flipOnSpawn: 0
 --- !u!50 &5981030734712421033

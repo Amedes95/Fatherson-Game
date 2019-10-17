@@ -154383,7 +154383,7 @@ Transform:
   - {fileID: 1542976189}
   - {fileID: 144450555}
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &184262684
 PrefabInstance:
@@ -154551,7 +154551,7 @@ RectTransform:
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -154682,7 +154682,7 @@ PrefabInstance:
     - target: {fileID: 5981030734712421034, guid: b5bdddb827a561143a0adac71f74a341,
         type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 5981030734712421034, guid: b5bdddb827a561143a0adac71f74a341,
         type: 3}
@@ -154704,6 +154704,11 @@ PrefabInstance:
       propertyPath: PlayerSpawn
       value: 
       objectReference: {fileID: 653986308}
+    - target: {fileID: 5981030734712421032, guid: b5bdddb827a561143a0adac71f74a341,
+        type: 3}
+      propertyPath: flipOnSpawn
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1705240154, guid: b5bdddb827a561143a0adac71f74a341, type: 3}
       propertyPath: deathParticles
       value: 
@@ -154905,7 +154910,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &933652830
 PrefabInstance:
@@ -155779,7 +155784,7 @@ PrefabInstance:
     - target: {fileID: 9023562269632422836, guid: ac91249962933f0419f922a0dca89043,
         type: 3}
       propertyPath: m_RootOrder
-      value: 12
+      value: 13
       objectReference: {fileID: 0}
     - target: {fileID: 9023562269632422836, guid: ac91249962933f0419f922a0dca89043,
         type: 3}
@@ -156070,7 +156075,7 @@ PrefabInstance:
     - target: {fileID: 9023562269632422836, guid: ac91249962933f0419f922a0dca89043,
         type: 3}
       propertyPath: m_RootOrder
-      value: 11
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 9023562269632422836, guid: ac91249962933f0419f922a0dca89043,
         type: 3}
@@ -156144,7 +156149,7 @@ PrefabInstance:
     - target: {fileID: 4457717593968141535, guid: 20b20a7763791de48978cdb88ee458a5,
         type: 3}
       propertyPath: m_RootOrder
-      value: 4
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 4457717593968141535, guid: 20b20a7763791de48978cdb88ee458a5,
         type: 3}
@@ -156211,6 +156216,11 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7472411387764395205, guid: 20b20a7763791de48978cdb88ee458a5,
+        type: 3}
+      propertyPath: NextLevel
+      value: Tutortial_
+      objectReference: {fileID: 0}
     - target: {fileID: 4457717594927611326, guid: 20b20a7763791de48978cdb88ee458a5,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
@@ -156240,11 +156250,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
-      objectReference: {fileID: 0}
-    - target: {fileID: 7472411387764395205, guid: 20b20a7763791de48978cdb88ee458a5,
-        type: 3}
-      propertyPath: NextLevel
-      value: Tutortial_
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 20b20a7763791de48978cdb88ee458a5, type: 3}
