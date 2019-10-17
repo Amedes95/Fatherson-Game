@@ -124,13 +124,15 @@ public class PlayerMovement : MonoBehaviour
 
             if (touchingWall && !JumpDetector.OnGround) //Wall Slide
             {
+                floatingTimer = 0;
+
                 if (playerBody.velocity.y < 0)
                 {
                     GetComponent<Animator>().SetBool("onWall", true);
                     isJumping = false;
 
 
-                    if ((Mathf.Sign(Input.GetAxis("Horizontal")) != playerDirection) && (wallClingTimer > 0))
+                    if ( moveHorizontal != 0 && Mathf.Sign(moveHorizontal) == -playerDirection && (wallClingTimer > 0))
                     {
                         wallClingTimer -= Time.smoothDeltaTime;
                         playerSpeed = 0;
@@ -148,7 +150,7 @@ public class PlayerMovement : MonoBehaviour
                     }
                     if (Mathf.Abs(playerDirection - Input.GetAxis("Horizontal")) > .3)
                     {
-                        playerBody.velocity = new Vector2(playerBody.velocity.x, -2);   
+                        playerBody.velocity = new Vector2(playerBody.velocity.x + playerDirection * .5f, -2);   
                     }
 
 
@@ -266,7 +268,8 @@ public class PlayerMovement : MonoBehaviour
                 isFloating = true;
             }
 
-            Debug.Log("On Ground: " + JumpDetector.OnGround.ToString() + ", is Jumping: " + isJumping.ToString() + ", Touching Wall: " + touchingWall.ToString() + ", Wall Jumping: " + wallJumping.ToString()) ;
+            //Debug.Log("On Ground: " + JumpDetector.OnGround.ToString() + ", is Jumping: " + isJumping.ToString() + ", Touching Wall: " + touchingWall.ToString() + ", Wall Jumping: " + wallJumping.ToString()) ;
+            Debug.Log(playerBody.velocity);
         }
     }
 
@@ -347,7 +350,7 @@ public class PlayerMovement : MonoBehaviour
             WallRaycasting();
 
             ////Face direction of horizontal movement
-            if (playerBody.velocity.x > .1f)
+            if (playerBody.velocity.x > .5f)
             {
                 if (transform.localScale.x < 0)
                 {
@@ -355,7 +358,7 @@ public class PlayerMovement : MonoBehaviour
                 }
             }
 
-            if (playerBody.velocity.x < -.1f)
+            if (playerBody.velocity.x < -.5f)
             {
                 if (transform.localScale.x > 0)
                 {
