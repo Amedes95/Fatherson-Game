@@ -150,7 +150,7 @@ public class PlayerMovement : MonoBehaviour
                     }
                     if (Mathf.Abs(playerDirection - Input.GetAxis("Horizontal")) > .3)
                     {
-                        playerBody.velocity = new Vector2(playerBody.velocity.x, -2);   
+                        playerBody.velocity = new Vector2(playerBody.velocity.x + playerDirection * .5f, -2);   
                     }
 
 
