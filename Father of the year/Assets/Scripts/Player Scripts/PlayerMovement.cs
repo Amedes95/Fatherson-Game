@@ -132,7 +132,7 @@ public class PlayerMovement : MonoBehaviour
                     isJumping = false;
 
 
-                    if ( moveHorizontal != 0 && Mathf.Sign(moveHorizontal) == -playerDirection && (wallClingTimer > 0))
+                    if (Mathf.Sign(moveHorizontal) == -playerDirection && (wallClingTimer > 0))
                     {
                         wallClingTimer -= Time.smoothDeltaTime;
                         playerSpeed = 0;
@@ -146,11 +146,11 @@ public class PlayerMovement : MonoBehaviour
 
                     if (Mathf.Abs(playerDirection - Input.GetAxis("Horizontal")) < .3)
                     {
-                        playerBody.velocity = new Vector2(0, 0);
+                        playerBody.velocity = new Vector2(playerBody.velocity.x, 0);
                     }
                     if (Mathf.Abs(playerDirection - Input.GetAxis("Horizontal")) > .3)
                     {
-                        playerBody.velocity = new Vector2(playerBody.velocity.x + playerDirection * .5f, -2);   
+                        playerBody.velocity = new Vector2(playerBody.velocity.x, -2);   
                     }
 
 
@@ -268,7 +268,7 @@ public class PlayerMovement : MonoBehaviour
                 isFloating = true;
             }
 
-            //Debug.Log("On Ground: " + JumpDetector.OnGround.ToString() + ", is Jumping: " + isJumping.ToString() + ", Touching Wall: " + touchingWall.ToString() + ", Wall Jumping: " + wallJumping.ToString()) ;
+            Debug.Log("On Ground: " + JumpDetector.OnGround.ToString() + ", is Jumping: " + isJumping.ToString() + ", Touching Wall: " + touchingWall.ToString() + ", Wall Jumping: " + wallJumping.ToString());
             //Debug.Log(playerBody.velocity);
         }
     }
