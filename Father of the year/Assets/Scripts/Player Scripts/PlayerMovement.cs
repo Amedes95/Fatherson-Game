@@ -35,7 +35,7 @@ public class PlayerMovement : MonoBehaviour
     public float playerGravity;
     public Animator WindEffect;
     public float wallClingTimer;
-    public float setWallClingTimer;
+    float setWallClingTimer;
     public bool wallClinging;
     public bool flipOnSpawn;
     public static float playerVelocity;
@@ -53,6 +53,7 @@ public class PlayerMovement : MonoBehaviour
         midVelocity = 3;
         floatingTimer = -1;
         playerGravity = 2;
+        setWallClingTimer = wallClingTimer; // right here is where you fucked up.  I added this.
 
         if (flipOnSpawn)
         {
@@ -140,18 +141,22 @@ public class PlayerMovement : MonoBehaviour
                     else
                     {
                         playerSpeed = midSpeed;
-                        wallClingTimer = setWallClingTimer;
+                        wallClingTimer = setWallClingTimer; // you were fucking it up here by resetting the value incorrectly
                     }
 
+                    ////
+                    ////// deleting these lines right below here seemed to get rid of the popping off wall bug
+                    ////
 
-                    if (Mathf.Abs(playerDirection - Input.GetAxis("Horizontal")) < .3)
-                    {
-                        playerBody.velocity = new Vector2(playerBody.velocity.x, 0);
-                    }
-                    if (Mathf.Abs(playerDirection - Input.GetAxis("Horizontal")) > .3)
-                    {
-                        playerBody.velocity = new Vector2(playerBody.velocity.x, -2);   
-                    }
+
+                    //if (Mathf.Abs(playerDirection - Input.GetAxis("Horizontal")) < .3)
+                    //{
+                    //    playerBody.velocity = new Vector2(playerBody.velocity.x, 0);
+                    //}
+                    //if (Mathf.Abs(playerDirection - Input.GetAxis("Horizontal")) > .3)
+                    //{
+                    //    playerBody.velocity = new Vector2(playerBody.velocity.x, -2);
+                    //}
 
 
 
