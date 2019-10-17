@@ -269,7 +269,7 @@ public class PlayerMovement : MonoBehaviour
             }
 
             //Debug.Log("On Ground: " + JumpDetector.OnGround.ToString() + ", is Jumping: " + isJumping.ToString() + ", Touching Wall: " + touchingWall.ToString() + ", Wall Jumping: " + wallJumping.ToString()) ;
-            Debug.Log(playerBody.velocity);
+            //Debug.Log(playerBody.velocity);
         }
     }
 
