@@ -313,7 +313,7 @@ public class PlayerMovement : MonoBehaviour
             {
                 jumpKeyHeld = true;
 
-                if (!JumpDetector.OnGround && touchingWall && Mathf.Abs(playerDirection - Input.GetAxis("Horizontal")) > .3 ) //Walljump, can only jump if you are not holding into the wall
+                if (!JumpDetector.OnGround && touchingWall) //Walljump, can only jump if you are not holding into the wall
                 { 
                     WallJump();
                 }
