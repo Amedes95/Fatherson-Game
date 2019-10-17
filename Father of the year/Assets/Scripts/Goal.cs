@@ -26,7 +26,7 @@ public class Goal : MonoBehaviour
         if (collision.tag == "Player")
         {
             PlayerPrefs.SetInt(SceneManager.GetActiveScene().name, 1); // level beaten
-
+            collision.GetComponent<Collector>().AddToFruitStash();
             collision.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeAll;
             gameObject.GetComponent<Animator>().SetTrigger("Complete");
             collision.gameObject.SetActive(false);
