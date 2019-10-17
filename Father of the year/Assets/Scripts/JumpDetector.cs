@@ -40,8 +40,12 @@ public class JumpDetector : MonoBehaviour
         {
             if (!PlayerHealth.Dead)
             {
-                OnGround = false;
-                collision.GetComponentInParent<Animator>().SetBool("Grounded", false);
+                if (collision != null)
+                {
+                    OnGround = false;
+                    collision.GetComponentInParent<Animator>().SetBool("Grounded", false);
+                }
+
             }
 
         }
