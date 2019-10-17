@@ -252,6 +252,7 @@ public class PlayerMovement : MonoBehaviour
                 {
                     isFloating = true;
                     playerBody.gravityScale = 0;
+                    playerBody.velocity = new Vector2(playerBody.velocity.x, 0);
                 }
             }
 
