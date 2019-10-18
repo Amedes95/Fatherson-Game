@@ -144,24 +144,6 @@ public class PlayerMovement : MonoBehaviour
                         wallClingTimer = setWallClingTimer; // you were fucking it up here by resetting the value incorrectly
                     }
 
-                    ////
-                    ////// deleting these lines right below here seemed to get rid of the popping off wall bug
-                    ////
-
-
-                    //if (Mathf.Abs(playerDirection - Input.GetAxis("Horizontal")) < .3)
-                    //{
-                    //    playerBody.velocity = new Vector2(playerBody.velocity.x, 0);
-                    //}
-                    //if (Mathf.Abs(playerDirection - Input.GetAxis("Horizontal")) > .3)
-                    //{
-                    //    playerBody.velocity = new Vector2(playerBody.velocity.x, -2);
-                    //}
-
-
-
-
-
                 }
             }
             else if (!touchingWall)
@@ -273,7 +255,7 @@ public class PlayerMovement : MonoBehaviour
                 isFloating = true;
             }
 
-            Debug.Log("On Ground: " + JumpDetector.OnGround.ToString() + ", is Jumping: " + isJumping.ToString() + ", Touching Wall: " + touchingWall.ToString() + ", Wall Jumping: " + wallJumping.ToString());
+            //Debug.Log("On Ground: " + JumpDetector.OnGround.ToString() + ", is Jumping: " + isJumping.ToString() + ", Touching Wall: " + touchingWall.ToString() + ", Wall Jumping: " + wallJumping.ToString());
             //Debug.Log(playerBody.velocity);
         }
     }
@@ -319,7 +301,8 @@ public class PlayerMovement : MonoBehaviour
                 jumpKeyHeld = true;
 
                 if (!JumpDetector.OnGround && touchingWall) //Walljump, can only jump if you are not holding into the wall
-                { 
+                {
+                    playerBody.velocity = new Vector2(0, 0);
                     WallJump();
                 }
 
