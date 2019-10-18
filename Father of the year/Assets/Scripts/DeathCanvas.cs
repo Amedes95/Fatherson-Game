@@ -12,11 +12,14 @@ public class DeathCanvas : MonoBehaviour
     bool transitioning;
     public float ShadowValueUp;
     GameObject VictoryMenu;
+    GameObject PauseCanvas;
+
 
     public PostProcessingProfile Transition1; // For film grain
 
     private void Awake()
     {
+        PauseCanvas = GameObject.FindGameObjectWithTag("PauseCanvas");
         VictoryMenu = GameObject.FindGameObjectWithTag("VictoryMenu");
         transitioning = false;
     }
@@ -90,7 +93,7 @@ public class DeathCanvas : MonoBehaviour
         transitioning = true;
         VictoryMenu.SetActive(false);
         DeathMenu.SetActive(false);
-        Debug.Log("Quitter");
+        PauseCanvas.SetActive(false);
     }
 
 }
