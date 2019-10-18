@@ -8,14 +8,14 @@ public class PortalHub : MonoBehaviour
 {
     public string SceneToLoad;
     public GameObject CompleteSymbol;
-    public int CurrentWorld;
+    public int WorldNumber;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.tag == "Player")
         {
-            PlayerPrefs.SetInt("CurrentWorld", CurrentWorld); // update the current world for respawning later in the hub
-            SceneManager.LoadScene(SceneToLoad);
+            gameObject.GetComponent<Animator>().SetTrigger("Collapse");
+            collision.gameObject.SetActive(false);
         }
     }
 
@@ -30,5 +30,11 @@ public class PortalHub : MonoBehaviour
         {
             CompleteSymbol.SetActive(false);
         }
+    }
+
+    public void LoadLevel()
+    {
+        PlayerPrefs.SetInt("CurrentWorld", WorldNumber); // update the current world for respawning later in the hub
+        SceneManager.LoadScene(SceneToLoad);
     }
 }

@@ -6,16 +6,11 @@ public class JumpDetector : MonoBehaviour
 {
 
     public static bool OnGround;
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    GameObject Player;
 
-    // Update is called once per frame
-    void Update()
+    private void Awake()
     {
-        
+        Player = GameObject.FindGameObjectWithTag("Player");
     }
 
     private void OnTriggerStay2D(Collider2D collision)
@@ -40,10 +35,13 @@ public class JumpDetector : MonoBehaviour
         {
             if (!PlayerHealth.Dead)
             {
-                if (collision != null)
+                if (collision)
                 {
                     OnGround = false;
-                    collision.GetComponentInParent<Animator>().SetBool("Grounded", false);
+                    if (Player.activeInHierarchy)
+                    {
+                        collision.GetComponentInParent<Animator>().SetBool("Grounded", false);
+                    }
                 }
 
             }
