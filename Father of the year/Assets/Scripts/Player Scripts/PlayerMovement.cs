@@ -100,8 +100,8 @@ public class PlayerMovement : MonoBehaviour
                 PlayerAnim.SetFloat("SprintSpeed", 2);
                 if (JumpDetector.OnGround && Mathf.Abs(playerBody.velocity.x) > 4)
                 {
-                WindEffect.SetBool("Blowing", true);
-                 }
+                    WindEffect.SetBool("Blowing", true);
+                }
                 else
                 {
                     WindEffect.SetBool("Blowing", false);
@@ -112,8 +112,7 @@ public class PlayerMovement : MonoBehaviour
                 maxVelocity = 8;
                 midVelocity = 5;
             }
-
-            if (!Sprinting)
+            else if (!Sprinting)
             {
                 PlayerAnim.SetFloat("SprintSpeed", 1);
                 WindEffect.SetBool("Blowing", false);
@@ -252,8 +251,13 @@ public class PlayerMovement : MonoBehaviour
                 isFloating = true;
             }
 
+            if (StickyWeb.StuckInWeb)
+            {
+               playerBody.velocity = new Vector2 (Mathf.Clamp(playerBody.velocity.x, -2, 2), Mathf.Clamp(playerBody.velocity.y, -2, 8)) ;
+            }
+
             //Debug.Log("On Ground: " + JumpDetector.OnGround.ToString() + ", is Jumping: " + isJumping.ToString() + ", Touching Wall: " + touchingWall.ToString() + ", Wall Jumping: " + wallJumping.ToString());
-            //Debug.Log(playerBody.velocity);
+            Debug.Log(StickyWeb.StuckInWeb);
         }
     }
 
@@ -286,7 +290,7 @@ public class PlayerMovement : MonoBehaviour
 
     public void FlipCharacter()
     {
-            transform.localScale = new Vector2(transform.localScale.x * -1, transform.localScale.y);
+        transform.localScale = new Vector2(transform.localScale.x * -1, transform.localScale.y);
     }
 
     private void Update()

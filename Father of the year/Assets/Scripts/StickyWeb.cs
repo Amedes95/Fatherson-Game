@@ -6,7 +6,6 @@ public class StickyWeb : MonoBehaviour
 {
     public static bool StuckInWeb;
 
-
     private void OnTriggerStay2D(Collider2D collision) // enter the web
     {
         if (collision.tag == "Player")
