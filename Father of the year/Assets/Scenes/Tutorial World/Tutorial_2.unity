@@ -156585,6 +156585,11 @@ PrefabInstance:
       propertyPath: PlayerSpawn
       value: 
       objectReference: {fileID: 776914307}
+    - target: {fileID: 5981030734712421032, guid: b5bdddb827a561143a0adac71f74a341,
+        type: 3}
+      propertyPath: flipOnSpawn
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1705240154, guid: b5bdddb827a561143a0adac71f74a341, type: 3}
       propertyPath: deathParticles
       value: 
