@@ -14,12 +14,15 @@ public class VictoryMenu : MonoBehaviour
     public float ShadowValueUp;
     public PostProcessingProfile Transition1; // Face in and out of black
     bool transitioning;
+    bool LoadingWorldHub;
 
     private void Awake()
     {
+        LoadingWorldHub = false;
         var Vinny = Transition1.vignette.settings;
         Vinny.intensity = 1f;
         transitioning = false;
+
         var Chroma = Transition1.chromaticAberration.settings;
         Chroma.intensity = 0;
         Transition1.chromaticAberration.settings = Chroma;
@@ -28,6 +31,17 @@ public class VictoryMenu : MonoBehaviour
     private void Update()
     {
         var Vinny = Transition1.vignette.settings;
+
+        /// for film grain restart effect ///// 
+        var Grainy = Transition1.grain.settings;
+        Grainy.intensity -= .03f;
+        if (Grainy.intensity <= 0f)
+        {
+            Grainy.intensity = 0f;
+        }
+        Transition1.grain.settings = Grainy;
+        ////////////////////////////////////
+
         if (LevelComplete)
         {
             VictoryScreen.SetActive(true);
@@ -49,7 +63,14 @@ public class VictoryMenu : MonoBehaviour
             if (Vinny.intensity >= 1)
             {
                 Vinny.intensity = 1;
-                SceneManager.LoadScene(NextLevel);
+                if (LoadingWorldHub)
+                {
+                    SceneManager.LoadScene("WorldHub");
+                }
+                else
+                {
+                    SceneManager.LoadScene(NextLevel);
+                }
             }
         }
         else
@@ -66,15 +87,20 @@ public class VictoryMenu : MonoBehaviour
     public void LoadNextLevel() // Next
     {
         transitioning = true;
+        LoadingWorldHub = false;
     }
 
     public void ExitToHub() // Quit
     {
-        SceneManager.LoadScene("WorldHub");
+        LoadingWorldHub = true;
+        transitioning = true;
     }
 
     public void ReloadScene() // Restart
     {
+        var Grainy = Transition1.grain.settings;
+        Grainy.intensity = 1f;
+        Transition1.grain.settings = Grainy;
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 }

@@ -645,6 +645,7 @@ GameObject:
   - component: {fileID: 7601345656828333307}
   - component: {fileID: 7601345656828333306}
   - component: {fileID: 7601345656828333305}
+  - component: {fileID: 1213982532537422288}
   m_Layer: 5
   m_Name: RestartButton
   m_TagString: Untagged
@@ -763,6 +764,19 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &1213982532537422288
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7601345656828333311}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a75ff952d7de93649ae09b88f586b120, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Transition1: {fileID: 11400000, guid: c2f1824c2e9aa5a4085ce361c3f59724, type: 2}
 --- !u!1 &7601345656857965060
 GameObject:
   m_ObjectHideFlags: 0
@@ -877,6 +891,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   DeathMenu: {fileID: 7601345656789740665}
   RespawnButton: {fileID: 7601345656828333311}
+  ShadowValueUp: 0.01
+  Transition1: {fileID: 11400000, guid: c2f1824c2e9aa5a4085ce361c3f59724, type: 2}
 --- !u!1 &7601345656977948692
 GameObject:
   m_ObjectHideFlags: 0

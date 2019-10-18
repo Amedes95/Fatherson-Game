@@ -9,10 +9,14 @@ public class Goal : MonoBehaviour
 {
     VictoryMenu VictoryScreen;
     public PostProcessingProfile Transition1;
+    bool PulsingChroma;
+    bool Rising;
+
 
     // Start is called before the first frame update
     void Awake()
     {
+        PulsingChroma = false;
         VictoryScreen = GameObject.FindGameObjectWithTag("VictoryMenu").GetComponent<VictoryMenu>();
         VictoryScreen.LevelComplete = false;
         var Chroma = Transition1.chromaticAberration.settings;
@@ -39,5 +43,48 @@ public class Goal : MonoBehaviour
         var Chroma = Transition1.chromaticAberration.settings;
         Chroma.intensity = 1;
         Transition1.chromaticAberration.settings = Chroma;
+        PulsingChroma = true;
+    }
+
+    private void Update()
+    {
+        var Chroma = Transition1.chromaticAberration.settings;
+        if (PulsingChroma)
+        {
+            if (Chroma.intensity == 1f)
+            {
+                Rising = false;
+            }
+            else if (Chroma.intensity == 0f)
+            {
+                Rising = true;
+            }
+
+            if (Rising)
+            {
+                Chroma.intensity += .02f;
+                Transition1.chromaticAberration.settings = Chroma;
+                if (Chroma.intensity >= 1f)
+                {
+                    Chroma.intensity = 1f;
+                    Rising = false;
+                }
+            }
+            else if (Rising == false)
+            {
+                Chroma.intensity -= .02f;
+                Transition1.chromaticAberration.settings = Chroma;
+                if (Chroma.intensity <= 0f)
+                {
+                    Chroma.intensity = 0f;
+                    Rising = true;
+                }
+            }
+
+
+
+
+        }
+
     }
 }
