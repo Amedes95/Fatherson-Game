@@ -10,6 +10,7 @@ public class VictoryMenu : MonoBehaviour
     public string NextLevel;
     public bool LevelComplete;
     public GameObject VictoryScreen;
+    GameObject PauseCanvas;
 
     public float ShadowValueUp;
     public PostProcessingProfile Transition1; // Face in and out of black
@@ -18,6 +19,7 @@ public class VictoryMenu : MonoBehaviour
 
     private void Awake()
     {
+        PauseCanvas = GameObject.FindGameObjectWithTag("PauseCanvas");
         LoadingWorldHub = false;
         var Vinny = Transition1.vignette.settings;
         Vinny.intensity = 1f;
@@ -88,12 +90,14 @@ public class VictoryMenu : MonoBehaviour
     {
         transitioning = true;
         LoadingWorldHub = false;
+        PauseCanvas.SetActive(false);
     }
 
     public void ExitToHub() // Quit
     {
         LoadingWorldHub = true;
         transitioning = true;
+        PauseCanvas.SetActive(false);
     }
 
     public void ReloadScene() // Restart
