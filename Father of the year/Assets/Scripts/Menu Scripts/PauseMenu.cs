@@ -110,4 +110,10 @@ public class PauseMenu : MonoBehaviour
         PauseScreen.SetActive(false);
 
     }
+
+    public void ExitToMenu()
+    {
+        Time.timeScale = 1f;
+        SceneManager.LoadScene("MainMenu");
+    }
 }
