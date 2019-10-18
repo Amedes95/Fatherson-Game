@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class CameraFollower : MonoBehaviour
 {
-    public GameObject FocusZone;
+    private GameObject FocusZone;
     float CameraSpeed;
     public float maxCameraSpeed;
     Vector3 FocusZoneFix;
@@ -15,6 +15,7 @@ public class CameraFollower : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        FocusZone = GameObject.FindGameObjectWithTag("FocusZone");
         transform.position = new Vector3(FocusZone.transform.position.x, FocusZone.transform.position.y, -10f);
     }
 
@@ -27,9 +28,8 @@ public class CameraFollower : MonoBehaviour
 
         if (cameraBounds)
         {
-            transform.position = new Vector3(Mathf.Clamp(transform.position.x, minCameraBounds.x, maxCameraBounds.x),
-                Mathf.Clamp(transform.position.y, minCameraBounds.y, maxCameraBounds.y),
-                Mathf.Clamp(transform.position.z, minCameraBounds.z, maxCameraBounds.z)
+            transform.position = new Vector2(Mathf.Clamp(transform.position.x, minCameraBounds.x, maxCameraBounds.x),
+                Mathf.Clamp(transform.position.y, minCameraBounds.y, maxCameraBounds.y)
                 );
         }
     }
