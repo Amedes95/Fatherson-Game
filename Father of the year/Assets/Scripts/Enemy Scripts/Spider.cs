@@ -17,6 +17,9 @@ public class Spider : MonoBehaviour
     public bool AlwaysLong;
     int Distance;
 
+    bool PlayerInSight;
+    bool PlayerInRange;
+
 
     // Start is called before the first frame update
     void Awake()
@@ -30,6 +33,9 @@ public class Spider : MonoBehaviour
         Direction = Mathf.Sign(Player.localPosition.x - transform.localPosition.x);
         Debug.Log(Player.localPosition.x - transform.localPosition.x);
         RaycastingFloor();
+        RaycastPlayer();
+
+        // hopping spider
         if (TouchingFloor == false)
         {
             SpiderAnim.SetBool("InAir", true);
@@ -45,11 +51,7 @@ public class Spider : MonoBehaviour
         }
     }
 
-    public void FlipCharacter()
-    {
-        transform.localScale = new Vector2(transform.localScale.x * -1, transform.localScale.y);
-    }
-
+    // hanging spider
     public void DecideLength()
     {
         if (AlwaysShort)
@@ -83,16 +85,33 @@ public class Spider : MonoBehaviour
         }
     }
 
-    public void Hop() // called during the last frame of the idle animation
-    {
-        if (TouchingFloor == true)
-        {
-            Debug.Log("Hippty Hoppity");
-            JumpAngle = new Vector2(Direction / 2, Mathf.Sqrt(3) / 2);
-            gameObject.GetComponent<Rigidbody2D>().AddForce(JumpAngle * JumpForce);
-            SpiderAnim.SetTrigger("Hop");
-        }
 
+
+
+
+
+
+    /// used with hopping spider
+    private void OnTriggerStay2D(Collider2D collision)
+    {
+        if (collision.tag == "Player")
+        {
+            PlayerInRange = true;
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.tag == "Player")
+        {
+            PlayerInRange = false;
+        }
+    }
+
+    void RaycastPlayer()
+    {
+        Debug.DrawLine(transform.position, Player.position, Color.green);
+        PlayerInSight = Physics2D.Linecast(transform.position, Player.position, 1 << LayerMask.NameToLayer("Player"));
     }
 
     void RaycastingFloor()
@@ -100,4 +119,22 @@ public class Spider : MonoBehaviour
         Debug.DrawLine(transform.position, EndLine.position, Color.green);  // during playtime, projects a line from a start point to and end point
         TouchingFloor = Physics2D.Linecast(transform.position, EndLine.position, 1 << LayerMask.NameToLayer("Ground")); // returns true if line touches a ground tile
     }
+
+    public void FlipCharacter()
+    {
+        transform.localScale = new Vector2(transform.localScale.x * -1, transform.localScale.y);
+    }
+
+    public void Hop() // called during the last frame of the idle animation
+    {
+        if (TouchingFloor == true && PlayerInRange)
+        {
+            //Debug.Log("Hippty Hoppity");
+            JumpAngle = new Vector2(Direction / 2, Mathf.Sqrt(3) / 2);
+            gameObject.GetComponent<Rigidbody2D>().AddForce(JumpAngle * JumpForce);
+            SpiderAnim.SetTrigger("Hop");
+        }
+
+    }
+
 }
