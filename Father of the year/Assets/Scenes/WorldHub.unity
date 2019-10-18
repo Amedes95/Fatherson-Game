@@ -544,18 +544,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 983842180, guid: b5bdddb827a561143a0adac71f74a341, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 0.06000921
-      objectReference: {fileID: 0}
-    - target: {fileID: 983842180, guid: b5bdddb827a561143a0adac71f74a341, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 0.06000921
-      objectReference: {fileID: 0}
-    - target: {fileID: 983842178, guid: b5bdddb827a561143a0adac71f74a341, type: 3}
-      propertyPath: m_WasSpriteAssigned
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b5bdddb827a561143a0adac71f74a341, type: 3}
 --- !u!1001 &352463089
@@ -2687,6 +2675,11 @@ PrefabInstance:
       propertyPath: FocusZone
       value: 
       objectReference: {fileID: 519316627}
+    - target: {fileID: 8189700698217030710, guid: a057a5e90eac2ec4b91ead49d885cec6,
+        type: 3}
+      propertyPath: cameraBounds
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a057a5e90eac2ec4b91ead49d885cec6, type: 3}
 --- !u!1001 &956138240
