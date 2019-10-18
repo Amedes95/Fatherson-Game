@@ -30,8 +30,7 @@ public class CameraFollower : MonoBehaviour
         {
             transform.position = new Vector3(Mathf.Clamp(transform.position.x, minCameraBounds.x, maxCameraBounds.x),
                 Mathf.Clamp(transform.position.y, minCameraBounds.y, maxCameraBounds.y),
-                -10
-                );
+                -10);
         }
     }
 }
