@@ -720,6 +720,22 @@ PrefabInstance:
       propertyPath: deathParticles
       value: 
       objectReference: {fileID: 2094662501}
+    - target: {fileID: 1029529505, guid: b5bdddb827a561143a0adac71f74a341, type: 3}
+      propertyPath: m_Offset.x
+      value: 0.009
+      objectReference: {fileID: 0}
+    - target: {fileID: 1188663047, guid: b5bdddb827a561143a0adac71f74a341, type: 3}
+      propertyPath: m_Points.m_Paths.Array.data[0].Array.data[4].y
+      value: -0.042
+      objectReference: {fileID: 0}
+    - target: {fileID: 1188663047, guid: b5bdddb827a561143a0adac71f74a341, type: 3}
+      propertyPath: m_Points.m_Paths.Array.data[0].Array.data[5].y
+      value: -0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1188663047, guid: b5bdddb827a561143a0adac71f74a341, type: 3}
+      propertyPath: m_Points.m_Paths.Array.data[0].Array.data[6].y
+      value: -0.1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b5bdddb827a561143a0adac71f74a341, type: 3}
 --- !u!1 &1049647401 stripped

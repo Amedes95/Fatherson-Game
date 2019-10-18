@@ -7,6 +7,7 @@ public class PlayerMovement : MonoBehaviour
 
     private Rigidbody2D playerBody;
     public float playerSpeed;
+    float moveHorizontal;
     public static float jumpForce;
     public float counterJumpForce;
     private float fallVelocity;
@@ -73,7 +74,7 @@ public class PlayerMovement : MonoBehaviour
     {
         if (PlayerHealth.Dead == false) // Only allow movement if alive
         {
-            float moveHorizontal = Input.GetAxis("Horizontal"); // left is -1, stopped is 0, right is 1
+            moveHorizontal = Input.GetAxis("Horizontal"); // left is -1, stopped is 0, right is 1
             fallVelocity = playerBody.velocity.y;
             jumpForce = CalculateJumpForce(playerBody.gravityScale, jumpHeight);
 
@@ -83,7 +84,7 @@ public class PlayerMovement : MonoBehaviour
 
             if (transform.localScale.x > 0)
             { playerDirection = 1; }
-            else
+            else if (transform.localScale.x < 0)
             { playerDirection = -1; }
 
             walljumpVector = new Vector2(-playerDirection, 2);
@@ -205,10 +206,6 @@ public class PlayerMovement : MonoBehaviour
                 if (!jumpKeyHeld && Vector2.Dot(playerBody.velocity, Vector2.up) > 0)
                 {
                     playerBody.AddForce(counterJumpForce / Mathf.Sqrt(2) * playerBody.mass * -Vector2.up);
-                }
-                if (Mathf.Sign(playerBody.velocity.x) != Mathf.Sign(Input.GetAxis("Horizontal")))
-                {
-                    playerBody.AddForce(counterJumpForce / (2 * Mathf.Sqrt(2)) * playerBody.mass * new Vector2(-playerDirection, 0));
                 }
             }
             if (recentlyJumped) // timer creates a minimum jump height with counterjumpforce (without this timer tapping w makes you jump less than one block tall
@@ -338,7 +335,7 @@ public class PlayerMovement : MonoBehaviour
             WallRaycasting();
 
             ////Face direction of horizontal movement
-            if (playerBody.velocity.x > .5f)
+            if (playerBody.velocity.x > 2f)
             {
                 if (transform.localScale.x < 0)
                 {
@@ -346,7 +343,7 @@ public class PlayerMovement : MonoBehaviour
                 }
             }
 
-            if (playerBody.velocity.x < -.5f)
+            if (playerBody.velocity.x < -2f)
             {
                 if (transform.localScale.x > 0)
                 {
