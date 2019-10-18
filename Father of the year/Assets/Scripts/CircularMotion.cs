@@ -9,7 +9,7 @@ public class CircularMotion : MonoBehaviour
     public float radius;
     public float speed;
     public bool clockwise;
-    public int direction;
+    int direction;
     float x;
     float y;
 

@@ -7,11 +7,11 @@ public class Spider : MonoBehaviour
 
     Animator SpiderAnim;
     Vector2 JumpAngle;
-    public float JumpSpeed;
-    float Direction;
+    public float JumpForce;
+    public float Direction;
     public Transform EndLine;
     bool TouchingFloor;
-
+    Transform Player;
     public bool AlwaysShort;
     public bool AlwaysMedium;
     public bool AlwaysLong;
@@ -21,12 +21,14 @@ public class Spider : MonoBehaviour
     // Start is called before the first frame update
     void Awake()
     {
+        Player = GameObject.FindGameObjectWithTag("Player").transform;
         SpiderAnim = gameObject.GetComponent<Animator>();
     }
 
     private void Update()
     {
-        Direction = Mathf.Sign(transform.localScale.x);
+        Direction = Mathf.Sign(Player.localPosition.x - transform.localPosition.x);
+        Debug.Log(Player.localPosition.x - transform.localPosition.x);
         RaycastingFloor();
         if (TouchingFloor == false)
         {
@@ -36,6 +38,16 @@ public class Spider : MonoBehaviour
         {
             SpiderAnim.SetBool("InAir", false);
         }
+
+        if (((Direction < 0 && transform.localScale.x > 0) || (Direction > 0 && transform.localScale.x < 0)) && TouchingFloor == true)
+        {
+            FlipCharacter();
+        }
+    }
+
+    public void FlipCharacter()
+    {
+        transform.localScale = new Vector2(transform.localScale.x * -1, transform.localScale.y);
     }
 
     public void DecideLength()
@@ -77,7 +89,7 @@ public class Spider : MonoBehaviour
         {
             Debug.Log("Hippty Hoppity");
             JumpAngle = new Vector2(Direction / 2, Mathf.Sqrt(3) / 2);
-            gameObject.GetComponent<Rigidbody2D>().AddForce(JumpAngle * JumpSpeed);
+            gameObject.GetComponent<Rigidbody2D>().AddForce(JumpAngle * JumpForce);
             SpiderAnim.SetTrigger("Hop");
         }
 
