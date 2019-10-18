@@ -272,6 +272,7 @@ public class PlayerMovement : MonoBehaviour
 
     public void WallJump()
     {
+        playerBody.velocity = new Vector2(0, 0);
         jumpFallCooldown = .25f;
         recentlyJumped = true;
         playerBody.AddForce(walljumpVector / Mathf.Sqrt(5) * jumpForce * 180);
@@ -302,7 +303,6 @@ public class PlayerMovement : MonoBehaviour
 
                 if (!JumpDetector.OnGround && touchingWall) //Walljump, can only jump if you are not holding into the wall
                 {
-                    playerBody.velocity = new Vector2(0, 0);
                     WallJump();
                 }
 
