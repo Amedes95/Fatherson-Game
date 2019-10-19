@@ -284,7 +284,7 @@ public class PlayerMovement : MonoBehaviour
 
     public void Jump()
     {
-        if (FallingPlatform.OnPlatform)
+        if (FallingPlatform.OnPlatform) //make this universal for all moving platforms
         {
             playerBody.velocity= new Vector2(playerBody.velocity.x, 0);
         }
