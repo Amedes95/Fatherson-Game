@@ -248,14 +248,13 @@ public class PlayerMovement : MonoBehaviour
             {
                 floatingTimer -= Time.smoothDeltaTime;
 
-                if (floatingTimer <= 0)
+                if (floatingTimer <= 0 || Mathf.Sign(moveHorizontal) != Mathf.Sign(playerBody.velocity.x))
                 {
                     isFloating = false;
                     //playerBody.gravityScale = playerGravity;
                 }
                 else
                 {
-                    isFloating = true;
                     //playerBody.gravityScale = 0;
                     playerBody.AddForce(Vector2.up * playerBody.gravityScale * playerBody.mass * 1.15f);
                     playerBody.velocity = new Vector2(playerBody.velocity.x, 0);
@@ -285,6 +284,10 @@ public class PlayerMovement : MonoBehaviour
 
     public void Jump()
     {
+        if (FallingPlatform.OnPlatform)
+        {
+            playerBody.velocity= new Vector2(playerBody.velocity.x, 0);
+        }
         jumpFallCooldown = .05f;
         recentlyJumped = true;
         playerBody.AddForce(Vector2.up * jumpForce * 180);
@@ -339,6 +342,12 @@ public class PlayerMovement : MonoBehaviour
                 if (JumpDetector.OnGround && !recentlyJumped) // Checks to see if player is on ground before jumping
                 {
                     Jump();
+                }
+
+                if (isFloating)
+                {
+                    Jump();
+                    isFloating = false;
                 }
                 
             }
