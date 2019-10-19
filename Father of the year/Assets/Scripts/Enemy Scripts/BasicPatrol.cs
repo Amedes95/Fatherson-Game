@@ -35,10 +35,12 @@ public class BasicPatrol : MonoBehaviour
         if (TouchingWall || TouchingEnemy)
         {
             FlipCharacter();
+            Debug.Log("Wall-E");
             PatrolDirection = new Vector2(PatrolDirection.x * -1, 0);
         }
         if (avoidsLedges && !TouchingFloor)
         {
+            Debug.Log("FLOOR");
             FlipCharacter();
             PatrolDirection = new Vector2(PatrolDirection.x * -1, 0);
         }
