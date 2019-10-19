@@ -28,6 +28,7 @@ public class PlayerMovement : MonoBehaviour
     public float midVelocity;
     public static bool Sprinting;
     public Transform wallEndLine;
+    public Transform floatLine;
     bool touchingWall;
     int playerDirection;
     Vector2 walljumpVector;
@@ -50,7 +51,7 @@ public class PlayerMovement : MonoBehaviour
         startSpeed = 60;
         midSpeed = 18;
         fullSpeed = 14; //full speed should always be less than mid speed
-        maxVelocity = 5;
+        maxVelocity = 4;
         midVelocity = 3;
         floatingTimer = -1;
         playerGravity = 2;
@@ -177,12 +178,27 @@ public class PlayerMovement : MonoBehaviour
             ///// Movement left and right
             if (moveHorizontal > 0f) // player is moving right
             {
-                playerBody.AddForce(movementPlayer * playerSpeed);
+                if (Mathf.Sign(moveHorizontal) != Mathf.Sign(playerBody.velocity.x)) // this makes the character turn around quicker in the air for more control
+                {
+                    playerBody.AddForce(movementPlayer * playerSpeed * 3);
+                }
+                else
+                {
+                    playerBody.AddForce(movementPlayer * playerSpeed);
+                }
+
                 PlayerAnim.SetBool("Running", true);
             }
             if (moveHorizontal < 0f) // player is moving left
             {
-                playerBody.AddForce(movementPlayer * playerSpeed);
+                if (Mathf.Sign(moveHorizontal) != Mathf.Sign(playerBody.velocity.x))
+                {
+                    playerBody.AddForce(movementPlayer * playerSpeed * 3);
+                }
+                else
+                {
+                    playerBody.AddForce(movementPlayer * playerSpeed);
+                }
                 PlayerAnim.SetBool("Running", true);
             }
 
@@ -261,8 +277,8 @@ public class PlayerMovement : MonoBehaviour
                playerBody.velocity = new Vector2 (Mathf.Clamp(playerBody.velocity.x, -2, 2), Mathf.Clamp(playerBody.velocity.y, -2, 8)) ;
             }
 
-            //Debug.Log("On Ground: " + JumpDetector.OnGround.ToString() + ", is Jumping: " + isJumping.ToString() + ", Touching Wall: " + touchingWall.ToString() + ", Wall Jumping: " + wallJumping.ToString());
-            //Debug.Log(StickyWeb.StuckInWeb);
+            Debug.Log("On Ground: " + JumpDetector.OnGround.ToString() + ", is Jumping: " + isJumping.ToString() + ", Touching Wall: " + touchingWall.ToString() + ", Wall Jumping: " + wallJumping.ToString());
+            Debug.Log(isFloating);
         }
     }
 
