@@ -32,6 +32,7 @@ public class BonkableHead : MonoBehaviour
                 collision.GetComponentInParent<Rigidbody2D>().AddForce(BonkForce * BonkBounceSpeed);
                 collision.GetComponentInParent<PlayerMovement>().Jump();
                 isBonking = true;
+                Debug.Log("Boune");
                 //collision.GetComponentInParent<Rigidbody2D>().AddForce(Vector2.up * PlayerMovement.jumpForce * 180);
                 if (gameObject.tag == "Trampoline")
                 {

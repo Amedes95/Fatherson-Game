@@ -334,8 +334,7 @@ public class PlayerMovement : MonoBehaviour
             {
                 Sprinting = true;
             }
-
-            if (Input.GetKeyUp(KeyCode.LeftShift) || Input.GetKeyUp(KeyCode.RightShift))
+            else if (Input.GetKeyUp(KeyCode.LeftShift) || Input.GetKeyUp(KeyCode.RightShift))
             {
                 Sprinting = false;  
             }
