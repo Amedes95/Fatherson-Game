@@ -29,7 +29,7 @@ public class FallingPlatform : MonoBehaviour
             RayCastGround();
             if (fallVelocity < -fallSpeedCap) //fall speed cap
             {
-                GetComponent<Rigidbody2D>().AddForce(Vector2.up * GetComponent<Rigidbody2D>().gravityScale * 10);
+                GetComponent<Rigidbody2D>().AddForce(Vector2.up * GetComponent<Rigidbody2D>().gravityScale * 100);
             }
         }
         if (HitGround)
@@ -57,7 +57,6 @@ public class FallingPlatform : MonoBehaviour
         if (collision.tag == "Feet")
         {
             OnPlatform = true;
-            collision.GetComponent<Collider2D>().transform.SetParent(transform);
         }
     }
 
@@ -66,7 +65,6 @@ public class FallingPlatform : MonoBehaviour
         if (collision.tag == "Feet")
         {
             OnPlatform = false;
-            collision.GetComponent<Collider2D>().transform.SetParent(null);
         }
     }
 
