@@ -251,12 +251,13 @@ public class PlayerMovement : MonoBehaviour
                 if (floatingTimer <= 0)
                 {
                     isFloating = false;
-                    playerBody.gravityScale = playerGravity;
+                    //playerBody.gravityScale = playerGravity;
                 }
                 else
                 {
                     isFloating = true;
-                    playerBody.gravityScale = 0;
+                    //playerBody.gravityScale = 0;
+                    playerBody.AddForce(Vector2.up * playerBody.gravityScale * playerBody.mass * 1.05f);
                     playerBody.velocity = new Vector2(playerBody.velocity.x, 0);
                 }
             }
@@ -335,7 +336,7 @@ public class PlayerMovement : MonoBehaviour
                     jumpCount -= 1;
                 }
 
-                if ((JumpDetector.OnGround && !recentlyJumped))) // Checks to see if player is on ground before jumping
+                if (JumpDetector.OnGround && !recentlyJumped) // Checks to see if player is on ground before jumping
                 {
                     Jump();
                 }
