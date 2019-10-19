@@ -7,7 +7,7 @@ public class PlayerMovement : MonoBehaviour
 
     private Rigidbody2D playerBody;
     public float playerSpeed;
-    float moveHorizontal;
+    static float moveHorizontal;
     public static float jumpForce;
     public float counterJumpForce;
     private float fallVelocity;
@@ -335,7 +335,7 @@ public class PlayerMovement : MonoBehaviour
                     jumpCount -= 1;
                 }
 
-                if (JumpDetector.OnGround && !recentlyJumped) // Checks to see if player is on ground before jumping
+                if ((JumpDetector.OnGround && !recentlyJumped))) // Checks to see if player is on ground before jumping
                 {
                     Jump();
                 }
