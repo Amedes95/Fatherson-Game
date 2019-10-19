@@ -87,7 +87,7 @@ public class PlayerMovement : MonoBehaviour
             else if (transform.localScale.x < 0)
             { playerDirection = -1; }
 
-            walljumpVector = new Vector2(-playerDirection, 2);
+            walljumpVector = new Vector2(-1.2f * playerDirection, 2);
 
             if (playerBody.velocity.y < -1)
             {
@@ -207,6 +207,11 @@ public class PlayerMovement : MonoBehaviour
                     playerBody.AddForce(counterJumpForce / Mathf.Sqrt(2) * playerBody.mass * -Vector2.up);
                 }
             }
+
+            if (wallJumping)
+            {
+                midSpeed= 35;
+            }
             if (recentlyJumped) // timer creates a minimum jump height with counterjumpforce (without this timer tapping w makes you jump less than one block tall
             {
                 jumpFallCooldown -= Time.smoothDeltaTime;
@@ -257,13 +262,13 @@ public class PlayerMovement : MonoBehaviour
             }
 
             //Debug.Log("On Ground: " + JumpDetector.OnGround.ToString() + ", is Jumping: " + isJumping.ToString() + ", Touching Wall: " + touchingWall.ToString() + ", Wall Jumping: " + wallJumping.ToString());
-            Debug.Log(StickyWeb.StuckInWeb);
+            //Debug.Log(StickyWeb.StuckInWeb);
         }
     }
 
     public void Jump()
     {
-        jumpFallCooldown = .1f;
+        jumpFallCooldown = .05f;
         recentlyJumped = true;
         playerBody.AddForce(Vector2.up * jumpForce * 180);
         PlayerAnim.SetTrigger("Jump");

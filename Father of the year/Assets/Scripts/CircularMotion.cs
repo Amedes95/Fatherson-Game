@@ -4,10 +4,11 @@ using UnityEngine;
 
 public class CircularMotion : MonoBehaviour
 {
-    public float timeCounter;
-    public Vector3 initialPosition; // copy and paste the starting position from parent transform
+    float timeCounter;
+    public Transform center; // copy and paste the starting position from parent transform
     public float radius;
     public float speed;
+    public float start;
     public bool clockwise;
     int direction;
     float x;
@@ -16,7 +17,6 @@ public class CircularMotion : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        initialPosition = new Vector3(transform.localPosition.x, transform.localPosition.y, 0);
         if (clockwise)
         {
             direction = -1;
@@ -29,12 +29,13 @@ public class CircularMotion : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         timeCounter += Time.smoothDeltaTime;
-        x = radius * Mathf.Cos(timeCounter * speed * 2 * Mathf.PI * direction);
-        y = radius * Mathf.Sin(timeCounter * speed * 2 * Mathf.PI * direction);
+        //radius = timeCounter % 5; //can be used to make saws expand outwards
+        x = radius * Mathf.Cos(2 * Mathf.PI * (timeCounter * speed * direction + start));
+        y = radius * Mathf.Sin(2 * Mathf.PI * (timeCounter * speed * direction + start));
 
-        transform.position =  initialPosition + new Vector3(x, y, 0);
+        transform.position =  center.position + new Vector3(x, y, 0);
     }
 }

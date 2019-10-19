@@ -16,7 +16,6 @@ public class Spider : MonoBehaviour
     public bool AlwaysMedium;
     public bool AlwaysLong;
     int Distance;
-
     bool PlayerInSight;
     bool PlayerInRange;
 
