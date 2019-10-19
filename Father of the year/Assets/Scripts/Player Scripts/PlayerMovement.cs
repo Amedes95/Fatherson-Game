@@ -7,7 +7,7 @@ public class PlayerMovement : MonoBehaviour
 
     private Rigidbody2D playerBody;
     public float playerSpeed;
-    static float moveHorizontal;
+    public static float moveHorizontal;
     public static float jumpForce;
     public float counterJumpForce;
     private float fallVelocity;
@@ -257,7 +257,7 @@ public class PlayerMovement : MonoBehaviour
                 {
                     isFloating = true;
                     //playerBody.gravityScale = 0;
-                    playerBody.AddForce(Vector2.up * playerBody.gravityScale * playerBody.mass * 1.05f);
+                    playerBody.AddForce(Vector2.up * playerBody.gravityScale * playerBody.mass * 1.15f);
                     playerBody.velocity = new Vector2(playerBody.velocity.x, 0);
                 }
             }
