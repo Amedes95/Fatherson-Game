@@ -57,6 +57,7 @@ public class FallingPlatform : MonoBehaviour
         if (collision.tag == "Feet")
         {
             OnPlatform = true;
+            collision.GetComponent<Collider2D>().transform.SetParent(transform);
         }
     }
 
@@ -65,8 +66,10 @@ public class FallingPlatform : MonoBehaviour
         if (collision.tag == "Feet")
         {
             OnPlatform = false;
+            collision.GetComponent<Collider2D>().transform.SetParent(null);
         }
     }
+
 
     public void RayCastGround()
     {
