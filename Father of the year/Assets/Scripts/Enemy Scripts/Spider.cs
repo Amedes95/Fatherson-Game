@@ -31,7 +31,6 @@ public class Spider : MonoBehaviour
     {
         PlayerInRange = gameObject.GetComponentInChildren<PlayerDetector>().PlayerInRange;
         Direction = Mathf.Sign(Player.localPosition.x - transform.localPosition.x);
-        Debug.Log(Player.localPosition.x - transform.localPosition.x);
         RaycastingFloor();
         RaycastPlayer();
 

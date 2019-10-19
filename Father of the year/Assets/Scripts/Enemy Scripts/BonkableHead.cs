@@ -20,7 +20,8 @@ public class BonkableHead : MonoBehaviour
     {
         if (collision.tag == "Feet")
         {
-            if (!PlayerHealth.Dead)
+
+            if (!PlayerHealth.Dead && !PlayerMovement.isJumping)
             {
                 BonkForce = new Vector2(0, BounceHeight);
                 BonkBounceSpeed = PlayerMovement.jumpForce;
@@ -28,6 +29,7 @@ public class BonkableHead : MonoBehaviour
                     new Vector2(collision.GetComponentInParent<Rigidbody2D>().velocity.x, 0);
                 collision.GetComponentInParent<Rigidbody2D>().AddForce(BonkForce * BonkBounceSpeed);
                 collision.GetComponentInParent<PlayerMovement>().Jump();
+                PlayerMovement.isJumping = true;
                 //collision.GetComponentInParent<Rigidbody2D>().AddForce(Vector2.up * PlayerMovement.jumpForce * 180);
                 if (gameObject.tag == "Trampoline")
                 {
