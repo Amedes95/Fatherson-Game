@@ -136,6 +136,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   BounceHeight: 100
   BonkBounceSpeed: 10
+  Killable: 1
 --- !u!61 &1977417751
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -301,6 +302,7 @@ MonoBehaviour:
   EnemyLine: {fileID: 1099558807}
   PatrolSpeed: 2
   avoidsLedges: 1
+  flipDirection: 0
 --- !u!95 &2636196673049084172
 Animator:
   serializedVersion: 3

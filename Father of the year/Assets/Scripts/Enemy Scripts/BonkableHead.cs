@@ -8,6 +8,7 @@ public class BonkableHead : MonoBehaviour
     public float BounceHeight; // 100 is pretty good
     public float BonkBounceSpeed; // this should match jumpForce in PlayerMovement for consistency
     bool isBonking;
+    public bool Killable;
 
 
     public void Awake()
@@ -38,7 +39,12 @@ public class BonkableHead : MonoBehaviour
                 {
                     GetComponent<Animator>().SetTrigger("Bounce");
                 }
+                if (Killable)  // kill when bonked
+                {
+                    Destroy(gameObject.transform.parent.gameObject);
+                }
             }
+
         }
     }
 

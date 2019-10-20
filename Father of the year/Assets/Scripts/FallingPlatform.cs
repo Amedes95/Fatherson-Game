@@ -4,12 +4,12 @@ using UnityEngine;
 
 public class FallingPlatform : MonoBehaviour
 {
-    public static bool OnPlatform; // for the player
+    //public static bool OnPlatform; // for the player
 
     public bool HitGround;
     public Transform Endline;
     public bool falling;
-    public BoxCollider2D Standzone;
+    public CapsuleCollider2D Standzone;
     public BoxCollider2D JumpZone;
     float fallVelocity;
     public float fallSpeedCap;
@@ -24,14 +24,6 @@ public class FallingPlatform : MonoBehaviour
     private void Update()
     {
         fallVelocity = GetComponent<Rigidbody2D>().velocity.y;
-        if (falling)
-        {
-            RayCastGround();
-            if (fallVelocity < -fallSpeedCap) //fall speed cap
-            {
-                GetComponent<Rigidbody2D>().AddForce(Vector2.up * GetComponent<Rigidbody2D>().gravityScale * 100);
-            }
-        }
         if (HitGround)
         {
             falling = false;
@@ -39,6 +31,15 @@ public class FallingPlatform : MonoBehaviour
             Standzone.enabled = false;
             JumpZone.enabled = false;
         }
+        else if (falling)
+        {
+            RayCastGround();
+            if (fallVelocity < -fallSpeedCap) //fall speed cap
+            {
+                GetComponent<Rigidbody2D>().AddForce(Vector2.up * GetComponent<Rigidbody2D>().gravityScale * 100);
+            }
+        }
+
     }
 
 
@@ -51,23 +52,6 @@ public class FallingPlatform : MonoBehaviour
             falling = true;
         }
     }
-
-    private void OnTriggerStay2D(Collider2D collision)
-    {
-        if (collision.tag == "Feet")
-        {
-            OnPlatform = true;
-        }
-    }
-
-    private void OnTriggerExit2D(Collider2D collision)
-    {
-        if (collision.tag == "Feet")
-        {
-            OnPlatform = false;
-        }
-    }
-
 
     public void RayCastGround()
     {

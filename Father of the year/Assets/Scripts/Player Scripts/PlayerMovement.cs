@@ -277,14 +277,14 @@ public class PlayerMovement : MonoBehaviour
                playerBody.velocity = new Vector2 (Mathf.Clamp(playerBody.velocity.x, -2, 2), Mathf.Clamp(playerBody.velocity.y, -2, 8)) ;
             }
 
-            Debug.Log("On Ground: " + JumpDetector.OnGround.ToString() + ", is Jumping: " + isJumping.ToString() + ", Touching Wall: " + touchingWall.ToString() + ", Wall Jumping: " + wallJumping.ToString());
-            Debug.Log(isFloating);
+            //Debug.Log("On Ground: " + JumpDetector.OnGround.ToString() + ", is Jumping: " + isJumping.ToString() + ", Touching Wall: " + touchingWall.ToString() + ", Wall Jumping: " + wallJumping.ToString());
+            //Debug.Log(isFloating);
         }
     }
 
     public void Jump()
     {
-        if (FallingPlatform.OnPlatform) //make this universal for all moving platforms
+        if (KeepWithPlatform.OnPlatform) //make this universal for all moving platforms
         {
             playerBody.velocity= new Vector2(playerBody.velocity.x, 0);
         }

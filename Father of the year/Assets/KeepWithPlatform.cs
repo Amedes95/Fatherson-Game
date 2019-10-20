@@ -4,11 +4,13 @@ using UnityEngine;
 
 public class KeepWithPlatform : MonoBehaviour
 {
+    public static bool OnPlatform; // for the player
 
     private void OnTriggerStay2D(Collider2D collision)
     {
         if (collision.tag == "Feet")
         {
+            OnPlatform = true;
             collision.GetComponent<Collider2D>().transform.parent.SetParent(transform);
             if (PlayerMovement.moveHorizontal == 0)
             {
@@ -21,6 +23,7 @@ public class KeepWithPlatform : MonoBehaviour
     {
         if (collision.tag == "Feet")
         {
+            OnPlatform = false;
             collision.GetComponent<Collider2D>().transform.parent.SetParent(null);
         }
     }
