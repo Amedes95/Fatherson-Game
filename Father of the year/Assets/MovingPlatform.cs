@@ -9,14 +9,14 @@ public class MovingPlatform : MonoBehaviour
 
     private void Update()
     {
-        if (MovingRight)
-        {
-            GetComponent<Rigidbody2D>().velocity = new Vector2(Speed, 0);
+        //if (MovingRight)
+        //{
+        //    GetComponent<Rigidbody2D>().velocity = new Vector2(Speed, 0);
 
-        }
-        if (!MovingRight)
-        {
-            GetComponent<Rigidbody2D>().velocity = new Vector2(-Speed, 0);
-        }
+        //}
+        //if (!MovingRight)
+        //{
+        //    GetComponent<Rigidbody2D>().velocity = new Vector2(-Speed, 0);
+        //}
     }
 }
