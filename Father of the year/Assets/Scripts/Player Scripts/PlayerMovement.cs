@@ -7,18 +7,18 @@ public class PlayerMovement : MonoBehaviour
 
     private Rigidbody2D playerBody;
     public float playerSpeed;
-    public static float moveHorizontal;
+    public static float moveHorizontal; // used for horizontal movement controls
     public static float jumpForce;
-    public float counterJumpForce;
+    public float counterJumpForce; // used to make the player descend if they release w while jumping
     private float fallVelocity;
     private Animator PlayerAnim;
     public float jumpHeight;
     public static bool isJumping;
     public static bool wallJumping;
-    public static float jumpFallCooldown;
+    public static float jumpFallCooldown; // a timer used to make a minimum jump height with counterJumpForce
     public static bool recentlyJumped;
     bool jumpKeyHeld;
-    public static int jumpCount;
+    public static int jumpCount; // used for double jumps, not currently implemented
     public float fallForce;
     public float fallSpeedCap;
     public float startSpeed;
@@ -28,20 +28,19 @@ public class PlayerMovement : MonoBehaviour
     public float midVelocity;
     public Transform wallEndLine;
     public Transform floatLine;
-    bool touchingWall;
+    bool touchingWall; // used for wall slide animation and walljump
     int playerDirection;
     Vector2 walljumpVector;
     bool isFloating;
-    public float floatingTimer;
+    public float floatingTimer; // used for the "coyote effect", the player doesn't fall for a brief moment after running off a ledge and can jump during this time
     public float playerGravity;
     public Animator WindEffect;
-    public float wallClingTimer;
+    public float wallClingTimer; // used to make the player remain on the wall for the duration while holding away from the wall
     float setWallClingTimer;
-    public bool wallClinging;
     public bool flipOnSpawn;
     public static float playerVelocity;
-    private float airStopTimer;
-    private float jumpBuffer;
+    private float airStopTimer; // used to make the player drop straight down if they don't hold left/right in the air
+    private float jumpBuffer; // used to buffer a jump if jump is inputted before hitting the ground
 
 
 
