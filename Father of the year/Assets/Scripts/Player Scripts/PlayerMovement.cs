@@ -58,7 +58,7 @@ public class PlayerMovement : MonoBehaviour
         playerGravity = 2;
         setWallClingTimer = wallClingTimer;
         airStopTimer = .2f;
-        jumpBuffer = 0;
+        jumpBuffer = -1;
 
         if (flipOnSpawn)
         {
@@ -267,14 +267,12 @@ public class PlayerMovement : MonoBehaviour
             if (jumpBuffer > 0)
             {
                 jumpBuffer -= Time.smoothDeltaTime;
-                Debug.Log("Can jump buffer for " + jumpBuffer.ToString() + " seconds");
             }
             
 
             if (JumpDetector.OnGround && jumpBuffer > 0)
             {
                 Jump();
-                Debug.Log("Jump Buffered!");
             }
         }
     }
@@ -357,10 +355,10 @@ public class PlayerMovement : MonoBehaviour
             
             if (Mathf.Abs(moveHorizontal) >= 1)
             {
-                airStopTimer = .2f;
+                airStopTimer = .1f;
             }
 
-            if (!JumpDetector.OnGround && Mathf.Abs(moveHorizontal) < 1 && Mathf.Abs(playerBody.velocity.x) > .5 && !wallJumping && !isJumping)
+            if (!JumpDetector.OnGround && moveHorizontal == 0 && Mathf.Abs(playerBody.velocity.x) > .5 && !wallJumping)
             {
                 if (airStopTimer > 0)
                 {
@@ -368,7 +366,7 @@ public class PlayerMovement : MonoBehaviour
                 }
                 else if (airStopTimer < 0)
                 {
-                    playerBody.AddForce(-Mathf.Sign(playerBody.velocity.x) * playerSpeed * Vector2.right);
+                    playerBody.AddForce(-Mathf.Sign(playerBody.velocity.x) * 50 * Vector2.right);
                 }
             }
 
