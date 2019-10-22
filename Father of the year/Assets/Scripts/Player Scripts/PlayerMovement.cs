@@ -246,9 +246,6 @@ public class PlayerMovement : MonoBehaviour
             {
                playerBody.velocity = new Vector2 (Mathf.Clamp(playerBody.velocity.x, -2, 2), Mathf.Clamp(playerBody.velocity.y, -2, 8)) ;
             }
-
-            //Debug.Log("On Ground: " + JumpDetector.OnGround.ToString() + ", is Jumping: " + isJumping.ToString() + ", Touching Wall: " + touchingWall.ToString() + ", Wall Jumping: " + wallJumping.ToString());
-            //Debug.Log(isFloating);
         }
     }
 
@@ -297,6 +294,11 @@ public class PlayerMovement : MonoBehaviour
             {
                 jumpKeyHeld = true;
 
+                if (JumpDetector.OnGround && !recentlyJumped) // Checks to see if player is on ground before jumping
+                {
+                    Jump();
+                }
+
                 if (!JumpDetector.OnGround && touchingWall) //Walljump, can only jump if you are not holding into the wall
                 {
                     WallJump();
@@ -309,11 +311,6 @@ public class PlayerMovement : MonoBehaviour
                     jumpCount -= 1;
                 }
 
-                if (JumpDetector.OnGround && !recentlyJumped) // Checks to see if player is on ground before jumping
-                {
-                    Jump();
-                }
-
                 if (isFloating)
                 {
                     Jump();
@@ -324,6 +321,12 @@ public class PlayerMovement : MonoBehaviour
             else if (Input.GetKeyUp(KeyCode.W))
             {
                 jumpKeyHeld = false;
+            }
+
+            if (!JumpDetector.OnGround && Mathf.Abs(moveHorizontal) < 1 && Mathf.Abs(playerBody.velocity.x) > .1)
+            {
+                playerBody.AddForce(-playerDirection * new Vector2(1, 0) * playerSpeed * .5f);
+                Debug.Log("dropping");
             }
 
             //// Walljumping
