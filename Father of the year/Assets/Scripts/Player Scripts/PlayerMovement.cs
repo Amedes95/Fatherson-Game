@@ -59,6 +59,8 @@ public class PlayerMovement : MonoBehaviour
         setWallClingTimer = wallClingTimer;
         airStopTimer = .2f;
         jumpBuffer = -1;
+        jumpForce = CalculateJumpForce(playerBody.gravityScale, jumpHeight);
+        Debug.Log(jumpForce);
 
         if (flipOnSpawn)
         {
@@ -80,7 +82,6 @@ public class PlayerMovement : MonoBehaviour
         {
             moveHorizontal = Input.GetAxis("Horizontal"); // left is -1, stopped is 0, right is 1
             fallVelocity = playerBody.velocity.y;
-            jumpForce = CalculateJumpForce(playerBody.gravityScale, jumpHeight);
 
             Vector2 movementPlayer = new Vector2(moveHorizontal, 0);
 
@@ -91,7 +92,7 @@ public class PlayerMovement : MonoBehaviour
             else if (transform.localScale.x < 0)
             { playerDirection = -1; }
 
-            walljumpVector = new Vector2(-2 * playerDirection, 1);
+            walljumpVector = new Vector2(-.8f * playerDirection, 1); // tinker with this
 
             if (playerBody.velocity.y < -1)
             {
@@ -152,7 +153,7 @@ public class PlayerMovement : MonoBehaviour
             ///// Movement left and right
             if (moveHorizontal > 0f) // player is moving right
             {
-                if (Mathf.Sign(moveHorizontal) != Mathf.Sign(playerBody.velocity.x)) // this makes the character turn around quicker in the air for more control
+                if ((Mathf.Sign(moveHorizontal) != Mathf.Sign(playerBody.velocity.x)) && !recentlyJumped) // this makes the character turn around quicker in the air for more control
                 {
                     playerBody.AddForce(movementPlayer * playerSpeed * 3);
                 }
@@ -165,7 +166,7 @@ public class PlayerMovement : MonoBehaviour
             }
             if (moveHorizontal < 0f) // player is moving left
             {
-                if (Mathf.Sign(moveHorizontal) != Mathf.Sign(playerBody.velocity.x))
+                if ((Mathf.Sign(moveHorizontal) != Mathf.Sign(playerBody.velocity.x)) && !recentlyJumped)
                 {
                     playerBody.AddForce(movementPlayer * playerSpeed * 3);
                 }
@@ -203,7 +204,7 @@ public class PlayerMovement : MonoBehaviour
                 }
                 else if (Vector2.Dot(playerBody.velocity, Vector2.down) > 0) //this is new, may cause bugs
                 {
-                    //wallJumping = false;
+                    wallJumping = false;
                     floatingTimer = -1;
                 }
             }
@@ -295,9 +296,9 @@ public class PlayerMovement : MonoBehaviour
     public void WallJump()
     {
         playerBody.velocity = new Vector2(0, 0);
-        jumpFallCooldown = .5f;
+        jumpFallCooldown = .15f;
         recentlyJumped = true;
-        playerBody.AddForce(walljumpVector * WalljumpForce * 180);
+        playerBody.AddForce(walljumpVector * jumpForce * 180);
         wallJumping = true;
         isJumping = false;
         GetComponent<Animator>().SetBool("onWall", false);
