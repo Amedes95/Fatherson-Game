@@ -190,7 +190,7 @@ public class PlayerMovement : MonoBehaviour
                 }
                 else if (Vector2.Dot(playerBody.velocity, Vector2.down) > 0) //this is new, may cause bugs
                 {
-                    //isJumping = false;
+                    isJumping = false;
                     floatingTimer = -1;
                 }
             }
@@ -262,7 +262,6 @@ public class PlayerMovement : MonoBehaviour
             if (!JumpDetector.OnGround && Input.GetKeyDown(KeyCode.W) && !recentlyJumped)
             {
                 jumpBuffer = .2f;
-                Debug.Log("Buffer set");
             }
 
             if (jumpBuffer > 0)
