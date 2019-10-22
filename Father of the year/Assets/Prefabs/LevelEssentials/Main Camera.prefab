@@ -65,7 +65,7 @@ Camera:
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 7991
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 0}
   m_TargetDisplay: 0
@@ -97,8 +97,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 47c8347d6b4a84e2da01b789f231ff44, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  FocusZone: {fileID: 0}
   maxCameraSpeed: 0.2
+  cameraBounds: 0
+  minCameraBounds: {x: 0, y: 0, z: 0}
+  maxCameraBounds: {x: 0, y: 0, z: 0}
 --- !u!114 &1745692824
 MonoBehaviour:
   m_ObjectHideFlags: 0
