@@ -41,6 +41,7 @@ public class PlayerMovement : MonoBehaviour
     public static float playerVelocity;
     private float airStopTimer; // used to make the player drop straight down if they don't hold left/right in the air
     private float jumpBuffer; // used to buffer a jump if jump is inputted before hitting the ground
+    public float WalljumpForce;
 
 
 
@@ -90,7 +91,7 @@ public class PlayerMovement : MonoBehaviour
             else if (transform.localScale.x < 0)
             { playerDirection = -1; }
 
-            walljumpVector = new Vector2(-1.2f * playerDirection, 2);
+            walljumpVector = new Vector2(-2 * playerDirection, 1);
 
             if (playerBody.velocity.y < -1)
             {
@@ -99,29 +100,29 @@ public class PlayerMovement : MonoBehaviour
 
             if (touchingWall && !JumpDetector.OnGround) //Wall Slide
             {
+
                 floatingTimer = 0;
+                GetComponent<Animator>().SetBool("onWall", true);
+                isJumping = false;
 
-                if (playerBody.velocity.y < 0)
+                if (Mathf.Abs(moveHorizontal + playerDirection) > 1)
                 {
-                    GetComponent<Animator>().SetBool("onWall", true);
-                    isJumping = false;
-
-
-                    if (Mathf.Sign(moveHorizontal) == -playerDirection && (wallClingTimer > 0))
-                    {
-                        wallClingTimer -= Time.smoothDeltaTime;
-                        playerSpeed = 0;
-                    }
-                    else
-                    {
-                        playerSpeed = midSpeed;
-                        wallClingTimer = setWallClingTimer; // you were fucking it up here by resetting the value incorrectly
-                    }
-
+                    playerSpeed = 0;
+                }
+                else if (Mathf.Sign(moveHorizontal) == -playerDirection && (wallClingTimer > 0))
+                {
+                    wallClingTimer -= Time.smoothDeltaTime;
+                    playerSpeed = 0;
+                }
+                else
+                {
+                    playerSpeed = midSpeed;
+                    wallClingTimer = setWallClingTimer;
                 }
             }
             else if (!touchingWall)
             {
+                playerSpeed = midSpeed;
                 GetComponent<Animator>().SetBool("onWall", false);
             }
 
@@ -182,14 +183,13 @@ public class PlayerMovement : MonoBehaviour
 
             if (isJumping && !recentlyJumped) // counter jump force: if you release W after jumping you don't jump as high. In other words the longer you hold W the higher you jump.
             {
-                jumpBuffer = .2f;
                 if (!jumpKeyHeld && Vector2.Dot(playerBody.velocity, Vector2.up) > 0)
                 {
                     playerBody.AddForce(counterJumpForce * playerBody.mass * Vector2.down);
                 }
                 else if (Vector2.Dot(playerBody.velocity, Vector2.down) > 0) //this is new, may cause bugs
                 {
-                    isJumping = false;
+                    //isJumping = false;
                     floatingTimer = -1;
                 }
             }
@@ -203,7 +203,7 @@ public class PlayerMovement : MonoBehaviour
                 }
                 else if (Vector2.Dot(playerBody.velocity, Vector2.down) > 0) //this is new, may cause bugs
                 {
-                    wallJumping = false;
+                    //wallJumping = false;
                     floatingTimer = -1;
                 }
             }
@@ -258,9 +258,10 @@ public class PlayerMovement : MonoBehaviour
             //Below code is a jump buffer when landing on ground
             //If you press w in this time before touching ground you will still jump
 
-            if (!JumpDetector.OnGround && Input.GetKeyDown(KeyCode.W) && !isJumping && !wallJumping && !recentlyJumped)
+            if (!JumpDetector.OnGround && Input.GetKeyDown(KeyCode.W) && !recentlyJumped)
             {
                 jumpBuffer = .2f;
+                Debug.Log("Buffer set");
             }
 
             if (jumpBuffer > 0)
@@ -274,6 +275,7 @@ public class PlayerMovement : MonoBehaviour
                 Jump();
             }
         }
+        //Debug.Log(playerBody.velocity);
     }
 
     public void Jump()
@@ -293,9 +295,9 @@ public class PlayerMovement : MonoBehaviour
     public void WallJump()
     {
         playerBody.velocity = new Vector2(0, 0);
-        jumpFallCooldown = .25f;
+        jumpFallCooldown = .5f;
         recentlyJumped = true;
-        playerBody.AddForce(walljumpVector / Mathf.Sqrt(5) * jumpForce * 180);
+        playerBody.AddForce(walljumpVector * WalljumpForce * 180);
         wallJumping = true;
         isJumping = false;
         GetComponent<Animator>().SetBool("onWall", false);
@@ -352,22 +354,22 @@ public class PlayerMovement : MonoBehaviour
 
             ////Below code could cause bugs when turning around in air
             
-            if (Mathf.Abs(moveHorizontal) >= 1)
-            {
-                airStopTimer = .1f;
-            }
+            //if (Mathf.Abs(moveHorizontal) >= 1)
+            //{
+            //    airStopTimer = .1f;
+            //}
 
-            if (!JumpDetector.OnGround && moveHorizontal == 0 && Mathf.Abs(playerBody.velocity.x) > .5 && !wallJumping)
-            {
-                if (airStopTimer > 0)
-                {
-                    airStopTimer -= Time.smoothDeltaTime;
-                }
-                else if (airStopTimer < 0)
-                {
-                    playerBody.AddForce(-Mathf.Sign(playerBody.velocity.x) * 50 * Vector2.right);
-                }
-            }
+            //if (!JumpDetector.OnGround && moveHorizontal == 0 && Mathf.Abs(playerBody.velocity.x) > .5 && !wallJumping)
+            //{
+            //    if (airStopTimer > 0)
+            //    {
+            //        airStopTimer -= Time.smoothDeltaTime;
+            //    }
+            //    else if (airStopTimer < 0)
+            //    {
+            //        playerBody.AddForce(-Mathf.Sign(playerBody.velocity.x) * 50 * Vector2.right);
+            //    }
+            //}
 
             ////Above code could cause bugs when turning around in air
 
