@@ -40,6 +40,8 @@ public class PlayerMovement : MonoBehaviour
     public bool wallClinging;
     public bool flipOnSpawn;
     public static float playerVelocity;
+    private float airStopTimer;
+    private float jumpBuffer;
 
 
 
@@ -54,7 +56,9 @@ public class PlayerMovement : MonoBehaviour
         midVelocity = 5;
         floatingTimer = -1;
         playerGravity = 2;
-        setWallClingTimer = wallClingTimer; // right here is where you fucked up.  I added this.
+        setWallClingTimer = wallClingTimer;
+        airStopTimer = .2f;
+        jumpBuffer = 0;
 
         if (flipOnSpawn)
         {
@@ -179,9 +183,15 @@ public class PlayerMovement : MonoBehaviour
 
             if (isJumping && !recentlyJumped) // counter jump force: if you release W after jumping you don't jump as high. In other words the longer you hold W the higher you jump.
             {
+                jumpBuffer = .2f;
                 if (!jumpKeyHeld && Vector2.Dot(playerBody.velocity, Vector2.up) > 0)
                 {
                     playerBody.AddForce(counterJumpForce * playerBody.mass * Vector2.down);
+                }
+                else if (Vector2.Dot(playerBody.velocity, Vector2.down) > 0) //this is new, may cause bugs
+                {
+                    isJumping = false;
+                    floatingTimer = -1;
                 }
             }
 
@@ -192,12 +202,13 @@ public class PlayerMovement : MonoBehaviour
                 {
                     playerBody.AddForce(counterJumpForce / Mathf.Sqrt(2) * playerBody.mass * -Vector2.up);
                 }
+                else if (Vector2.Dot(playerBody.velocity, Vector2.down) > 0) //this is new, may cause bugs
+                {
+                    wallJumping = false;
+                    floatingTimer = -1;
+                }
             }
 
-            if (wallJumping)
-            {
-                midSpeed= 35;
-            }
             if (recentlyJumped) // timer creates a minimum jump height with counterjumpforce (without this timer tapping w makes you jump less than one block tall
             {
                 jumpFallCooldown -= Time.smoothDeltaTime;
@@ -221,11 +232,9 @@ public class PlayerMovement : MonoBehaviour
                 if (floatingTimer <= 0 || Mathf.Sign(moveHorizontal) != Mathf.Sign(playerBody.velocity.x))
                 {
                     isFloating = false;
-                    //playerBody.gravityScale = playerGravity;
                 }
                 else
                 {
-                    //playerBody.gravityScale = 0;
                     playerBody.AddForce(Vector2.up * playerBody.gravityScale * playerBody.mass * 1.15f);
                     playerBody.velocity = new Vector2(playerBody.velocity.x, 0);
                 }
@@ -245,6 +254,27 @@ public class PlayerMovement : MonoBehaviour
             if (StickyWeb.StuckInWeb)
             {
                playerBody.velocity = new Vector2 (Mathf.Clamp(playerBody.velocity.x, -2, 2), Mathf.Clamp(playerBody.velocity.y, -2, 8)) ;
+            }
+
+            //Below code is a jump buffer when landing on ground
+            //If you press w in this time before touching ground you will still jump
+
+            if (!JumpDetector.OnGround && Input.GetKeyDown(KeyCode.W) && !isJumping && !wallJumping && !recentlyJumped)
+            {
+                jumpBuffer = .2f;
+            }
+
+            if (jumpBuffer > 0)
+            {
+                jumpBuffer -= Time.smoothDeltaTime;
+                Debug.Log("Can jump buffer for " + jumpBuffer.ToString() + " seconds");
+            }
+            
+
+            if (JumpDetector.OnGround && jumpBuffer > 0)
+            {
+                Jump();
+                Debug.Log("Jump Buffered!");
             }
         }
     }
@@ -294,7 +324,7 @@ public class PlayerMovement : MonoBehaviour
             {
                 jumpKeyHeld = true;
 
-                if (JumpDetector.OnGround && !recentlyJumped) // Checks to see if player is on ground before jumping
+                if (JumpDetector.OnGround && !recentlyJumped && jumpBuffer < 0) // Checks to see if player is on ground before jumping
                 {
                     Jump();
                 }
@@ -323,11 +353,26 @@ public class PlayerMovement : MonoBehaviour
                 jumpKeyHeld = false;
             }
 
-            if (!JumpDetector.OnGround && Mathf.Abs(moveHorizontal) < 1 && Mathf.Abs(playerBody.velocity.x) > .1)
+            ////Below code could cause bugs when turning around in air
+            
+            if (Mathf.Abs(moveHorizontal) >= 1)
             {
-                playerBody.AddForce(-playerDirection * new Vector2(1, 0) * playerSpeed * .5f);
-                Debug.Log("dropping");
+                airStopTimer = .2f;
             }
+
+            if (!JumpDetector.OnGround && Mathf.Abs(moveHorizontal) < 1 && Mathf.Abs(playerBody.velocity.x) > .5 && !wallJumping && !isJumping)
+            {
+                if (airStopTimer > 0)
+                {
+                    airStopTimer -= Time.smoothDeltaTime;
+                }
+                else if (airStopTimer < 0)
+                {
+                    playerBody.AddForce(-Mathf.Sign(playerBody.velocity.x) * playerSpeed * Vector2.right);
+                }
+            }
+
+            ////Above code could cause bugs when turning around in air
 
             //// Walljumping
             WallRaycasting();
