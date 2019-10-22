@@ -26,7 +26,6 @@ public class PlayerMovement : MonoBehaviour
     public float fullSpeed;
     public static float maxVelocity;
     public float midVelocity;
-    public static bool Sprinting;
     public Transform wallEndLine;
     public Transform floatLine;
     bool touchingWall;
@@ -48,11 +47,11 @@ public class PlayerMovement : MonoBehaviour
     {
         playerBody = GetComponent<Rigidbody2D>();
         PlayerAnim = GetComponent<Animator>();
-        startSpeed = 60;
-        midSpeed = 18;
-        fullSpeed = 14; //full speed should always be less than mid speed
-        maxVelocity = 4;
-        midVelocity = 3;
+        startSpeed = 200;
+        midSpeed = 26;
+        fullSpeed = 20;
+        maxVelocity = 8;
+        midVelocity = 5;
         floatingTimer = -1;
         playerGravity = 2;
         setWallClingTimer = wallClingTimer; // right here is where you fucked up.  I added this.
@@ -93,35 +92,6 @@ public class PlayerMovement : MonoBehaviour
             if (playerBody.velocity.y < -1)
             {
                 playerBody.AddForce(new Vector2(0, -1) * fallForce);
-            }
-
-            ///// Sprinting
-            if (Sprinting)
-            {
-                PlayerAnim.SetFloat("SprintSpeed", 2);
-                if (JumpDetector.OnGround && Mathf.Abs(playerBody.velocity.x) > 4)
-                {
-                    WindEffect.SetBool("Blowing", true);
-                }
-                else
-                {
-                    WindEffect.SetBool("Blowing", false);
-                }
-                startSpeed = 200;
-                midSpeed = 26;
-                fullSpeed = 20;
-                maxVelocity = 8;
-                midVelocity = 5;
-            }
-            else if (!Sprinting)
-            {
-                PlayerAnim.SetFloat("SprintSpeed", 1);
-                WindEffect.SetBool("Blowing", false);
-                startSpeed = 60;
-                midSpeed = 18;
-                fullSpeed = 14;
-                maxVelocity = 4;
-                midVelocity = 3;
             }
 
             if (touchingWall && !JumpDetector.OnGround) //Wall Slide
@@ -354,15 +324,6 @@ public class PlayerMovement : MonoBehaviour
             else if (Input.GetKeyUp(KeyCode.W))
             {
                 jumpKeyHeld = false;
-            }
-
-            if (Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.RightShift))
-            {
-                Sprinting = true;
-            }
-            else if (Input.GetKeyUp(KeyCode.LeftShift) || Input.GetKeyUp(KeyCode.RightShift))
-            {
-                Sprinting = false;  
             }
 
             //// Walljumping
