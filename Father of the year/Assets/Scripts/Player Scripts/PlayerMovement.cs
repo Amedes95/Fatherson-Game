@@ -103,7 +103,7 @@ public class PlayerMovement : MonoBehaviour
 
             if (touchingWall && !JumpDetector.OnGround) //Wall Slide
             {
-
+                fallSpeedCap = 6;
                 floatingTimer = 0;
                 wallJumpBuffer = setWallJumpBuffer;
                 GetComponent<Animator>().SetBool("onWall", true);
@@ -117,6 +117,7 @@ public class PlayerMovement : MonoBehaviour
             }
             else if (!touchingWall)
             {
+                fallSpeedCap = 10;
                 playerSpeed = midSpeed;
                 GetComponent<Animator>().SetBool("onWall", false);
                 if (wallJumpBuffer > 0)
