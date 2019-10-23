@@ -12,6 +12,7 @@ public class Collectible : MonoBehaviour
         {
             GetComponent<Animator>().SetTrigger("Collected"); // pop
             collision.GetComponent<Collector>().FruitFromLevel += Value; // The players current fruit plus the value of the fruit obtained
+            PlayerMovement.jumpCount = 1;
         }
     }
 }
