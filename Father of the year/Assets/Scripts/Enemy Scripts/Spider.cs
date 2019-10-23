@@ -18,6 +18,9 @@ public class Spider : MonoBehaviour
     int Distance;
     bool PlayerInSight;
     bool PlayerInRange;
+    public bool flipDirection;
+    public bool randomJumpHeight;
+    float randomForceMultiplier;
 
 
     // Start is called before the first frame update
@@ -25,12 +28,16 @@ public class Spider : MonoBehaviour
     {
         Player = GameObject.FindGameObjectWithTag("Player").transform;
         SpiderAnim = gameObject.GetComponent<Animator>();
+        if (flipDirection)
+        {
+            FlipCharacter();
+        }
     }
 
     private void Update()
     {
         PlayerInRange = gameObject.GetComponentInChildren<PlayerDetector>().PlayerInRange;
-        Direction = Mathf.Sign(Player.localPosition.x - transform.localPosition.x);
+        Direction = Mathf.Sign(Player.position.x - transform.position.x);
         RaycastingFloor();
         RaycastPlayer();
 
@@ -109,8 +116,17 @@ public class Spider : MonoBehaviour
         if (TouchingFloor == true && PlayerInRange)
         {
             //Debug.Log("Hippty Hoppity");
+            if (randomJumpHeight)
+            {
+                randomForceMultiplier = Random.Range(0, 2) + 1;
+
+            }
+            else
+            {
+                randomForceMultiplier = 1;
+            }
             JumpAngle = new Vector2(Direction / 2, Mathf.Sqrt(3) / 2);
-            gameObject.GetComponent<Rigidbody2D>().AddForce(JumpAngle * JumpForce);
+            gameObject.GetComponent<Rigidbody2D>().AddForce(JumpAngle * JumpForce * randomForceMultiplier);
             SpiderAnim.SetTrigger("Hop");
         }
 
