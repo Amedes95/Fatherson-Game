@@ -35,8 +35,8 @@ public class PlayerMovement : MonoBehaviour
     public float floatingTimer; // used for the "coyote effect", the player doesn't fall for a brief moment after running off a ledge and can jump during this time
     public float playerGravity;
     public Animator WindEffect;
-    public float wallClingTimer; // used to make the player remain on the wall for the duration while holding away from the wall
-    float setWallClingTimer;
+    public float wallJumpBuffer; // used to make the player remain on the wall for the duration while holding away from the wall
+    float setWallJumpBuffer;
     public bool flipOnSpawn;
     public static float playerVelocity;
     private float airStopTimer; // used to make the player drop straight down if they don't hold left/right in the air
@@ -56,7 +56,7 @@ public class PlayerMovement : MonoBehaviour
         midVelocity = 5;
         floatingTimer = -1;
         playerGravity = 2;
-        setWallClingTimer = wallClingTimer;
+        setWallJumpBuffer = wallJumpBuffer;
         airStopTimer = .2f;
         jumpBuffer = -1;
         jumpForce = CalculateJumpForce(playerBody.gravityScale, jumpHeight);
@@ -103,28 +103,37 @@ public class PlayerMovement : MonoBehaviour
             {
 
                 floatingTimer = 0;
+                wallJumpBuffer = setWallJumpBuffer;
                 GetComponent<Animator>().SetBool("onWall", true);
                 isJumping = false;
 
-                if (Mathf.Abs(moveHorizontal + playerDirection) > 1)
+                if (Mathf.Abs(moveHorizontal + playerDirection) > 1) //this fixes the bug where the player would stop moving downwards (cling) when holding into the wall
                 {
                     playerSpeed = 0;
                 }
-                else if (Mathf.Sign(moveHorizontal) == -playerDirection && (wallClingTimer > 0))
-                {
-                    wallClingTimer -= Time.smoothDeltaTime;
-                    playerSpeed = 0;
-                }
-                else
-                {
-                    playerSpeed = midSpeed;
-                    wallClingTimer = setWallClingTimer;
-                }
+
+                // below is the wall cling logic when holding away from the wall
+                // we are scrapping this, neeed to implement a wall jump buffer when detaching from wall
+
+                //else if (Mathf.Sign(moveHorizontal) == -playerDirection && (wallJumpBuffer > 0))
+                //{
+                //    wallJumpBuffer -= Time.smoothDeltaTime;
+                //    playerSpeed = 0;
+                //}
+                //else
+                //{
+                //    playerSpeed = midSpeed;
+                //    wallJumpBuffer = setWallJumpBuffer;
+                //}
             }
             else if (!touchingWall)
             {
                 playerSpeed = midSpeed;
                 GetComponent<Animator>().SetBool("onWall", false);
+                if (wallJumpBuffer > 0)
+                {
+                    wallJumpBuffer -= Time.smoothDeltaTime;
+                }
             }
 
             if (Mathf.Abs(playerBody.velocity.x) > maxVelocity && JumpDetector.OnGround) //ground speed cap
@@ -328,7 +337,7 @@ public class PlayerMovement : MonoBehaviour
                     Jump();
                 }
 
-                if (!JumpDetector.OnGround && touchingWall) //Walljump, can only jump if you are not holding into the wall
+                if (!JumpDetector.OnGround && (touchingWall || (wallJumpBuffer > 0 && (moveHorizontal != playerDirection)))) //Walljump, can only jump if you are not holding into the wall
                 {
                     WallJump();
                 }
