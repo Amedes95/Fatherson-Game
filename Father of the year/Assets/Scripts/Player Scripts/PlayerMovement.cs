@@ -27,8 +27,10 @@ public class PlayerMovement : MonoBehaviour
     public static float maxVelocity;
     public float midVelocity;
     public Transform wallEndLine;
-    public Transform floatLine;
     bool touchingWall; // used for wall slide animation and walljump
+    public Transform backWallEndLine;
+    bool backTouchingWall;
+    public Transform floatLine;
     int playerDirection;
     Vector2 walljumpVector;
     bool isFloating;
@@ -112,19 +114,6 @@ public class PlayerMovement : MonoBehaviour
                     playerSpeed = 0;
                 }
 
-                // below is the wall cling logic when holding away from the wall
-                // we are scrapping this, neeed to implement a wall jump buffer when detaching from wall
-
-                //else if (Mathf.Sign(moveHorizontal) == -playerDirection && (wallJumpBuffer > 0))
-                //{
-                //    wallJumpBuffer -= Time.smoothDeltaTime;
-                //    playerSpeed = 0;
-                //}
-                //else
-                //{
-                //    playerSpeed = midSpeed;
-                //    wallJumpBuffer = setWallJumpBuffer;
-                //}
             }
             else if (!touchingWall)
             {
@@ -134,6 +123,11 @@ public class PlayerMovement : MonoBehaviour
                 {
                     wallJumpBuffer -= Time.smoothDeltaTime;
                 }
+            }
+
+            if (backTouchingWall && !JumpDetector.OnGround)
+            {
+                FlipCharacter();
             }
 
             if (Mathf.Abs(playerBody.velocity.x) > maxVelocity && JumpDetector.OnGround) //ground speed cap
@@ -318,6 +312,12 @@ public class PlayerMovement : MonoBehaviour
         touchingWall = Physics2D.Linecast(transform.position, wallEndLine.position, 1 << LayerMask.NameToLayer("Ground"));
     }
 
+    public void backWallRaycasting()
+    {
+        Debug.DrawLine(transform.position, backWallEndLine.position, Color.red);  // during playtime, projects a line from a start point to and end point
+        backTouchingWall = Physics2D.Linecast(transform.position, backWallEndLine.position, 1 << LayerMask.NameToLayer("Ground"));
+    }
+
     public void FlipCharacter()
     {
         transform.localScale = new Vector2(transform.localScale.x * -1, transform.localScale.y);
@@ -384,6 +384,7 @@ public class PlayerMovement : MonoBehaviour
 
             //// Walljumping
             WallRaycasting();
+            backWallRaycasting();
 
             ////Face direction of horizontal movement
             if (playerBody.velocity.x > 2f)
