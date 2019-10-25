@@ -843,7 +843,7 @@ PrefabInstance:
     - target: {fileID: 8189700698217030711, guid: a057a5e90eac2ec4b91ead49d885cec6,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 6
+      value: 20.94
       objectReference: {fileID: 0}
     - target: {fileID: 8189700698217030711, guid: a057a5e90eac2ec4b91ead49d885cec6,
         type: 3}
@@ -918,7 +918,7 @@ PrefabInstance:
     - target: {fileID: 8189700698217030710, guid: a057a5e90eac2ec4b91ead49d885cec6,
         type: 3}
       propertyPath: maxCameraBounds.y
-      value: 24
+      value: 21
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a057a5e90eac2ec4b91ead49d885cec6, type: 3}
@@ -56096,11 +56096,6 @@ PrefabInstance:
       value: 
       objectReference: {fileID: -6888096576971935384, guid: 36f00ce0552224b49a40e51aaf67b0ce,
         type: 3}
-    - target: {fileID: 159540085091271190, guid: 94ece9c099684bc4da8db7a011b652d7,
-        type: 3}
-      propertyPath: m_ChunkCullingBounds.x
-      value: 0.010416687
-      objectReference: {fileID: 0}
     - target: {fileID: 159540085091271189, guid: 94ece9c099684bc4da8db7a011b652d7,
         type: 3}
       propertyPath: m_ColliderPaths.Array.data[0].m_ColliderPaths.Array.size
@@ -60430,6 +60425,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_CompositePaths.m_Paths.Array.data[47].Array.data[3].y
       value: -0.93751
+      objectReference: {fileID: 0}
+    - target: {fileID: 159540085091271190, guid: 94ece9c099684bc4da8db7a011b652d7,
+        type: 3}
+      propertyPath: m_ChunkCullingBounds.x
+      value: 0.010416687
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 94ece9c099684bc4da8db7a011b652d7, type: 3}
