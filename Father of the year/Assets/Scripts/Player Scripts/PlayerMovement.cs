@@ -69,7 +69,6 @@ public class PlayerMovement : MonoBehaviour
             FlipCharacter();
         }
 
-
     }
 
     public static float CalculateJumpForce(float playerGravity, float jumpHeight)
