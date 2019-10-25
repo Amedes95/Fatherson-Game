@@ -26,7 +26,17 @@ public class DeathCanvas : MonoBehaviour
 
     void Update()
     {
+        var Vinny = Transition1.vignette.settings;
 
+        //// film grain stuff ////////
+        var Grainy = Transition1.grain.settings;
+        Grainy.intensity -= .03f;
+        if (Grainy.intensity <= 0f)
+        {
+            Grainy.intensity = 0f;
+        }
+        Transition1.grain.settings = Grainy;
+        //////////////////
 
 
 
@@ -41,29 +51,7 @@ public class DeathCanvas : MonoBehaviour
             {
                 ReloadScene();
             }
-        }
-        else
-        {
-            DeathMenu.SetActive(false);
-        }
 
-    }
-
-    private void FixedUpdate()
-    {
-        var Vinny = Transition1.vignette.settings;
-
-        //// film grain stuff ////////
-        var Grainy = Transition1.grain.settings;
-        Grainy.intensity -= .03f;
-        if (Grainy.intensity <= 0f)
-        {
-            Grainy.intensity = 0f;
-        }
-        Transition1.grain.settings = Grainy;
-        //////////////////
-        if (PlayerHealth.Dead)
-        {
             if (transitioning)
             {
                 Vinny.intensity += ShadowValueUp;
@@ -82,6 +70,11 @@ public class DeathCanvas : MonoBehaviour
             }
             Transition1.vignette.settings = Vinny;
         }
+        else
+        {
+            DeathMenu.SetActive(false);
+        }
+
     }
 
 
