@@ -9,11 +9,13 @@ public class Crumble : MonoBehaviour
     public float SpawnDelay; // how long it is disabled for
 
     bool Disabled;
+    bool Crumbling;
     float SpawnDelayReset;
     bool BlockingRespawn;
 
     private void Awake()
     {
+        Crumbling = false;
         SpawnDelayReset = SpawnDelay;
     }
 
@@ -21,7 +23,11 @@ public class Crumble : MonoBehaviour
     {
         if (collision.tag == "Feet" || collision.tag == "Player")
         {
-            GetComponent<Animator>().SetTrigger("Crumble");
+            if (Disabled == false && Crumbling == false)
+            {
+                GetComponent<Animator>().SetTrigger("Crumble");
+                Crumbling = true;
+            }
         }
     }
 
@@ -59,6 +65,7 @@ public class Crumble : MonoBehaviour
                 {
                     SpawnDelay = 0; // no negatives pls
                     Disabled = false;
+                    Crumbling = false;
                     SpawnDelay = SpawnDelayReset; // put it back time to the original start value
                     CrumbleChild.SetActive(true);
                     GetComponent<Animator>().SetTrigger("Respawn");
