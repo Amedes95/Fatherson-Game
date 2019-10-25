@@ -32,6 +32,27 @@ public class VictoryMenu : MonoBehaviour
 
     private void Update()
     {
+
+        ////////////////////////////////////
+
+        if (LevelComplete && transitioning == false)
+        {
+            VictoryScreen.SetActive(true);
+            if (Input.GetKeyDown(KeyCode.Space))
+            {
+                LoadNextLevel();
+                VictoryScreen.SetActive(false);
+
+            }
+        }
+        else
+        {
+            VictoryScreen.SetActive(false);
+        }
+    }
+
+    private void FixedUpdate()
+    {
         var Vinny = Transition1.vignette.settings;
 
         /// for film grain restart effect ///// 
@@ -42,20 +63,6 @@ public class VictoryMenu : MonoBehaviour
             Grainy.intensity = 0f;
         }
         Transition1.grain.settings = Grainy;
-        ////////////////////////////////////
-
-        if (LevelComplete)
-        {
-            VictoryScreen.SetActive(true);
-            if (Input.GetKeyDown(KeyCode.Space))
-            {
-                LoadNextLevel();
-            }
-        }
-        else
-        {
-            VictoryScreen.SetActive(false);
-        }
 
         // post processing transition
         if (transitioning)
