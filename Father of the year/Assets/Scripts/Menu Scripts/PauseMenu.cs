@@ -35,6 +35,7 @@ public class PauseMenu : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        var Vinny = Transition1.vignette.settings; // black wipe effect
 
         if (Input.GetKeyDown(KeyCode.Escape) && VictoryScreen.LevelComplete == false && Player.activeInHierarchy)
         {
@@ -47,11 +48,6 @@ public class PauseMenu : MonoBehaviour
                 PauseGame();
             }
         }
-    }
-
-    private void FixedUpdate()
-    {
-        var Vinny = Transition1.vignette.settings; // black wipe effect
 
         if (transitioning)
         {

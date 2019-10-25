@@ -34,7 +34,7 @@ public class Spider : MonoBehaviour
         }
     }
 
-    private void FixedUpdate()
+    private void Update()
     {
         PlayerInRange = gameObject.GetComponentInChildren<PlayerDetector>().PlayerInRange;
         Direction = Mathf.Sign(Player.position.x - transform.position.x);
