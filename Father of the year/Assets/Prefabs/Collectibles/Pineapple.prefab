@@ -115,6 +115,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Value: 5
+  Respawnable: 1
+  RespawnDelay: 5
 --- !u!58 &4878422163929141783
 CircleCollider2D:
   m_ObjectHideFlags: 0
