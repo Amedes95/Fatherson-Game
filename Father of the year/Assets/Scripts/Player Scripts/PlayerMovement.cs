@@ -279,40 +279,6 @@ public class PlayerMovement : MonoBehaviour
                 Jump();
             }
         }
-
-        //// JUMPING
-        if (Input.GetKeyDown(KeyCode.W))
-        {
-            jumpKeyHeld = true;
-
-            if (JumpDetector.OnGround && !recentlyJumped && jumpBuffer < 0) // Checks to see if player is on ground before jumping
-            {
-                Jump();
-            }
-
-            if (!JumpDetector.OnGround && (touchingWall || (wallJumpBuffer > 0 && (moveHorizontal != playerDirection)))) //Walljump, can only jump if you are not holding into the wall
-            {
-                WallJump();
-            }
-
-            if (!JumpDetector.OnGround && jumpCount > 0) //Double jump
-            {
-                playerBody.velocity = new Vector2(playerBody.velocity.x, 0);
-                Jump();
-                jumpCount -= 1;
-            }
-
-            if (isFloating)
-            {
-                Jump();
-                isFloating = false;
-            }
-
-        }
-        else if (Input.GetKeyUp(KeyCode.W))
-        {
-            jumpKeyHeld = false;
-        }
         //Debug.Log(playerBody.velocity);
     }
 
@@ -362,39 +328,39 @@ public class PlayerMovement : MonoBehaviour
     {
         if (PlayerHealth.Dead == false) // Only allow inputs if alive
         {
-            ////// JUMPING
-            //if (Input.GetKeyDown(KeyCode.W))
-            //{
-            //    jumpKeyHeld = true;
+            //// JUMPING
+            if (Input.GetKeyDown(KeyCode.W))
+            {
+                jumpKeyHeld = true;
 
-            //    if (JumpDetector.OnGround && !recentlyJumped && jumpBuffer < 0) // Checks to see if player is on ground before jumping
-            //    {
-            //        Jump();
-            //    }
+                if (JumpDetector.OnGround && !recentlyJumped && jumpBuffer < 0) // Checks to see if player is on ground before jumping
+                {
+                    Jump();
+                }
 
-            //    if (!JumpDetector.OnGround && (touchingWall || (wallJumpBuffer > 0 && (moveHorizontal != playerDirection)))) //Walljump, can only jump if you are not holding into the wall
-            //    {
-            //        WallJump();
-            //    }
+                if (!JumpDetector.OnGround && (touchingWall || (wallJumpBuffer > 0 && (moveHorizontal != playerDirection)))) //Walljump, can only jump if you are not holding into the wall
+                {
+                    WallJump();
+                }
 
-            //    if (!JumpDetector.OnGround && jumpCount > 0) //Double jump
-            //    {
-            //        playerBody.velocity = new Vector2(playerBody.velocity.x, 0);
-            //        Jump();
-            //        jumpCount -= 1;
-            //    }
+                if (!JumpDetector.OnGround && jumpCount > 0) //Double jump
+                {
+                    playerBody.velocity = new Vector2(playerBody.velocity.x, 0);
+                    Jump();
+                    jumpCount -= 1;
+                }
 
-            //    if (isFloating)
-            //    {
-            //        Jump();
-            //        isFloating = false;
-            //    }
+                if (isFloating)
+                {
+                    Jump();
+                    isFloating = false;
+                }
                 
-            //}
-            //else if (Input.GetKeyUp(KeyCode.W))
-            //{
-            //    jumpKeyHeld = false;
-            //}
+            }
+            else if (Input.GetKeyUp(KeyCode.W))
+            {
+                jumpKeyHeld = false;
+            }
 
             ////Below code could cause bugs when turning around in air
             
