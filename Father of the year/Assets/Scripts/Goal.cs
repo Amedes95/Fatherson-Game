@@ -46,7 +46,7 @@ public class Goal : MonoBehaviour
         PulsingChroma = true;
     }
 
-    private void Update()
+    private void FixedUpdate()
     {
         var Chroma = Transition1.chromaticAberration.settings;
         if (PulsingChroma)
