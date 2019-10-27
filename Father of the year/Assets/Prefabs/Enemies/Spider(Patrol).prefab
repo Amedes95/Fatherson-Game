@@ -259,6 +259,8 @@ MonoBehaviour:
   AlwaysShort: 0
   AlwaysMedium: 0
   AlwaysLong: 0
+  flipDirection: 0
+  randomJumpHeight: 0
 --- !u!58 &4862350685869066185
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -352,8 +354,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6662851851921195451}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.41656917, y: 0.14506717, z: 0}
-  m_LocalScale: {x: 3.1703854, y: 3.1703854, z: 3.1703854}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0.992661, y: 0.992661, z: 0.992661}
   m_Children: []
   m_Father: {fileID: 4862350685869066184}
   m_RootOrder: 3

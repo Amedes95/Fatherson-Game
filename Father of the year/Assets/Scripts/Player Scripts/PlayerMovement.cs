@@ -44,6 +44,7 @@ public class PlayerMovement : MonoBehaviour
     private float airStopTimer; // used to make the player drop straight down if they don't hold left/right in the air
     private float jumpBuffer; // used to buffer a jump if jump is inputted before hitting the ground
     public float WalljumpForce;
+    public Transform WallClingStart;
 
 
 
@@ -308,8 +309,8 @@ public class PlayerMovement : MonoBehaviour
 
     public void WallRaycasting()
     {
-        Debug.DrawLine(transform.position, wallEndLine.position, Color.red);  // during playtime, projects a line from a start point to and end point
-        touchingWall = Physics2D.Linecast(transform.position, wallEndLine.position, 1 << LayerMask.NameToLayer("Ground"));
+        Debug.DrawLine(WallClingStart.position, wallEndLine.position, Color.red);  // during playtime, projects a line from a start point to and end point
+        touchingWall = Physics2D.Linecast(WallClingStart.position, wallEndLine.position, 1 << LayerMask.NameToLayer("Ground"));
     }
 
     public void backWallRaycasting()

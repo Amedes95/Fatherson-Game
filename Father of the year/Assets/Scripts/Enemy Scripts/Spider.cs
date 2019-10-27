@@ -16,7 +16,7 @@ public class Spider : MonoBehaviour
     public bool AlwaysMedium;
     public bool AlwaysLong;
     int Distance;
-    bool PlayerInSight;
+    bool ViewObstructed;
     bool PlayerInRange;
     public bool flipDirection;
     public bool randomJumpHeight;
@@ -97,7 +97,7 @@ public class Spider : MonoBehaviour
     void RaycastPlayer()
     {
         Debug.DrawLine(transform.position, Player.position, Color.green);
-        PlayerInSight = Physics2D.Linecast(transform.position, Player.position, 1 << LayerMask.NameToLayer("Player"));
+        ViewObstructed = Physics2D.Linecast(transform.position, Player.position, 1 << LayerMask.NameToLayer("Ground"));
     }
 
     void RaycastingFloor()
@@ -113,7 +113,7 @@ public class Spider : MonoBehaviour
 
     public void Hop() // called during the last frame of the idle animation
     {
-        if (TouchingFloor == true && PlayerInRange)
+        if (TouchingFloor == true && PlayerInRange && !ViewObstructed)
         {
             //Debug.Log("Hippty Hoppity");
             if (randomJumpHeight)
