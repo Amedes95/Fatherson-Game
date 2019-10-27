@@ -27,16 +27,16 @@ RectTransform:
   m_GameObject: {fileID: 4284295574096999122}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 2.7186878, y: 2.7186878, z: 2.7186878}
+  m_LocalScale: {x: 2.0325997, y: 2.0325997, z: 2.0325997}
   m_Children: []
   m_Father: {fileID: 4284295574517526962}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0}
-  m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: -0.0010223, y: 8}
-  m_SizeDelta: {x: 706.22, y: 397.3}
-  m_Pivot: {x: 0.5, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 384.6, y: 85.5}
+  m_Pivot: {x: 0, y: 1}
 --- !u!222 &4284295574096999121
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -76,7 +76,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: World Text
+  m_Text: World 0-0
 --- !u!1 &4284295574145028214
 GameObject:
   m_ObjectHideFlags: 0
@@ -104,16 +104,16 @@ RectTransform:
   m_GameObject: {fileID: 4284295574145028214}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 19.158598, y: 1.6993, z: 1}
+  m_LocalScale: {x: 7.785197, y: 1.6993, z: 1}
   m_Children: []
   m_Father: {fileID: 4284295574517526962}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 433}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 100, y: 100}
-  m_Pivot: {x: 0.5, y: 0.5}
+  m_Pivot: {x: 0, y: 1}
 --- !u!222 &4284295574145028213
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -264,7 +264,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4604101df33ea7458507c2f4e531e84, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  NameToDisplay: CRAWLING IN MY SKIN
+  NameToDisplay: World 99-99
 --- !u!95 &4284295574517526963
 Animator:
   serializedVersion: 3

@@ -12,6 +12,7 @@ public class PauseMenu : MonoBehaviour
     VictoryMenu VictoryScreen;
     GameObject Player;
     GameObject DeathScreen;
+    GameObject Preloader;
 
     public PostProcessingProfile Transition1; // For film grain and black wipe effects
     bool transitioning;
@@ -26,6 +27,7 @@ public class PauseMenu : MonoBehaviour
         DeathScreen = GameObject.FindGameObjectWithTag("DeathMenu");
         VictoryScreen = GameObject.FindGameObjectWithTag("VictoryMenu").GetComponent<VictoryMenu>();
         Player = GameObject.FindGameObjectWithTag("Player");
+        Preloader = GameObject.FindGameObjectWithTag("Preloader");
         var Blurry = Transition1.depthOfField.settings;
         Blurry.focalLength = 0f;
         Transition1.depthOfField.settings = Blurry;
@@ -108,6 +110,7 @@ public class PauseMenu : MonoBehaviour
         DeathScreen.SetActive(false);
         VictoryScreen.gameObject.SetActive(false);
         PauseScreen.SetActive(false);
+        Preloader.SetActive(false);
 
     }
 
@@ -115,5 +118,6 @@ public class PauseMenu : MonoBehaviour
     {
         Time.timeScale = 1f;
         SceneManager.LoadScene("MainMenu");
+        Preloader.SetActive(false);
     }
 }
