@@ -40,7 +40,7 @@ public class PlayerMovement : MonoBehaviour
     public float wallJumpBuffer; // used to make the player remain on the wall for the duration while holding away from the wall
     float setWallJumpBuffer;
     public bool flipOnSpawn;
-    public static float playerVelocity;
+    public static Vector2 playerVelocity;
     private float airStopTimer; // used to make the player drop straight down if they don't hold left/right in the air
     private float jumpBuffer; // used to buffer a jump if jump is inputted before hitting the ground
     public float WalljumpForce;
@@ -87,7 +87,7 @@ public class PlayerMovement : MonoBehaviour
 
             Vector2 movementPlayer = new Vector2(moveHorizontal, 0);
 
-            playerVelocity = playerBody.velocity.magnitude;
+            playerVelocity = playerBody.velocity;
 
             if (transform.localScale.x > 0)
             { playerDirection = 1; }
