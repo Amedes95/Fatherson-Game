@@ -11,6 +11,7 @@ public class CameraFollower : MonoBehaviour
     public bool cameraBounds;
     public Vector3 minCameraBounds;
     public Vector3 maxCameraBounds;
+    bool cameraMoving;
 
     // Start is called before the first frame update
     void Start()
@@ -20,11 +21,25 @@ public class CameraFollower : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
-        CameraSpeed = Mathf.Min(PlayerMovement.playerVelocity / PlayerMovement.maxVelocity * maxCameraSpeed + .05f, maxCameraSpeed);
-        FocusZoneFix = new Vector3(FocusZone.transform.position.x, FocusZone.transform.position.y, -10f);
-        transform.position = Vector3.MoveTowards(transform.position, FocusZoneFix, CameraSpeed);
+        CameraSpeed = Mathf.Min(PlayerMovement.playerVelocity / PlayerMovement.maxVelocity * maxCameraSpeed + .05f, maxCameraSpeed); // This scales the speed the camera moves towards the focus zone according to player velocity.
+        FocusZoneFix = new Vector3(FocusZone.transform.position.x, FocusZone.transform.position.y, -10f); // This has (x,y) coordinates of the focus zone with the proper z value (-10) for the camera. The camera bugs out if it's z position is not -10
+
+        if (Vector3.Magnitude(FocusZoneFix - transform.position) > 10)
+        {
+            cameraMoving = true;
+        }
+        else if (Vector3.Magnitude(FocusZoneFix - transform.position) < .5f)
+        {
+            cameraMoving = false;
+        }
+
+        if (cameraMoving)
+        {
+            transform.position = Vector3.MoveTowards(transform.position, FocusZoneFix, CameraSpeed);
+        } 
+            Debug.Log(Vector3.Magnitude(FocusZoneFix - transform.position));
 
         if (cameraBounds)
         {
