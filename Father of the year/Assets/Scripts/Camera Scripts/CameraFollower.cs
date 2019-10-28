@@ -9,16 +9,20 @@ public class CameraFollower : MonoBehaviour
     public float maxCameraSpeed;
     public float maxDistanceFromPlayer;
     Vector3 FocusZoneFix;
+    public int cameraZoom;
     public bool cameraBounds;
     public Vector3 minCameraBounds;
     public Vector3 maxCameraBounds;
     bool cameraMoving;
+    private Camera cameraComponent;
 
     // Start is called before the first frame update
     void Start()
     {
         FocusZone = GameObject.FindGameObjectWithTag("FocusZone");
         transform.position = new Vector3(FocusZone.transform.position.x, FocusZone.transform.position.y, -10f);
+        cameraComponent = gameObject.GetComponent<Camera>();
+        cameraComponent.orthographicSize = cameraZoom;
     }
 
     // Update is called once per frame

@@ -63,7 +63,6 @@ public class PlayerMovement : MonoBehaviour
         airStopTimer = .2f;
         jumpBuffer = -1;
         jumpForce = CalculateJumpForce(playerBody.gravityScale, jumpHeight);
-        Debug.Log(jumpForce);
 
         if (flipOnSpawn)
         {
@@ -282,7 +281,6 @@ public class PlayerMovement : MonoBehaviour
                 Jump();
             }
         }
-        //Debug.Log(playerBody.velocity);
     }
 
     public void Jump()
