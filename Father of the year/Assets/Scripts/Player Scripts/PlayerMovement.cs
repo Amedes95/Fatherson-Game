@@ -409,6 +409,3 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 }
-
-// potential corner stuck bug fix -
-// if player is on ground, |movehorizontal| is > 0, player is not touching a wall, playervelocity < epsilon, apply small upwards force to bump over corners
