@@ -105,14 +105,17 @@ public class PlayerMovement : MonoBehaviour
             {
                 fallSpeedCap = 6;
                 floatingTimer = 0;
-                wallJumpBuffer = setWallJumpBuffer;
                 GetComponent<Animator>().SetBool("onWall", true);
                 isJumping = false;
+
+                wallJumpBuffer = setWallJumpBuffer;
 
                 if (Mathf.Abs(moveHorizontal + playerDirection) > 1) //this fixes the bug where the player would stop moving downwards (cling) when holding into the wall
                 {
                     playerSpeed = 0;
                 }
+                else
+                { playerSpeed = midSpeed; }
 
             }
             else if (!touchingWall)
