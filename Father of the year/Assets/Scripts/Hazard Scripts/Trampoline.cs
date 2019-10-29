@@ -15,8 +15,6 @@ public class Trampoline : MonoBehaviour
         isBonking = false;
         gameObject.transform.eulerAngles = new Vector3(0, 0, rotation);
         rotationVector = new Vector2(Mathf.Cos(Mathf.PI/180 * (rotation + 90)), Mathf.Sin(Mathf.PI / 180 * (rotation + 90)));
-        Debug.Log(rotationVector);
-
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
