@@ -8,12 +8,16 @@ public class BonkableHead : MonoBehaviour
     bool isBonking;
     public bool Killable;
     bool isEnemy;
+    public float rotation; //only use this on springs, not enemies
+    Vector2 rotationVector;
 
 
     public void Awake()
     {
-        //playerBody = GetComponentInParent<Rigidbody2D>(); // trying to destructure
         isBonking = false;
+        gameObject.transform.parent.transform.eulerAngles = new Vector3 (0, 0, rotation);
+        rotationVector = new Vector2(Mathf.Cos(rotation), Mathf.Sin(rotation));
+
         if (gameObject.transform.parent.tag == "Enemy" || gameObject.transform.parent.tag == "Sleeper")
         {
             isEnemy = true;
@@ -42,7 +46,7 @@ public class BonkableHead : MonoBehaviour
                 }
                 collision.GetComponentInParent<Rigidbody2D>().velocity =
                     new Vector2(collision.GetComponentInParent<Rigidbody2D>().velocity.x, 0);
-                collision.GetComponentInParent<Rigidbody2D>().AddForce(Vector2.up * BonkForce * 180);
+                collision.GetComponentInParent<Rigidbody2D>().AddForce(rotationVector * BonkForce * 180);
                 isBonking = true;
                 //collision.GetComponentInParent<Rigidbody2D>().AddForce(Vector2.up * PlayerMovement.jumpForce * 180);
                 if (gameObject.tag == "Trampoline")
