@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Trampoline : MonoBehaviour
 {
-    public float BonkForce; // this should match jumpForce in PlayerMovement for consistency
+    float BonkForce; // this should match jumpForce in PlayerMovement for consistency
     bool isBonking;
     public float rotation; //only use this on springs, not enemies
     Vector2 rotationVector;
