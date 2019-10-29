@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BlowMe : MonoBehaviour
+public class FanScript : MonoBehaviour
 {
 
     Vector2 fanPosition;

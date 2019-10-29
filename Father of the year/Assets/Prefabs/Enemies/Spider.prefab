@@ -182,7 +182,7 @@ GameObject:
   - component: {fileID: 9023562269632422836}
   m_Layer: 0
   m_Name: Spider
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -389,6 +389,8 @@ MonoBehaviour:
   AlwaysShort: 0
   AlwaysMedium: 0
   AlwaysLong: 0
+  flipDirection: 0
+  randomJumpHeight: 0
 --- !u!50 &9023562269993795411
 Rigidbody2D:
   serializedVersion: 4
@@ -470,8 +472,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9bd21f1d72c167146a08551fd0a1fe0f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  BounceHeight: 0
-  BonkBounceSpeed: 0
+  Killable: 0
 --- !u!61 &9023562270099898473
 BoxCollider2D:
   m_ObjectHideFlags: 0

@@ -26,6 +26,7 @@ public class PlayerMovement : MonoBehaviour
     public float fullSpeed;
     public static float maxVelocity;
     public float midVelocity;
+    public Transform WallClingStart;
     public Transform wallEndLine;
     bool touchingWall; // used for wall slide animation and walljump
     public Transform backWallEndLine;
@@ -43,10 +44,6 @@ public class PlayerMovement : MonoBehaviour
     public static Vector2 playerVelocity;
     private float airStopTimer; // used to make the player drop straight down if they don't hold left/right in the air
     private float jumpBuffer; // used to buffer a jump if jump is inputted before hitting the ground
-    public float WalljumpForce;
-    public Transform WallClingStart;
-
-
 
     void Awake()
     {

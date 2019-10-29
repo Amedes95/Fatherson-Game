@@ -98,6 +98,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   BounceHeight: 90
   BonkBounceSpeed: 0
+  Killable: 0
 --- !u!61 &5715686377870296878
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -120,7 +121,7 @@ BoxCollider2D:
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
-  m_AutoTiling: 0
+  m_AutoTiling: 1
   serializedVersion: 2
   m_Size: {x: 0.27, y: 0.05}
   m_EdgeRadius: 0

@@ -467,8 +467,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9bd21f1d72c167146a08551fd0a1fe0f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  BounceHeight: 0
-  BonkBounceSpeed: 0
+  Killable: 0
 --- !u!61 &5926888383836259246
 BoxCollider2D:
   m_ObjectHideFlags: 0

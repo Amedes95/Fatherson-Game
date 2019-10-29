@@ -134,8 +134,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9bd21f1d72c167146a08551fd0a1fe0f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  BounceHeight: 100
-  BonkBounceSpeed: 10
   Killable: 1
 --- !u!61 &1977417751
 BoxCollider2D:
@@ -209,7 +207,7 @@ GameObject:
   - component: {fileID: 2636196673049084163}
   m_Layer: 11
   m_Name: Cobra
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
