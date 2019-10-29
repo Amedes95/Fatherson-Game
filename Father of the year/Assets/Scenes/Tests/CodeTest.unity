@@ -5064,11 +5064,16 @@ PrefabInstance:
         type: 3}
       propertyPath: FocusZone
       value: 
-      objectReference: {fileID: 1901682554}
+      objectReference: {fileID: 0}
     - target: {fileID: 8189700698217030710, guid: a057a5e90eac2ec4b91ead49d885cec6,
         type: 3}
       propertyPath: cameraBounds
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8189700698217030710, guid: a057a5e90eac2ec4b91ead49d885cec6,
+        type: 3}
+      propertyPath: cameraZoom
+      value: 9
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a057a5e90eac2ec4b91ead49d885cec6, type: 3}
@@ -7970,12 +7975,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 54f36ee8c7e32f14abf63ffee70bb707, type: 3}
---- !u!1 &1901682554 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1901682554, guid: b5bdddb827a561143a0adac71f74a341,
-    type: 3}
-  m_PrefabInstance: {fileID: 594697090}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &2020357079
 PrefabInstance:
   m_ObjectHideFlags: 0
