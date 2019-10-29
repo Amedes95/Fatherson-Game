@@ -28,7 +28,7 @@ public class Trampoline : MonoBehaviour
             {
                 BonkForce = PlayerMovement.jumpForce;
 
-                collision.GetComponentInParent<Rigidbody2D>().velocity = new Vector2(0, 0);
+                collision.GetComponentInParent<Rigidbody2D>().velocity = rotationVector;
                 collision.GetComponentInParent<Rigidbody2D>().AddForce(rotationVector * BonkForce * 180);
                 isBonking = true;
                 //collision.GetComponentInParent<Rigidbody2D>().AddForce(Vector2.up * PlayerMovement.jumpForce * 180);
