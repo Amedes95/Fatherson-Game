@@ -35,7 +35,7 @@ public class CameraFollower : MonoBehaviour
         {
             cameraMoving = true;
         }
-        else if (Vector3.Magnitude(FocusZoneFix - transform.position) < .01f
+        else if (Vector3.Magnitude(FocusZoneFix - transform.position) < 1f
             //&& PlayerMovement.playerVelocity.magnitude < .01f
             )
         {
