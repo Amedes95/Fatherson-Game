@@ -9,6 +9,8 @@ public class MainMenu : MonoBehaviour
 
     public GameObject MenuScreen;
     public GameObject SettingsMenu;
+    public GameObject ConfirmationMenu;
+    public GameObject TitleText;
 
     public void LoadWorldHub() // Loads world hub scene
     {
@@ -32,9 +34,29 @@ public class MainMenu : MonoBehaviour
         SettingsMenu.SetActive(false);
     }
 
-    public void WipeProgress()
+    public void AskConfirmation()
+    {
+        SettingsMenu.SetActive(false);
+        ConfirmationMenu.SetActive(true);
+        TitleText.SetActive(false);
+    }
+
+    public void DenyConfirmation()
+    {
+        ConfirmationMenu.SetActive(false);
+        SettingsMenu.SetActive(true);
+        TitleText.SetActive(true);
+
+    }
+
+    public void ConfirmProgressWipe()
     {
         PlayerPrefs.DeleteAll();
+        ConfirmationMenu.SetActive(false);
+        SettingsMenu.SetActive(true);
+        TitleText.SetActive(true);
+
     }
+
 
 }
