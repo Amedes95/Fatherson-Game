@@ -350,6 +350,7 @@ public class PlayerMovement : MonoBehaviour
 
                 if (isFloating)
                 {
+                    playerBody.velocity = new Vector2(playerBody.velocity.x, 4);
                     Jump();
                     isFloating = false;
                 }
