@@ -10,17 +10,22 @@ public class FanScript : MonoBehaviour
     float playerDistance;
     public float fanConstant;
     float fanStrength;
+    public float rotation;
+    Vector2 rotationVector;
 
     // Start is called before the first frame update
     void Start()
     {
         fanPosition = transform.position;
+        gameObject.transform.rotation = new Quaternion(0, 0, 0, 0);
+        gameObject.transform.eulerAngles = new Vector3(0, 0, rotation);
+        rotationVector = new Vector2(Mathf.Cos(Mathf.Deg2Rad * (rotation + 90)), Mathf.Sin(Mathf.Deg2Rad * (rotation + 90)));
     }
 
     // Update is called once per frame
     void Update()
     {
-
+        Debug.Log(rotationVector);
 
     }
 
@@ -28,7 +33,6 @@ public class FanScript : MonoBehaviour
     {
         playerDistance = playerPosition.y - fanPosition.y;
         fanStrength = 1 / (1 + playerDistance) * fanConstant;
-        Debug.Log((1 + playerDistance));
     }
 
     private void OnTriggerStay2D(Collider2D collision)
@@ -37,7 +41,7 @@ public class FanScript : MonoBehaviour
         {
             playerPosition = collision.transform.position;
             CalculateFanStrength();
-            collision.attachedRigidbody.AddForce(Vector2.up * (fanStrength * collision.attachedRigidbody.mass));
+            collision.attachedRigidbody.AddForce(rotationVector * (fanStrength * collision.attachedRigidbody.mass));
         }
     }
 }

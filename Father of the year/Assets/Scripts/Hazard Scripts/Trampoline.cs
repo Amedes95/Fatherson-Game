@@ -6,16 +6,16 @@ public class Trampoline : MonoBehaviour
 {
     float BonkForce; // this should match jumpForce in PlayerMovement for consistency
     bool isBonking;
-    public float rotation; //only use this on springs, not enemies
+    public float rotation; // this should match the inputted value for transform.rotation.z
     Vector2 rotationVector;
 
 
     public void Awake()
     {
-        rotation = gameObject.transform.rotation.z;
+        gameObject.transform.rotation = new Quaternion(0, 0, 0, 0);
+        gameObject.transform.eulerAngles = new Vector3 (0, 0, rotation);
         isBonking = false;
-        rotationVector = new Vector2(Mathf.Cos(rotation + 90), Mathf.Sin(rotation + 90));
-        Debug.Log(rotation);
+        rotationVector = new Vector2(Mathf.Cos(Mathf.Deg2Rad * (rotation + 90)), Mathf.Sin(Mathf.Deg2Rad * (rotation + 90)));
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
