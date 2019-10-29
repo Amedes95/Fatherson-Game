@@ -7,7 +7,7 @@ public class CameraFollower : MonoBehaviour
     private GameObject FocusZone;
     float CameraSpeed;
     public float maxCameraSpeed;
-    public float maxDistanceFromPlayer;
+    //public float maxDistanceFromPlayer;
     Vector3 FocusZoneFix;
     public int cameraZoom;
     public bool cameraBounds;
