@@ -19,7 +19,7 @@ public class CameraFollower : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        FocusZone = GameObject.FindGameObjectWithTag("FocusZone");
+        FocusZone = GameObject.FindGameObjectWithTag("Player");
         transform.position = new Vector3(FocusZone.transform.position.x, FocusZone.transform.position.y, -10f);
         cameraComponent = gameObject.GetComponent<Camera>();
         cameraComponent.orthographicSize = cameraZoom;

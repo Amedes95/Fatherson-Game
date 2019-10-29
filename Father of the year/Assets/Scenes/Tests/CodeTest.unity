@@ -5065,6 +5065,11 @@ PrefabInstance:
       propertyPath: FocusZone
       value: 
       objectReference: {fileID: 1901682554}
+    - target: {fileID: 8189700698217030710, guid: a057a5e90eac2ec4b91ead49d885cec6,
+        type: 3}
+      propertyPath: cameraBounds
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a057a5e90eac2ec4b91ead49d885cec6, type: 3}
 --- !u!1 &1692848442
