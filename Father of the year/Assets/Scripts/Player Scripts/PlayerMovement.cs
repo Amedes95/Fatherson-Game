@@ -350,7 +350,7 @@ public class PlayerMovement : MonoBehaviour
 
                 if (isFloating)
                 {
-                    playerBody.velocity = new Vector2(playerBody.velocity.x, 4);
+                    playerBody.velocity = new Vector2(playerBody.velocity.x, 4); // this makes the jump height consistent with grounded jumps. If this is not enabled, floating jumps are about 5/6ths of regular jumps
                     Jump();
                     isFloating = false;
                 }
