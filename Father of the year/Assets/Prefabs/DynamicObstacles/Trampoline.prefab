@@ -10,10 +10,9 @@ GameObject:
   m_Component:
   - component: {fileID: 5715686377870296880}
   - component: {fileID: 5715686377870296881}
-  - component: {fileID: 5715686377870296882}
   - component: {fileID: 5715686377870296878}
-  - component: {fileID: 5715686377870296879}
   - component: {fileID: 5715686377870296877}
+  - component: {fileID: 1068716396841202609}
   m_Layer: 0
   m_Name: Trampoline
   m_TagString: Trampoline
@@ -84,21 +83,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &5715686377870296882
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5715686377870296883}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9bd21f1d72c167146a08551fd0a1fe0f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  BounceHeight: 90
-  BonkBounceSpeed: 0
-  Killable: 0
 --- !u!61 &5715686377870296878
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -125,32 +109,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.27, y: 0.05}
   m_EdgeRadius: 0
---- !u!61 &5715686377870296879
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5715686377870296883}
-  m_Enabled: 0
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: -0.0049351156, y: -0.09162304}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.28, y: 0.28}
-    newSize: {x: 0.28, y: 0.28}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 0.23244226, y: 0.096753925}
-  m_EdgeRadius: 0
 --- !u!95 &5715686377870296877
 Animator:
   serializedVersion: 3
@@ -170,3 +128,18 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &1068716396841202609
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5715686377870296883}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d7a657a4781b84b5fa9d24383d263750, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  BonkForce: 0
+  Killable: 0
+  rotation: 0
