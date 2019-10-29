@@ -4,10 +4,8 @@ using UnityEngine;
 
 public class JumpDetector : MonoBehaviour
 {
-
     public static bool OnGround;
     GameObject Player;
-
     private void Awake()
     {
         Player = GameObject.FindGameObjectWithTag("Player");
@@ -28,6 +26,7 @@ public class JumpDetector : MonoBehaviour
 
         }
     }
+
 
     private void OnTriggerExit2D(Collider2D collision)
     {

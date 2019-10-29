@@ -45,6 +45,10 @@ public class PlayerMovement : MonoBehaviour
     private float airStopTimer; // used to make the player drop straight down if they don't hold left/right in the air
     private float jumpBuffer; // used to buffer a jump if jump is inputted before hitting the ground
 
+
+    //////// Stuff used here is for particle systems
+    public ParticleSystem DustKickup;
+
     void Awake()
     {
         playerBody = GetComponent<Rigidbody2D>();
@@ -99,6 +103,7 @@ public class PlayerMovement : MonoBehaviour
 
             if (touchingWall && !JumpDetector.OnGround) //Wall Slide
             {
+                CreateDust();
                 fallSpeedCap = 6;
                 floatingTimer = 0;
                 GetComponent<Animator>().SetBool("onWall", true);
@@ -292,6 +297,8 @@ public class PlayerMovement : MonoBehaviour
         PlayerAnim.SetTrigger("Jump");
         isJumping = true;
         wallJumping = false;
+        CreateDust();
+
     }
 
     public void WallJump()
@@ -303,6 +310,8 @@ public class PlayerMovement : MonoBehaviour
         wallJumping = true;
         isJumping = false;
         GetComponent<Animator>().SetBool("onWall", false);
+        CreateDust();
+
     }
 
     public void WallRaycasting()
@@ -320,6 +329,10 @@ public class PlayerMovement : MonoBehaviour
     public void FlipCharacter()
     {
         transform.localScale = new Vector2(transform.localScale.x * -1, transform.localScale.y);
+        if (JumpDetector.OnGround && !touchingWall)
+        {
+            CreateDust();
+        }
     }
 
     private void Update()
@@ -403,5 +416,10 @@ public class PlayerMovement : MonoBehaviour
                 }
             }
         }
+    }
+
+    void CreateDust()
+    {
+        DustKickup.Play();
     }
 }
