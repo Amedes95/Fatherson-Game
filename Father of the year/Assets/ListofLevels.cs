@@ -6,4 +6,6 @@ public class ListofLevels : MonoBehaviour
 {
     public List<GameObject> LevelsWithinWorld;
 
+    public int CurrentIndex;
+
 }

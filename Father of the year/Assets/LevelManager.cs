@@ -43,90 +43,47 @@ public class LevelManager : MonoBehaviour
         ActiveWorld = WorldsList[WorldIndex];
 
         //// Shifts levels back and forth
-        if (Input.GetKeyDown(KeyCode.A) && StartOfList == false)
+        if (Input.GetKeyDown(KeyCode.A))
         {
-            ActiveWorld.transform.Translate(Vector3.right * ShiftDistance);
-            LevelIndex--;
-            if (LevelIndex < 0)
+            if (LevelIndex > 0)
             {
-                LevelIndex = 0;
+                ActiveWorld.transform.Translate(Vector3.right * ShiftDistance);
+                LevelIndex--;
             }
             Debug.Log(LevelIndex);
+            ActiveWorld.GetComponent<ListofLevels>().CurrentIndex = LevelIndex;
         }
-        else if (Input.GetKeyDown(KeyCode.D) && EndOfList == false)
+        else if (Input.GetKeyDown(KeyCode.D))
         {
-            ActiveWorld.transform.Translate(Vector3.left * ShiftDistance);
-            LevelIndex++;
-            if (LevelIndex > ActiveWorld.GetComponent<ListofLevels>().LevelsWithinWorld.Count - 1)
+            if (LevelIndex < ActiveWorld.GetComponent<ListofLevels>().LevelsWithinWorld.Count - 1)
             {
-                LevelIndex = ActiveWorld.GetComponent<ListofLevels>().LevelsWithinWorld.Count - 1;
+                ActiveWorld.transform.Translate(Vector3.left * ShiftDistance);
+                LevelIndex++;
             }
             Debug.Log(LevelIndex);
+            ActiveWorld.GetComponent<ListofLevels>().CurrentIndex = LevelIndex;
+
         }
 
         //// Shifts world indexer up and down
         if (Input.GetKeyDown(KeyCode.W)) // move down a world
         {
-            WorldIndex--;
-            LevelIndex = 0; // reset level index and position
-            ActiveWorld.transform.position = new Vector3(0, ActiveWorld.transform.position.y, 0);
-            EndOfList = false;
-            StartOfList = false;
-
-            if (WorldIndex < 0)
+            if (WorldIndex > 0)
             {
-                WorldIndex = 0;
+                WorldIndex--;
             }
             Debug.Log(WorldIndex);
 
         }
         else if (Input.GetKeyDown(KeyCode.S)) // moves up
         {
-            WorldIndex++;
-            LevelIndex = 0; // reset level index and position
-            ActiveWorld.transform.position = new Vector3(0, ActiveWorld.transform.position.y, 0);
-            EndOfList = false;
-            StartOfList = false;
-
-
-            if (WorldIndex > WorldsList.Count - 1)
+            if (WorldIndex < WorldsList.Count - 1)
             {
-                WorldIndex = WorldsList.Count - 1;
+                WorldIndex++;
             }
             Debug.Log(WorldIndex);
         }
-
-
-        // stops indexer from going too far right
-        if (LevelIndex == ActiveWorld.GetComponent<ListofLevels>().LevelsWithinWorld.Count - 1)
-        {
-            EndOfList = true;
-        }
-        else if (LevelIndex == 0) // too far left
-        {
-            StartOfList = true;
-        }
-        else
-        {
-            EndOfList = false;
-            StartOfList = false;
-        }
-
-
-        // stops world indexer from going too far down 
-        if (WorldIndex == ActiveWorld.GetComponent<ListofLevels>().LevelsWithinWorld.Count - 1)
-        {
-            EndOfWorldList = true;
-        }
-        else if (WorldIndex == 0) // too far up
-        {
-            StartOfWorldList = true;
-        }
-        else
-        {
-            EndOfWorldList = false;
-            StartOfWorldList = false;
-        }
+        LevelIndex = ActiveWorld.GetComponent<ListofLevels>().CurrentIndex;
 
 
         // updates text on screen
@@ -135,11 +92,12 @@ public class LevelManager : MonoBehaviour
 
 
         // moves camera and selection box to active level
-        //Camera.transform.position = new Vector3(0, ActiveWorld.transform.position.y, -10);
         Vector3 NewPos = new Vector3(0, ActiveWorld.transform.position.y, -10);
         Camera.transform.position = Vector3.MoveTowards(Camera.transform.position, NewPos, .5f);
         SelectionBox.transform.position = new Vector3(0, ActiveWorld.transform.position.y, 0);
 
+
+        // loads scene when space is press and camera is at new pos
         if (Input.GetKeyDown(KeyCode.Space) && Camera.transform.position == NewPos)
         {
             SceneManager.LoadScene(ActiveWorld.GetComponent<ListofLevels>().LevelsWithinWorld[LevelIndex].GetComponent<LevelInfo>().SceneToLoad);
