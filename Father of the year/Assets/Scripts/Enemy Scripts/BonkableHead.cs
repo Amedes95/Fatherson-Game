@@ -10,6 +10,8 @@ public class BonkableHead : MonoBehaviour
     bool isEnemy;
     //public float rotation; //only use this on springs, not enemies
     //Vector2 rotationVector;
+    public GameObject DeathParticles;
+    public static GameObject DeathPartclesClone;
 
 
     public void Awake()
@@ -55,6 +57,7 @@ public class BonkableHead : MonoBehaviour
                 }
                 if (Killable)  // kill when bonked
                 {
+                    SpawnDeathParticles();
                     Destroy(gameObject.transform.parent.gameObject);
                 }
             }
@@ -68,5 +71,11 @@ public class BonkableHead : MonoBehaviour
         { 
             isBonking = false;
         }
+    }
+
+    public void SpawnDeathParticles()
+    {
+        DeathPartclesClone = Instantiate(DeathParticles, gameObject.transform.position, Quaternion.identity);
+        //DeathParticles.Play();
     }
 }

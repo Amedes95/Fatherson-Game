@@ -27,7 +27,7 @@ Transform:
   m_GameObject: {fileID: 4862350684365054488}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -0.0082, y: -0.0246, z: 0}
-  m_LocalScale: {x: 0.1358515, y: 0.1358515, z: 0.1358515}
+  m_LocalScale: {x: 0.09658227, y: 0.09658227, z: 0.09658227}
   m_Children: []
   m_Father: {fileID: 4862350685869066184}
   m_RootOrder: 1
@@ -104,7 +104,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9bd21f1d72c167146a08551fd0a1fe0f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Killable: 0
+  Killable: 1
+  DeathParticles: {fileID: 9012351662596608965, guid: 02b77112a40cb7f49b423d42b3b5fd7f,
+    type: 3}
 --- !u!61 &4862350685806327194
 BoxCollider2D:
   m_ObjectHideFlags: 0
