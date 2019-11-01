@@ -13,7 +13,7 @@ public class JumpDetector : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.tag == "Feet")
+        if (collision.tag == "Feet" && PlayerMovement.playerVelocity.y < -6)
         {
             collision.GetComponentInParent<PlayerMovement>().jumpAudioBox.playLandingSound();
         }
