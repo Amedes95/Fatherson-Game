@@ -11,11 +11,19 @@ public class Goal : MonoBehaviour
     public PostProcessingProfile Transition1;
     bool PulsingChroma;
     bool Rising;
+    float BestTime;
 
+
+
+    bool SpeedRunning;
+    public float CompletionTime;
 
     // Start is called before the first frame update
     void Awake()
     {
+        BestTime = PlayerPrefs.GetFloat(SceneManager.GetActiveScene().name);
+        SpeedRunning = true;
+        CompletionTime = 0f;
         PulsingChroma = false;
         VictoryScreen = GameObject.FindGameObjectWithTag("VictoryMenu").GetComponent<VictoryMenu>();
         VictoryScreen.LevelComplete = false;
@@ -29,11 +37,29 @@ public class Goal : MonoBehaviour
     {
         if (collision.tag == "Player")
         {
-            PlayerPrefs.SetInt(SceneManager.GetActiveScene().name, 1); // level beaten
             collision.GetComponent<Collector>().AddToFruitStash();
             collision.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeAll;
             gameObject.GetComponent<Animator>().SetTrigger("Complete");
             collision.gameObject.SetActive(false);
+
+            ////// Compare best time with completion time for records
+            SpeedRunning = false; // stop timer
+            if (PlayerPrefs.GetFloat(SceneManager.GetActiveScene().name) == 0f) // if its your first run
+            {
+                PlayerPrefs.SetFloat(SceneManager.GetActiveScene().name, (float) CompletionTime); // update playerprefs with your best time!
+                Debug.Log("First timer" + PlayerPrefs.GetFloat(SceneManager.GetActiveScene().name));
+            }
+            else if (PlayerPrefs.GetFloat(SceneManager.GetActiveScene().name) != 0f) // did you do better?
+            {
+                if (CompletionTime < BestTime)
+                {
+                    PlayerPrefs.SetFloat(SceneManager.GetActiveScene().name, (float)CompletionTime); // update playerprefs with your new best time!
+                    Debug.Log("New record" + PlayerPrefs.GetFloat(SceneManager.GetActiveScene().name));
+                }
+
+            }
+
+
         }
     }
 
@@ -86,5 +112,13 @@ public class Goal : MonoBehaviour
 
         }
 
+    }
+
+    private void FixedUpdate()
+    {
+        if (SpeedRunning)
+        {
+            CompletionTime += Time.smoothDeltaTime;
+        }
     }
 }

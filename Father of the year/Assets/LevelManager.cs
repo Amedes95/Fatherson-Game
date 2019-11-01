@@ -50,7 +50,7 @@ public class LevelManager : MonoBehaviour
                 ActiveWorld.transform.Translate(Vector3.right * ShiftDistance);
                 LevelIndex--;
             }
-            Debug.Log(LevelIndex);
+            //Debug.Log(LevelIndex);
             ActiveWorld.GetComponent<ListofLevels>().CurrentIndex = LevelIndex;
         }
         else if (Input.GetKeyDown(KeyCode.D))
@@ -60,7 +60,7 @@ public class LevelManager : MonoBehaviour
                 ActiveWorld.transform.Translate(Vector3.left * ShiftDistance);
                 LevelIndex++;
             }
-            Debug.Log(LevelIndex);
+            //Debug.Log(LevelIndex);
             ActiveWorld.GetComponent<ListofLevels>().CurrentIndex = LevelIndex;
 
         }
@@ -72,7 +72,7 @@ public class LevelManager : MonoBehaviour
             {
                 WorldIndex--;
             }
-            Debug.Log(WorldIndex);
+            //Debug.Log(WorldIndex);
 
         }
         else if (Input.GetKeyDown(KeyCode.S)) // moves up
@@ -81,7 +81,7 @@ public class LevelManager : MonoBehaviour
             {
                 WorldIndex++;
             }
-            Debug.Log(WorldIndex);
+            //Debug.Log(WorldIndex);
         }
         LevelIndex = ActiveWorld.GetComponent<ListofLevels>().CurrentIndex;
 
