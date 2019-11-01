@@ -10,7 +10,6 @@ public class PlayerMovement : MonoBehaviour
     public static float moveHorizontal; // used for horizontal movement controls
     public static float jumpForce;
     public float counterJumpForce; // used to make the player descend if they release w while jumping
-    private float fallVelocity;
     private Animator PlayerAnim;
     public float jumpHeight;
     public static bool isJumping;
@@ -85,10 +84,7 @@ public class PlayerMovement : MonoBehaviour
         if (PlayerHealth.Dead == false) // Only allow movement if alive
         {
             moveHorizontal = Input.GetAxis("Horizontal"); // left is -1, stopped is 0, right is 1
-            fallVelocity = playerBody.velocity.y;
-
             Vector2 movementPlayer = new Vector2(moveHorizontal, 0);
-
             playerVelocity = playerBody.velocity;
 
             if (transform.localScale.x > 0)
@@ -155,9 +151,21 @@ public class PlayerMovement : MonoBehaviour
                 playerBody.AddForce(movementPlayer * playerSpeed * -1);
             }
 
-            if (fallVelocity < -fallSpeedCap) //fall speed cap
+            if (playerBody.velocity.y < -fallSpeedCap) //fall speed cap
             {
                 playerBody.AddForce(Vector2.up * playerBody.gravityScale * 10);
+            }
+
+            ///// Vertical speed limiter
+            ///// This should hopefully fix the notorious "superjump" bug that occurs when jumping,
+            ///// bonking enemies, jumping on springs, and walljumping off corners
+
+            if (Mathf.Abs(playerVelocity.y) > 15)
+            {
+                playerVelocity = new Vector2(
+                    playerVelocity.x,
+                    Mathf.Clamp(playerVelocity.y, -10, 15)
+                    );
             }
 
             ///// Movement left and right

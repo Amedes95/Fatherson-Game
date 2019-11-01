@@ -25,6 +25,8 @@ public class Trampoline : MonoBehaviour
 
             if (!PlayerHealth.Dead && !isBonking)
             {
+                collision.GetComponentInParent<PlayerMovement>().audioBox.playJumpSound();
+
                 BonkForce = PlayerMovement.jumpForce;
 
                 collision.GetComponentInParent<Rigidbody2D>().velocity = rotationVector;
