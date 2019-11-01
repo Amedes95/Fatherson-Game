@@ -44,7 +44,7 @@ public class PlayerMovement : MonoBehaviour
     private float airStopTimer; // used to make the player drop straight down if they don't hold left/right in the air
     private float jumpBuffer; // used to buffer a jump if jump is inputted before hitting the ground
 
-    public PlayerSoundScript audioBox;
+    public PlayerSoundScript jumpAudioBox;
 
 
     //////// Stuff used here is for particle systems
@@ -308,7 +308,7 @@ public class PlayerMovement : MonoBehaviour
         isJumping = true;
         wallJumping = false;
         CreateDust();
-        audioBox.playJumpSound();
+        jumpAudioBox.playJumpSound();
 
     }
 
@@ -322,7 +322,7 @@ public class PlayerMovement : MonoBehaviour
         isJumping = false;
         GetComponent<Animator>().SetBool("onWall", false);
         CreateDust();
-        audioBox.playWallJumpSound();
+        jumpAudioBox.playWallJumpSound();
 
     }
 

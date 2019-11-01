@@ -25,7 +25,7 @@ public class Trampoline : MonoBehaviour
 
             if (!PlayerHealth.Dead && !isBonking)
             {
-                collision.GetComponentInParent<PlayerMovement>().audioBox.playJumpSound();
+                collision.GetComponentInParent<PlayerMovement>().jumpAudioBox.playJumpSound();
 
                 BonkForce = PlayerMovement.jumpForce;
 

@@ -13,7 +13,6 @@ public class BonkableHead : MonoBehaviour
     public GameObject DeathParticles;
     public static GameObject DeathPartclesClone;
 
-
     public void Awake()
     {
         isBonking = false;

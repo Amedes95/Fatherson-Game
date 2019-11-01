@@ -9,11 +9,6 @@ public class PlayerSoundScript : MonoBehaviour
     public AudioClip WallJumpClip;
     public AudioClip LandingClip;
 
-    private void Awake()
-    {
-        
-    }
-
     public void playJumpSound()
     {
         JumpSource.clip = JumpClip;
