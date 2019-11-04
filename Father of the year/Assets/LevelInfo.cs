@@ -11,6 +11,9 @@ public class LevelInfo : MonoBehaviour
     public string WorldDisplayName;
     public string SceneToLoad;
     public GameObject CompletedTrophy;
+    public bool LevelCompleted;
+    public bool Unlocked;
+    public GameObject LockedSymbol;
 
     public TextMeshPro BestTime;
 
@@ -22,10 +25,13 @@ public class LevelInfo : MonoBehaviour
     bool SilverTierAchieved;
     bool BronzeTierAchieved;
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void OnTriggerStay2D(Collider2D collision)
     {
         //Debug.Log("Active");
-        gameObject.GetComponent<Animator>().SetBool("Active", true);
+        if (Unlocked)
+        {
+            gameObject.GetComponent<Animator>().SetBool("Active", true);
+        }
 
         //// for completion
         if (PlayerPrefs.GetFloat(SceneToLoad) != 0)
@@ -38,19 +44,19 @@ public class LevelInfo : MonoBehaviour
             //// GOLD?
             if (PlayerPrefs.GetFloat(SceneToLoad) <= GoldStandard)
             {
-                Debug.Log("GOLD TIER" + PlayerPrefs.GetFloat(SceneToLoad).ToString("F2"));
+                //Debug.Log("GOLD TIER" + PlayerPrefs.GetFloat(SceneToLoad).ToString("F2"));
                 CompletedTrophy.GetComponent<Animator>().SetTrigger("Gold");
             }
             //// SILVER?
             else if (PlayerPrefs.GetFloat(SceneToLoad) > GoldStandard && PlayerPrefs.GetFloat(SceneToLoad) <= BronzeStandard)
             {
-                Debug.Log("SILVER TIER" + PlayerPrefs.GetFloat(SceneToLoad).ToString("F2"));
+                //Debug.Log("SILVER TIER" + PlayerPrefs.GetFloat(SceneToLoad).ToString("F2"));
                 CompletedTrophy.GetComponent<Animator>().SetTrigger("Silver");
             }
             //// BRONZE?
             else if (PlayerPrefs.GetFloat(SceneToLoad) > BronzeStandard)
             {
-                Debug.Log("BRONZE TIER" + PlayerPrefs.GetFloat(SceneToLoad).ToString("F2"));
+                //Debug.Log("BRONZE TIER" + PlayerPrefs.GetFloat(SceneToLoad).ToString("F2"));
                 CompletedTrophy.GetComponent<Animator>().SetTrigger("Bronze");
             }
 
@@ -65,6 +71,34 @@ public class LevelInfo : MonoBehaviour
     private void OnTriggerExit2D(Collider2D collision)
     {
         gameObject.GetComponent<Animator>().SetBool("Active", false);
+    }
+
+    private void Update()
+    {
+
+        //// For the unlocking
+        if (PlayerPrefs.GetFloat(SceneToLoad) != 0)
+        {
+            LevelCompleted = true;
+        }
+        else
+        {
+            LevelCompleted = false;
+        }
+
+
+        // locked symbol
+        if (Unlocked)
+        {
+            LockedSymbol.SetActive(false);
+        }
+        else
+        {
+            LockedSymbol.SetActive(true);
+        }
+
+
+
     }
 
 }
