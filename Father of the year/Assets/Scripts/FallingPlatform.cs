@@ -13,6 +13,8 @@ public class FallingPlatform : MonoBehaviour
     public BoxCollider2D JumpZone;
     float fallVelocity;
     public float fallSpeedCap;
+    public float fallDelay;
+    public bool steppedOn;
 
 
     // Start is called before the first frame update
@@ -24,6 +26,20 @@ public class FallingPlatform : MonoBehaviour
     private void Update()
     {
         fallVelocity = GetComponent<Rigidbody2D>().velocity.y;
+
+        if (steppedOn)
+        {
+            if (fallDelay > 0)
+            {
+                fallDelay -= Time.smoothDeltaTime;
+            }
+            else
+            {
+                GetComponent<Animator>().SetTrigger("Fall");
+                gameObject.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezePositionX | RigidbodyConstraints2D.FreezeRotation;
+                falling = true;
+            }
+        }
         if (HitGround)
         {
             falling = false;
@@ -47,11 +63,20 @@ public class FallingPlatform : MonoBehaviour
     {
         if (collision.tag == "Feet")
         {
-            GetComponent<Animator>().SetTrigger("Fall");
-            gameObject.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezePositionX | RigidbodyConstraints2D.FreezeRotation;
-            falling = true;
+            //if (fallDelay > 0)
+            //{
+            //    fallDelay -= Time.smoothDeltaTime;
+            //}
+            //else
+            //{ 
+            //GetComponent<Animator>().SetTrigger("Fall");
+            //gameObject.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezePositionX | RigidbodyConstraints2D.FreezeRotation;
+            //falling = true;
+            //    }
+            steppedOn = true;
         }
     }
+
 
     public void RayCastGround()
     {

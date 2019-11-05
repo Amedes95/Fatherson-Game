@@ -119,7 +119,7 @@ BoxCollider2D:
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 1
-  m_UsedByEffector: 0
+  m_UsedByEffector: 1
   m_UsedByComposite: 0
   m_Offset: {x: 0.0011741519, y: 0.047697444}
   m_SpriteTilingProperty:
@@ -164,6 +164,8 @@ MonoBehaviour:
   Standzone: {fileID: 7397538806367453701}
   JumpZone: {fileID: 2707354659731949512}
   fallSpeedCap: 8
+  fallDelay: 1
+  steppedOn: 0
 --- !u!50 &2707354659731949509
 Rigidbody2D:
   serializedVersion: 4
