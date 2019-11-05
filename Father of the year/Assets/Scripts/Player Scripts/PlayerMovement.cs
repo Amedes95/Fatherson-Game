@@ -43,6 +43,7 @@ public class PlayerMovement : MonoBehaviour
     public static Vector2 playerVelocity;
     private float airStopTimer; // used to make the player drop straight down if they don't hold left/right in the air
     private float jumpBuffer; // used to buffer a jump if jump is inputted before hitting the ground
+    KeyCode jumpKey;
 
     public PlayerSoundScript jumpAudioBox;
 
@@ -352,7 +353,7 @@ public class PlayerMovement : MonoBehaviour
         if (PlayerHealth.Dead == false) // Only allow inputs if alive
         {
             //// JUMPING
-            if (Input.GetKeyDown(KeyCode.W))
+            if (Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow))
             {
                 jumpKeyHeld = true;
 
@@ -379,9 +380,9 @@ public class PlayerMovement : MonoBehaviour
                     Jump();
                     isFloating = false;
                 }
-                
+
             }
-            else if (Input.GetKeyUp(KeyCode.W))
+            else if (Input.GetKeyUp(KeyCode.W) || Input.GetKeyUp(KeyCode.UpArrow))
             {
                 jumpKeyHeld = false;
             }
