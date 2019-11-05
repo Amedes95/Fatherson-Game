@@ -12,11 +12,15 @@ public class FlyingEnemy : MonoBehaviour
     float yMove;
     public bool SightBlocked;
     public bool Disturbed;
+    public float radius;
+    public float playerDistance;
+    public float speedRatio;
 
     // Start is called before the first frame update
     void Awake()
     {
         Player = GameObject.FindGameObjectWithTag("Player").transform;
+        radius = GetComponent<CircleCollider2D>().radius * transform.parent.localScale.magnitude;
     }
 
     // Update is called once per frame
@@ -26,7 +30,8 @@ public class FlyingEnemy : MonoBehaviour
         yMove = (Player.position.y - gameObject.transform.position.y);
         MoveDirection = new Vector2(xMove, yMove);
         Raycasting();
-
+        playerDistance = (Player.position - gameObject.transform.position).magnitude;
+        speedRatio = (1 - playerDistance / radius);
 
         // flips sprite based on relation to player
         if (xMove < 0 && Disturbed) // left facing
@@ -45,17 +50,17 @@ public class FlyingEnemy : MonoBehaviour
         {
             GetComponentInParent<Animator>().SetBool("Attacking", true);
             Disturbed = true;
-            GetComponentInParent<Rigidbody2D>().AddForce(MoveDirection * FlySpeed);
+            GetComponentInParent<Rigidbody2D>().AddForce(MoveDirection * FlySpeed * speedRatio);
         }
     }
 
-    private void OnTriggerExit2D(Collider2D collision) // Player escaped range, add a comeback force
+    private void OnTriggerExit2D(Collider2D collision) // Player escaped range, bat slows down
     {
         if (collision.tag == "Player")
         {
             if (Disturbed)
             {
-                GetComponentInParent<Rigidbody2D>().AddForce(MoveDirection * FlySpeed * ReturnSpeed);
+                GetComponentInParent<Rigidbody2D>().velocity = new Vector2(GetComponentInParent<Rigidbody2D>().velocity.x * .5f, GetComponentInParent<Rigidbody2D>().velocity.y * .5f);
             }
         }
     }
