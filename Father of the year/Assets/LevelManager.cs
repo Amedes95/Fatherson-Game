@@ -167,7 +167,7 @@ public class LevelManager : MonoBehaviour
     public void BackGroudSwapper()
     {
         /// background changes
-        if (WorldIndex == 0)
+        if (WorldIndex == 0) // Gray and black tiles
         {
             CenterBG.GetComponent<SpriteRenderer>().sprite = TutorialBackground;
             RightBG.GetComponent<SpriteRenderer>().sprite = TutorialBackground;
@@ -177,7 +177,7 @@ public class LevelManager : MonoBehaviour
 
             BackgroundChangeDirection("Right");
         }
-        else if (WorldIndex == 1)
+        else if (WorldIndex == 1) // Orange arrows
         {
             CenterBG.GetComponent<SpriteRenderer>().sprite = World1Background;
             RightBG.GetComponent<SpriteRenderer>().sprite = World1Background;
@@ -186,6 +186,7 @@ public class LevelManager : MonoBehaviour
             BottomBG.GetComponent<SpriteRenderer>().sprite = World1Background;
 
             BackgroundChangeDirection("Up");
+
 
         }
     }
