@@ -8,7 +8,7 @@ using UnityEngine.PostProcessing;
 public class VictoryMenu : MonoBehaviour
 {
     public string NextLevel;
-    public bool LevelComplete;
+    public bool GoalReached;
     public GameObject VictoryScreen;
     GameObject PauseCanvas;
 
@@ -44,7 +44,7 @@ public class VictoryMenu : MonoBehaviour
         Transition1.grain.settings = Grainy;
         ////////////////////////////////////
 
-        if (LevelComplete)
+        if (GoalReached)
         {
             VictoryScreen.SetActive(true);
             if (Input.GetKeyDown(KeyCode.Space))

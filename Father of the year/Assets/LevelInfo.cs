@@ -11,7 +11,6 @@ public class LevelInfo : MonoBehaviour
     public string WorldDisplayName;
     public string SceneToLoad;
     public GameObject CompletedTrophy;
-    public bool LevelCompleted;
     public bool Unlocked;
     public GameObject LockedSymbol;
 
@@ -73,19 +72,8 @@ public class LevelInfo : MonoBehaviour
         gameObject.GetComponent<Animator>().SetBool("Active", false);
     }
 
-    private void Update()
+    private void FixedUpdate()
     {
-
-        //// For the unlocking
-        if (PlayerPrefs.GetFloat(SceneToLoad) != 0)
-        {
-            LevelCompleted = true;
-        }
-        else
-        {
-            LevelCompleted = false;
-        }
-
 
         // locked symbol
         if (Unlocked)

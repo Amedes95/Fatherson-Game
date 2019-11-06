@@ -39,7 +39,7 @@ public class PauseMenu : MonoBehaviour
     {
         var Vinny = Transition1.vignette.settings; // black wipe effect
 
-        if (Input.GetKeyDown(KeyCode.Escape) && VictoryScreen.LevelComplete == false && Player.activeInHierarchy)
+        if (Input.GetKeyDown(KeyCode.Escape) && VictoryScreen.GoalReached == false && Player.activeInHierarchy)
         {
             if (GameIsPaused)
             {

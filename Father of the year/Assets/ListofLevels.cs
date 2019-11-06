@@ -38,10 +38,10 @@ public class ListofLevels : MonoBehaviour
         for (int i = 1; i < LevelsWithinWorld.Count; i++)
         {
 
-            if (LevelsWithinWorld[i-1].GetComponent<LevelInfo>().LevelCompleted) // If you have a time saved for the previous one, unlock me next
+            if (PlayerPrefs.GetFloat(LevelsWithinWorld[i-1].GetComponent<LevelInfo>().SceneToLoad) != 0) // If you have a time saved for the previous one, unlock me next
             {
                 LevelsWithinWorld[i].GetComponent<LevelInfo>().Unlocked = true;
-                //Debug.Log("New level unlocked");
+                Debug.Log("New level unlocked");
             }
         }
     }

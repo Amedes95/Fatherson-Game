@@ -26,7 +26,7 @@ public class Goal : MonoBehaviour
         CompletionTime = 0f;
         PulsingChroma = false;
         VictoryScreen = GameObject.FindGameObjectWithTag("VictoryMenu").GetComponent<VictoryMenu>();
-        VictoryScreen.LevelComplete = false;
+        VictoryScreen.GoalReached = false;
         var Chroma = Transition1.chromaticAberration.settings;
         Chroma.intensity = 0;
         Transition1.chromaticAberration.settings = Chroma;
@@ -65,7 +65,7 @@ public class Goal : MonoBehaviour
 
     public void DisplayVictoryScreen()
     {
-        VictoryScreen.LevelComplete = true;
+        VictoryScreen.GoalReached = true;
         var Chroma = Transition1.chromaticAberration.settings;
         Chroma.intensity = 1;
         Transition1.chromaticAberration.settings = Chroma;

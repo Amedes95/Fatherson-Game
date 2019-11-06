@@ -30,6 +30,15 @@ public class LevelManager : MonoBehaviour
 
     public float ShiftDistance; // should be 10
 
+    public GameObject CenterBG;
+    public GameObject RightBG;
+    public GameObject LeftBG;
+    public GameObject BottomBG;
+    public GameObject TopBG;
+
+    public Sprite TutorialBackground;
+    public Sprite World1Background;
+
 
     public TextMeshPro WorldText;
     public TextMeshPro LevelText;
@@ -83,6 +92,8 @@ public class LevelManager : MonoBehaviour
             if (WorldIndex > 0)
             {
                 WorldIndex--;
+                ResetBGs();
+                BackGroudSwapper();
             }
             //Debug.Log(WorldIndex);
 
@@ -92,6 +103,9 @@ public class LevelManager : MonoBehaviour
             if (WorldIndex < WorldsList.Count - 1)
             {
                 WorldIndex++;
+                ResetBGs();
+                BackGroudSwapper();
+
             }
             //Debug.Log(WorldIndex);
         }
@@ -136,5 +150,52 @@ public class LevelManager : MonoBehaviour
             DownArrow.SetActive(true);
         }
 
+
+
+
+    }
+
+    public void ResetBGs()
+    {
+        CenterBG.GetComponent<BackgroundMove>().ResetAllPositions();
+        RightBG.GetComponent<BackgroundMove>().ResetAllPositions();
+        LeftBG.GetComponent<BackgroundMove>().ResetAllPositions();
+        TopBG.GetComponent<BackgroundMove>().ResetAllPositions();
+        BottomBG.GetComponent<BackgroundMove>().ResetAllPositions();
+    }
+
+    public void BackGroudSwapper()
+    {
+        /// background changes
+        if (WorldIndex == 0)
+        {
+            CenterBG.GetComponent<SpriteRenderer>().sprite = TutorialBackground;
+            RightBG.GetComponent<SpriteRenderer>().sprite = TutorialBackground;
+            LeftBG.GetComponent<SpriteRenderer>().sprite = TutorialBackground;
+            TopBG.GetComponent<SpriteRenderer>().sprite = TutorialBackground;
+            BottomBG.GetComponent<SpriteRenderer>().sprite = TutorialBackground;
+
+            BackgroundChangeDirection("Right");
+        }
+        else if (WorldIndex == 1)
+        {
+            CenterBG.GetComponent<SpriteRenderer>().sprite = World1Background;
+            RightBG.GetComponent<SpriteRenderer>().sprite = World1Background;
+            LeftBG.GetComponent<SpriteRenderer>().sprite = World1Background;
+            TopBG.GetComponent<SpriteRenderer>().sprite = World1Background;
+            BottomBG.GetComponent<SpriteRenderer>().sprite = World1Background;
+
+            BackgroundChangeDirection("Up");
+
+        }
+    }
+
+    public void BackgroundChangeDirection(string Direction)
+    {
+        CenterBG.GetComponent<BackgroundMove>().SwapDirections(Direction);
+        RightBG.GetComponent<BackgroundMove>().SwapDirections(Direction);
+        LeftBG.GetComponent<BackgroundMove>().SwapDirections(Direction);
+        TopBG.GetComponent<BackgroundMove>().SwapDirections(Direction);
+        BottomBG.GetComponent<BackgroundMove>().SwapDirections(Direction);
     }
 }
