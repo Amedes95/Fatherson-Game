@@ -15,6 +15,8 @@ public class FallingPlatform : MonoBehaviour
     public float fallSpeedCap;
     public float fallDelay;
     public bool steppedOn;
+    float SpinSpeed = 1f;
+
 
 
     // Start is called before the first frame update
@@ -26,9 +28,17 @@ public class FallingPlatform : MonoBehaviour
     private void Update()
     {
         fallVelocity = GetComponent<Rigidbody2D>().velocity.y;
+        GetComponent<Animator>().SetFloat("SpinSpeed", SpinSpeed);
+
 
         if (steppedOn)
         {
+            SpinSpeed -= Time.smoothDeltaTime;
+            if (SpinSpeed <= 0)
+            {
+                SpinSpeed = 0;
+            }
+
             if (fallDelay > 0)
             {
                 fallDelay -= Time.smoothDeltaTime;
