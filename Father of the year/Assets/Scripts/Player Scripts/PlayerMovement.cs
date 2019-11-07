@@ -71,7 +71,6 @@ public class PlayerMovement : MonoBehaviour
         {
             FlipCharacter();
         }
-
     }
 
     public static float CalculateJumpForce(float playerGravity, float jumpHeight)
@@ -250,24 +249,25 @@ public class PlayerMovement : MonoBehaviour
 
                 if (floatingTimer <= 0 || Mathf.Sign(moveHorizontal) != Mathf.Sign(playerBody.velocity.x))
                 {
-                    isFloating = false;
+                    SwitchFloatValue(false);
                 }
                 else
                 {
-                    playerBody.AddForce(Vector2.up * playerBody.gravityScale * playerBody.mass * 1.15f);
+                    playerBody.AddForce(Vector2.up * playerBody.gravityScale * playerBody.mass * 1.4f);
                     playerBody.velocity = new Vector2(playerBody.velocity.x, 0);
                 }
             }
 
             if (JumpDetector.OnGround)
             {
-                isFloating = false;
+                SwitchFloatValue(false);
                 floatingTimer = .1f;
             }
             else if
                 (!(JumpDetector.OnGround || isJumping || touchingWall || wallJumping) && floatingTimer > 0)
             {
-                isFloating = true;
+                SwitchFloatValue(true);
+                Debug.Log("floating");
             }
 
             if (StickyWeb.StuckInWeb)
@@ -293,6 +293,20 @@ public class PlayerMovement : MonoBehaviour
             {
                 Jump();
             }
+        }
+    }
+
+    public void SwitchFloatValue(bool variable)
+    {
+        if (variable == true)
+        {
+            isFloating = true;
+            playerBody.gravityScale = 0;
+        }
+        else if (variable == false)
+        {
+            isFloating = false;
+            playerBody.gravityScale = playerGravity;
         }
     }
 
@@ -378,7 +392,7 @@ public class PlayerMovement : MonoBehaviour
                 {
                     playerBody.velocity = new Vector2(playerBody.velocity.x, 4); // this makes the jump height consistent with grounded jumps. If this is not enabled, floating jumps are about 5/6ths of regular jumps
                     Jump();
-                    isFloating = false;
+                    SwitchFloatValue(false);
                 }
 
             }
