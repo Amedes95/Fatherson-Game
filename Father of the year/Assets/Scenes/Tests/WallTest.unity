@@ -377,12 +377,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b5bdddb827a561143a0adac71f74a341, type: 3}
---- !u!1 &653986307 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1901682554, guid: b5bdddb827a561143a0adac71f74a341,
-    type: 3}
-  m_PrefabInstance: {fileID: 653986306}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &666382612
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -757,36 +751,6 @@ PrefabInstance:
     - target: {fileID: 8189700698217030711, guid: a057a5e90eac2ec4b91ead49d885cec6,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8189700698217030710, guid: a057a5e90eac2ec4b91ead49d885cec6,
-        type: 3}
-      propertyPath: FocusZone
-      value: 
-      objectReference: {fileID: 653986307}
-    - target: {fileID: 8189700698217030710, guid: a057a5e90eac2ec4b91ead49d885cec6,
-        type: 3}
-      propertyPath: cameraBounds
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8189700698217030710, guid: a057a5e90eac2ec4b91ead49d885cec6,
-        type: 3}
-      propertyPath: minCameraBounds.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8189700698217030710, guid: a057a5e90eac2ec4b91ead49d885cec6,
-        type: 3}
-      propertyPath: minCameraBounds.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8189700698217030710, guid: a057a5e90eac2ec4b91ead49d885cec6,
-        type: 3}
-      propertyPath: maxCameraBounds.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8189700698217030710, guid: a057a5e90eac2ec4b91ead49d885cec6,
-        type: 3}
-      propertyPath: maxCameraBounds.y
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
