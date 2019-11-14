@@ -81,6 +81,8 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
+
+        Debug.Log(playerVelocity);
         if (PlayerHealth.Dead == false) // Only allow movement if alive
         {
             moveHorizontal = Input.GetAxis("Horizontal"); // left is -1, stopped is 0, right is 1
@@ -119,7 +121,7 @@ public class PlayerMovement : MonoBehaviour
             }
             else if (!touchingWall)
             {
-                fallSpeedCap = 10;
+                fallSpeedCap = 15;
                 playerSpeed = midSpeed;
                 GetComponent<Animator>().SetBool("onWall", false);
                 if (wallJumpBuffer > 0)
@@ -153,18 +155,18 @@ public class PlayerMovement : MonoBehaviour
 
             if (playerBody.velocity.y < -fallSpeedCap) //fall speed cap
             {
-                playerBody.AddForce(Vector2.up * playerBody.gravityScale * 10);
+                playerBody.AddForce(Vector2.up * playerBody.gravityScale * 15);
             }
 
             ///// Vertical speed limiter
             ///// This should hopefully fix the notorious "superjump" bug that occurs when jumping,
             ///// bonking enemies, jumping on springs, and walljumping off corners
 
-            if (Mathf.Abs(playerVelocity.y) > 15)
+            if ((playerVelocity.y > 15) || (playerVelocity.y < fallSpeedCap))
             {
                 playerVelocity = new Vector2(
                     playerVelocity.x,
-                    Mathf.Clamp(playerVelocity.y, -10, 15)
+                    Mathf.Clamp(playerVelocity.y, -fallSpeedCap, 15)
                     );
             }
 

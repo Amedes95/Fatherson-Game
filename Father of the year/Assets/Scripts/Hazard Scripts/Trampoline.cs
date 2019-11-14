@@ -25,11 +25,14 @@ public class Trampoline : MonoBehaviour
 
             if (!PlayerHealth.Dead && !isBonking)
             {
+                JumpDetector.OnGround = false;
                 collision.GetComponentInParent<PlayerMovement>().jumpAudioBox.playJumpSound();
+                collision.GetComponentInParent<PlayerMovement>().playerSpeed = 0;
 
                 BonkForce = PlayerMovement.jumpForce;
 
-                collision.GetComponentInParent<Rigidbody2D>().velocity = rotationVector;
+                collision.GetComponentInParent<Rigidbody2D>().position += .2f * rotationVector;
+                collision.GetComponentInParent<Rigidbody2D>().velocity = 15 * rotationVector;
                 collision.GetComponentInParent<Rigidbody2D>().AddForce(rotationVector * BonkForce * 180);
                 isBonking = true;
                 //collision.GetComponentInParent<Rigidbody2D>().AddForce(Vector2.up * PlayerMovement.jumpForce * 180);
@@ -44,6 +47,7 @@ public class Trampoline : MonoBehaviour
         if (collision.tag == "Feet")
         {
             isBonking = false;
+            collision.GetComponentInParent<PlayerMovement>().playerSpeed = collision.GetComponentInParent<PlayerMovement>().midSpeed;
         }
     }
 }
