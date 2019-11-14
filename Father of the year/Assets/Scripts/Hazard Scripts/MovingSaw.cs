@@ -11,9 +11,12 @@ public class MovingSaw : MonoBehaviour
 
     public bool Reversible;
 
+    PauseMenu PauseScreen;
+
 
     private void Awake()
     {
+        PauseScreen = GameObject.FindGameObjectWithTag("PauseCanvas").GetComponent<PauseMenu>();
         transform.position = MoveLocations[0].position; // start the blade at the first node
         TargetPosition = MoveLocations[0]; // first target is the first in the list
     }
@@ -21,11 +24,15 @@ public class MovingSaw : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.position = Vector3.MoveTowards(transform.position, TargetPosition.position, MovementSpeed); // constantly move the blade to the target position
-        if (transform.position == TargetPosition.position) // once target is reached, choose a new target
+        if (PauseScreen.GameIsPaused == false)
         {
-            ChooseTarget();
+            transform.position = Vector3.MoveTowards(transform.position, TargetPosition.position, MovementSpeed); // constantly move the blade to the target position
+            if (transform.position == TargetPosition.position) // once target is reached, choose a new target
+            {
+                ChooseTarget();
+            }
         }
+
     }
 
     public void ChooseTarget()
