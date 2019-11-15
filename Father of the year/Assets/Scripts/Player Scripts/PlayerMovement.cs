@@ -34,8 +34,8 @@ public class PlayerMovement : MonoBehaviour
     public Transform floatLine;
     int playerDirection;
     Vector2 walljumpVector;
-    bool isFloating;
-    public float floatingTimer; // used for the "coyote effect", the player doesn't fall for a brief moment after running off a ledge and can jump during this time
+    public static bool isFloating;
+    public static float floatingTimer; // used for the "coyote effect", the player doesn't fall for a brief moment after running off a ledge and can jump during this time
     public float playerGravity;
     public Animator WindEffect;
     public float wallJumpBuffer; // used to make the player remain on the wall for the duration while holding away from the wall
@@ -171,7 +171,7 @@ public class PlayerMovement : MonoBehaviour
             }
 
             ///// Movement left and right
-            if (moveHorizontal > 0f) // player is moving right
+            if ((moveHorizontal > 0f) && !Trampoline.isBonking) // player is moving right
             {
                 if ((Mathf.Sign(moveHorizontal) != Mathf.Sign(playerBody.velocity.x)) && !recentlyJumped) // this makes the character turn around quicker in the air for more control
                 {
@@ -184,7 +184,7 @@ public class PlayerMovement : MonoBehaviour
 
                 PlayerAnim.SetBool("Running", true);
             }
-            if (moveHorizontal < 0f) // player is moving left
+            if ((moveHorizontal < 0f) && !Trampoline.isBonking) // player is moving left
             {
                 if ((Mathf.Sign(moveHorizontal) != Mathf.Sign(playerBody.velocity.x)) && !recentlyJumped)
                 {
