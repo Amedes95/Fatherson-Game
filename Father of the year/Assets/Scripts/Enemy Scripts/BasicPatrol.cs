@@ -11,6 +11,7 @@ public class BasicPatrol : MonoBehaviour
     bool TouchingWall;
     bool TouchingFloor;
     bool TouchingEnemy;
+    bool TouchingObstacle;
     public float PatrolSpeed;
     Vector2 PatrolDirection = new Vector2(1, 0);
     public bool avoidsLedges;
@@ -31,8 +32,9 @@ public class BasicPatrol : MonoBehaviour
         RaycastingWall();
         RaycastingFloor();
         RaycastingEnemy();
+        RaycastingObstacle();
         WalkAround();
-        if (TouchingWall || TouchingEnemy)
+        if (TouchingWall || TouchingEnemy || TouchingObstacle)
         {
             FlipCharacter();
             PatrolDirection = new Vector2(PatrolDirection.x * -1, 0);
@@ -63,7 +65,12 @@ public class BasicPatrol : MonoBehaviour
     {
         //Debug.DrawLine(transform.position, FloorLine.position, Color.green);  // during playtime, projects a line from a start point to and end point
         TouchingFloor = Physics2D.Linecast(transform.position, FloorLine.position, 1 << LayerMask.NameToLayer("Ground")); // returns true if line touches a ground tile
+    }
 
+    void RaycastingObstacle()
+    {
+        //Debug.DrawLine(EnemyStart.position, EnemyLine.position, Color.red);  // during playtime, projects a line from a start point to and end point
+        TouchingObstacle = Physics2D.Linecast(EnemyStart.position, EnemyLine.position, 1 << LayerMask.NameToLayer("Obstacle")); // returns true if line touches an obstacle
     }
 
     public void WalkAround()

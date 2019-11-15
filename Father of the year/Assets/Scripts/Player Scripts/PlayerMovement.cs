@@ -335,15 +335,19 @@ public class PlayerMovement : MonoBehaviour
 
     public void WallJump()
     {
-        playerBody.velocity = new Vector2(0, 0);
-        jumpFallCooldown = .15f;
-        recentlyJumped = true;
-        playerBody.AddForce(walljumpVector * jumpForce * 180);
-        wallJumping = true;
-        isJumping = false;
-        GetComponent<Animator>().SetBool("onWall", false);
-        CreateDust();
-        jumpAudioBox.playWallJumpSound();
+        if (Trampoline.isBonking == false)
+        {
+            playerBody.velocity = new Vector2(0, 0);
+            jumpFallCooldown = .15f;
+            recentlyJumped = true;
+            playerBody.AddForce(walljumpVector * jumpForce * 180);
+            wallJumping = true;
+            isJumping = false;
+            GetComponent<Animator>().SetBool("onWall", false);
+            CreateDust();
+            jumpAudioBox.playWallJumpSound();
+        }
+
 
     }
 
