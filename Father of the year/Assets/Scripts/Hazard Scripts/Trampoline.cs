@@ -5,7 +5,7 @@ using UnityEngine;
 public class Trampoline : MonoBehaviour
 {
     float BonkForce; // this should match jumpForce in PlayerMovement for consistency
-    bool isBonking;
+    public static bool isBonking;
     public float rotation; // this should match the inputted value for transform.rotation.z
     Vector2 rotationVector;
     public bool sliding;

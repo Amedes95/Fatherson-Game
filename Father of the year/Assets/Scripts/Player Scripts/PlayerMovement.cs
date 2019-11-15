@@ -320,14 +320,18 @@ public class PlayerMovement : MonoBehaviour
         {
             playerBody.velocity= new Vector2(playerBody.velocity.x, 0);
         }
-        jumpFallCooldown = .05f;
-        recentlyJumped = true;
-        playerBody.AddForce(Vector2.up * jumpForce * 180);
-        PlayerAnim.SetTrigger("Jump");
-        isJumping = true;
-        wallJumping = false;
-        CreateDust();
-        jumpAudioBox.playJumpSound();
+        if (Trampoline.isBonking == false)
+        {
+            jumpFallCooldown = .05f;
+            recentlyJumped = true;
+            playerBody.AddForce(Vector2.up * jumpForce * 180);
+            PlayerAnim.SetTrigger("Jump");
+            isJumping = true;
+            wallJumping = false;
+            CreateDust();
+            jumpAudioBox.playJumpSound();
+        }
+
 
     }
 
