@@ -79,8 +79,6 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-
-        Debug.Log(playerVelocity);
         if (PlayerHealth.Dead == false) // Only allow movement if alive
         {
             moveHorizontal = Input.GetAxis("Horizontal"); // left is -1, stopped is 0, right is 1
@@ -258,7 +256,7 @@ public class PlayerMovement : MonoBehaviour
                 else
                 {
                     playerBody.AddForce(Vector2.up * playerBody.gravityScale * playerBody.mass * 1.4f);
-                    playerBody.velocity = new Vector2(playerBody.velocity.x, 0);
+                    //playerBody.velocity = new Vector2(playerBody.velocity.x, 0);
                 }
             }
 
@@ -268,7 +266,7 @@ public class PlayerMovement : MonoBehaviour
                 floatingTimer = .1f;
             }
             else if
-                (!(JumpDetector.OnGround || isJumping || touchingWall || wallJumping) && floatingTimer > 0)
+                (!(JumpDetector.OnGround || isJumping || touchingWall || wallJumping || Trampoline.isBonking) && floatingTimer > 0)
             {
                 SwitchFloatValue(true);
                 Debug.Log("floating");
