@@ -11,6 +11,8 @@ public class LevelManager : MonoBehaviour
     public GameObject Camera;
     public GameObject SelectionBox;
 
+    PauseMenu PauseScreen;
+
     ////////
     public List<GameObject> WorldsList;
     GameObject ActiveWorld;
@@ -47,6 +49,7 @@ public class LevelManager : MonoBehaviour
     // Start is called before the first frame update
     void Awake()
     {
+        PauseScreen = GameObject.FindGameObjectWithTag("PauseCanvas").GetComponent<PauseMenu>();
         WorldIndex = 0;
         ActiveWorld = WorldsList[WorldIndex];
         /// unlocks levels
@@ -63,74 +66,78 @@ public class LevelManager : MonoBehaviour
     {
         ActiveWorld = WorldsList[WorldIndex];
 
-        //// Shifts levels back and forth
-        if (Input.GetKeyDown(KeyCode.A))
+        if (PauseScreen.GameIsPaused == false)
         {
-            if (LevelIndex > 0)
+            //// Shifts levels back and forth
+            if (Input.GetKeyDown(KeyCode.A))
             {
-                ActiveWorld.transform.Translate(Vector3.right * ShiftDistance);
-                LevelIndex--;
+                if (LevelIndex > 0)
+                {
+                    ActiveWorld.transform.Translate(Vector3.right * ShiftDistance);
+                    LevelIndex--;
+                }
+                //Debug.Log(LevelIndex);
+                ActiveWorld.GetComponent<ListofLevels>().CurrentIndex = LevelIndex;
             }
-            //Debug.Log(LevelIndex);
-            ActiveWorld.GetComponent<ListofLevels>().CurrentIndex = LevelIndex;
-        }
-        else if (Input.GetKeyDown(KeyCode.D))
-        {
-            if (LevelIndex < ActiveWorld.GetComponent<ListofLevels>().LevelsWithinWorld.Count - 1)
+            else if (Input.GetKeyDown(KeyCode.D))
             {
-                ActiveWorld.transform.Translate(Vector3.left * ShiftDistance);
-                LevelIndex++;
-            }
-            //Debug.Log(LevelIndex);
-            ActiveWorld.GetComponent<ListofLevels>().CurrentIndex = LevelIndex;
-
-        }
-
-        //// Shifts world indexer up and down
-        if (Input.GetKeyDown(KeyCode.W)) // move down a world
-        {
-            if (WorldIndex > 0)
-            {
-                WorldIndex--;
-                ResetBGs();
-                BackGroudSwapper();
-            }
-            //Debug.Log(WorldIndex);
-
-        }
-        else if (Input.GetKeyDown(KeyCode.S)) // moves up
-        {
-            if (WorldIndex < WorldsList.Count - 1)
-            {
-                WorldIndex++;
-                ResetBGs();
-                BackGroudSwapper();
+                if (LevelIndex < ActiveWorld.GetComponent<ListofLevels>().LevelsWithinWorld.Count - 1)
+                {
+                    ActiveWorld.transform.Translate(Vector3.left * ShiftDistance);
+                    LevelIndex++;
+                }
+                //Debug.Log(LevelIndex);
+                ActiveWorld.GetComponent<ListofLevels>().CurrentIndex = LevelIndex;
 
             }
-            //Debug.Log(WorldIndex);
-        }
-        LevelIndex = ActiveWorld.GetComponent<ListofLevels>().CurrentIndex;
 
-
-        // updates text on screen
-        LevelText.text = ActiveWorld.GetComponent<ListofLevels>().LevelsWithinWorld[LevelIndex].GetComponent<LevelInfo>().LevelDisplayName;
-        WorldText.text = ActiveWorld.GetComponent<ListofLevels>().LevelsWithinWorld[LevelIndex].GetComponent<LevelInfo>().WorldDisplayName;
-
-
-        // moves camera and selection box to active level
-        Vector3 NewPos = new Vector3(0, ActiveWorld.transform.position.y, -10);
-        Camera.transform.position = Vector3.MoveTowards(Camera.transform.position, NewPos, .5f);
-        SelectionBox.transform.position = new Vector3(0, ActiveWorld.transform.position.y, 0);
-
-
-        // loads scene when space is press and camera is at new pos
-        if (Input.GetKeyDown(KeyCode.Space) && Camera.transform.position == NewPos)
-        {
-            if (ActiveWorld.GetComponent<ListofLevels>().LevelsWithinWorld[LevelIndex].GetComponent<LevelInfo>().Unlocked)
+            //// Shifts world indexer up and down
+            if (Input.GetKeyDown(KeyCode.W)) // move down a world
             {
-                SceneManager.LoadScene(ActiveWorld.GetComponent<ListofLevels>().LevelsWithinWorld[LevelIndex].GetComponent<LevelInfo>().SceneToLoad);
+                if (WorldIndex > 0)
+                {
+                    WorldIndex--;
+                    ResetBGs();
+                    BackGroudSwapper();
+                }
+                //Debug.Log(WorldIndex);
+
+            }
+            else if (Input.GetKeyDown(KeyCode.S)) // moves up
+            {
+                if (WorldIndex < WorldsList.Count - 1)
+                {
+                    WorldIndex++;
+                    ResetBGs();
+                    BackGroudSwapper();
+
+                }
+                //Debug.Log(WorldIndex);
+            }
+            LevelIndex = ActiveWorld.GetComponent<ListofLevels>().CurrentIndex;
+
+
+            // updates text on screen
+            LevelText.text = ActiveWorld.GetComponent<ListofLevels>().LevelsWithinWorld[LevelIndex].GetComponent<LevelInfo>().LevelDisplayName;
+            WorldText.text = ActiveWorld.GetComponent<ListofLevels>().LevelsWithinWorld[LevelIndex].GetComponent<LevelInfo>().WorldDisplayName;
+
+
+            // moves camera and selection box to active level
+            Vector3 NewPos = new Vector3(0, ActiveWorld.transform.position.y, -10);
+            Camera.transform.position = Vector3.MoveTowards(Camera.transform.position, NewPos, .5f);
+            SelectionBox.transform.position = new Vector3(0, ActiveWorld.transform.position.y, 0);
+
+
+            // loads scene when space is press and camera is at new pos
+            if (Input.GetKeyDown(KeyCode.Space) && Camera.transform.position == NewPos)
+            {
+                if (ActiveWorld.GetComponent<ListofLevels>().LevelsWithinWorld[LevelIndex].GetComponent<LevelInfo>().Unlocked)
+                {
+                    SceneManager.LoadScene(ActiveWorld.GetComponent<ListofLevels>().LevelsWithinWorld[LevelIndex].GetComponent<LevelInfo>().SceneToLoad);
+                }
             }
         }
+ 
 
         //// Activates up and down arrows depending on screen position
         if (WorldIndex == 0) // at the top (tutorial)
