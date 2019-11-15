@@ -20,6 +20,7 @@ public class PlayerMovement : MonoBehaviour
     public static int jumpCount; // used for double jumps, not currently implemented
     public float fallForce;
     public float fallSpeedCap;
+    public float riseSpeedCap;
     public float startSpeed;
     public float midSpeed;
     public float fullSpeed;
@@ -41,9 +42,7 @@ public class PlayerMovement : MonoBehaviour
     float setWallJumpBuffer;
     public bool flipOnSpawn;
     public static Vector2 playerVelocity;
-    private float airStopTimer; // used to make the player drop straight down if they don't hold left/right in the air
     private float jumpBuffer; // used to buffer a jump if jump is inputted before hitting the ground
-    KeyCode jumpKey;
 
     public PlayerSoundScript jumpAudioBox;
 
@@ -63,7 +62,6 @@ public class PlayerMovement : MonoBehaviour
         floatingTimer = -1;
         playerGravity = 2;
         setWallJumpBuffer = wallJumpBuffer;
-        airStopTimer = .2f;
         jumpBuffer = -1;
         jumpForce = CalculateJumpForce(playerBody.gravityScale, jumpHeight);
 
@@ -157,16 +155,20 @@ public class PlayerMovement : MonoBehaviour
             {
                 playerBody.AddForce(Vector2.up * playerBody.gravityScale * 15);
             }
+            //else if (playerBody.velocity.y > riseSpeedCap)
+            //{
+            //    playerBody.AddForce(Vector2.down * playerBody.gravityScale * 15);
+            //}
 
             ///// Vertical speed limiter
             ///// This should hopefully fix the notorious "superjump" bug that occurs when jumping,
             ///// bonking enemies, jumping on springs, and walljumping off corners
 
-            if ((playerVelocity.y > 15) || (playerVelocity.y < fallSpeedCap))
+            if ((playerVelocity.y > riseSpeedCap) || (playerVelocity.y < fallSpeedCap))
             {
                 playerVelocity = new Vector2(
                     playerVelocity.x,
-                    Mathf.Clamp(playerVelocity.y, -fallSpeedCap, 15)
+                    Mathf.Clamp(playerVelocity.y, -fallSpeedCap, riseSpeedCap + .5f)
                     );
             }
 
@@ -402,27 +404,6 @@ public class PlayerMovement : MonoBehaviour
             {
                 jumpKeyHeld = false;
             }
-
-            ////Below code could cause bugs when turning around in air
-            
-            //if (Mathf.Abs(moveHorizontal) >= 1)
-            //{
-            //    airStopTimer = .1f;
-            //}
-
-            //if (!JumpDetector.OnGround && moveHorizontal == 0 && Mathf.Abs(playerBody.velocity.x) > .5 && !wallJumping)
-            //{
-            //    if (airStopTimer > 0)
-            //    {
-            //        airStopTimer -= Time.smoothDeltaTime;
-            //    }
-            //    else if (airStopTimer < 0)
-            //    {
-            //        playerBody.AddForce(-Mathf.Sign(playerBody.velocity.x) * 50 * Vector2.right);
-            //    }
-            //}
-
-            ////Above code could cause bugs when turning around in air
 
             //// Walljumping
             WallRaycasting();
