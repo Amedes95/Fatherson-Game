@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 5715686377870296877}
   - component: {fileID: 1068716396841202609}
   - component: {fileID: 364342773}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Trampoline
   m_TagString: Trampoline
   m_Icon: {fileID: 0}
@@ -142,6 +142,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rotation: 0
+  sliding: 0
 --- !u!70 &364342773
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
