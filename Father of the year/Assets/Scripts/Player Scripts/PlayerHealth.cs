@@ -11,11 +11,13 @@ public class PlayerHealth : MonoBehaviour
     {
         deathParticles = GameObject.FindGameObjectWithTag("DeathParticle");
         Dead = false;
+        deathParticles.GetComponent<AudioSource>().playOnAwake = false;
         deathParticles.SetActive(false);
     }
 
     public void KillPlayer() // Kills player
     {
+        deathParticles.GetComponent<AudioSource>().playOnAwake = true;
         Dead = true; // oof
         deathParticles.transform.position = gameObject.transform.position;
         deathParticles.SetActive(true);
