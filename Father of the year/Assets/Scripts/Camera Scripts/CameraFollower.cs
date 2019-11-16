@@ -9,7 +9,7 @@ public class CameraFollower : MonoBehaviour
     public float maxCameraSpeed;
     //public float maxDistanceFromPlayer;
     Vector3 FocusZoneFix;
-    public int cameraZoom;
+    public float cameraZoom;
     public bool cameraBounds;
     public Vector3 minCameraBounds;
     public Vector3 maxCameraBounds;
