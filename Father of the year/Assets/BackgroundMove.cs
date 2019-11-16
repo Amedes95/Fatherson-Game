@@ -47,7 +47,7 @@ public class BackgroundMove : MonoBehaviour
             {
                 transform.Translate(Vector3.left * Speed);
 
-                if (transform.localPosition.x <= -60f)
+                if (transform.localPosition.x <= -80f)
                 {
                     transform.position = new Vector3(XLoopRight, RightLoopPos.position.y, 0);
                 }
@@ -56,7 +56,7 @@ public class BackgroundMove : MonoBehaviour
             {
                 transform.Translate(Vector3.right * Speed);
 
-                if (transform.localPosition.x >= 60f)
+                if (transform.localPosition.x >= 80f)
                 {
                     transform.position = new Vector3(XLoopLeft, LeftLoopPos.position.y, 0);
                 }
