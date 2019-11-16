@@ -5,50 +5,33 @@ using UnityEngine.SceneManagement;
 
 public class BackgroundMusic : MonoBehaviour
 {
-    public static BackgroundMusic control;
-
-    public static AudioSource GameMusicPlayer;
-    public AudioClip TutorialMusic;
-    public AudioClip MenuMusic;
-    public AudioClip WorldHubMusic;
-
-    public AudioClip CurrentMusic;
-
-    AudioClip LevelMusic;
-
-
+    AudioSource GameMusicPlayer;
+    public AudioClip LevelMusic;
 
     // Start is called before the first frame update
     void Awake()
     {
         GameMusicPlayer = gameObject.GetComponent<AudioSource>();
-        LevelMusic = GameObject.FindGameObjectWithTag("LevelBoombox").GetComponent<Boombox>().LevelMusic;
 
-        if (control == null)
-        {
-            DontDestroyOnLoad(gameObject);
-            control = this;
-        }
-        else if (control != this)
-        {
-            Destroy(gameObject);
-        }
+        DontDestroyOnLoad(gameObject);
 
-        GameMusicPlayer.clip = CurrentMusic;
+        GameMusicPlayer.clip = LevelMusic;
         GameMusicPlayer.Play();
 
-    }
-
-    private void Update()
-    {
+        CompareSongs();
 
     }
 
-
-    private void OnLevelWasLoaded(int level)
+    public void CompareSongs()
     {
-        if (CurrentMusic != LevelMusic)
+        if (LevelMusic == GameObject.FindGameObjectWithTag("LevelBoombox").GetComponent<Boombox>().LevelMusic)
         {
+            Debug.Log("TheSame");
+        }
+        else
+        {
+            Debug.Log("NotTheSame");
+            LevelMusic = GameObject.FindGameObjectWithTag("LevelBoombox").GetComponent<Boombox>().LevelMusic;
             GameMusicPlayer.clip = LevelMusic;
             GameMusicPlayer.Play();
         }
