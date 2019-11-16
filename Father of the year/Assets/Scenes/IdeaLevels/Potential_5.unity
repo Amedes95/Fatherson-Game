@@ -154804,12 +154804,6 @@ PrefabInstance:
       objectReference: {fileID: 184262685}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b5bdddb827a561143a0adac71f74a341, type: 3}
---- !u!1 &653986307 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1901682554, guid: b5bdddb827a561143a0adac71f74a341,
-    type: 3}
-  m_PrefabInstance: {fileID: 653986306}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &653986308 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 31052030, guid: b5bdddb827a561143a0adac71f74a341,
@@ -155698,9 +155692,9 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8189700698217030710, guid: a057a5e90eac2ec4b91ead49d885cec6,
         type: 3}
-      propertyPath: FocusZone
-      value: 
-      objectReference: {fileID: 653986307}
+      propertyPath: cameraBounds
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a057a5e90eac2ec4b91ead49d885cec6, type: 3}
 --- !u!1 &1542976188
@@ -157616,6 +157610,11 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7472411387764395205, guid: 20b20a7763791de48978cdb88ee458a5,
+        type: 3}
+      propertyPath: NextLevel
+      value: Tutortial_
+      objectReference: {fileID: 0}
     - target: {fileID: 4457717594927611326, guid: 20b20a7763791de48978cdb88ee458a5,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
@@ -157645,11 +157644,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
-      objectReference: {fileID: 0}
-    - target: {fileID: 7472411387764395205, guid: 20b20a7763791de48978cdb88ee458a5,
-        type: 3}
-      propertyPath: NextLevel
-      value: Tutortial_
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 20b20a7763791de48978cdb88ee458a5, type: 3}

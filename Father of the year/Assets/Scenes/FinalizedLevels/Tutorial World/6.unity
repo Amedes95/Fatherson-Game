@@ -53028,11 +53028,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Moving Saw
       objectReference: {fileID: 0}
-    - target: {fileID: 4880850814453550094, guid: 5b3b1e4beab2d4168a7cbe323a26e4ea,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0.14
-      objectReference: {fileID: 0}
     - target: {fileID: 6107448603720729708, guid: 5b3b1e4beab2d4168a7cbe323a26e4ea,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -53093,6 +53088,11 @@ PrefabInstance:
       propertyPath: m_LocalPosition.x
       value: 8.84
       objectReference: {fileID: 0}
+    - target: {fileID: 4880850814453550094, guid: 5b3b1e4beab2d4168a7cbe323a26e4ea,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.14
+      objectReference: {fileID: 0}
     - target: {fileID: 1537663466877268011, guid: 5b3b1e4beab2d4168a7cbe323a26e4ea,
         type: 3}
       propertyPath: MoveLocations.Array.data[0]
@@ -53103,6 +53103,11 @@ PrefabInstance:
       propertyPath: MoveLocations.Array.data[1]
       value: 
       objectReference: {fileID: 86277458}
+    - target: {fileID: 1537663466877268011, guid: 5b3b1e4beab2d4168a7cbe323a26e4ea,
+        type: 3}
+      propertyPath: MovementSpeed
+      value: 0.1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5b3b1e4beab2d4168a7cbe323a26e4ea, type: 3}
 --- !u!4 &1099159334 stripped
