@@ -15,7 +15,10 @@ public class JumpDetector : MonoBehaviour
     {
         if (collision.tag == "Feet" && PlayerMovement.playerVelocity.y < -6)
         {
-            collision.GetComponentInParent<PlayerMovement>().jumpAudioBox.playLandingSound();
+            if (Player.activeInHierarchy)
+            {
+                collision.GetComponentInParent<PlayerMovement>().jumpAudioBox.playLandingSound();
+            }
         }
     }
 

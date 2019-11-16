@@ -349,12 +349,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d29b6136948c44a62ba09c93e983bfa1, type: 3}
---- !u!1 &184262685 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 269877623413109585, guid: d29b6136948c44a62ba09c93e983bfa1,
-    type: 3}
-  m_PrefabInstance: {fileID: 184262684}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &245804746
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -685,7 +679,7 @@ PrefabInstance:
     - target: {fileID: 5981030734712421034, guid: b5bdddb827a561143a0adac71f74a341,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: -1.43
       objectReference: {fileID: 0}
     - target: {fileID: 5981030734712421034, guid: b5bdddb827a561143a0adac71f74a341,
         type: 3}
@@ -732,23 +726,8 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5981030734712421032, guid: b5bdddb827a561143a0adac71f74a341,
-        type: 3}
-      propertyPath: PlayerSpawn
-      value: 
-      objectReference: {fileID: 653986308}
-    - target: {fileID: 1705240154, guid: b5bdddb827a561143a0adac71f74a341, type: 3}
-      propertyPath: deathParticles
-      value: 
-      objectReference: {fileID: 184262685}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b5bdddb827a561143a0adac71f74a341, type: 3}
---- !u!4 &653986308 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 31052030, guid: b5bdddb827a561143a0adac71f74a341,
-    type: 3}
-  m_PrefabInstance: {fileID: 653986306}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &666382612
 PrefabInstance:
   m_ObjectHideFlags: 0
