@@ -17,6 +17,7 @@ public class FallingPlatform : MonoBehaviour
     public bool steppedOn;
     float SpinSpeed = 1f;
     public ParticleSystem FloatParticles;
+    public BoxCollider2D Killzone;
 
 
 
@@ -26,7 +27,7 @@ public class FallingPlatform : MonoBehaviour
         gameObject.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeAll;
     }
 
-    private void Update()
+    private void FixedUpdate()
     {
         fallVelocity = GetComponent<Rigidbody2D>().velocity.y;
         GetComponent<Animator>().SetFloat("SpinSpeed", SpinSpeed);
@@ -58,6 +59,7 @@ public class FallingPlatform : MonoBehaviour
             GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeAll;
             Standzone.enabled = false;
             JumpZone.enabled = false;
+            Killzone.enabled = false;
         }
         else if (falling)
         {

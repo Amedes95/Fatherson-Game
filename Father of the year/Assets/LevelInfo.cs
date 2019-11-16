@@ -17,7 +17,7 @@ public class LevelInfo : MonoBehaviour
     public TextMeshPro BestTime;
 
     public float GoldStandard;
-    public float SilverStandard;
+    //public float SilverStandard;
     public float BronzeStandard;
 
     bool GoldTierAchieved;
