@@ -5,6 +5,8 @@ using UnityEngine.SceneManagement;
 
 public class BackgroundMusic : MonoBehaviour
 {
+    public static BackgroundMusic MusicControl;
+    //public GameObject BGMusicPrefab;
     AudioSource GameMusicPlayer;
     public AudioClip LevelMusic;
 
@@ -13,10 +15,20 @@ public class BackgroundMusic : MonoBehaviour
     {
         GameMusicPlayer = gameObject.GetComponent<AudioSource>();
 
-        DontDestroyOnLoad(gameObject);
+        if (MusicControl == null)
+        {
+            DontDestroyOnLoad(gameObject);
+            MusicControl = this;
+            GameMusicPlayer.clip = LevelMusic;
+            GameMusicPlayer.Play();
+        }
+        else if (MusicControl != this)
+        {
+            Destroy(gameObject);
+        }
 
-        GameMusicPlayer.clip = LevelMusic;
-        GameMusicPlayer.Play();
+        //DontDestroyOnLoad(gameObject);
+
 
         CompareSongs();
 
