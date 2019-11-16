@@ -26,8 +26,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1214033589}
   m_LocalRotation: {x: -0.7071068, y: -0, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: 0.002984714, y: 0.054, z: -0.087}
-  m_LocalScale: {x: 0.97329843, y: 0.8110824, z: 0.8110824}
+  m_LocalPosition: {x: 0.002984714, y: 0.166, z: -0.087}
+  m_LocalScale: {x: 0.32879236, y: 0.8110824, z: 0.53734213}
   m_Children: []
   m_Father: {fileID: 6828027210908461451}
   m_RootOrder: 1
@@ -115,7 +115,7 @@ ParticleSystem:
     startLifetime:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 5
+      scalar: 3
       minScalar: 5
       maxCurve:
         serializedVersion: 2
@@ -981,22 +981,22 @@ ParticleSystem:
         serializedVersion: 2
         m_Curve:
         - serializedVersion: 3
-          time: 0
-          value: 0
+          time: 0.028012902
+          value: 1
           inSlope: 0
-          outSlope: 1
+          outSlope: 0
           tangentMode: 0
           weightedMode: 0
           inWeight: 0.33333334
           outWeight: 0.33333334
         - serializedVersion: 3
           time: 1
-          value: 1
-          inSlope: 1
-          outSlope: 0
+          value: 0
+          inSlope: -2.2395687
+          outSlope: -2.2395687
           tangentMode: 0
           weightedMode: 0
-          inWeight: 0.33333334
+          inWeight: 0.057581604
           outWeight: 0.33333334
         m_PreInfinity: 2
         m_PostInfinity: 2
@@ -4727,9 +4727,9 @@ ParticleSystemRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 1859464137
-  m_SortingLayer: 7
-  m_SortingOrder: 0
+  m_SortingLayerID: 2100415251
+  m_SortingLayer: 5
+  m_SortingOrder: -1
   m_RenderMode: 0
   m_SortMode: 0
   m_MinParticleSize: 0
@@ -4852,7 +4852,7 @@ Transform:
   m_GameObject: {fileID: 6828027210908461493}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -22.045, y: 15.315, z: 0}
-  m_LocalScale: {x: 4.5, y: 4.5, z: 4.5}
+  m_LocalScale: {x: 8.66, y: 8.66, z: 9}
   m_Children:
   - {fileID: 5827052591334705968}
   - {fileID: 1214033592}
@@ -4940,7 +4940,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 1
-  m_Offset: {x: 0, y: 1.2244948}
+  m_Offset: {x: 0, y: 0.7639644}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -4951,7 +4951,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.24, y: 2.3220885}
+  m_Size: {x: 0.24, y: 1.4010279}
   m_EdgeRadius: 0
 --- !u!114 &3880529327170249009
 MonoBehaviour:
@@ -4965,5 +4965,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3dd0600f627d7409faa387746f70c9dd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fanConstant: 300
+  fanConstant: 250
   rotation: 0

@@ -386,7 +386,7 @@ public class PlayerMovement : MonoBehaviour
                     Jump();
                 }
 
-                if (!JumpDetector.OnGround && (touchingWall || (wallJumpBuffer > 0 && (moveHorizontal != playerDirection)))) //Walljump, can only jump if you are not holding into the wall
+                if (!JumpDetector.OnGround && (touchingWall || (wallJumpBuffer > 0 && (Mathf.Abs(playerVelocity.x) < 2)))) //Walljump, can only jump if you are not holding into the wall
                 {
                     WallJump();
                 }

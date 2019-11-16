@@ -27,6 +27,7 @@ public class Trampoline : MonoBehaviour
             {
                 collision.GetComponentInParent<PlayerMovement>().jumpAudioBox.playJumpSound();
                 collision.GetComponentInParent<PlayerMovement>().playerSpeed = 0;
+                collision.GetComponentInParent<PlayerMovement>().wallJumpBuffer = 0;
 
                 BonkForce = PlayerMovement.jumpForce;
 
