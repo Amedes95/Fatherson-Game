@@ -390,8 +390,7 @@ public class PlayerMovement : MonoBehaviour
                 {
                     WallJump();
                 }
-
-                if (!JumpDetector.OnGround && jumpCount > 0) //Double jump
+                else if (!JumpDetector.OnGround && jumpCount > 0) //Double jump
                 {
                     playerBody.velocity = new Vector2(playerBody.velocity.x, 0);
                     Jump();
