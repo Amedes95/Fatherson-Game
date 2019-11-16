@@ -21,6 +21,7 @@ public class BackgroundMusic : MonoBehaviour
             MusicControl = this;
             GameMusicPlayer.clip = LevelMusic;
             GameMusicPlayer.Play();
+            CompareSongs();
         }
         else if (MusicControl != this)
         {
@@ -30,7 +31,6 @@ public class BackgroundMusic : MonoBehaviour
         //DontDestroyOnLoad(gameObject);
 
 
-        CompareSongs();
 
     }
 
