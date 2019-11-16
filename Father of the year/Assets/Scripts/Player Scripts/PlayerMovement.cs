@@ -269,7 +269,6 @@ public class PlayerMovement : MonoBehaviour
                 (!(JumpDetector.OnGround || isJumping || touchingWall || wallJumping || Trampoline.isBonking) && floatingTimer > 0)
             {
                 SwitchFloatValue(true);
-                Debug.Log("floating");
             }
 
             if (StickyWeb.StuckInWeb)
@@ -385,8 +384,7 @@ public class PlayerMovement : MonoBehaviour
                 {
                     Jump();
                 }
-
-                if (!JumpDetector.OnGround && (touchingWall || (wallJumpBuffer > 0 && (Mathf.Abs(playerVelocity.x) < 2)))) //Walljump, can only jump if you are not holding into the wall
+                else if (!JumpDetector.OnGround && (touchingWall || (wallJumpBuffer > 0 && (Mathf.Abs(playerVelocity.x) < 2)))) //Walljump, can only jump if you are not holding into the wall
                 {
                     WallJump();
                     jumpCount = 0;
@@ -397,8 +395,7 @@ public class PlayerMovement : MonoBehaviour
                     Jump();
                     jumpCount -= 1;
                 }
-
-                if (isFloating)
+                else if (isFloating)
                 {
                     playerBody.velocity = new Vector2(playerBody.velocity.x, 4); // this makes the jump height consistent with grounded jumps. If this is not enabled, floating jumps are about 5/6ths of regular jumps
                     Jump();
