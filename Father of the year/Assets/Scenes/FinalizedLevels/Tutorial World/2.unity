@@ -408,7 +408,13 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 7601345656857965057, guid: 54f36ee8c7e32f14abf63ffee70bb707,
+        type: 3}
+      propertyPath: audioBox
+      value: 
+      objectReference: {fileID: 1466543501}
+    m_RemovedComponents:
+    - {fileID: 4503847407648096955, guid: 54f36ee8c7e32f14abf63ffee70bb707, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 54f36ee8c7e32f14abf63ffee70bb707, type: 3}
 --- !u!1001 &791013168
 PrefabInstance:
@@ -476,6 +482,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 19677182290878136, guid: 67af531bc452e684fbe82f5fc9027d07,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 19677182290878136, guid: 67af531bc452e684fbe82f5fc9027d07,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 67af531bc452e684fbe82f5fc9027d07, type: 3}
@@ -84404,6 +84420,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 94ece9c099684bc4da8db7a011b652d7, type: 3}
+--- !u!114 &1466543501 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4444019720247544507, guid: b5bdddb827a561143a0adac71f74a341,
+    type: 3}
+  m_PrefabInstance: {fileID: 2000471369}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: db52bbe06271b437186a9a1f46588961, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1686790663
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -84797,5 +84825,10 @@ PrefabInstance:
       propertyPath: deathParticles
       value: 
       objectReference: {fileID: 962720728}
+    - target: {fileID: 4444019720247544507, guid: b5bdddb827a561143a0adac71f74a341,
+        type: 3}
+      propertyPath: DeathClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 5d8bd7453f8954245a323ab4f33b63b2, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b5bdddb827a561143a0adac71f74a341, type: 3}
