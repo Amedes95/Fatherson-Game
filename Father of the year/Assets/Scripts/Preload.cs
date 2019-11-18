@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class Preload : MonoBehaviour
 {
@@ -9,6 +10,6 @@ public class Preload : MonoBehaviour
 
     private void Awake()
     {
-        GetComponentInChildren<Text>().text = NameToDisplay;
+        GetComponentInChildren<TextMeshProUGUI>().text = NameToDisplay;
     }
 }

@@ -22,7 +22,7 @@ public class MovingSaw : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         if (PauseScreen.GameIsPaused == false)
         {

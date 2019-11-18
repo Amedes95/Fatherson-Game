@@ -27,7 +27,7 @@ public class BasicPatrol : MonoBehaviour
         }
     }
 
-    private void Update()
+    private void FixedUpdate()
     {
         RaycastingWall();
         RaycastingFloor();
