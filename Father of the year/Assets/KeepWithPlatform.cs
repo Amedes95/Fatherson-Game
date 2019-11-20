@@ -21,7 +21,7 @@ public class KeepWithPlatform : MonoBehaviour
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        if (collision.tag == "Feet")
+        if (collision.tag == "Feet" && collision.gameObject.activeInHierarchy)
         {
             OnPlatform = false;
             collision.GetComponent<Collider2D>().transform.parent.SetParent(null);
