@@ -12,6 +12,7 @@ public class BonkableHead : MonoBehaviour
     //Vector2 rotationVector;
     public GameObject DeathParticles;
     public static GameObject DeathPartclesClone;
+    public float bonkTimer;
 
     public void Awake()
     {
@@ -37,23 +38,15 @@ public class BonkableHead : MonoBehaviour
 
             if (!PlayerHealth.Dead && !isBonking)
             {
-                //if (!isEnemy)
-                //{
-                    BonkForce = PlayerMovement.jumpForce;
-                //}
-                //else
-                //{
-                //    BonkForce = PlayerMovement.jumpForce / 2;
-                //}
+                if (bonkTimer > 0)
+                {
+                    collision.GetComponentInParent<Rigidbody2D>().AddForce(Vector2.down * PlayerMovement.jumpForce * 90);
+                }
                 collision.GetComponentInParent<Rigidbody2D>().velocity =
                     new Vector2(collision.GetComponentInParent<Rigidbody2D>().velocity.x, 0);
-                //collision.GetComponentInParent<Rigidbody2D>().AddForce(rotationVector * BonkForce * 180);
                 isBonking = true;
-                collision.GetComponentInParent<Rigidbody2D>().AddForce(Vector2.up * PlayerMovement.jumpForce * 180);
-                if (gameObject.tag == "Trampoline")
-                {
-                    GetComponent<Animator>().SetTrigger("Bounce");
-                }
+                collision.GetComponentInParent<Rigidbody2D>().AddForce(Vector2.up * PlayerMovement.jumpForce * 135);
+                bonkTimer = .2f;
                 if (Killable)  // kill when bonked
                 {
                     SpawnDeathParticles();
@@ -76,5 +69,13 @@ public class BonkableHead : MonoBehaviour
     {
         DeathPartclesClone = Instantiate(DeathParticles, gameObject.transform.position, Quaternion.identity);
         //DeathParticles.Play();
+    }
+
+    public void FixedUpdate()
+    {
+        if (bonkTimer > 0)
+        {
+            bonkTimer -= Time.smoothDeltaTime;
+        }
     }
 }
