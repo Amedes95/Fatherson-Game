@@ -85,36 +85,36 @@ public class PlayerMovement : MonoBehaviour
         if (PlayerHealth.Dead == false) // Only allow movement if alive
         { 
             moveHorizontal = Input.GetAxis("Horizontal"); // left is -1, stopped is 0, right is 1
-            if (Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow))
-            {
-                moveRight = true;
-                Debug.Log("moving right");
-            }
-            else if (Input.GetKeyUp(KeyCode.D) || Input.GetKeyUp(KeyCode.RightArrow))
-            {
-                moveRight = false;
-                Debug.Log("stopped right");
-            }
+            //if (Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow))
+            //{
+            //    moveRight = true;
+            //    Debug.Log("moving right");
+            //}
+            //else if (Input.GetKeyUp(KeyCode.D) || Input.GetKeyUp(KeyCode.RightArrow))
+            //{
+            //    moveRight = false;
+            //    Debug.Log("stopped right");
+            //}
 
-            if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow))
-            {
-                moveLeft = true;
-                Debug.Log("moving left");
-            }
-            else if (Input.GetKeyUp(KeyCode.A) || Input.GetKeyUp(KeyCode.LeftArrow))
-            {
-                moveLeft = false;
-                Debug.Log("stopped left");
-            }
+            //if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow))
+            //{
+            //    moveLeft = true;
+            //    Debug.Log("moving left");
+            //}
+            //else if (Input.GetKeyUp(KeyCode.A) || Input.GetKeyUp(KeyCode.LeftArrow))
+            //{
+            //    moveLeft = false;
+            //    Debug.Log("stopped left");
+            //}
 
-            if ((moveRight && !moveLeft) || (moveLeft && !moveRight))
-            {
-                isMoving = true;
-            }
-            else
-            {
-                isMoving = false;
-            }
+            //if ((moveRight && !moveLeft) || (moveLeft && !moveRight))
+            //{
+            //    isMoving = true;
+            //}
+            //else
+            //{
+            //    isMoving = false;
+            //}
 
             Vector2 movementPlayer = new Vector2(playerDirection, 0);
             playerVelocity = playerBody.velocity;
@@ -209,7 +209,7 @@ public class PlayerMovement : MonoBehaviour
             {
                 if ((Mathf.Sign(moveHorizontal) != Mathf.Sign(playerBody.velocity.x)) && JumpDetector.OnGround == false) // this makes the character turn around quicker in the air for more control
                 {
-                    playerBody.AddForce(Vector2.right * playerSpeed * 5);
+                    playerBody.AddForce(Vector2.right * playerSpeed * 2.5f);
                 }
                 else
                 {
@@ -222,7 +222,7 @@ public class PlayerMovement : MonoBehaviour
             {
                 if ((Mathf.Sign(moveHorizontal) != Mathf.Sign(playerBody.velocity.x)) && !recentlyJumped && JumpDetector.OnGround == false)
                 {
-                    playerBody.AddForce(Vector2.left * playerSpeed * 5);
+                    playerBody.AddForce(Vector2.left * playerSpeed * 2.5f);
                 }
                 else
                 {
