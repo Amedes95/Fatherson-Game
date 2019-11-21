@@ -173,29 +173,37 @@ public class PlayerMovement : MonoBehaviour
             ///// Movement left and right
             if ((moveHorizontal > 0f) && !Trampoline.isBonking) // player is moving right
             {
-                if ((Mathf.Sign(moveHorizontal) != Mathf.Sign(playerBody.velocity.x)) && !recentlyJumped) // this makes the character turn around quicker in the air for more control
+                if ((Mathf.Sign(moveHorizontal) != Mathf.Sign(playerBody.velocity.x)) && JumpDetector.OnGround == false) // this makes the character turn around quicker in the air for more control
                 {
-                    playerBody.AddForce(movementPlayer * playerSpeed * 3);
+                    playerBody.AddForce(Vector2.right * playerSpeed * 5);
                 }
                 else
                 {
-                    playerBody.AddForce(movementPlayer * playerSpeed);
+                    playerBody.AddForce(Vector2.right * playerSpeed);
                 }
 
                 PlayerAnim.SetBool("Running", true);
             }
             if ((moveHorizontal < 0f) && !Trampoline.isBonking) // player is moving left
             {
-                if ((Mathf.Sign(moveHorizontal) != Mathf.Sign(playerBody.velocity.x)) && !recentlyJumped)
+                if ((Mathf.Sign(moveHorizontal) != Mathf.Sign(playerBody.velocity.x)) && !recentlyJumped && JumpDetector.OnGround == false)
                 {
-                    playerBody.AddForce(movementPlayer * playerSpeed * 3);
+                    playerBody.AddForce(Vector2.left * playerSpeed * 5);
                 }
                 else
                 {
-                    playerBody.AddForce(movementPlayer * playerSpeed);
+                    playerBody.AddForce(Vector2.left * playerSpeed);
                 }
                 PlayerAnim.SetBool("Running", true);
             }
+            // below code slows down the player if they are not holding down A/D. I need to change moveHorizontal to be discrete
+            // rather than a range on the set (-1,1).
+            //if (Mathf.Abs(moveHorizontal) < 1 && Mathf.Abs(playerBody.velocity.x) > 4)
+            //{
+            //    Debug.Log("braking");
+            //    playerBody.velocity = new Vector2(0, playerBody.velocity.y);
+            //    playerBody.AddForce(Vector2.right * -playerDirection * playerSpeed * Mathf.Abs(playerBody.velocity.x));
+            //}
 
             if (Mathf.Abs(moveHorizontal) < .01) // player is stopped
             {
