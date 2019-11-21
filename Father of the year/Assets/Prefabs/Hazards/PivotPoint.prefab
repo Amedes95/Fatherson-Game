@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 3214415491700886292}
   - component: {fileID: 3214415491700886293}
   m_Layer: 0
-  m_Name: SawPivot
+  m_Name: PivotPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -25,8 +25,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3214415491700886291}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -4, y: 5, z: 0}
-  m_LocalScale: {x: 1.67252, y: 1.67252, z: 1.67252}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 7747054789621854620}
   m_Father: {fileID: 0}
@@ -95,7 +95,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   PivotPoint: {fileID: 3214415491700886292}
   IncrementValue: 0.5
-  ChainLinkPrefab: {fileID: 3356152925827681071, guid: 514dd08f21eabf64aa454bc3d45329d1,
+  ChainLinkPrefab: {fileID: 3356152925827681071, guid: d7c63c71c775ebc4e92eb193585bced8,
     type: 3}
 --- !u!114 &3214415491977224604
 MonoBehaviour:
@@ -121,12 +121,12 @@ PrefabInstance:
     - target: {fileID: 5123113487814791193, guid: 6dadae4ea1b74af4c803a6097e019450,
         type: 3}
       propertyPath: m_Name
-      value: RotatingSaw
+      value: ObjectInMotion
       objectReference: {fileID: 0}
     - target: {fileID: 5123113487814791172, guid: 6dadae4ea1b74af4c803a6097e019450,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: -0.033
       objectReference: {fileID: 0}
     - target: {fileID: 5123113487814791172, guid: 6dadae4ea1b74af4c803a6097e019450,
         type: 3}
@@ -181,19 +181,36 @@ PrefabInstance:
     - target: {fileID: 5123113487814791172, guid: 6dadae4ea1b74af4c803a6097e019450,
         type: 3}
       propertyPath: m_LocalScale.x
-      value: 2.48858
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 5123113487814791172, guid: 6dadae4ea1b74af4c803a6097e019450,
         type: 3}
       propertyPath: m_LocalScale.y
-      value: 2.48858
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 5123113487814791172, guid: 6dadae4ea1b74af4c803a6097e019450,
         type: 3}
       propertyPath: m_LocalScale.z
-      value: 2.48858
+      value: 6
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 5123113487814791175, guid: 6dadae4ea1b74af4c803a6097e019450,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: b3102ebfbd1c25347a863b6037f811bc,
+        type: 3}
+    - target: {fileID: 5123113487814791173, guid: 6dadae4ea1b74af4c803a6097e019450,
+        type: 3}
+      propertyPath: m_Offset.x
+      value: 0.0045866175
+      objectReference: {fileID: 0}
+    - target: {fileID: 5123113487814791173, guid: 6dadae4ea1b74af4c803a6097e019450,
+        type: 3}
+      propertyPath: m_Radius
+      value: 0.08960869
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 5123113487814791174, guid: 6dadae4ea1b74af4c803a6097e019450, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 6dadae4ea1b74af4c803a6097e019450, type: 3}
 --- !u!1 &7747054789621854593 stripped
 GameObject:
