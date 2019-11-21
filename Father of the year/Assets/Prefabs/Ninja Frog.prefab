@@ -5180,6 +5180,7 @@ MonoBehaviour:
   jumpHeight: 5
   fallForce: 10
   fallSpeedCap: 10
+  riseSpeedCap: 0
   startSpeed: 0
   midSpeed: 0
   fullSpeed: 0
@@ -5188,7 +5189,6 @@ MonoBehaviour:
   wallEndLine: {fileID: 1780781307}
   backWallEndLine: {fileID: 2617445205952732345}
   floatLine: {fileID: 1098182296}
-  floatingTimer: 0
   playerGravity: 0
   WindEffect: {fileID: 983842179}
   wallJumpBuffer: 0.1
@@ -5423,7 +5423,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.5
   m_Pitch: 1
   Loop: 0
   Mute: 0
