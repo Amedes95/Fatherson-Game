@@ -43,9 +43,6 @@ public class PlayerMovement : MonoBehaviour
     public bool flipOnSpawn;
     public static Vector2 playerVelocity;
     private float jumpBuffer; // used to buffer a jump if jump is inputted before hitting the ground
-    bool moveRight;
-    bool moveLeft;
-    bool isMoving;
 
     public PlayerSoundScript jumpAudioBox;
 
@@ -83,40 +80,9 @@ public class PlayerMovement : MonoBehaviour
     void FixedUpdate()
     {
         if (PlayerHealth.Dead == false) // Only allow movement if alive
-        { 
+        {
             moveHorizontal = Input.GetAxis("Horizontal"); // left is -1, stopped is 0, right is 1
-            if (Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow))
-            {
-                moveRight = true;
-                Debug.Log("moving right");
-            }
-            else if (Input.GetKeyUp(KeyCode.D) || Input.GetKeyUp(KeyCode.RightArrow))
-            {
-                moveRight = false;
-                Debug.Log("stopped right");
-            }
-
-            if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow))
-            {
-                moveLeft = true;
-                Debug.Log("moving left");
-            }
-            else if (Input.GetKeyUp(KeyCode.A) || Input.GetKeyUp(KeyCode.LeftArrow))
-            {
-                moveLeft = false;
-                Debug.Log("stopped left");
-            }
-
-            if ((moveRight && !moveLeft) || (moveLeft && !moveRight))
-            {
-                isMoving = true;
-            }
-            else
-            {
-                isMoving = false;
-            }
-
-            Vector2 movementPlayer = new Vector2(playerDirection, 0);
+            Vector2 movementPlayer = new Vector2(moveHorizontal, 0);
             playerVelocity = playerBody.velocity;
 
             if (transform.localScale.x > 0)
@@ -232,7 +198,7 @@ public class PlayerMovement : MonoBehaviour
             }
             // below code slows down the player if they are not holding down A/D. I need to change moveHorizontal to be discrete
             // rather than a range on the set (-1,1).
-            //if (isMoving)
+            //if (Mathf.Abs(moveHorizontal) < 1 && Mathf.Abs(playerBody.velocity.x) > 4)
             //{
             //    Debug.Log("braking");
             //    playerBody.velocity = new Vector2(0, playerBody.velocity.y);
