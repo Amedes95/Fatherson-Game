@@ -45,8 +45,7 @@ public class BonkableHead : MonoBehaviour
                 collision.GetComponentInParent<Rigidbody2D>().velocity =
                     new Vector2(collision.GetComponentInParent<Rigidbody2D>().velocity.x, 0);
                 isBonking = true;
-                collision.GetComponentInParent<Rigidbody2D>().AddForce(Vector2.up * PlayerMovement.jumpForce * 200);
-                PlayerMovement.floatingTimer = -1;
+                collision.GetComponentInParent<Rigidbody2D>().AddForce(Vector2.up * PlayerMovement.jumpForce * 135);
                 bonkTimer = .2f;
                 if (Killable)  // kill when bonked
                 {
