@@ -137,6 +137,7 @@ MonoBehaviour:
   Killable: 1
   DeathParticles: {fileID: 9012351662596608965, guid: 02b77112a40cb7f49b423d42b3b5fd7f,
     type: 3}
+  bonkTimer: 0
 --- !u!61 &1977417751
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -150,7 +151,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.0010037422, y: -0.1691684}
+  m_Offset: {x: 0.0022476614, y: -0.16628152}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -161,7 +162,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.755656, y: 0.12851337}
+  m_Size: {x: 0.56705445, y: 0.1342871}
   m_EdgeRadius: 0
 --- !u!1 &2636196673033784938
 GameObject:
@@ -223,7 +224,7 @@ Transform:
   m_GameObject: {fileID: 2636196673049084173}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -9.39, y: -0.41, z: 0}
-  m_LocalScale: {x: 7.5815554, y: 7.5815554, z: 7.5815554}
+  m_LocalScale: {x: 6.5075736, y: 6.5075736, z: 6.5075736}
   m_Children:
   - {fileID: 2636196673033784941}
   - {fileID: 1977417750}

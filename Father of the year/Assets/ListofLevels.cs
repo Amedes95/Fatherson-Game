@@ -12,6 +12,7 @@ public class ListofLevels : MonoBehaviour
     bool ready;
 
 
+
     private void Awake() // for some reason, there needs to be a .1 frame delay or else the information isn't read correctly
     {
         ready = true;
@@ -29,6 +30,8 @@ public class ListofLevels : MonoBehaviour
                 ready = false;
             }
         }
+
+
     }
     
 
