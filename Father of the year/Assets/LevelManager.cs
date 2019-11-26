@@ -69,6 +69,26 @@ public class LevelManager : MonoBehaviour
         if (PauseScreen.GameIsPaused == false)
         {
             //// Shifts levels back and forth
+
+            /// my mess that doesn't allow you to navigate over locked levels
+            if (ActiveWorld.GetComponent<ListofLevels>().CurrentIndex < ActiveWorld.GetComponent<ListofLevels>().LevelsWithinWorld.Count-1)
+            {
+                if (ActiveWorld.GetComponent<ListofLevels>().LevelsWithinWorld[(ActiveWorld.GetComponent<ListofLevels>().CurrentIndex + 1)].GetComponent<LevelInfo>().Unlocked == true)
+                {
+                    if (Input.GetKeyDown(KeyCode.D))
+                    {
+                        if (LevelIndex < ActiveWorld.GetComponent<ListofLevels>().LevelsWithinWorld.Count - 1)
+                        {
+                            ActiveWorld.transform.Translate(Vector3.left * ShiftDistance);
+                            LevelIndex++;
+                        }
+                        //Debug.Log(LevelIndex);
+                        ActiveWorld.GetComponent<ListofLevels>().CurrentIndex = LevelIndex;
+
+                    }
+                }
+            }
+
             if (Input.GetKeyDown(KeyCode.A))
             {
                 if (LevelIndex > 0)
@@ -79,17 +99,7 @@ public class LevelManager : MonoBehaviour
                 //Debug.Log(LevelIndex);
                 ActiveWorld.GetComponent<ListofLevels>().CurrentIndex = LevelIndex;
             }
-            else if (Input.GetKeyDown(KeyCode.D))
-            {
-                if (LevelIndex < ActiveWorld.GetComponent<ListofLevels>().LevelsWithinWorld.Count - 1)
-                {
-                    ActiveWorld.transform.Translate(Vector3.left * ShiftDistance);
-                    LevelIndex++;
-                }
-                //Debug.Log(LevelIndex);
-                ActiveWorld.GetComponent<ListofLevels>().CurrentIndex = LevelIndex;
 
-            }
 
             //// Shifts world indexer up and down
             if (Input.GetKeyDown(KeyCode.W)) // move down a world
@@ -117,9 +127,7 @@ public class LevelManager : MonoBehaviour
             LevelIndex = ActiveWorld.GetComponent<ListofLevels>().CurrentIndex;
 
 
-            // updates text on screen
-            LevelText.text = ActiveWorld.GetComponent<ListofLevels>().LevelsWithinWorld[LevelIndex].GetComponent<LevelInfo>().LevelDisplayName;
-            WorldText.text = ActiveWorld.GetComponent<ListofLevels>().LevelsWithinWorld[LevelIndex].GetComponent<LevelInfo>().WorldDisplayName;
+            
 
 
             // moves camera and selection box to active level
@@ -160,6 +168,13 @@ public class LevelManager : MonoBehaviour
 
 
 
+    }
+
+    private void FixedUpdate()
+    {
+        // updates text on screen
+        LevelText.text = ActiveWorld.GetComponent<ListofLevels>().LevelsWithinWorld[LevelIndex].GetComponent<LevelInfo>().LevelDisplayName;
+        WorldText.text = ActiveWorld.GetComponent<ListofLevels>().LevelsWithinWorld[LevelIndex].GetComponent<LevelInfo>().WorldDisplayName;
     }
 
     public void ResetBGs()

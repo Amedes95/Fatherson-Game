@@ -24,6 +24,7 @@ public class LevelInfo : MonoBehaviour
     bool SilverTierAchieved;
     bool BronzeTierAchieved;
 
+
     private void OnTriggerStay2D(Collider2D collision)
     {
         //Debug.Log("Active");
@@ -31,6 +32,7 @@ public class LevelInfo : MonoBehaviour
         {
             gameObject.GetComponent<Animator>().SetBool("Active", true);
         }
+
 
         //// for completion
         if (PlayerPrefs.GetFloat(SceneToLoad) != 0)
