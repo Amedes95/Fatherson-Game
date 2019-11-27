@@ -200,7 +200,10 @@ public class PlayerMovement : MonoBehaviour
             if (Mathf.Abs(moveHorizontal) < .01) // player is stopped
             {
                 PlayerAnim.SetBool("Running", false);
-                playerBody.AddForce(-playerDirection * playerSpeed * Vector2.right * Mathf.Abs(playerVelocity.x)/10); //this slows down the player if they arent holding A/D
+                if (!recentlyJumped && !wallJumping)
+                {
+                    playerBody.AddForce(-playerDirection * playerSpeed * Vector2.right * Mathf.Abs(playerVelocity.x) / 10); //this slows down the player if they arent holding A/D
+                }
             }
 
             if (isJumping && !recentlyJumped) // counter jump force: if you release W after jumping you don't jump as high. In other words the longer you hold W the higher you jump.
