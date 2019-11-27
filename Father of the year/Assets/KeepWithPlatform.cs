@@ -17,6 +17,12 @@ public class KeepWithPlatform : MonoBehaviour
                 collision.GetComponentInParent<Rigidbody2D>().velocity = gameObject.GetComponent<Rigidbody2D>().velocity;
             }
         }
+
+        if (collision.tag == "Enemy")
+        {
+            collision.GetComponent<Collider2D>().transform.SetParent(transform);
+            collision.GetComponent<Rigidbody2D>().velocity = gameObject.GetComponent<Rigidbody2D>().velocity;
+        }
     }
 
     private void OnTriggerExit2D(Collider2D collision)
@@ -25,6 +31,11 @@ public class KeepWithPlatform : MonoBehaviour
         {
             OnPlatform = false;
             collision.GetComponent<Collider2D>().transform.parent.SetParent(null);
+        }
+
+        if (collision.tag == "Enemy" && collision.gameObject.activeInHierarchy)
+        {
+            collision.GetComponent<Collider2D>().transform.SetParent(null);
         }
     }
 }

@@ -425,7 +425,7 @@ PrefabInstance:
     - target: {fileID: 5981030734712421034, guid: b5bdddb827a561143a0adac71f74a341,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 27.5
+      value: 2.947
       objectReference: {fileID: 0}
     - target: {fileID: 5981030734712421034, guid: b5bdddb827a561143a0adac71f74a341,
         type: 3}
@@ -975,6 +975,11 @@ PrefabInstance:
       propertyPath: cameraZoom
       value: 9
       objectReference: {fileID: 0}
+    - target: {fileID: 8189700698217030696, guid: a057a5e90eac2ec4b91ead49d885cec6,
+        type: 3}
+      propertyPath: orthographic size
+      value: 9
+      objectReference: {fileID: 0}
     - target: {fileID: 1931155185574171716, guid: a057a5e90eac2ec4b91ead49d885cec6,
         type: 3}
       propertyPath: m_Sprite
@@ -1104,11 +1109,6 @@ PrefabInstance:
         type: 3}
       propertyPath: Up
       value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8189700698217030696, guid: a057a5e90eac2ec4b91ead49d885cec6,
-        type: 3}
-      propertyPath: orthographic size
-      value: 9
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a057a5e90eac2ec4b91ead49d885cec6, type: 3}
