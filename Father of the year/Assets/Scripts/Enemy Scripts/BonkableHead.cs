@@ -50,10 +50,16 @@ public class BonkableHead : MonoBehaviour
                 if (Killable)  // kill when bonked
                 {
                     SpawnDeathParticles();
-                    Destroy(gameObject.transform.parent.gameObject);
+                    //Destroy(gameObject.transform.parent.gameObject);
                 }
             }
-
+        }
+        if (collision.tag == "Boss")
+        {
+            if (Killable)
+            {
+                SpawnDeathParticles();
+            }
         }
     }
 
@@ -68,6 +74,7 @@ public class BonkableHead : MonoBehaviour
     public void SpawnDeathParticles()
     {
         DeathPartclesClone = Instantiate(DeathParticles, gameObject.transform.position, Quaternion.identity);
+        Destroy(gameObject.transform.parent.gameObject);
         //DeathParticles.Play();
     }
 

@@ -18,6 +18,7 @@ public class LevelManager : MonoBehaviour
     GameObject ActiveWorld;
 
     public GameObject World1;
+    public GameObject World2;
 
     int LevelIndex;
     int WorldIndex;
@@ -58,6 +59,11 @@ public class LevelManager : MonoBehaviour
             //Debug.Log(PlayerPrefs.GetInt("Tutorial_Complete") + "Tutorial Complete");
             WorldsList.Add(World1);
         }
+        if (WorldsList.Contains(World2) == false && PlayerPrefs.GetInt("World1_Complete") == 1)
+        {
+            WorldsList.Add(World2);
+        }
+
     }
 
 

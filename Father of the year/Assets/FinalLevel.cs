@@ -13,12 +13,11 @@ public class FinalLevel : MonoBehaviour
         {
             if (SceneManager.GetActiveScene().name == "Tutorial_19") // if its the last level
             {
-                Debug.Log("Final Level Complete!");
                 PlayerPrefs.SetInt("Tutorial_Complete", 1);
             }
-            if (SceneManager.GetActiveScene().name == "Insert Name of world 1 final level")
+            if (SceneManager.GetActiveScene().name == "W1L22")
             {
-                PlayerPrefs.SetInt("Final World 1 level dad adda dad  ...and so on", 1);
+                PlayerPrefs.SetInt("World1_Complete", 1);
             }
         }
     }
