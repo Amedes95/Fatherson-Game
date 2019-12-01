@@ -174,7 +174,7 @@ public class PlayerMovement : MonoBehaviour
             ///// Movement left and right
             if ((moveHorizontal > 0f) && !Trampoline.isBonking) // player is moving right
             {
-                if ((Mathf.Sign(moveHorizontal) != Mathf.Sign(playerBody.velocity.x)) && !recentlyJumped) // this makes the character turn around quicker in the air for more control
+                if ((Mathf.Sign(moveHorizontal) != Mathf.Sign(playerBody.velocity.x)) && !recentlyJumped && (Mathf.Abs(playerVelocity.x) > 2)) // this makes the character turn around quicker in the air for more control, I add the >2 part to prevent backdashing upond landing on the ground
                 {
                     playerBody.AddForce(movementPlayer * playerSpeed * 3);
                 }
@@ -187,7 +187,7 @@ public class PlayerMovement : MonoBehaviour
             }
             if ((moveHorizontal < 0f) && !Trampoline.isBonking) // player is moving left
             {
-                if ((Mathf.Sign(moveHorizontal) != Mathf.Sign(playerBody.velocity.x)) && !recentlyJumped)
+                if ((Mathf.Sign(moveHorizontal) != Mathf.Sign(playerBody.velocity.x)) && !recentlyJumped && (Mathf.Abs(playerVelocity.x) > 2))
                 {
                     playerBody.AddForce(movementPlayer * playerSpeed * 3);
                 }
@@ -418,7 +418,7 @@ public class PlayerMovement : MonoBehaviour
             backWallRaycasting();
 
             ////Face direction of horizontal movement
-            if (playerBody.velocity.x > 0)
+            if (playerBody.velocity.x > 1f)
             {
                 if (transform.localScale.x < 0)
                 {
@@ -426,7 +426,7 @@ public class PlayerMovement : MonoBehaviour
                 }
             }
 
-            if (playerBody.velocity.x < 0)
+            if (playerBody.velocity.x < -1f)
             {
                 if (transform.localScale.x > 0)
                 {
