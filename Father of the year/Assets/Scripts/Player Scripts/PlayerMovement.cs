@@ -17,7 +17,7 @@ public class PlayerMovement : MonoBehaviour
     public static float jumpFallCooldown; // a timer used to make a minimum jump height with counterJumpForce
     public static bool recentlyJumped;
     bool jumpKeyHeld;
-    public static int jumpCount; // used for double jumps, not currently implemented
+    public static int jumpCount; // used for double jumps, used with fruit
     public float fallForce;
     public float fallSpeedCap;
     public float riseSpeedCap;
