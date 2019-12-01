@@ -52,6 +52,7 @@ public class PlayerMovement : MonoBehaviour
 
     void Awake()
     {
+        jumpCount = 0;
         playerBody = GetComponent<Rigidbody2D>();
         PlayerAnim = GetComponent<Animator>();
         startSpeed = 200;
