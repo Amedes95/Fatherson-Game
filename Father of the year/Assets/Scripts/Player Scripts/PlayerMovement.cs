@@ -418,7 +418,7 @@ public class PlayerMovement : MonoBehaviour
             backWallRaycasting();
 
             ////Face direction of horizontal movement
-            if (playerBody.velocity.x > 3f)
+            if (playerBody.velocity.x > 0)
             {
                 if (transform.localScale.x < 0)
                 {
@@ -426,7 +426,7 @@ public class PlayerMovement : MonoBehaviour
                 }
             }
 
-            if (playerBody.velocity.x < -3f)
+            if (playerBody.velocity.x < 0)
             {
                 if (transform.localScale.x > 0)
                 {
