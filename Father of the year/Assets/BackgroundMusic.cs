@@ -38,11 +38,11 @@ public class BackgroundMusic : MonoBehaviour
     {
         if (LevelMusic == GameObject.FindGameObjectWithTag("LevelBoombox").GetComponent<Boombox>().LevelMusic)
         {
-            Debug.Log("TheSame");
+            //Debug.Log("TheSame");
         }
         else
         {
-            Debug.Log("NotTheSame");
+            //Debug.Log("NotTheSame");
             LevelMusic = GameObject.FindGameObjectWithTag("LevelBoombox").GetComponent<Boombox>().LevelMusic;
             GameMusicPlayer.clip = LevelMusic;
             GameMusicPlayer.Play();

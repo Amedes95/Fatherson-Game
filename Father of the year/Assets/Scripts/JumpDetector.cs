@@ -6,6 +6,7 @@ public class JumpDetector : MonoBehaviour
 {
     public static bool OnGround;
     GameObject Player;
+
     private void Awake()
     {
         Player = GameObject.FindGameObjectWithTag("Player");

@@ -27,6 +27,7 @@ public class Crumble : MonoBehaviour
             {
                 GetComponent<Animator>().SetTrigger("Crumble");
                 Crumbling = true;
+
             }
         }
     }
@@ -36,6 +37,7 @@ public class Crumble : MonoBehaviour
         if (collision.tag == "Feet" || collision.tag == "Player")
         {
             BlockingRespawn = true;
+
         }
     }
 

@@ -82,6 +82,10 @@ public class PlayerMovement : MonoBehaviour
     {
         if (PlayerHealth.Dead == false) // Only allow movement if alive
         {
+            //// Walljumping
+            WallRaycasting();
+            backWallRaycasting();
+
             moveHorizontal = Input.GetAxis("Horizontal"); // left is -1, stopped is 0, right is 1
             Vector2 movementPlayer = new Vector2(moveHorizontal, 0);
             playerVelocity = playerBody.velocity;
@@ -402,6 +406,7 @@ public class PlayerMovement : MonoBehaviour
                 }
                 else if (isFloating)
                 {
+                    Debug.Log("floationg");
                     playerBody.velocity = new Vector2(playerBody.velocity.x, 4); // this makes the jump height consistent with grounded jumps. If this is not enabled, floating jumps are about 5/6ths of regular jumps
                     Jump();
                     SwitchFloatValue(false);
@@ -413,9 +418,7 @@ public class PlayerMovement : MonoBehaviour
                 jumpKeyHeld = false;
             }
 
-            //// Walljumping
-            WallRaycasting();
-            backWallRaycasting();
+
 
             ////Face direction of horizontal movement
             if (playerBody.velocity.x > 1f)
