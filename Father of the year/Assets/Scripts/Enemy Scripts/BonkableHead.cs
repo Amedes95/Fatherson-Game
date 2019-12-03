@@ -5,7 +5,7 @@ using UnityEngine;
 public class BonkableHead : MonoBehaviour
 {
     float BonkForce; // this should match jumpForce in PlayerMovement for consistency
-    bool isBonking;
+    public static bool CurrentlyBonking;
     public bool Killable;
     bool isEnemy;
     //public float rotation; //only use this on springs, not enemies
@@ -13,10 +13,11 @@ public class BonkableHead : MonoBehaviour
     public GameObject DeathParticles;
     public static GameObject DeathPartclesClone;
     public float bonkTimer;
+    public bool OnTrampoline;
 
     public void Awake()
     {
-        isBonking = false;
+        CurrentlyBonking = false;
         //gameObject.transform.parent.transform.eulerAngles = new Vector3 (0, 0, rotation);
         //rotationVector = new Vector2(Mathf.Cos(rotation), Mathf.Sin(rotation));
 
@@ -35,23 +36,30 @@ public class BonkableHead : MonoBehaviour
     {
         if (collision.tag == "Feet")
         {
-
-            if (!PlayerHealth.Dead && !isBonking)
+            if (!PlayerHealth.Dead && !CurrentlyBonking)
             {
-                if (bonkTimer > 0)
+                if (OnTrampoline == false)
                 {
-                    collision.GetComponentInParent<Rigidbody2D>().AddForce(Vector2.down * PlayerMovement.jumpForce * 90);
+                    Debug.Log("Bonk");
+                    if (bonkTimer > 0)
+                    {
+                        collision.GetComponentInParent<Rigidbody2D>().AddForce(Vector2.down * PlayerMovement.jumpForce * 90);
+                    }
+                    collision.GetComponentInParent<Rigidbody2D>().velocity = new Vector2(collision.GetComponentInParent<Rigidbody2D>().velocity.x, 0);
+                    CurrentlyBonking = true;
+                    collision.GetComponentInParent<Rigidbody2D>().AddForce(Vector2.up * PlayerMovement.jumpForce * 135);
+                    bonkTimer = .2f;
+                    if (Killable)  // kill when bonked
+                    {
+                        SpawnDeathParticles();
+                        //Destroy(gameObject.transform.parent.gameObject);
+                    }
                 }
-                collision.GetComponentInParent<Rigidbody2D>().velocity =
-                    new Vector2(collision.GetComponentInParent<Rigidbody2D>().velocity.x, 0);
-                isBonking = true;
-                collision.GetComponentInParent<Rigidbody2D>().AddForce(Vector2.up * PlayerMovement.jumpForce * 135);
-                bonkTimer = .2f;
-                if (Killable)  // kill when bonked
+                else
                 {
                     SpawnDeathParticles();
-                    //Destroy(gameObject.transform.parent.gameObject);
                 }
+
             }
         }
         if (collision.tag == "Boss")
@@ -66,8 +74,8 @@ public class BonkableHead : MonoBehaviour
     private void OnTriggerExit2D(Collider2D collision)
     {
         if (collision.tag == "Feet")
-        { 
-            isBonking = false;
+        {
+            CurrentlyBonking = false;
         }
     }
 

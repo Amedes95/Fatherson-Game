@@ -176,7 +176,7 @@ public class PlayerMovement : MonoBehaviour
             }
 
             ///// Movement left and right
-            if ((moveHorizontal > 0f) && !Trampoline.isBonking) // player is moving right
+            if ((moveHorizontal > 0f) && !Trampoline.IsBouncing) // player is moving right
             {
                 if ((Mathf.Sign(moveHorizontal) != Mathf.Sign(playerBody.velocity.x)) && !recentlyJumped && (Mathf.Abs(playerVelocity.x) > 2)) // this makes the character turn around quicker in the air for more control, I add the >2 part to prevent backdashing upond landing on the ground
                 {
@@ -189,7 +189,7 @@ public class PlayerMovement : MonoBehaviour
 
                 PlayerAnim.SetBool("Running", true);
             }
-            if ((moveHorizontal < 0f) && !Trampoline.isBonking) // player is moving left
+            if ((moveHorizontal < 0f) && !Trampoline.IsBouncing) // player is moving left
             {
                 if ((Mathf.Sign(moveHorizontal) != Mathf.Sign(playerBody.velocity.x)) && !recentlyJumped && (Mathf.Abs(playerVelocity.x) > 2))
                 {
@@ -275,7 +275,7 @@ public class PlayerMovement : MonoBehaviour
                 floatingTimer = .1f;
             }
             else if
-                (!(JumpDetector.OnGround || isJumping || touchingWall || wallJumping || Trampoline.isBonking) && floatingTimer > 0)
+                (!(JumpDetector.OnGround || isJumping || touchingWall || wallJumping || Trampoline.IsBouncing) && floatingTimer > 0)
             {
                 SwitchFloatValue(true);
             }
@@ -326,7 +326,7 @@ public class PlayerMovement : MonoBehaviour
         {
             playerBody.velocity= new Vector2(playerBody.velocity.x, 0);
         }
-        if (Trampoline.isBonking == false)
+        if (Trampoline.IsBouncing == false)
         {
             jumpFallCooldown = .05f;
             recentlyJumped = true;
@@ -343,7 +343,7 @@ public class PlayerMovement : MonoBehaviour
 
     public void WallJump()
     {
-        if (Trampoline.isBonking == false)
+        if (Trampoline.IsBouncing == false)
         {
             playerBody.velocity = new Vector2(0, 0);
             jumpFallCooldown = .15f;
