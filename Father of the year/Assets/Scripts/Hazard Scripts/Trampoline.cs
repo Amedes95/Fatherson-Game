@@ -26,6 +26,7 @@ public class Trampoline : MonoBehaviour
 
             if (!PlayerHealth.Dead && !IsBouncing)
             {
+                PlayerMovement.jumpCount = 0;
                 Debug.Log("Trampline");
                 collision.GetComponentInParent<PlayerMovement>().jumpAudioBox.playJumpSound();
                 collision.GetComponentInParent<PlayerMovement>().playerSpeed = 0;
