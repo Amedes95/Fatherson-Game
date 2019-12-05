@@ -35,6 +35,11 @@ public class FleaController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (Player.activeInHierarchy == false)
+        {
+            gameObject.GetComponent<Animator>().SetBool("PlayerKilled", true);
+        }
+
         RaycastingFloor();
         LaserTargetPos = Player.transform.position;
         if (Player.transform.position.x < transform.position.x)
@@ -83,9 +88,17 @@ public class FleaController : MonoBehaviour
 
     public void Walk()
     {
-        WalkDirection = new Vector2(FaceDirection, 0) * WalkSpeed;
-        gameObject.GetComponent<Animator>().SetBool("Walking", true);
-        gameObject.GetComponent<Rigidbody2D>().velocity = WalkDirection;
+        if (Player.activeInHierarchy)
+        {
+            WalkDirection = new Vector2(FaceDirection, 0) * WalkSpeed;
+            gameObject.GetComponent<Animator>().SetBool("Walking", true);
+            gameObject.GetComponent<Rigidbody2D>().velocity = WalkDirection;
+        }
+        else
+        {
+            gameObject.GetComponent<Animator>().SetBool("Walking", false);
+        }
+
     }
 
     public void Hop(float jumpForce)
