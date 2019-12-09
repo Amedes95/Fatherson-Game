@@ -11,6 +11,8 @@ public class Boombox : MonoBehaviour
     // Start is called before the first frame update
     void Awake()
     {
+        QualitySettings.vSyncCount = 0;
+        Application.targetFrameRate = 60;
         if (GameObject.FindGameObjectWithTag("BGMusic") == null)
         {
             Instantiate(BGPrefab);

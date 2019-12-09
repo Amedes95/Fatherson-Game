@@ -322,6 +322,7 @@ public class PlayerMovement : MonoBehaviour
 
     public void Jump()
     {
+        jumpForce = CalculateJumpForce(playerBody.gravityScale, jumpHeight);
         if (KeepWithPlatform.OnPlatform) //make this universal for all moving platforms
         {
             playerBody.velocity= new Vector2(playerBody.velocity.x, 0);
@@ -345,6 +346,7 @@ public class PlayerMovement : MonoBehaviour
     {
         if (Trampoline.IsBouncing == false)
         {
+            jumpForce = CalculateJumpForce(playerBody.gravityScale, jumpHeight);
             playerBody.velocity = new Vector2(0, 0);
             jumpFallCooldown = .15f;
             recentlyJumped = true;
