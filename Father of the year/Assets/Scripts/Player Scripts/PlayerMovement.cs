@@ -85,6 +85,14 @@ public class PlayerMovement : MonoBehaviour
             //// Walljumping
             WallRaycasting();
             backWallRaycasting();
+            if (jumpCount > 0)
+            {
+                gameObject.GetComponent<Animator>().SetBool("DoubleJumpActive", true);
+            }
+            else
+            {
+                gameObject.GetComponent<Animator>().SetBool("DoubleJumpActive", false);
+            }
 
             moveHorizontal = Input.GetAxis("Horizontal"); // left is -1, stopped is 0, right is 1
             Vector2 movementPlayer = new Vector2(moveHorizontal, 0);
@@ -100,6 +108,11 @@ public class PlayerMovement : MonoBehaviour
             if (playerBody.velocity.y < -1)
             {
                 playerBody.AddForce(new Vector2(0, -1) * fallForce);
+                gameObject.GetComponent<Animator>().SetBool("Falling", true);
+            }
+            else
+            {
+                gameObject.GetComponent<Animator>().SetBool("Falling", false);
             }
 
             if (touchingWall && !JumpDetector.OnGround) //Wall Slide

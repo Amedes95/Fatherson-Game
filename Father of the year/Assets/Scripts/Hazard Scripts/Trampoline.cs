@@ -32,7 +32,7 @@ public class Trampoline : MonoBehaviour
                 collision.GetComponentInParent<PlayerMovement>().playerSpeed = 0;
                 collision.GetComponentInParent<PlayerMovement>().wallJumpBuffer = 0;
 
-                BounceForce = PlayerMovement.jumpForce;
+                BounceForce = PlayerMovement.CalculateJumpForce(collision.GetComponentInParent<Rigidbody2D>().gravityScale, collision.GetComponentInParent<PlayerMovement>().jumpHeight);
 
                 collision.GetComponentInParent<Rigidbody2D>().position += .2f * rotationVector;
                 collision.GetComponentInParent<Rigidbody2D>().velocity = rotationVector;

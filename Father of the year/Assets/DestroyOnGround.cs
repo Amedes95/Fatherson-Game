@@ -27,5 +27,13 @@ public class DestroyOnGround : MonoBehaviour
             collision.GetComponentInChildren<BonkableHead>().SpawnDeathParticles();
             Destroy(gameObject);
         }
+        else if (collision.tag == "Player")
+        {
+            Destroy(gameObject);
+        }
+        else if (collision.tag == "Feet")
+        {
+            Destroy(gameObject);
+        }
     }
 }
