@@ -25,7 +25,7 @@ public class Crumble : MonoBehaviour
         {
             if (Disabled == false && Crumbling == false)
             {
-                if (collision.tag == "Player")
+                if (collision.tag == "Player" && JumpDetector.OnGround == false)
                 {
                     collision.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezePositionX | RigidbodyConstraints2D.FreezeRotation;
                 }

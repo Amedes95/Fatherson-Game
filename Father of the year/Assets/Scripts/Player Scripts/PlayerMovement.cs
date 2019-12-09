@@ -176,7 +176,7 @@ public class PlayerMovement : MonoBehaviour
             }
 
             ///// Movement left and right
-            if ((moveHorizontal > 0f) && !Trampoline.IsBouncing) // player is moving right
+            if ((moveHorizontal > 0f) && !Trampoline.IsBouncing && (Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow))) // player is moving right
             {
                 if ((Mathf.Sign(moveHorizontal) != Mathf.Sign(playerBody.velocity.x)) && !recentlyJumped && (Mathf.Abs(playerVelocity.x) > 2)) // this makes the character turn around quicker in the air for more control, I add the >2 part to prevent backdashing upond landing on the ground
                 {
@@ -189,7 +189,7 @@ public class PlayerMovement : MonoBehaviour
 
                 PlayerAnim.SetBool("Running", true);
             }
-            if ((moveHorizontal < 0f) && !Trampoline.IsBouncing) // player is moving left
+            if ((moveHorizontal < 0f) && !Trampoline.IsBouncing && (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow))) // player is moving left
             {
                 if ((Mathf.Sign(moveHorizontal) != Mathf.Sign(playerBody.velocity.x)) && !recentlyJumped && (Mathf.Abs(playerVelocity.x) > 2))
                 {
@@ -410,13 +410,16 @@ public class PlayerMovement : MonoBehaviour
                     Jump();
                     jumpCount -= 1;
                 }
-                else if (isFloating)
-                {
-                    Debug.Log("floationg");
-                    playerBody.velocity = new Vector2(playerBody.velocity.x, 4); // this makes the jump height consistent with grounded jumps. If this is not enabled, floating jumps are about 5/6ths of regular jumps
-                    Jump();
-                    SwitchFloatValue(false);
-                }
+
+
+                //// I removed this for now because it felt bad
+                //else if (isFloating)
+                //{
+                //    Debug.Log("floationg");
+                //    playerBody.velocity = new Vector2(playerBody.velocity.x, 4); // this makes the jump height consistent with grounded jumps. If this is not enabled, floating jumps are about 5/6ths of regular jumps
+                //    Jump();
+                //    SwitchFloatValue(false);
+                //}
 
             }
             else if (Input.GetKeyUp(KeyCode.W) || Input.GetKeyUp(KeyCode.UpArrow))
