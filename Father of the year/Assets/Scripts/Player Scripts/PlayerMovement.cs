@@ -322,6 +322,8 @@ public class PlayerMovement : MonoBehaviour
 
     public void Jump()
     {
+        playerBody.constraints = RigidbodyConstraints2D.FreezeRotation;
+
         jumpForce = CalculateJumpForce(playerBody.gravityScale, jumpHeight);
         if (KeepWithPlatform.OnPlatform) //make this universal for all moving platforms
         {
@@ -346,6 +348,8 @@ public class PlayerMovement : MonoBehaviour
     {
         if (Trampoline.IsBouncing == false)
         {
+            playerBody.constraints = RigidbodyConstraints2D.FreezeRotation;
+
             jumpForce = CalculateJumpForce(playerBody.gravityScale, jumpHeight);
             playerBody.velocity = new Vector2(0, 0);
             jumpFallCooldown = .15f;

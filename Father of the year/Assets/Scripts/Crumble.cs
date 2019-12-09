@@ -25,9 +25,12 @@ public class Crumble : MonoBehaviour
         {
             if (Disabled == false && Crumbling == false)
             {
+                if (collision.tag == "Player")
+                {
+                    collision.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezePositionX | RigidbodyConstraints2D.FreezeRotation;
+                }
                 GetComponent<Animator>().SetTrigger("Crumble");
                 Crumbling = true;
-
             }
         }
     }
@@ -46,6 +49,11 @@ public class Crumble : MonoBehaviour
         if (collision.tag == "Feet" || collision.tag == "Player")
         {
             BlockingRespawn = false;
+            if (collision.tag == "Player")
+            {
+                collision.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeRotation;
+            }
+
         }
     }
 
