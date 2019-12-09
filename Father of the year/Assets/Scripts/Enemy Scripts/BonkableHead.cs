@@ -40,6 +40,8 @@ public class BonkableHead : MonoBehaviour
             {
                 if (OnTrampoline == false)
                 {
+                    collision.GetComponentInParent<Animator>().SetBool("DoubleJumpActive", true);
+                    collision.GetComponentInParent<Animator>().SetTrigger("Jump");
                     Debug.Log("Bonk");
                     if (bonkTimer > 0)
                     {
