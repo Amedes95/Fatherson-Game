@@ -17,6 +17,10 @@ public class VictoryMenu : MonoBehaviour
     bool transitioning;
     bool LoadingWorldHub;
 
+    public AudioSource StaticSource;
+    public AudioClip StaticNoise;
+
+
     private void Awake()
     {
         PauseCanvas = GameObject.FindGameObjectWithTag("PauseCanvas");
@@ -28,10 +32,18 @@ public class VictoryMenu : MonoBehaviour
         var Chroma = Transition1.chromaticAberration.settings;
         Chroma.intensity = 0;
         Transition1.chromaticAberration.settings = Chroma;
+
+        var Grainy = Transition1.grain.settings;
+        if (Grainy.intensity == 1f)
+        {
+            StaticSource.clip = StaticNoise;
+            StaticSource.Play();
+        }
     }
 
     private void Update()
     {
+
         var Vinny = Transition1.vignette.settings;
 
         /// for film grain restart effect ///// 
@@ -42,6 +54,12 @@ public class VictoryMenu : MonoBehaviour
             Grainy.intensity = 0f;
         }
         Transition1.grain.settings = Grainy;
+
+        if (Grainy.intensity == 1f)
+        {
+            StaticSource.clip = StaticNoise;
+            StaticSource.Play();
+        }
         ////////////////////////////////////
 
         if (GoalReached)

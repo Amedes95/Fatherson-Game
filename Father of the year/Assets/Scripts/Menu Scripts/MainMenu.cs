@@ -6,11 +6,12 @@ using UnityEngine.SceneManagement;
 
 public class MainMenu : MonoBehaviour
 {
-
     public GameObject MenuScreen;
     public GameObject SettingsMenu;
     public GameObject ConfirmationMenu;
     public GameObject TitleText;
+    public AudioSource SettingsButton;
+    public GameObject MusicSettingsMenu;
 
     public void LoadWorldHub() // Loads world hub scene
     {
@@ -22,16 +23,25 @@ public class MainMenu : MonoBehaviour
         Application.Quit();
     }
 
+    private void Awake()
+    {
+        SettingsButton.playOnAwake = false;
+    }
+
     public void LoadSettings() // from menu to settings
     {
         MenuScreen.SetActive(false);
         SettingsMenu.SetActive(true);
+        MusicSettingsMenu.SetActive(false);
+        SettingsButton.playOnAwake = true;
+        TitleText.SetActive(false);
     }
 
     public void ExitSettings() // settings to menu
     {
         MenuScreen.SetActive(true);
         SettingsMenu.SetActive(false);
+        TitleText.SetActive(true);
     }
 
     public void AskConfirmation()
@@ -56,6 +66,13 @@ public class MainMenu : MonoBehaviour
         SettingsMenu.SetActive(true);
         TitleText.SetActive(true);
 
+    }
+
+    public void LoadMusicSettings()
+    {
+        SettingsMenu.SetActive(false);
+        MusicSettingsMenu.SetActive(true);
+        TitleText.SetActive(false);
     }
 
 

@@ -81,7 +81,7 @@ public class LevelManager : MonoBehaviour
             {
                 if (ActiveWorld.GetComponent<ListofLevels>().LevelsWithinWorld[(ActiveWorld.GetComponent<ListofLevels>().CurrentIndex + 1)].GetComponent<LevelInfo>().Unlocked == true)
                 {
-                    if (Input.GetKeyDown(KeyCode.D))
+                    if (Input.GetKeyDown(KeyCode.D) || Input.GetKeyDown(KeyCode.RightArrow))
                     {
                         if (LevelIndex < ActiveWorld.GetComponent<ListofLevels>().LevelsWithinWorld.Count - 1)
                         {
@@ -95,7 +95,7 @@ public class LevelManager : MonoBehaviour
                 }
             }
 
-            if (Input.GetKeyDown(KeyCode.A))
+            if (Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.LeftArrow))
             {
                 if (LevelIndex > 0)
                 {
@@ -108,7 +108,7 @@ public class LevelManager : MonoBehaviour
 
 
             //// Shifts world indexer up and down
-            if (Input.GetKeyDown(KeyCode.W)) // move down a world
+            if (Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow)) // move down a world
             {
                 if (WorldIndex > 0)
                 {
@@ -119,7 +119,7 @@ public class LevelManager : MonoBehaviour
                 //Debug.Log(WorldIndex);
 
             }
-            else if (Input.GetKeyDown(KeyCode.S)) // moves up
+            else if (Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.DownArrow)) // moves up
             {
                 if (WorldIndex < WorldsList.Count - 1)
                 {
@@ -143,7 +143,7 @@ public class LevelManager : MonoBehaviour
 
 
             // loads scene when space is press and camera is at new pos
-            if (Input.GetKeyDown(KeyCode.Space) && Camera.transform.position == NewPos)
+            if ((Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.Return) && Camera.transform.position == NewPos))
             {
                 if (ActiveWorld.GetComponent<ListofLevels>().LevelsWithinWorld[LevelIndex].GetComponent<LevelInfo>().Unlocked)
                 {

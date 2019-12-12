@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.PostProcessing;
+using UnityEngine.UIElements;
+using TMPro;
 
 
 public class PauseMenu : MonoBehaviour
@@ -14,14 +16,22 @@ public class PauseMenu : MonoBehaviour
     GameObject DeathScreen;
     GameObject Preloader;
 
+    AudioSource PauseAudioSource;
+    public AudioClip OpenNoise;
+    public AudioClip CloseNoise;
+
     public PostProcessingProfile Transition1; // For film grain and black wipe effects
     bool transitioning;
     public float ShadowValueUp;
 
 
+
+
     // Start is called before the first frame update
     void Awake()
     {
+        BackgroundMusic.PauseActive = false;
+        PauseAudioSource = gameObject.GetComponent<AudioSource>();
         transitioning = false;
         GameIsPaused = false;
         DeathScreen = GameObject.FindGameObjectWithTag("DeathMenu");
@@ -31,7 +41,6 @@ public class PauseMenu : MonoBehaviour
         var Blurry = Transition1.depthOfField.settings;
         Blurry.focalLength = 0f;
         Transition1.depthOfField.settings = Blurry;
-
     }
 
     // Update is called once per frame
@@ -72,6 +81,7 @@ public class PauseMenu : MonoBehaviour
 
     public void ResumeGame()
     {
+        BackgroundMusic.PauseActive = false;
         PauseScreen.SetActive(false);
         Time.timeScale = 1f;
         GameIsPaused = false;
@@ -80,12 +90,15 @@ public class PauseMenu : MonoBehaviour
         var Blurry = Transition1.depthOfField.settings;
         Blurry.focalLength = 0f;
         Transition1.depthOfField.settings = Blurry;
+        PauseAudioSource.clip = CloseNoise;
+        PauseAudioSource.Play();
 
     }
     public void PauseGame()
     {
         if (!PlayerHealth.Dead)
         {
+            BackgroundMusic.PauseActive = true;
             PauseScreen.SetActive(true);
             Time.timeScale = 0f;
             GameIsPaused = true;
@@ -94,11 +107,14 @@ public class PauseMenu : MonoBehaviour
             var Blurry = Transition1.depthOfField.settings;
             Blurry.focalLength = 300f;
             Transition1.depthOfField.settings = Blurry;
+            PauseAudioSource.clip = OpenNoise;
+            PauseAudioSource.Play();
         }
     }
 
     public void Restart()
     {
+
         Time.timeScale = 1f;
         VictoryScreen.ReloadScene();
     }

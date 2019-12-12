@@ -9,6 +9,7 @@ public class BackgroundMusic : MonoBehaviour
     //public GameObject BGMusicPrefab;
     AudioSource GameMusicPlayer;
     public AudioClip LevelMusic;
+    public static bool PauseActive;
 
     // Start is called before the first frame update
     void Awake()
@@ -28,10 +29,6 @@ public class BackgroundMusic : MonoBehaviour
             Destroy(gameObject);
         }
 
-        //DontDestroyOnLoad(gameObject);
-
-
-
     }
 
     public void CompareSongs()
@@ -49,4 +46,25 @@ public class BackgroundMusic : MonoBehaviour
         }
     }
 
+    private void Update()
+    {
+        GameMusicPlayer.volume = PlayerPrefs.GetFloat("MusicVolume"); // saves those settings baby
+
+
+
+
+
+        //// old code that made the music dampen while paused
+        //if (PauseActive)
+        //{
+        //    GameMusicPlayer.volume = GameMusicPlayer.volume = .1f;
+        //}
+        //else
+        //{
+        //    if (SceneManager.GetActiveScene().name != "MainMenu")
+        //    {
+        //        GameMusicPlayer.volume = GameMusicPlayer.volume = .5f;
+        //    }
+        //}
+    }
 }

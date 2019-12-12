@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 5929203805934646673}
   - component: {fileID: 8881811766148995127}
   - component: {fileID: 962720732}
+  - component: {fileID: 1645444839524642331}
   m_Layer: 0
   m_Name: Confetti
   m_TagString: DeathParticle
@@ -4926,3 +4927,15 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &1645444839524642331
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 269877623413109585}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3bb925d59510017408fdb93ad715c7c9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
