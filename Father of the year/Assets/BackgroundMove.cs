@@ -8,6 +8,7 @@ public class BackgroundMove : MonoBehaviour
     public Transform LeftLoopPos;
     public Transform BottomLoopPos;
     public Transform UpwardLoopPos;
+    public Transform CenterTile;
 
     Vector3 StartPos;
 
@@ -45,6 +46,13 @@ public class BackgroundMove : MonoBehaviour
         {
             if (Left) // Moving left
             {
+                CenterTile.GetComponent<SpriteRenderer>().enabled = true;
+                RightLoopPos.GetComponent<SpriteRenderer>().enabled = true;
+
+                LeftLoopPos.GetComponent<SpriteRenderer>().enabled = false;
+                UpwardLoopPos.GetComponent<SpriteRenderer>().enabled = false;
+                BottomLoopPos.GetComponent<SpriteRenderer>().enabled = false;
+
                 transform.Translate(Vector3.left * Speed);
 
                 if (transform.localPosition.x <= -80f)
@@ -54,6 +62,13 @@ public class BackgroundMove : MonoBehaviour
             }
             if (Right) // Moving left
             {
+
+                CenterTile.GetComponent<SpriteRenderer>().enabled = true;
+                LeftLoopPos.GetComponent<SpriteRenderer>().enabled = true;
+
+                RightLoopPos.GetComponent<SpriteRenderer>().enabled = false;
+                UpwardLoopPos.GetComponent<SpriteRenderer>().enabled = false;
+                BottomLoopPos.GetComponent<SpriteRenderer>().enabled = false;
                 transform.Translate(Vector3.right * Speed);
 
                 if (transform.localPosition.x >= 80f)
@@ -66,18 +81,34 @@ public class BackgroundMove : MonoBehaviour
         {
             if (Up)
             {
+
+                CenterTile.GetComponent<SpriteRenderer>().enabled = true;
+                BottomLoopPos.GetComponent<SpriteRenderer>().enabled = true;
+
+                LeftLoopPos.GetComponent<SpriteRenderer>().enabled = false;
+                RightLoopPos.GetComponent<SpriteRenderer>().enabled = false;
+                UpwardLoopPos.GetComponent<SpriteRenderer>().enabled = false;
                 transform.Translate(Vector3.up * Speed);
 
-                if (transform.localPosition.y >= 79f)
+                if (transform.localPosition.y >= 80f)
                 {
                     transform.position = new Vector3(UpwardLoopPos.position.x, YLoopDown, 0);
                 }
             }
             if (Down)
             {
+
+                CenterTile.GetComponent<SpriteRenderer>().enabled = true;
+                UpwardLoopPos.GetComponent<SpriteRenderer>().enabled = true;
+
+
+                LeftLoopPos.GetComponent<SpriteRenderer>().enabled = false;
+                RightLoopPos.GetComponent<SpriteRenderer>().enabled = false;
+                BottomLoopPos.GetComponent<SpriteRenderer>().enabled = false; ;
+
                 transform.Translate(Vector3.down * Speed);
 
-                if (transform.localPosition.y <= -79f)
+                if (transform.localPosition.y <= -80f)
                 {
                     Debug.Log("???");
                     transform.position = new Vector3(BottomLoopPos.transform.position.x, YLoopUp, 0);
