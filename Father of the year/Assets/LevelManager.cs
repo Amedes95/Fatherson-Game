@@ -42,6 +42,11 @@ public class LevelManager : MonoBehaviour
     public Sprite TutorialBackground;
     public Sprite World1Background;
 
+    AudioSource WorldHubAudioSource;
+    public AudioClip ShiftRight;
+    public AudioClip ShiftLeft;
+    public AudioClip ShiftWorlds;
+
 
     public TextMeshPro WorldText;
     public TextMeshPro LevelText;
@@ -50,6 +55,7 @@ public class LevelManager : MonoBehaviour
     // Start is called before the first frame update
     void Awake()
     {
+        WorldHubAudioSource = gameObject.GetComponent<AudioSource>();
         PauseScreen = GameObject.FindGameObjectWithTag("PauseCanvas").GetComponent<PauseMenu>();
         WorldIndex = 0;
         ActiveWorld = WorldsList[WorldIndex];
@@ -81,12 +87,14 @@ public class LevelManager : MonoBehaviour
             {
                 if (ActiveWorld.GetComponent<ListofLevels>().LevelsWithinWorld[(ActiveWorld.GetComponent<ListofLevels>().CurrentIndex + 1)].GetComponent<LevelInfo>().Unlocked == true)
                 {
-                    if (Input.GetKeyDown(KeyCode.D) || Input.GetKeyDown(KeyCode.RightArrow))
+                    if (Input.GetKeyDown(KeyCode.D) || Input.GetKeyDown(KeyCode.RightArrow)) // shift right
                     {
-                        if (LevelIndex < ActiveWorld.GetComponent<ListofLevels>().LevelsWithinWorld.Count - 1)
+                        if (LevelIndex < ActiveWorld.GetComponent<ListofLevels>().LevelsWithinWorld.Count - 1) // only shift if not the final one
                         {
                             ActiveWorld.transform.Translate(Vector3.left * ShiftDistance);
                             LevelIndex++;
+                            WorldHubAudioSource.clip = ShiftWorlds;
+                            WorldHubAudioSource.Play();
                         }
                         //Debug.Log(LevelIndex);
                         ActiveWorld.GetComponent<ListofLevels>().CurrentIndex = LevelIndex;
@@ -95,12 +103,14 @@ public class LevelManager : MonoBehaviour
                 }
             }
 
-            if (Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.LeftArrow))
+            if (Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.LeftArrow)) // shift left
             {
                 if (LevelIndex > 0)
                 {
                     ActiveWorld.transform.Translate(Vector3.right * ShiftDistance);
                     LevelIndex--;
+                    WorldHubAudioSource.clip = ShiftWorlds;
+                    WorldHubAudioSource.Play();
                 }
                 //Debug.Log(LevelIndex);
                 ActiveWorld.GetComponent<ListofLevels>().CurrentIndex = LevelIndex;
@@ -115,6 +125,8 @@ public class LevelManager : MonoBehaviour
                     WorldIndex--;
                     ResetBGs();
                     BackGroudSwapper();
+                    WorldHubAudioSource.clip = ShiftLeft;
+                    WorldHubAudioSource.Play();
                 }
                 //Debug.Log(WorldIndex);
 
@@ -126,6 +138,8 @@ public class LevelManager : MonoBehaviour
                     WorldIndex++;
                     ResetBGs();
                     BackGroudSwapper();
+                    WorldHubAudioSource.clip = ShiftRight;
+                    WorldHubAudioSource.Play();
 
                 }
                 //Debug.Log(WorldIndex);

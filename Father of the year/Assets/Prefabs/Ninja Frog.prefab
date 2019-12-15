@@ -5390,8 +5390,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   JumpSource: {fileID: 905208049979811284}
-  JumpClip: {fileID: 8300000, guid: bb81453a81e1d48d8be85448401ea4ac, type: 3}
-  WallJumpClip: {fileID: 8300000, guid: c058889b7ad8349b7aef4dd151b3b444, type: 3}
+  JumpClip: {fileID: 8300000, guid: bbdbf13bf5c1eb54cbf27598792b1657, type: 3}
+  DoubleJumpClip: {fileID: 8300000, guid: 9cf22735be12bbe40b9d0ee46c034c8b, type: 3}
+  WallJumpClip: {fileID: 8300000, guid: c6d8f61a0296aed4c91418a8312e1bc1, type: 3}
   LandingClip: {fileID: 8300000, guid: 10d82c83ed91144c7b131860d1d0c000, type: 3}
 --- !u!1 &8198306198543473746
 GameObject:

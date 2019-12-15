@@ -26,6 +26,7 @@ public class MainMenu : MonoBehaviour
     private void Awake()
     {
         SettingsButton.playOnAwake = false;
+        Time.timeScale = 1f;
     }
 
     public void LoadSettings() // from menu to settings

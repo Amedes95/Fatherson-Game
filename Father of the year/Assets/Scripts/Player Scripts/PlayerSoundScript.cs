@@ -6,6 +6,7 @@ public class PlayerSoundScript : MonoBehaviour
 {
     public AudioSource JumpSource;
     public AudioClip JumpClip;
+    public AudioClip DoubleJumpClip;
     public AudioClip WallJumpClip;
     public AudioClip LandingClip;
 
@@ -24,6 +25,12 @@ public class PlayerSoundScript : MonoBehaviour
     public void playLandingSound()
     {
         JumpSource.clip = LandingClip;
+        JumpSource.Play();
+    }
+
+    public void PlayDoubleJumpSound()
+    {
+        JumpSource.clip = DoubleJumpClip;
         JumpSource.Play();
     }
 }

@@ -45,6 +45,7 @@ public class PlayerMovement : MonoBehaviour
     private float jumpBuffer; // used to buffer a jump if jump is inputted before hitting the ground
 
     public PlayerSoundScript jumpAudioBox;
+    public GameObject DoubleJumpEffect;
 
 
     //////// Stuff used here is for particle systems
@@ -87,10 +88,12 @@ public class PlayerMovement : MonoBehaviour
             backWallRaycasting();
             if (jumpCount > 0)
             {
+                DoubleJumpEffect.GetComponent<ParticleSystem>().Play();
                 gameObject.GetComponent<Animator>().SetBool("DoubleJumpActive", true);
             }
             else
             {
+                //DoubleJumpEffect.SetActive(false);
                 gameObject.GetComponent<Animator>().SetBool("DoubleJumpActive", false);
             }
 
@@ -422,6 +425,7 @@ public class PlayerMovement : MonoBehaviour
                     playerBody.velocity = new Vector2(playerBody.velocity.x, 0);
                     Jump();
                     jumpCount -= 1;
+                    jumpAudioBox.PlayDoubleJumpSound();
                 }
 
 

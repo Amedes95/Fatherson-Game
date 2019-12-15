@@ -12,8 +12,13 @@ public class SoundManager : MonoBehaviour
     Slider SFXSlider;
     float DefaultMusicVolume;
     float DefaultSFXVolume = 1f;
-    AudioSource BGM;
+    public AudioSource BGM;
 
+
+    private void Update()
+    {
+        BGM = GameObject.FindGameObjectWithTag("BGMusic").GetComponent<AudioSource>();
+    }
     // Start is called before the first frame update
     void Awake()
     {

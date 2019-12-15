@@ -11,6 +11,7 @@ public class PauseMenu : MonoBehaviour
 {
     public bool GameIsPaused;
     public GameObject PauseScreen;
+    public GameObject SettingsMenu;
     VictoryMenu VictoryScreen;
     GameObject Player;
     GameObject DeathScreen;
@@ -30,7 +31,6 @@ public class PauseMenu : MonoBehaviour
     // Start is called before the first frame update
     void Awake()
     {
-        BackgroundMusic.PauseActive = false;
         PauseAudioSource = gameObject.GetComponent<AudioSource>();
         transitioning = false;
         GameIsPaused = false;
@@ -41,6 +41,11 @@ public class PauseMenu : MonoBehaviour
         var Blurry = Transition1.depthOfField.settings;
         Blurry.focalLength = 0f;
         Transition1.depthOfField.settings = Blurry;
+    }
+
+    private void Start()
+    {
+        Time.timeScale = 1f;
     }
 
     // Update is called once per frame
@@ -81,8 +86,8 @@ public class PauseMenu : MonoBehaviour
 
     public void ResumeGame()
     {
-        BackgroundMusic.PauseActive = false;
         PauseScreen.SetActive(false);
+        SettingsMenu.SetActive(false);
         Time.timeScale = 1f;
         GameIsPaused = false;
         DeathScreen.SetActive(true);
@@ -98,7 +103,6 @@ public class PauseMenu : MonoBehaviour
     {
         if (!PlayerHealth.Dead)
         {
-            BackgroundMusic.PauseActive = true;
             PauseScreen.SetActive(true);
             Time.timeScale = 0f;
             GameIsPaused = true;
@@ -135,5 +139,16 @@ public class PauseMenu : MonoBehaviour
         Time.timeScale = 1f;
         SceneManager.LoadScene("MainMenu");
         Preloader.SetActive(false);
+    }
+
+    public void EditSettings()
+    {
+        SettingsMenu.SetActive(true);
+        PauseScreen.SetActive(false);
+    }
+    public void LeaveSettings()
+    {
+        SettingsMenu.SetActive(false);
+        PauseScreen.SetActive(true);
     }
 }

@@ -53,11 +53,12 @@ public class BackgroundMove : MonoBehaviour
                 UpwardLoopPos.GetComponent<SpriteRenderer>().enabled = false;
                 BottomLoopPos.GetComponent<SpriteRenderer>().enabled = false;
 
-                transform.Translate(Vector3.left * Speed);
+                //transform.Translate(Vector3.left * Speed);
+                gameObject.transform.position = new Vector2(transform.position.x - Speed, transform.position.y);
 
                 if (transform.localPosition.x <= -80f)
                 {
-                    transform.position = new Vector3(XLoopRight, RightLoopPos.position.y, 0);
+                    transform.position = new Vector3(transform.position.x + 160, LeftLoopPos.position.y, 0);
                 }
             }
             if (Right) // Moving left
@@ -69,11 +70,14 @@ public class BackgroundMove : MonoBehaviour
                 RightLoopPos.GetComponent<SpriteRenderer>().enabled = false;
                 UpwardLoopPos.GetComponent<SpriteRenderer>().enabled = false;
                 BottomLoopPos.GetComponent<SpriteRenderer>().enabled = false;
-                transform.Translate(Vector3.right * Speed);
+
+                //transform.Translate(Vector3.right * Speed);
+                gameObject.transform.position = new Vector2(transform.position.x + Speed, transform.position.y);
+
 
                 if (transform.localPosition.x >= 80f)
                 {
-                    transform.position = new Vector3(XLoopLeft, LeftLoopPos.position.y, 0);
+                    transform.position = new Vector3(transform.position.x - 160, LeftLoopPos.position.y, 0);
                 }
             }
         }
@@ -88,11 +92,12 @@ public class BackgroundMove : MonoBehaviour
                 LeftLoopPos.GetComponent<SpriteRenderer>().enabled = false;
                 RightLoopPos.GetComponent<SpriteRenderer>().enabled = false;
                 UpwardLoopPos.GetComponent<SpriteRenderer>().enabled = false;
-                transform.Translate(Vector3.up * Speed);
+                //transform.Translate(Vector3.up * Speed); // maybe just increment the value by a whole number instead? hmm
+                gameObject.transform.position = new Vector2(transform.position.x, transform.position.y + Speed);
 
-                if (transform.localPosition.y >= 80f)
+                if (transform.localPosition.y >= 80)
                 {
-                    transform.position = new Vector3(UpwardLoopPos.position.x, YLoopDown, 0);
+                    transform.position = new Vector3(UpwardLoopPos.position.x, transform.position.y - 160, 0);
                 }
             }
             if (Down)
@@ -106,12 +111,13 @@ public class BackgroundMove : MonoBehaviour
                 RightLoopPos.GetComponent<SpriteRenderer>().enabled = false;
                 BottomLoopPos.GetComponent<SpriteRenderer>().enabled = false; ;
 
-                transform.Translate(Vector3.down * Speed);
+                //transform.Translate(Vector3.down * Speed);
+                gameObject.transform.position = new Vector2(transform.position.x, transform.position.y - Speed);
+
 
                 if (transform.localPosition.y <= -80f)
                 {
-                    Debug.Log("???");
-                    transform.position = new Vector3(BottomLoopPos.transform.position.x, YLoopUp, 0);
+                    transform.position = new Vector3(BottomLoopPos.transform.position.x, transform.position.y + 160, 0);
                 }
             }
         }
