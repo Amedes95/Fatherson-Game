@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class SoundManager : MonoBehaviour
 {
@@ -13,14 +14,34 @@ public class SoundManager : MonoBehaviour
     float DefaultMusicVolume;
     float DefaultSFXVolume = 1f;
     public AudioSource BGM;
+    float MinorDelay = .1f;
+    bool ReadyToGo;
 
-
-    private void Update()
+    private void FixedUpdate()
     {
-        BGM = GameObject.FindGameObjectWithTag("BGMusic").GetComponent<AudioSource>();
+        MinorDelay -= Time.deltaTime;
+        if (MinorDelay <= 0)
+        {
+            MinorDelay = 0;
+            if (ReadyToGo == false)
+            {
+                InitializeSound();
+                ReadyToGo = true;
+            }
+        }
     }
-    // Start is called before the first frame update
-    void Awake()
+
+    private void Awake()
+    {
+        if (SceneManager.GetActiveScene().name == "MainMenu")
+        {
+            InitializeSound();
+            ReadyToGo = true;
+        }
+    }
+
+
+    public void InitializeSound()
     {
         BGM = GameObject.FindGameObjectWithTag("BGMusic").GetComponent<AudioSource>();
         DefaultMusicVolume = BGM.volume;
@@ -38,9 +59,7 @@ public class SoundManager : MonoBehaviour
             SFXSlider.value = PlayerPrefs.GetFloat("SFXVolume");
             MusicSlider.value = PlayerPrefs.GetFloat("MusicVolume");
         }
-
     }
-
 
     public void RevertToDefault()
     {
@@ -50,8 +69,12 @@ public class SoundManager : MonoBehaviour
 
     public void EditVolume()
     {
-        BGM.volume = MusicSlider.value;
-        PlayerPrefs.SetFloat("MusicVolume", BGM.volume); // updates preferences with change
+        if (Boombox.EditorMode == false)
+        {
+            BGM.volume = MusicSlider.value;
+            PlayerPrefs.SetFloat("MusicVolume", BGM.volume); // updates preferences with change
+        }
+
     }
 
     public void RevertSFXVolume()
@@ -61,6 +84,10 @@ public class SoundManager : MonoBehaviour
 
     public void EditSFXVolume()
     {
-        PlayerPrefs.SetFloat("SFXVolume", SFXSlider.value);
+        if (Boombox.EditorMode == false)
+        {
+            PlayerPrefs.SetFloat("SFXVolume", SFXSlider.value);
+
+        }
     }
 }

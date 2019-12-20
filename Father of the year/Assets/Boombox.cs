@@ -7,6 +7,7 @@ public class Boombox : MonoBehaviour
     public AudioClip LevelMusic;
     BackgroundMusic BGMusic;
     public GameObject BGPrefab;
+    public static bool EditorMode;
 
     // Start is called before the first frame update
     void Awake()
@@ -15,6 +16,7 @@ public class Boombox : MonoBehaviour
         Application.targetFrameRate = 60;
         if (GameObject.FindGameObjectWithTag("BGMusic") == null)
         {
+            EditorMode = true;
             Instantiate(BGPrefab);
             BGPrefab.GetComponent<BackgroundMusic>().LevelMusic = LevelMusic;
             BGPrefab.GetComponent<BackgroundMusic>().CompareSongs();

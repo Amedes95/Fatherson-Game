@@ -78,6 +78,11 @@ public class PlayerMovement : MonoBehaviour
         return Mathf.Sqrt(2 * playerGravity * jumpHeight);
     }
 
+    public void SpawnDoubleJumpParticles()
+    {
+        DoubleJumpEffect.GetComponent<ParticleSystem>().Play();
+    }
+
     // Update is called once per frame
     void FixedUpdate()
     {
@@ -86,14 +91,13 @@ public class PlayerMovement : MonoBehaviour
             //// Walljumping
             WallRaycasting();
             backWallRaycasting();
-            if (jumpCount > 0)
+            if (jumpCount > 0 && JumpDetector.OnGround == false)
             {
-                DoubleJumpEffect.GetComponent<ParticleSystem>().Play();
                 gameObject.GetComponent<Animator>().SetBool("DoubleJumpActive", true);
             }
             else
             {
-                //DoubleJumpEffect.SetActive(false);
+                DoubleJumpEffect.GetComponent<ParticleSystem>().Stop();
                 gameObject.GetComponent<Animator>().SetBool("DoubleJumpActive", false);
             }
 
@@ -120,6 +124,7 @@ public class PlayerMovement : MonoBehaviour
 
             if (touchingWall && !JumpDetector.OnGround) //Wall Slide
             {
+                jumpCount = 0;
                 CreateDust();
                 fallSpeedCap = 6;
                 floatingTimer = 0;
@@ -422,6 +427,7 @@ public class PlayerMovement : MonoBehaviour
                 }
                 else if (!JumpDetector.OnGround && jumpCount > 0) //Double jump
                 {
+                    gameObject.GetComponent<Animator>().SetBool("DoubleJumpActive", true);
                     playerBody.velocity = new Vector2(playerBody.velocity.x, 0);
                     Jump();
                     jumpCount -= 1;

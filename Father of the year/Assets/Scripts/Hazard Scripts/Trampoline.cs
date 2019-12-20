@@ -27,7 +27,6 @@ public class Trampoline : MonoBehaviour
             if (!PlayerHealth.Dead && !IsBouncing)
             {
                 PlayerMovement.jumpCount = 0;
-                //collision.GetComponentInParent<PlayerMovement>().jumpAudioBox.playJumpSound();
                 collision.GetComponentInParent<PlayerMovement>().playerSpeed = 0;
                 collision.GetComponentInParent<PlayerMovement>().wallJumpBuffer = 0;
 
@@ -41,13 +40,13 @@ public class Trampoline : MonoBehaviour
                 }
                 else
                 {
-                    collision.GetComponentInParent<Rigidbody2D>().AddForce(rotationVector * BounceForce * 250);
+                    collision.GetComponentInParent<Rigidbody2D>().AddForce(rotationVector * BounceForce * 180);
                 }
                 IsBouncing = true;
                 PlayerMovement.floatingTimer = -1;
                 //collision.GetComponentInParent<Rigidbody2D>().AddForce(Vector2.up * PlayerMovement.jumpForce * 180);
                 GetComponent<Animator>().SetTrigger("Bounce");
-                collision.GetComponentInParent<Animator>().SetBool("DoubleJumpActive", true);
+                collision.GetComponentInParent<Animator>().SetBool("DoubleJumpActive", false);
                 collision.GetComponentInParent<Animator>().SetTrigger("Jump");
             }
         }
@@ -69,7 +68,7 @@ public class Trampoline : MonoBehaviour
             if (collision.gameObject.activeInHierarchy)
             {
                 collision.GetComponentInParent<PlayerMovement>().playerSpeed = collision.GetComponentInParent<PlayerMovement>().midSpeed;
-                collision.GetComponentInParent<Animator>().SetBool("DoubleJumpActive", false);
+                //collision.GetComponentInParent<Animator>().SetBool("DoubleJumpActive", false);
 
 
             }

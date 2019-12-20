@@ -50,7 +50,7 @@ AudioSource:
   m_audioClip: {fileID: 8300000, guid: b738dbfce8b1306488eb7f4bf1152f00, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 0.7
-  m_Pitch: 1
+  m_Pitch: 1.5
   Loop: 0
   Mute: 0
   Spatialize: 0
@@ -799,7 +799,7 @@ MonoBehaviour:
   ShadowValueUp: 0.01
   Transition1: {fileID: 11400000, guid: c2f1824c2e9aa5a4085ce361c3f59724, type: 2}
   StaticSource: {fileID: 3793398928596403304}
-  StaticNoise: {fileID: 8300000, guid: b738dbfce8b1306488eb7f4bf1152f00, type: 3}
+  StaticNoise: {fileID: 8300000, guid: 29ac659b8308b804e97b91ce2c64350a, type: 3}
 --- !u!1 &4457717594240765798
 GameObject:
   m_ObjectHideFlags: 0
