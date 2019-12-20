@@ -41,6 +41,8 @@ public class LevelManager : MonoBehaviour
 
     public Sprite TutorialBackground;
     public Sprite World1Background;
+    public Sprite World2Background;
+
 
     AudioSource WorldHubAudioSource;
     public AudioClip ShiftRight;
@@ -228,7 +230,16 @@ public class LevelManager : MonoBehaviour
             BottomBG.GetComponent<SpriteRenderer>().sprite = World1Background;
 
             BackgroundChangeDirection("Up");
+        }
+        else if (WorldIndex == 2) // green squares
+        {
+            CenterBG.GetComponent<SpriteRenderer>().sprite = World2Background;
+            RightBG.GetComponent<SpriteRenderer>().sprite = World2Background;
+            LeftBG.GetComponent<SpriteRenderer>().sprite = World2Background;
+            TopBG.GetComponent<SpriteRenderer>().sprite = World2Background;
+            BottomBG.GetComponent<SpriteRenderer>().sprite = World2Background;
 
+            BackgroundChangeDirection("Left");
 
         }
     }

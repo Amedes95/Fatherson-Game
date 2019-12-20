@@ -26,7 +26,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1214033589}
   m_LocalRotation: {x: -0.7071068, y: -0, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: 0.002984714, y: 0.166, z: -0.087}
+  m_LocalPosition: {x: 0.002984714, y: 0.039, z: -0.087}
   m_LocalScale: {x: 0.32879236, y: 0.8110824, z: 0.53734213}
   m_Children: []
   m_Father: {fileID: 6828027210908461451}
@@ -105,7 +105,7 @@ ParticleSystem:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-  moveWithTransform: 0
+  moveWithTransform: 1
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
   randomSeed: 0
@@ -981,7 +981,7 @@ ParticleSystem:
         serializedVersion: 2
         m_Curve:
         - serializedVersion: 3
-          time: 0.028012902
+          time: 0
           value: 1
           inSlope: 0
           outSlope: 0
@@ -992,11 +992,11 @@ ParticleSystem:
         - serializedVersion: 3
           time: 1
           value: 0
-          inSlope: -2.2395687
-          outSlope: -2.2395687
+          inSlope: -1.1815107
+          outSlope: -1.1815107
           tangentMode: 0
           weightedMode: 0
-          inWeight: 0.057581604
+          inWeight: 0.2816667
           outWeight: 0.33333334
         m_PreInfinity: 2
         m_PostInfinity: 2
@@ -1035,21 +1035,21 @@ ParticleSystem:
         m_Curve:
         - serializedVersion: 3
           time: 0
-          value: 1
-          inSlope: 26.47675
-          outSlope: 26.47675
+          value: 0.40584376
+          inSlope: -1.0822445
+          outSlope: -1.0822445
           tangentMode: 0
           weightedMode: 0
           inWeight: 0.33333334
-          outWeight: 0.016835015
+          outWeight: 0.06
         - serializedVersion: 3
           time: 1
           value: 0
-          inSlope: -0.9975785
-          outSlope: -0.9975785
+          inSlope: -4.931011
+          outSlope: -4.931011
           tangentMode: 0
           weightedMode: 0
-          inWeight: 0.15151525
+          inWeight: 0.026666641
           outWeight: 0.33333334
         m_PreInfinity: 2
         m_PostInfinity: 2
@@ -3741,7 +3741,7 @@ ParticleSystem:
     interiorCollisions: 0
   TriggerModule:
     enabled: 0
-    collisionShape0: {fileID: 6828027210908461451}
+    collisionShape0: {fileID: 0}
     collisionShape1: {fileID: 0}
     collisionShape2: {fileID: 0}
     collisionShape3: {fileID: 0}
