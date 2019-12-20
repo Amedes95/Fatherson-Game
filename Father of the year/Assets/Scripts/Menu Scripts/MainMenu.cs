@@ -63,9 +63,13 @@ public class MainMenu : MonoBehaviour
     public void ConfirmProgressWipe()
     {
         PlayerPrefs.DeleteAll();
+        //PlayerPrefs.SetFloat("GameBegun", 1);
         ConfirmationMenu.SetActive(false);
-        SettingsMenu.SetActive(true);
-        TitleText.SetActive(true);
+        LoadMusicSettings();
+        LoadSettings();
+        ExitSettings();
+        MusicSettingsMenu.GetComponent<SoundManager>().RevertSFXVolume();
+        MusicSettingsMenu.GetComponent<SoundManager>().RevertToDefault();
 
     }
 

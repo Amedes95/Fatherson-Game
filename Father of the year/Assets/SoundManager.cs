@@ -12,7 +12,7 @@ public class SoundManager : MonoBehaviour
     Slider MusicSlider;
     Slider SFXSlider;
     float DefaultMusicVolume;
-    float DefaultSFXVolume = 1f;
+    float DefaultSFXVolume = .8f;
     public AudioSource BGM;
     float MinorDelay = .1f;
     bool ReadyToGo;
@@ -53,6 +53,7 @@ public class SoundManager : MonoBehaviour
         {
             PlayerPrefs.SetFloat("GameBegun", 1);
             MusicSlider.value = DefaultMusicVolume;
+            SFXSlider.value = DefaultSFXVolume;
         }
         else
         {
@@ -65,6 +66,7 @@ public class SoundManager : MonoBehaviour
     {
         BGM.volume = DefaultMusicVolume;
         PlayerPrefs.SetFloat("MusicVolume", DefaultMusicVolume); // updates preferences with change
+        MusicSlider.value = DefaultMusicVolume;
     }
 
     public void EditVolume()
@@ -80,6 +82,7 @@ public class SoundManager : MonoBehaviour
     public void RevertSFXVolume()
     {
         PlayerPrefs.SetFloat("SFXVolume", DefaultSFXVolume);
+        SFXSlider.value = DefaultSFXVolume;
     }
 
     public void EditSFXVolume()
@@ -87,7 +90,6 @@ public class SoundManager : MonoBehaviour
         if (Boombox.EditorMode == false)
         {
             PlayerPrefs.SetFloat("SFXVolume", SFXSlider.value);
-
         }
     }
 }
