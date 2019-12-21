@@ -260,9 +260,9 @@ CircleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: -0.001739725, y: -0.1466108}
   serializedVersion: 2
-  m_Radius: 0.5
+  m_Radius: 0.60695785
 --- !u!1 &9023562269993795422
 GameObject:
   m_ObjectHideFlags: 0
@@ -425,9 +425,9 @@ CircleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.0054680016, y: -0.03652032}
+  m_Offset: {x: 0.0052700005, y: -0.03652032}
   serializedVersion: 2
-  m_Radius: 0.041465096
+  m_Radius: 0.030181957
 --- !u!1 &9023562270099898391
 GameObject:
   m_ObjectHideFlags: 0
@@ -473,8 +473,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Killable: 1
-  DeathParticles: {fileID: 9012351662596608965, guid: 02b77112a40cb7f49b423d42b3b5fd7f,
+  DeathParticles: {fileID: 9012351662596608965, guid: 3c6d3851bbc8f4840a33df21ecd5f987,
     type: 3}
+  bonkTimer: 0
+  OnTrampoline: 0
 --- !u!61 &9023562270099898473
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -488,7 +490,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.004925281, y: 0.25535834}
+  m_Offset: {x: -0.003768444, y: 0.25535834}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -499,5 +501,5 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.088629, y: 0.48928332}
+  m_Size: {x: 0.711882, y: 0.48928332}
   m_EdgeRadius: 0

@@ -57,9 +57,9 @@ CircleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.010040625, y: 0}
+  m_Offset: {x: 0.00056672783, y: -0.079924725}
   serializedVersion: 2
-  m_Radius: 0.3855408
+  m_Radius: 0.44907582
 --- !u!1 &4862350685806327192
 GameObject:
   m_ObjectHideFlags: 0
@@ -105,8 +105,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Killable: 1
-  DeathParticles: {fileID: 9012351662596608965, guid: 02b77112a40cb7f49b423d42b3b5fd7f,
+  DeathParticles: {fileID: 9012351662596608965, guid: 35c2d02b135ac5f49aae5b1405f7c1ac,
     type: 3}
+  bonkTimer: 0
+  OnTrampoline: 0
 --- !u!61 &4862350685806327194
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -120,7 +122,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.08900064, y: 0.054235637}
+  m_Offset: {x: -0.062288746, y: 0.30079505}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -131,7 +133,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.4454025, y: 0.9357691}
+  m_Size: {x: 0.89465773, y: 0.44265026}
   m_EdgeRadius: 0
 --- !u!1 &4862350685869066189
 GameObject:
@@ -253,7 +255,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 86baca418de6f364bbd2f6e820fc26a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  JumpForce: 200
+  JumpForce: 250
   Direction: 0
   EndLine: {fileID: 4862350686235499261}
   AlwaysShort: 0
@@ -274,9 +276,9 @@ CircleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.009362704, y: -0.024213694}
+  m_Offset: {x: -0.0084045725, y: -0.033462007}
   serializedVersion: 2
-  m_Radius: 0.047539085
+  m_Radius: 0.033447664
 --- !u!50 &4862350685869066187
 Rigidbody2D:
   serializedVersion: 4
@@ -386,6 +388,6 @@ CircleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.004589372, y: -0.0056736814}
+  m_Offset: {x: -0.05934451, y: -0.0056736893}
   serializedVersion: 2
-  m_Radius: 0.8392124
+  m_Radius: 0.5954085
