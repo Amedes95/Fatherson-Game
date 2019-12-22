@@ -48,6 +48,10 @@ public class Trampoline : MonoBehaviour
                 GetComponent<Animator>().SetTrigger("Bounce");
                 collision.GetComponentInParent<Animator>().SetBool("DoubleJumpActive", false);
                 collision.GetComponentInParent<Animator>().SetTrigger("Jump");
+                if (gameObject.GetComponentInChildren<ParticleSystem>() != null)
+                {
+                    gameObject.GetComponentInChildren<ParticleSystem>().Play();
+                }
             }
         }
     }
