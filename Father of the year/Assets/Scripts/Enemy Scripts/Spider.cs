@@ -15,6 +15,9 @@ public class Spider : MonoBehaviour
     public bool AlwaysShort;
     public bool AlwaysMedium;
     public bool AlwaysLong;
+
+    public bool NeverShort;
+    public bool NeverLong;
     int Distance;
     bool ViewObstructed;
     bool PlayerInRange;
@@ -51,7 +54,7 @@ public class Spider : MonoBehaviour
             SpiderAnim.SetBool("InAir", false);
         }
 
-        if (((Direction < 0 && transform.localScale.x > 0) || (Direction > 0 && transform.localScale.x < 0)) && TouchingFloor == true)
+        if (((Direction < 0 && transform.localScale.x > 0) || (Direction > 0 && transform.localScale.x < 0)) && TouchingFloor == true &&PlayerInRange)
         {
             FlipCharacter();
         }
@@ -62,15 +65,23 @@ public class Spider : MonoBehaviour
     {
         if (AlwaysShort)
         {
-            Distance = Random.Range(1, 2);
+            Distance = Random.Range(1, 2); // 1
         }
         else if (AlwaysMedium)
         {
-            Distance = Random.Range(2, 3);
+            Distance = Random.Range(2, 3); // 2
         }
         else if (AlwaysLong)
         {
-            Distance = Random.Range(3, 4);
+            Distance = Random.Range(3, 4); // 3
+        }
+        else if (NeverShort)
+        {
+            Distance = Random.Range(2, 4); // 2,3
+        }
+        else if (NeverLong)
+        {
+            Distance = Random.Range(1, 3); // 1,2
         }
         else
         {
