@@ -7,6 +7,9 @@ public class JumpDetector : MonoBehaviour
     public static bool OnGround;
     GameObject Player;
 
+    public GameObject LandingEffect;
+    public static GameObject LandingEffectClone;
+
     private void Awake()
     {
         Player = GameObject.FindGameObjectWithTag("Player");
@@ -18,7 +21,10 @@ public class JumpDetector : MonoBehaviour
         {
             if (Player.activeInHierarchy)
             {
-                collision.GetComponentInParent<PlayerMovement>().jumpAudioBox.playLandingSound();
+                //collision.GetComponentInParent<PlayerMovement>().GetComponent<ParticleSystem>().Play();
+                //collision.GetComponentInParent<PlayerMovement>().jumpAudioBox.playLandingSound();
+                LandingEffectClone = Instantiate(LandingEffect);
+                Destroy(LandingEffectClone, 1f);
             }
         }
     }

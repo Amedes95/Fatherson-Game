@@ -8,7 +8,6 @@ public class PlayerSoundScript : MonoBehaviour
     public AudioClip JumpClip;
     public AudioClip DoubleJumpClip;
     public AudioClip WallJumpClip;
-    public AudioClip LandingClip;
 
     public void playJumpSound()
     {
@@ -19,12 +18,6 @@ public class PlayerSoundScript : MonoBehaviour
     public void playWallJumpSound()
     {
         JumpSource.clip = WallJumpClip;
-        JumpSource.Play();
-    }
-
-    public void playLandingSound()
-    {
-        JumpSource.clip = LandingClip;
         JumpSource.Play();
     }
 

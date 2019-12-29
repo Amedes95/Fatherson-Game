@@ -129,7 +129,7 @@ public class Spider : MonoBehaviour
             //Debug.Log("Hippty Hoppity");
             if (randomJumpHeight)
             {
-                randomForceMultiplier = Random.Range(0, 2) + 1;
+                randomForceMultiplier = Random.Range(0, .5f) + 1;
 
             }
             else

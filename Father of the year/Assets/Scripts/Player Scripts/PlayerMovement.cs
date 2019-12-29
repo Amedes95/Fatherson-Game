@@ -109,13 +109,11 @@ public class PlayerMovement : MonoBehaviour
             else
             {
                 moveHorizontal = Input.GetAxis("ControllerHorizontal"); // left is -1, stopped is 0, right is 1
-                Debug.Log("Controller Detected");
             }
 
 
 
             Vector2 movementPlayer = new Vector2(moveHorizontal, 0);
-            Debug.Log(movementPlayer);
             playerVelocity = playerBody.velocity;
 
             if (transform.localScale.x > 0)
