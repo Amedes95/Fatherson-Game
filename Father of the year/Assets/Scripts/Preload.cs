@@ -7,9 +7,15 @@ using TMPro;
 public class Preload : MonoBehaviour
 {
     public string NameToDisplay;
+    public string LevelNumberDisplay;
+
+    public TextMeshProUGUI WorldText;
+    public TextMeshProUGUI LevelText;
 
     private void Awake()
     {
-        GetComponentInChildren<TextMeshProUGUI>().text = NameToDisplay;
+        WorldText.text = NameToDisplay;
+        LevelText.text = LevelNumberDisplay;
+
     }
 }

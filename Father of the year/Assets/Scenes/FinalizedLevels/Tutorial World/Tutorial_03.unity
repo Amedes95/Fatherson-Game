@@ -309,7 +309,12 @@ PrefabInstance:
     - target: {fileID: 4284295574517526958, guid: df153f6aa0c2b554fbe0ea555c7182d3,
         type: 3}
       propertyPath: NameToDisplay
-      value: World 0-3
+      value: World 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4284295574517526958, guid: df153f6aa0c2b554fbe0ea555c7182d3,
+        type: 3}
+      propertyPath: LevelNumberDisplay
+      value: Level 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: df153f6aa0c2b554fbe0ea555c7182d3, type: 3}

@@ -416,6 +416,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: PivotPoint (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 7747054789621854620, guid: d05761e7b5238dd448f25889a9292580,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -4
+      objectReference: {fileID: 0}
+    - target: {fileID: 7747054789621854620, guid: d05761e7b5238dd448f25889a9292580,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3214415491700886292, guid: d05761e7b5238dd448f25889a9292580,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -469,16 +479,6 @@ PrefabInstance:
     - target: {fileID: 3214415491700886292, guid: d05761e7b5238dd448f25889a9292580,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7747054789621854620, guid: d05761e7b5238dd448f25889a9292580,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -4
-      objectReference: {fileID: 0}
-    - target: {fileID: 7747054789621854620, guid: d05761e7b5238dd448f25889a9292580,
-        type: 3}
-      propertyPath: m_LocalPosition.y
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3214415491977224604, guid: d05761e7b5238dd448f25889a9292580,
@@ -654,6 +654,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: PivotPoint
       objectReference: {fileID: 0}
+    - target: {fileID: 7747054789621854620, guid: d05761e7b5238dd448f25889a9292580,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 7747054789621854620, guid: d05761e7b5238dd448f25889a9292580,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3214415491700886292, guid: d05761e7b5238dd448f25889a9292580,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -707,16 +717,6 @@ PrefabInstance:
     - target: {fileID: 3214415491700886292, guid: d05761e7b5238dd448f25889a9292580,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7747054789621854620, guid: d05761e7b5238dd448f25889a9292580,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 7747054789621854620, guid: d05761e7b5238dd448f25889a9292580,
-        type: 3}
-      propertyPath: m_LocalPosition.y
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3214415491977224604, guid: d05761e7b5238dd448f25889a9292580,
@@ -1213,6 +1213,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3274855519367220907, guid: 15568e4f5adce48aa8fd0734bd90ff56,
+        type: 3}
+      propertyPath: LevelMusic
+      value: 
+      objectReference: {fileID: 8300000, guid: 2331d5ef696f96e489efa9885a1408ba, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 15568e4f5adce48aa8fd0734bd90ff56, type: 3}
 --- !u!1 &829197554
@@ -1307,6 +1312,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: PivotPoint (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 7747054789621854620, guid: d05761e7b5238dd448f25889a9292580,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 7747054789621854620, guid: d05761e7b5238dd448f25889a9292580,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3214415491700886292, guid: d05761e7b5238dd448f25889a9292580,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1360,16 +1375,6 @@ PrefabInstance:
     - target: {fileID: 3214415491700886292, guid: d05761e7b5238dd448f25889a9292580,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7747054789621854620, guid: d05761e7b5238dd448f25889a9292580,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 7747054789621854620, guid: d05761e7b5238dd448f25889a9292580,
-        type: 3}
-      propertyPath: m_LocalPosition.y
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3214415491977224604, guid: d05761e7b5238dd448f25889a9292580,

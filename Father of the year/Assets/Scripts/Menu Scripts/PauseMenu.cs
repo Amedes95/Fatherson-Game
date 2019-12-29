@@ -11,7 +11,11 @@ public class PauseMenu : MonoBehaviour
 {
     public bool GameIsPaused;
     public GameObject PauseScreen;
-    public GameObject SettingsMenu;
+    public GameObject SettingsMenuChoices;
+    public GameObject AudioSettings;
+    public GameObject VisualSettings;
+    public GameObject ControlsSettings;
+
     VictoryMenu VictoryScreen;
     GameObject Player;
     GameObject DeathScreen;
@@ -53,7 +57,7 @@ public class PauseMenu : MonoBehaviour
     {
         var Vinny = Transition1.vignette.settings; // black wipe effect
 
-        if (Input.GetKeyDown(KeyCode.Escape) && VictoryScreen.GoalReached == false && Player.activeInHierarchy)
+        if ((Input.GetKeyDown(KeyCode.Escape) || Input.GetButtonDown("Pause")) && VictoryScreen.GoalReached == false && Player.activeInHierarchy)
         {
             if (GameIsPaused)
             {
@@ -87,7 +91,10 @@ public class PauseMenu : MonoBehaviour
     public void ResumeGame()
     {
         PauseScreen.SetActive(false);
-        SettingsMenu.SetActive(false);
+        SettingsMenuChoices.SetActive(false);
+        AudioSettings.SetActive(false);
+        VisualSettings.SetActive(false);
+        ControlsSettings.SetActive(false);
         Time.timeScale = 1f;
         GameIsPaused = false;
         DeathScreen.SetActive(true);
@@ -141,14 +148,36 @@ public class PauseMenu : MonoBehaviour
         Preloader.SetActive(false);
     }
 
-    public void EditSettings()
+    public void EditSettings() // Loads the choices of settings
     {
-        SettingsMenu.SetActive(true);
+        SettingsMenuChoices.SetActive(true);
+        AudioSettings.SetActive(false);
+        VisualSettings.SetActive(false);
+        ControlsSettings.SetActive(false);
         PauseScreen.SetActive(false);
     }
-    public void LeaveSettings()
+    public void LeaveSettings() // Clicking BACK BUTTON
     {
-        SettingsMenu.SetActive(false);
+        SettingsMenuChoices.SetActive(false);
+        AudioSettings.SetActive(false);
         PauseScreen.SetActive(true);
+    }
+
+    public void LoadAudioSettings() // Clicking AUDIO BUTTON
+    {
+        SettingsMenuChoices.SetActive(false);
+        AudioSettings.SetActive(true);
+    }
+
+    public void LoadControlsSettings() // Clicking CONTROLS BUTTON
+    {
+        SettingsMenuChoices.SetActive(false);
+        ControlsSettings.SetActive(true);
+    }
+
+    public void LoadVisualSettings() // Clicking VISUAL BUTTON
+    {
+        SettingsMenuChoices.SetActive(false);
+        VisualSettings.SetActive(true);
     }
 }

@@ -86,6 +86,7 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
+
         if (PlayerHealth.Dead == false) // Only allow movement if alive
         {
             //// Walljumping
@@ -101,8 +102,20 @@ public class PlayerMovement : MonoBehaviour
                 gameObject.GetComponent<Animator>().SetBool("DoubleJumpActive", false);
             }
 
-            moveHorizontal = Input.GetAxis("Horizontal"); // left is -1, stopped is 0, right is 1
+            if (Input.GetJoystickNames().Length == 0)
+            {
+                moveHorizontal = Input.GetAxis("Horizontal"); // left is -1, stopped is 0, right is 1
+            }
+            else
+            {
+                moveHorizontal = Input.GetAxis("ControllerHorizontal"); // left is -1, stopped is 0, right is 1
+                Debug.Log("Controller Detected");
+            }
+
+
+
             Vector2 movementPlayer = new Vector2(moveHorizontal, 0);
+            Debug.Log(movementPlayer);
             playerVelocity = playerBody.velocity;
 
             if (transform.localScale.x > 0)
@@ -197,7 +210,7 @@ public class PlayerMovement : MonoBehaviour
             }
 
             ///// Movement left and right
-            if ((moveHorizontal > 0f) && !Trampoline.IsBouncing && (Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow))) // player is moving right
+            if ((moveHorizontal > 0f) && !Trampoline.IsBouncing/* && (Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow))*/) // player is moving right
             {
                 if ((Mathf.Sign(moveHorizontal) != Mathf.Sign(playerBody.velocity.x)) && !recentlyJumped && (Mathf.Abs(playerVelocity.x) > 2)) // this makes the character turn around quicker in the air for more control, I add the >2 part to prevent backdashing upond landing on the ground
                 {
@@ -210,7 +223,7 @@ public class PlayerMovement : MonoBehaviour
 
                 PlayerAnim.SetBool("Running", true);
             }
-            if ((moveHorizontal < 0f) && !Trampoline.IsBouncing && (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow))) // player is moving left
+            if ((moveHorizontal < 0f) && !Trampoline.IsBouncing /*&& (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow))*/) // player is moving left
             {
                 if ((Mathf.Sign(moveHorizontal) != Mathf.Sign(playerBody.velocity.x)) && !recentlyJumped && (Mathf.Abs(playerVelocity.x) > 2))
                 {
@@ -412,7 +425,7 @@ public class PlayerMovement : MonoBehaviour
         if (PlayerHealth.Dead == false) // Only allow inputs if alive
         {
             //// JUMPING
-            if (Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow))
+            if (Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow) || Input.GetButtonDown("Jump"))
             {
                 jumpKeyHeld = true;
 
@@ -445,7 +458,7 @@ public class PlayerMovement : MonoBehaviour
                 //}
 
             }
-            else if (Input.GetKeyUp(KeyCode.W) || Input.GetKeyUp(KeyCode.UpArrow))
+            else if (Input.GetKeyUp(KeyCode.W) || Input.GetKeyUp(KeyCode.UpArrow) || Input.GetButtonUp("Jump"))
             {
                 jumpKeyHeld = false;
             }
