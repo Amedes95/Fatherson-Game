@@ -24,7 +24,7 @@ public class MovingSaw : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        if (PauseScreen.GameIsPaused == false)
+        if (PauseMenu.GameIsPaused == false)
         {
             transform.position = Vector3.MoveTowards(transform.position, TargetPosition.position, MovementSpeed); // constantly move the blade to the target position
             if (transform.position == TargetPosition.position) // once target is reached, choose a new target

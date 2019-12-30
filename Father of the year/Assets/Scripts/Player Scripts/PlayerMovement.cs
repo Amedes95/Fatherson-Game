@@ -421,7 +421,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void Update()
     {
-        if (PlayerHealth.Dead == false) // Only allow inputs if alive
+        if (PlayerHealth.Dead == false && PauseMenu.GameIsPaused == false) // Only allow inputs if alive
         {
             //// JUMPING
             if (Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow) || Input.GetButtonDown("Jump"))

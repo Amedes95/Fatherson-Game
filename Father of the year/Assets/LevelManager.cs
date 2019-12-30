@@ -84,7 +84,7 @@ public class LevelManager : MonoBehaviour
     {
         ActiveWorld = WorldsList[WorldIndex];
 
-        if (PauseScreen.GameIsPaused == false)
+        if (PauseMenu.GameIsPaused == false)
         {
             //// Shifts levels back and forth
 
@@ -167,7 +167,7 @@ public class LevelManager : MonoBehaviour
 
 
             // loads scene when space is press and camera is at new pos
-            if ((Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.Return) || Input.GetButtonDown("Jump")) && Camera.transform.position == NewPos)
+            if ((/*Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.Return) || */Input.GetButtonDown("Submit")) && Camera.transform.position == NewPos && PauseMenu.GameIsPaused == false)
             {
                 if (ActiveWorld.GetComponent<ListofLevels>().LevelsWithinWorld[LevelIndex].GetComponent<LevelInfo>().Unlocked)
                 {

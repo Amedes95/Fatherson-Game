@@ -9,7 +9,7 @@ using TMPro;
 
 public class PauseMenu : MonoBehaviour
 {
-    public bool GameIsPaused;
+    public static bool GameIsPaused;
     public GameObject PauseScreen;
     public GameObject SettingsMenuChoices;
     public GameObject AudioSettings;
@@ -31,9 +31,10 @@ public class PauseMenu : MonoBehaviour
     public AudioClip CloseNoise;
 
     public PostProcessingProfile Transition1; // For film grain and black wipe effects
-    bool transitioning;
+    public bool transitioning;
     public float ShadowValueUp;
 
+    GameObject LevelManager;
 
 
 
@@ -55,6 +56,10 @@ public class PauseMenu : MonoBehaviour
     private void Start()
     {
         Time.timeScale = 1f;
+        if (SceneManager.GetActiveScene().name == "WorldHub")
+        {
+            LevelManager = GameObject.FindGameObjectWithTag("LevelManager");
+        }
     }
 
     // Update is called once per frame
@@ -87,7 +92,7 @@ public class PauseMenu : MonoBehaviour
 
         var Vinny = Transition1.vignette.settings; // black wipe effect
 
-        if ((Input.GetKeyDown(KeyCode.Escape) || Input.GetButtonDown("Pause")) && VictoryScreen.GoalReached == false && Player.activeInHierarchy)
+        if ((Input.GetKeyDown(KeyCode.Escape) || Input.GetButtonDown("Pause")) && VictoryScreen.GoalReached == false && Player.activeInHierarchy && transitioning == false)
         {
             if (GameIsPaused)
             {
@@ -126,7 +131,14 @@ public class PauseMenu : MonoBehaviour
         VisualSettings.SetActive(false);
         ControlsSettings.SetActive(false);
         Time.timeScale = 1f;
+        Player.GetComponent<PlayerMovement>().enabled = true;
+        if (SceneManager.GetActiveScene().name == "WorldHub")
+        {
+            LevelManager.GetComponent<LevelManager>().enabled = true;
+        }
+
         GameIsPaused = false;
+
         DeathScreen.SetActive(true);
         VictoryScreen.gameObject.SetActive(true);
         var Blurry = Transition1.depthOfField.settings;
@@ -146,6 +158,11 @@ public class PauseMenu : MonoBehaviour
         if (!PlayerHealth.Dead)
         {
             PauseScreen.SetActive(true);
+            Player.GetComponent<PlayerMovement>().enabled = false;
+            if (SceneManager.GetActiveScene().name == "WorldHub")
+            {
+                LevelManager.GetComponent<LevelManager>().enabled = false;
+            }
             Time.timeScale = 0f;
             GameIsPaused = true;
             DeathScreen.SetActive(false);
@@ -226,4 +243,5 @@ public class PauseMenu : MonoBehaviour
         SettingsMenuChoices.SetActive(false);
         VisualSettings.SetActive(true);
     }
+
 }

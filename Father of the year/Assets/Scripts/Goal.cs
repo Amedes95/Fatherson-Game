@@ -35,7 +35,7 @@ public class Goal : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision) // player completed level
     {
-        if (collision.tag == "Player")
+        if (collision.tag == "Player" && PauseMenu.GameIsPaused == false)
         {
             collision.GetComponent<Collector>().AddToFruitStash();
             collision.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeAll;
