@@ -824,7 +824,7 @@ MonoBehaviour:
   m_Navigation:
     m_Mode: 4
     m_SelectOnUp: {fileID: 6648701228605833504}
-    m_SelectOnDown: {fileID: 0}
+    m_SelectOnDown: {fileID: 6648701228605833504}
     m_SelectOnLeft: {fileID: 0}
     m_SelectOnRight: {fileID: 6897320473976576279}
   m_Transition: 1
@@ -1412,8 +1412,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 694ad916561261c46a0a87c4e0f3b179, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  DummyButton: {fileID: 0}
   InitialHighlight: {fileID: 3302911734179475673}
+  MainMenuSystem: {fileID: 0}
 --- !u!1 &3302911734369077652
 GameObject:
   m_ObjectHideFlags: 0
@@ -2940,7 +2940,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6ea8452eb1ee4fe4ab23798c56ff7b4c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  GameIsPaused: 0
   PauseScreen: {fileID: 3302911735393001888}
   SettingsMenuChoices: {fileID: 6502226463003854117}
   AudioSettings: {fileID: 7201327311590072008}
@@ -2949,6 +2948,7 @@ MonoBehaviour:
   OpenNoise: {fileID: 8300000, guid: 4352fb251be87fc41911c4283bbafbb9, type: 3}
   CloseNoise: {fileID: 8300000, guid: 092eb6179e19eef43841b2c108f10e1d, type: 3}
   Transition1: {fileID: 11400000, guid: c2f1824c2e9aa5a4085ce361c3f59724, type: 2}
+  transitioning: 0
   ShadowValueUp: 0.01
 --- !u!82 &5428371491708502274
 AudioSource:
@@ -3614,7 +3614,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Navigation:
     m_Mode: 4
-    m_SelectOnUp: {fileID: 0}
+    m_SelectOnUp: {fileID: 4641790041241628644}
     m_SelectOnDown: {fileID: 6897320473976576279}
     m_SelectOnLeft: {fileID: 6648701228605833504}
     m_SelectOnRight: {fileID: 0}
@@ -5622,7 +5622,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Navigation:
     m_Mode: 4
-    m_SelectOnUp: {fileID: 0}
+    m_SelectOnUp: {fileID: 3686949545317063929}
     m_SelectOnDown: {fileID: 3686949545317063929}
     m_SelectOnLeft: {fileID: 0}
     m_SelectOnRight: {fileID: 4641790041241628644}
@@ -5839,8 +5839,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 694ad916561261c46a0a87c4e0f3b179, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  DummyButton: {fileID: 0}
   InitialHighlight: {fileID: 6185503705725343727}
+  MainMenuSystem: {fileID: 0}
 --- !u!1 &6285666924487401895
 GameObject:
   m_ObjectHideFlags: 0
@@ -6714,7 +6714,7 @@ MonoBehaviour:
   m_Navigation:
     m_Mode: 4
     m_SelectOnUp: {fileID: 4641790041241628644}
-    m_SelectOnDown: {fileID: 0}
+    m_SelectOnDown: {fileID: 4641790041241628644}
     m_SelectOnLeft: {fileID: 3686949545317063929}
     m_SelectOnRight: {fileID: 0}
   m_Transition: 1
