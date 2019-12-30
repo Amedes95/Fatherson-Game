@@ -294,11 +294,12 @@ public class PlayerMovement : MonoBehaviour
                 {
                     SwitchFloatValue(false);
                 }
-                else
-                {
-                    playerBody.AddForce(Vector2.up * playerBody.gravityScale * playerBody.mass * 1.4f);
-                    //playerBody.velocity = new Vector2(playerBody.velocity.x, 0);
-                }
+                // I think the below line was causing the pop up on corners bug.
+                //else
+                //{
+                //    playerBody.AddForce(Vector2.up * playerBody.gravityScale * playerBody.mass * 1.4f);
+                //    //playerBody.velocity = new Vector2(playerBody.velocity.x, 0);
+                //}
             }
 
             if (JumpDetector.OnGround)
