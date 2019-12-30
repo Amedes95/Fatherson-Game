@@ -4971,6 +4971,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3d30c5c258e2d403791434e8672b8dc7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  LandingEffect: {fileID: 4406549245856049026, guid: 65cf0f4de0e144fcbbfd11faacd22f7b,
+    type: 3}
 --- !u!114 &2707354659731949511
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4992,6 +4994,7 @@ MonoBehaviour:
   fallDelay: 1
   steppedOn: 0
   FloatParticles: {fileID: 935233395}
+  Killzone: {fileID: 0}
 --- !u!50 &2707354659731949509
 Rigidbody2D:
   serializedVersion: 4
