@@ -16,6 +16,11 @@ public class PauseMenu : MonoBehaviour
     public GameObject VisualSettings;
     public GameObject ControlsSettings;
 
+    bool MakingSettingsChoice;
+    bool EditingAudio;
+    bool EditingVisuals;
+    bool EditingControls;
+
     VictoryMenu VictoryScreen;
     GameObject Player;
     GameObject DeathScreen;
@@ -55,6 +60,31 @@ public class PauseMenu : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (Input.GetButtonDown("Cancel"))
+        {
+
+            if (EditingAudio)
+            {
+                EditSettings();
+                EditingAudio = false;
+            }
+            else if (EditingControls)
+            {
+                EditSettings();
+                EditingControls = false;
+            }
+            else if (EditingVisuals)
+            {
+                EditSettings();
+                EditingVisuals = false;
+            }
+            else if (MakingSettingsChoice)
+            {
+                LeaveSettings();
+                MakingSettingsChoice = false;
+            }
+        }
+
         var Vinny = Transition1.vignette.settings; // black wipe effect
 
         if ((Input.GetKeyDown(KeyCode.Escape) || Input.GetButtonDown("Pause")) && VictoryScreen.GoalReached == false && Player.activeInHierarchy)
@@ -105,6 +135,11 @@ public class PauseMenu : MonoBehaviour
         PauseAudioSource.clip = CloseNoise;
         PauseAudioSource.Play();
 
+        MakingSettingsChoice = false;
+        EditingAudio = false;
+        EditingControls = false;
+        EditingVisuals = false;
+
     }
     public void PauseGame()
     {
@@ -150,6 +185,11 @@ public class PauseMenu : MonoBehaviour
 
     public void EditSettings() // Loads the choices of settings
     {
+        MakingSettingsChoice = true;
+        EditingAudio = false;
+        EditingControls = false;
+        EditingVisuals = false;
+
         SettingsMenuChoices.SetActive(true);
         AudioSettings.SetActive(false);
         VisualSettings.SetActive(false);
@@ -165,18 +205,24 @@ public class PauseMenu : MonoBehaviour
 
     public void LoadAudioSettings() // Clicking AUDIO BUTTON
     {
+        EditingAudio = true;
+
         SettingsMenuChoices.SetActive(false);
         AudioSettings.SetActive(true);
     }
 
     public void LoadControlsSettings() // Clicking CONTROLS BUTTON
     {
+        EditingControls = true;
+
         SettingsMenuChoices.SetActive(false);
         ControlsSettings.SetActive(true);
     }
 
     public void LoadVisualSettings() // Clicking VISUAL BUTTON
     {
+        EditingVisuals = true;
+
         SettingsMenuChoices.SetActive(false);
         VisualSettings.SetActive(true);
     }

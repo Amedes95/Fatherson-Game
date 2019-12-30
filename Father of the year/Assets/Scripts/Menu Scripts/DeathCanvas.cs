@@ -47,7 +47,7 @@ public class DeathCanvas : MonoBehaviour
             {
                 DeathMenu.SetActive(true);
             }
-            if (Input.GetKeyDown(KeyCode.Space) /*&& RespawnButton.activeInHierarchy*/) // make them wait...
+            if (Input.GetKeyDown(KeyCode.Space) || Input.GetButtonDown("Pause")) // make them wait...
             {
                 ReloadScene();
             }

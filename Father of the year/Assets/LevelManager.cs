@@ -53,6 +53,10 @@ public class LevelManager : MonoBehaviour
     public TextMeshPro WorldText;
     public TextMeshPro LevelText;
 
+    float NavigateTimer = .2f;
+    bool AbleToNavigate;
+
+
 
     // Start is called before the first frame update
     void Awake()
@@ -89,7 +93,7 @@ public class LevelManager : MonoBehaviour
             {
                 if (ActiveWorld.GetComponent<ListofLevels>().LevelsWithinWorld[(ActiveWorld.GetComponent<ListofLevels>().CurrentIndex + 1)].GetComponent<LevelInfo>().Unlocked == true)
                 {
-                    if (Input.GetKeyDown(KeyCode.D) || Input.GetKeyDown(KeyCode.RightArrow)) // shift right
+                    if (Input.GetKeyDown(KeyCode.D) || Input.GetKeyDown(KeyCode.RightArrow) || Input.GetAxis("UINavigateHorizontal") == 1 && AbleToNavigate) // shift right
                     {
                         if (LevelIndex < ActiveWorld.GetComponent<ListofLevels>().LevelsWithinWorld.Count - 1) // only shift if not the final one
                         {
@@ -97,6 +101,7 @@ public class LevelManager : MonoBehaviour
                             LevelIndex++;
                             WorldHubAudioSource.clip = ShiftWorlds;
                             WorldHubAudioSource.Play();
+                            AbleToNavigate = false;
                         }
                         //Debug.Log(LevelIndex);
                         ActiveWorld.GetComponent<ListofLevels>().CurrentIndex = LevelIndex;
@@ -105,7 +110,7 @@ public class LevelManager : MonoBehaviour
                 }
             }
 
-            if (Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.LeftArrow)) // shift left
+            if (Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.LeftArrow) || Input.GetAxis("UINavigateHorizontal") == -1 && AbleToNavigate) // shift left
             {
                 if (LevelIndex > 0)
                 {
@@ -113,6 +118,7 @@ public class LevelManager : MonoBehaviour
                     LevelIndex--;
                     WorldHubAudioSource.clip = ShiftWorlds;
                     WorldHubAudioSource.Play();
+                    AbleToNavigate = false;
                 }
                 //Debug.Log(LevelIndex);
                 ActiveWorld.GetComponent<ListofLevels>().CurrentIndex = LevelIndex;
@@ -120,7 +126,7 @@ public class LevelManager : MonoBehaviour
 
 
             //// Shifts world indexer up and down
-            if (Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow)) // move down a world
+            if (Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow) || Input.GetAxis("UINavigateVertical") == -1 && AbleToNavigate) // move down a world
             {
                 if (WorldIndex > 0)
                 {
@@ -129,11 +135,12 @@ public class LevelManager : MonoBehaviour
                     BackGroudSwapper();
                     WorldHubAudioSource.clip = ShiftLeft;
                     WorldHubAudioSource.Play();
+                    AbleToNavigate = false;
                 }
                 //Debug.Log(WorldIndex);
 
             }
-            else if (Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.DownArrow)) // moves up
+            else if (Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.DownArrow) || Input.GetAxis("UINavigateVertical") == 1 && AbleToNavigate) // moves up
             {
                 if (WorldIndex < WorldsList.Count - 1)
                 {
@@ -142,6 +149,7 @@ public class LevelManager : MonoBehaviour
                     BackGroudSwapper();
                     WorldHubAudioSource.clip = ShiftRight;
                     WorldHubAudioSource.Play();
+                    AbleToNavigate = false;
 
                 }
                 //Debug.Log(WorldIndex);
@@ -159,7 +167,7 @@ public class LevelManager : MonoBehaviour
 
 
             // loads scene when space is press and camera is at new pos
-            if ((Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.Return) && Camera.transform.position == NewPos))
+            if ((Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.Return) || Input.GetButtonDown("Jump")) && Camera.transform.position == NewPos)
             {
                 if (ActiveWorld.GetComponent<ListofLevels>().LevelsWithinWorld[LevelIndex].GetComponent<LevelInfo>().Unlocked)
                 {
@@ -197,6 +205,15 @@ public class LevelManager : MonoBehaviour
         // updates text on screen
         LevelText.text = ActiveWorld.GetComponent<ListofLevels>().LevelsWithinWorld[LevelIndex].GetComponent<LevelInfo>().LevelDisplayName;
         WorldText.text = ActiveWorld.GetComponent<ListofLevels>().LevelsWithinWorld[LevelIndex].GetComponent<LevelInfo>().WorldDisplayName;
+        if (AbleToNavigate == false)
+        {
+            NavigateTimer -= Time.smoothDeltaTime;
+            if (NavigateTimer <= 0)
+            {
+                AbleToNavigate = true;
+                NavigateTimer = .2f;
+            }
+        }
     }
 
     public void ResetBGs()
@@ -252,4 +269,5 @@ public class LevelManager : MonoBehaviour
         TopBG.GetComponent<BackgroundMove>().SwapDirections(Direction);
         BottomBG.GetComponent<BackgroundMove>().SwapDirections(Direction);
     }
+
 }

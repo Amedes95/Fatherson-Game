@@ -65,7 +65,7 @@ public class VictoryMenu : MonoBehaviour
         if (GoalReached)
         {
             VictoryScreen.SetActive(true);
-            if (Input.GetKeyDown(KeyCode.Space))
+            if (Input.GetKeyDown(KeyCode.Space)/* || Input.GetButtonDown("Pause")*/)
             {
                 LoadNextLevel();
             }
