@@ -12,31 +12,57 @@ public class UIControllerSupport : MonoBehaviour
 
     public EventSystem MainMenuSystem;
 
+    GameObject lastselect;
+
+
+
 
     // Start is called before the first frame update
     void OnEnable()
     {
-        if (SceneManager.GetActiveScene().name != "MainMenu") // not a main menu / hub
+        lastselect = new GameObject();
+
+        if (Boombox.ControllerModeEnabled)
         {
-            EventSystem = GameObject.FindGameObjectWithTag("EventSystem").GetComponent<EventSystem>();
-            EventSystem.SetSelectedGameObject(null);
-            EventSystem.SetSelectedGameObject(InitialHighlight);
+            if (SceneManager.GetActiveScene().name != "MainMenu") // not a main menu / hub
+            {
+                EventSystem = GameObject.FindGameObjectWithTag("EventSystem").GetComponent<EventSystem>();
+                EventSystem.SetSelectedGameObject(null);
+                EventSystem.SetSelectedGameObject(InitialHighlight);
+            }
+            else // main menu
+            {
+                MainMenuSystem.SetSelectedGameObject(null);
+                MainMenuSystem.SetSelectedGameObject(InitialHighlight);
+            }
         }
-        else // main menu
-        {
-            MainMenuSystem.SetSelectedGameObject(null);
-            MainMenuSystem.SetSelectedGameObject(InitialHighlight);
-        }
+
 
     }
 
 
     private void Start()
     {
-        if (SceneManager.GetActiveScene().name == "MainMenu")
+        if (Boombox.ControllerModeEnabled)
         {
-            MainMenuSystem.SetSelectedGameObject(null);
-            MainMenuSystem.SetSelectedGameObject(InitialHighlight);
+            if (SceneManager.GetActiveScene().name == "MainMenu" && Boombox.ControllerModeEnabled)
+            {
+                MainMenuSystem.SetSelectedGameObject(null);
+                MainMenuSystem.SetSelectedGameObject(InitialHighlight);
+            }
+        }
+
+    }
+
+    private void Update()
+    {
+        if (EventSystem.current.currentSelectedGameObject == null && Boombox.ControllerModeEnabled)
+        {
+            EventSystem.current.SetSelectedGameObject(lastselect);
+        }
+        else
+        {
+            lastselect = EventSystem.current.currentSelectedGameObject;
         }
     }
 }

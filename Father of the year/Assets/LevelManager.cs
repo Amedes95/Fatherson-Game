@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using TMPro;
+using UnityEngine.EventSystems;
 
 public class LevelManager : MonoBehaviour
 {
@@ -56,6 +57,9 @@ public class LevelManager : MonoBehaviour
     float NavigateTimer = .2f;
     bool AbleToNavigate;
 
+    string NavAxis;
+    string VerticalAxis;
+
 
 
     // Start is called before the first frame update
@@ -78,10 +82,21 @@ public class LevelManager : MonoBehaviour
 
     }
 
-
     // Update is called once per frame
     void Update()
     {
+
+        if (Boombox.ControllerModeEnabled)
+        {
+            NavAxis = "UINavigateHorizontal";
+            VerticalAxis = "UINavigateVertical";
+        }
+        else
+        {
+            NavAxis = "UINavigate2";
+            VerticalAxis = "UINavigate2Vertical";
+        }
+
         ActiveWorld = WorldsList[WorldIndex];
 
         if (PauseMenu.GameIsPaused == false)
@@ -93,8 +108,8 @@ public class LevelManager : MonoBehaviour
             {
                 if (ActiveWorld.GetComponent<ListofLevels>().LevelsWithinWorld[(ActiveWorld.GetComponent<ListofLevels>().CurrentIndex + 1)].GetComponent<LevelInfo>().Unlocked == true)
                 {
-                    if (Input.GetKeyDown(KeyCode.D) || Input.GetKeyDown(KeyCode.RightArrow) || Input.GetAxis("UINavigateHorizontal") == 1 && AbleToNavigate) // shift right
-                    {
+                    if (Input.GetAxis(NavAxis) == 1 && AbleToNavigate) // shift right
+                    { 
                         if (LevelIndex < ActiveWorld.GetComponent<ListofLevels>().LevelsWithinWorld.Count - 1) // only shift if not the final one
                         {
                             ActiveWorld.transform.Translate(Vector3.left * ShiftDistance);
@@ -110,7 +125,7 @@ public class LevelManager : MonoBehaviour
                 }
             }
 
-            if (Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.LeftArrow) || Input.GetAxis("UINavigateHorizontal") == -1 && AbleToNavigate) // shift left
+            if (Input.GetAxis(NavAxis) == -1 && AbleToNavigate) // shift left
             {
                 if (LevelIndex > 0)
                 {
@@ -126,7 +141,7 @@ public class LevelManager : MonoBehaviour
 
 
             //// Shifts world indexer up and down
-            if (Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow) || Input.GetAxis("UINavigateVertical") == -1 && AbleToNavigate) // move down a world
+            if (Input.GetAxis(VerticalAxis) == -1 && AbleToNavigate) // move down a world
             {
                 if (WorldIndex > 0)
                 {
@@ -140,7 +155,7 @@ public class LevelManager : MonoBehaviour
                 //Debug.Log(WorldIndex);
 
             }
-            else if (Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.DownArrow) || Input.GetAxis("UINavigateVertical") == 1 && AbleToNavigate) // moves up
+            else if (Input.GetAxis(VerticalAxis) == 1 && AbleToNavigate) // moves up
             {
                 if (WorldIndex < WorldsList.Count - 1)
                 {
@@ -167,7 +182,7 @@ public class LevelManager : MonoBehaviour
 
 
             // loads scene when space is press and camera is at new pos
-            if ((/*Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.Return) || */Input.GetButtonDown("Submit")) && Camera.transform.position == NewPos && PauseMenu.GameIsPaused == false)
+            if ((Input.GetButtonDown("Submit")) && Camera.transform.position == NewPos)
             {
                 if (ActiveWorld.GetComponent<ListofLevels>().LevelsWithinWorld[LevelIndex].GetComponent<LevelInfo>().Unlocked)
                 {

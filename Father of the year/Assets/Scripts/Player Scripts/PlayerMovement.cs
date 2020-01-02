@@ -47,6 +47,9 @@ public class PlayerMovement : MonoBehaviour
     public PlayerSoundScript jumpAudioBox;
     public GameObject DoubleJumpEffect;
 
+    public bool ControllerEnabled;
+    string JumpInput;
+
 
     //////// Stuff used here is for particle systems
     public ParticleSystem DustKickup;
@@ -56,7 +59,7 @@ public class PlayerMovement : MonoBehaviour
         jumpCount = 0;
         playerBody = GetComponent<Rigidbody2D>();
         PlayerAnim = GetComponent<Animator>();
-        startSpeed = 200;
+        startSpeed = 100;
         midSpeed = 26;
         fullSpeed = 20;
         maxVelocity = 8;
@@ -102,7 +105,10 @@ public class PlayerMovement : MonoBehaviour
                 gameObject.GetComponent<Animator>().SetBool("DoubleJumpActive", false);
             }
 
-            if (Input.GetJoystickNames().Length == 0)
+
+
+            //// set the axis of input for the player
+            if (Boombox.ControllerModeEnabled == false)
             {
                 moveHorizontal = Input.GetAxis("Horizontal"); // left is -1, stopped is 0, right is 1
             }
@@ -421,10 +427,19 @@ public class PlayerMovement : MonoBehaviour
 
     private void Update()
     {
+        if (Boombox.ControllerModeEnabled)
+        {
+            JumpInput = "JumpController";
+        }
+        else
+        {
+            JumpInput = "Jump";
+        }
+
         if (PlayerHealth.Dead == false && PauseMenu.GameIsPaused == false) // Only allow inputs if alive
         {
             //// JUMPING
-            if (Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow) || Input.GetButtonDown("Jump"))
+            if (Input.GetButtonDown(JumpInput))
             {
                 jumpKeyHeld = true;
 
@@ -457,7 +472,7 @@ public class PlayerMovement : MonoBehaviour
                 //}
 
             }
-            else if (Input.GetKeyUp(KeyCode.W) || Input.GetKeyUp(KeyCode.UpArrow) || Input.GetButtonUp("Jump"))
+            else if (Input.GetButtonUp(JumpInput))
             {
                 jumpKeyHeld = false;
             }

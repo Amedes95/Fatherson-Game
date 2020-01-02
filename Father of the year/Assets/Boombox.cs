@@ -9,6 +9,8 @@ public class Boombox : MonoBehaviour
     public GameObject BGPrefab;
     public static bool EditorMode;
 
+    public static bool ControllerModeEnabled;
+
     // Start is called before the first frame update
     void Awake()
     {
@@ -27,5 +29,37 @@ public class Boombox : MonoBehaviour
             BGMusic.CompareSongs();
         }
 
+    }
+
+    private void Update()
+    {
+        //Get Joystick Names
+        string[] temp = Input.GetJoystickNames();
+
+        //Check whether array contains anything
+        if (temp.Length > 0)
+        {
+            //Iterate over every element
+            for (int i = 0; i < temp.Length; ++i)
+            {
+                //Check if the string is empty or not
+                if (!string.IsNullOrEmpty(temp[i]))
+                {
+                    //Not empty, controller temp[i] is connected
+                    ControllerModeEnabled = true;
+                    Cursor.visible = false;
+                    Cursor.lockState = CursorLockMode.Locked;
+
+                }
+                else
+                {
+                    ControllerModeEnabled = false;
+                    Cursor.visible = true;
+                    Cursor.lockState = CursorLockMode.None;
+                    //If it is empty, controller i is disconnected
+                    //where i indicates the controller number
+                }
+            }
+        }
     }
 }

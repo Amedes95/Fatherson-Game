@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.PostProcessing;
-using UnityEngine.UIElements;
 using TMPro;
 
 
@@ -36,6 +35,11 @@ public class PauseMenu : MonoBehaviour
 
     GameObject LevelManager;
 
+    public GameObject ControllerConnected;
+    public GameObject ControllerDisconnected;
+
+    string PauseInput;
+
 
 
     // Start is called before the first frame update
@@ -65,6 +69,26 @@ public class PauseMenu : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (Boombox.ControllerModeEnabled)
+        {
+            PauseInput = "Pause";
+        }
+        else
+        {
+            PauseInput = "Escape";
+        }
+
+        if (Boombox.ControllerModeEnabled)
+        {
+            ControllerConnected.SetActive(true);
+            ControllerDisconnected.SetActive(false);
+        }
+        else
+        {
+            ControllerConnected.SetActive(false);
+            ControllerDisconnected.SetActive(true);
+        }
+
         if (Input.GetButtonDown("Cancel"))
         {
 
@@ -92,7 +116,7 @@ public class PauseMenu : MonoBehaviour
 
         var Vinny = Transition1.vignette.settings; // black wipe effect
 
-        if ((Input.GetKeyDown(KeyCode.Escape) || Input.GetButtonDown("Pause")) && VictoryScreen.GoalReached == false && Player.activeInHierarchy && transitioning == false)
+        if (Input.GetButtonDown(PauseInput) && VictoryScreen.GoalReached == false && Player.activeInHierarchy && transitioning == false)
         {
             if (GameIsPaused)
             {
@@ -234,6 +258,7 @@ public class PauseMenu : MonoBehaviour
 
         SettingsMenuChoices.SetActive(false);
         ControlsSettings.SetActive(true);
+
     }
 
     public void LoadVisualSettings() // Clicking VISUAL BUTTON
