@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using UnityEngine.EventSystems;
+using TMPro;
 
 public class SoundManager : MonoBehaviour
 {
@@ -76,8 +78,8 @@ public class SoundManager : MonoBehaviour
             BGM.volume = MusicSlider.value;
             PlayerPrefs.SetFloat("MusicVolume", BGM.volume); // updates preferences with change
         }
-
     }
+
 
     public void RevertSFXVolume()
     {

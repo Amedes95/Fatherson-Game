@@ -3607,7 +3607,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   InitialHighlight: {fileID: 585469301}
-  NextScreenHighlight: {fileID: 1700844965}
 --- !u!1 &634103946
 GameObject:
   m_ObjectHideFlags: 0
@@ -3943,9 +3942,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
-    m_Mode: 0
-    m_SelectOnUp: {fileID: 0}
-    m_SelectOnDown: {fileID: 0}
+    m_Mode: 4
+    m_SelectOnUp: {fileID: 1411106854}
+    m_SelectOnDown: {fileID: 2118486798}
     m_SelectOnLeft: {fileID: 0}
     m_SelectOnRight: {fileID: 0}
   m_Transition: 1
@@ -3953,7 +3952,7 @@ MonoBehaviour:
     m_NormalColor: {r: 1, g: 0.056383245, b: 0, a: 1}
     m_HighlightedColor: {r: 1, g: 0.056383245, b: 0, a: 1}
     m_PressedColor: {r: 1, g: 0.91875005, b: 0, a: 1}
-    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_SelectedColor: {r: 1, g: 0.67058825, b: 0, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
     m_ColorMultiplier: 2
     m_FadeDuration: 0.1
@@ -6657,9 +6656,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
-    m_Mode: 0
-    m_SelectOnUp: {fileID: 0}
-    m_SelectOnDown: {fileID: 0}
+    m_Mode: 4
+    m_SelectOnUp: {fileID: 2118486798}
+    m_SelectOnDown: {fileID: 819132949}
     m_SelectOnLeft: {fileID: 0}
     m_SelectOnRight: {fileID: 0}
   m_Transition: 1
@@ -6667,7 +6666,7 @@ MonoBehaviour:
     m_NormalColor: {r: 1, g: 0.056383245, b: 0, a: 1}
     m_HighlightedColor: {r: 1, g: 0.056383245, b: 0, a: 1}
     m_PressedColor: {r: 1, g: 0.91875005, b: 0, a: 1}
-    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_SelectedColor: {r: 1, g: 0.67058825, b: 0, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
     m_ColorMultiplier: 2
     m_FadeDuration: 0.1
@@ -8555,7 +8554,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   InitialHighlight: {fileID: 1700844965}
-  NextScreenHighlight: {fileID: 585469301}
 --- !u!1 &1797672625
 GameObject:
   m_ObjectHideFlags: 0
@@ -9260,7 +9258,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   InitialHighlight: {fileID: 2004627597}
-  NextScreenHighlight: {fileID: 0}
 --- !u!1 &2033949052
 GameObject:
   m_ObjectHideFlags: 0
@@ -9508,10 +9505,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Navigation:
     m_Mode: 4
-    m_SelectOnUp: {fileID: 0}
+    m_SelectOnUp: {fileID: 1411106854}
     m_SelectOnDown: {fileID: 0}
     m_SelectOnLeft: {fileID: 0}
-    m_SelectOnRight: {fileID: 0}
+    m_SelectOnRight: {fileID: 1411106854}
   m_Transition: 1
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
@@ -9609,7 +9606,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   InitialHighlight: {fileID: 2118486793}
-  NextScreenHighlight: {fileID: 0}
 --- !u!1 &2129929455
 GameObject:
   m_ObjectHideFlags: 0
