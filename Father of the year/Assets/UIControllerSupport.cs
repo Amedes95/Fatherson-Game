@@ -15,6 +15,10 @@ public class UIControllerSupport : MonoBehaviour
     {
         if (Boombox.ControllerModeEnabled)
         {
+            if (EventSystem.current.currentSelectedGameObject == InitialHighlight) // prevents the bug where going into audio settings and coming out removes button focus
+            {
+                EventSystem.current.SetSelectedGameObject(null);
+            }
             EventSystem.current.SetSelectedGameObject(InitialHighlight);
         }
     }
