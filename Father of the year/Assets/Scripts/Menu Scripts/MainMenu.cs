@@ -53,6 +53,11 @@ public class MainMenu : MonoBehaviour
         Time.timeScale = 1f;
     }
 
+    public void Start()
+    {
+        MenuScreen.SetActive(true);
+    }
+
     public void LoadSettings() // from menu to settings
     {
         ChoosingASetting = true;
