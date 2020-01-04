@@ -49,6 +49,13 @@ public class Boombox : MonoBehaviour
                     ControllerModeEnabled = true;
                     Cursor.visible = false;
                     Cursor.lockState = CursorLockMode.Locked;
+                    Debug.Log("Controller Used:" + temp[i].ToString());
+
+                    // This is a shitty way of identifying what controller you have, but it works
+                    if (temp[i].ToString() == "Controller (Xbox One For Windows)")
+                    {
+                        Debug.Log("That's an xbox controller plugged in");
+                    }
 
                 }
                 else
