@@ -89,7 +89,14 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-
+        if (Boombox.ControllerModeEnabled)
+        {
+            JumpInput = "JumpController";
+        }
+        else
+        {
+            JumpInput = "Jump";
+        }
         if (PlayerHealth.Dead == false) // Only allow movement if alive
         {
             //// Walljumping
@@ -327,7 +334,7 @@ public class PlayerMovement : MonoBehaviour
             //Below code is a jump buffer when landing on ground
             //If you press w in this time before touching ground you will still jump
 
-            if (!JumpDetector.OnGround && Input.GetKeyDown(KeyCode.W) && !recentlyJumped)
+            if (!JumpDetector.OnGround && Input.GetButtonDown(JumpInput) && !recentlyJumped)
             {
                 jumpBuffer = .2f;
             }
