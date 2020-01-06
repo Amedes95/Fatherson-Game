@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.PostProcessing;
 using TMPro;
+using UnityEngine.InputSystem;
 
 
 public class PauseMenu : MonoBehaviour

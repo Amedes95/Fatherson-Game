@@ -9873,7 +9873,6 @@ GameObject:
   - component: {fileID: 5981030734712421035}
   - component: {fileID: 5981030734712421032}
   - component: {fileID: 5981030734712421033}
-  - component: {fileID: 5981030734712421036}
   - component: {fileID: 227443779}
   - component: {fileID: 1705240154}
   - component: {fileID: 1029529505}
@@ -9993,7 +9992,7 @@ MonoBehaviour:
   flipOnSpawn: 0
   jumpAudioBox: {fileID: 4444019720247544507}
   DoubleJumpEffect: {fileID: 1771648827460892352}
-  LandingParticles: {fileID: 0}
+  ControllerEnabled: 0
   DustKickup: {fileID: 873758917}
 --- !u!50 &5981030734712421033
 Rigidbody2D:
@@ -10016,18 +10015,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 1
   m_Constraints: 4
---- !u!114 &5981030734712421036
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5981030734712421047}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6047032c153e642deb00510118942077, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!95 &227443779
 Animator:
   serializedVersion: 3
@@ -10149,7 +10136,6 @@ MonoBehaviour:
   JumpClip: {fileID: 8300000, guid: bbdbf13bf5c1eb54cbf27598792b1657, type: 3}
   DoubleJumpClip: {fileID: 8300000, guid: 9cf22735be12bbe40b9d0ee46c034c8b, type: 3}
   WallJumpClip: {fileID: 8300000, guid: c6d8f61a0296aed4c91418a8312e1bc1, type: 3}
-  LandingClip: {fileID: 8300000, guid: 10d82c83ed91144c7b131860d1d0c000, type: 3}
 --- !u!1 &8198306198543473746
 GameObject:
   m_ObjectHideFlags: 0

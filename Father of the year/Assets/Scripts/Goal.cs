@@ -40,7 +40,9 @@ public class Goal : MonoBehaviour
             collision.GetComponent<Collector>().AddToFruitStash();
             collision.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeAll;
             gameObject.GetComponent<Animator>().SetTrigger("Complete");
+            Boombox.SetVibrationIntensity(.5f, .25f, .25f);
             collision.gameObject.SetActive(false);
+
 
             ////// Compare best time with completion time for records
             SpeedRunning = false; // stop timer

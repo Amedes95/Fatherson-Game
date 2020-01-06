@@ -17,6 +17,7 @@ public class PlayerHealth : MonoBehaviour
 
     public void KillPlayer() // Kills player
     {
+        Boombox.SetVibrationIntensity(.1f, .5f, .5f);
         deathParticles.GetComponent<AudioSource>().playOnAwake = true;
         Dead = true; // oof
         deathParticles.transform.position = gameObject.transform.position;

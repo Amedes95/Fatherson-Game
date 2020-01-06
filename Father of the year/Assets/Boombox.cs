@@ -1,6 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
+
 
 public class Boombox : MonoBehaviour
 {
@@ -10,6 +12,13 @@ public class Boombox : MonoBehaviour
     public static bool EditorMode;
 
     public static bool ControllerModeEnabled;
+    public static bool ControllerButtonToggled;
+
+    public static float vibrateDuration = 0f;
+    public static float LowSpeed;
+    public static float HighSpeed;
+
+    bool RumbleEnabled;
 
     // Start is called before the first frame update
     void Awake()
@@ -28,11 +37,13 @@ public class Boombox : MonoBehaviour
             BGMusic = GameObject.FindGameObjectWithTag("BGMusic").GetComponent<BackgroundMusic>();
             BGMusic.CompareSongs();
         }
+        PlayerPrefs.SetFloat("RumbleToggled", 1);
+
 
     }
 
     private void Update()
-    {
+    {  
         //Get Joystick Names
         string[] temp = Input.GetJoystickNames();
 
@@ -49,12 +60,12 @@ public class Boombox : MonoBehaviour
                     ControllerModeEnabled = true;
                     Cursor.visible = false;
                     Cursor.lockState = CursorLockMode.Locked;
-                    Debug.Log("Controller Used:" + temp[i].ToString());
+                    //Debug.Log("Controller Used:" + temp[i].ToString());
 
                     // This is a shitty way of identifying what controller you have, but it works
                     if (temp[i].ToString() == "Controller (Xbox One For Windows)")
                     {
-                        Debug.Log("That's an xbox controller plugged in");
+                        //Debug.Log("That's an xbox controller plugged in");
                     }
 
                 }
@@ -68,5 +79,43 @@ public class Boombox : MonoBehaviour
                 }
             }
         }
+
+        if (ControllerModeEnabled) // controller is physically plugged in
+        {
+            RumbleEnabled = true; // always enable if controller is physically plugged in
+
+            if (RumbleEnabled && PlayerPrefs.GetFloat("RumbleToggled") == 1 && PauseMenu.GameIsPaused == false) // but we don't enable rumnble unless it is toggled on
+            {
+                if (vibrateDuration > 0 && RumbleEnabled) // something was called to vibrate
+                {
+                    Gamepad.current.ResumeHaptics();
+                    vibrateDuration -= Time.smoothDeltaTime; // count down duration
+                    VibrateController(); // vibrate while counting down
+                }
+                else if (vibrateDuration <= 0)
+                {
+                    vibrateDuration = 0;
+                    Gamepad.current.PauseHaptics();
+                }
+            }
+
+
+        }
+        else
+        {
+            RumbleEnabled = false;
+        }
+    }
+
+    public void VibrateController() // causes vibration of controller
+    {
+        Gamepad.current.SetMotorSpeeds(LowSpeed, HighSpeed);
+    }
+
+    public static void SetVibrationIntensity(float duration, float lowerSpeed, float higherspeed) // sets the variables accordingly
+    {
+        vibrateDuration = duration;
+        LowSpeed = lowerSpeed;
+        HighSpeed = higherspeed;
     }
 }

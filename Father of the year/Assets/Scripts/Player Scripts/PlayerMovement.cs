@@ -1,6 +1,9 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem.Haptics;
+using UnityEngine.InputSystem;
+
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -49,6 +52,10 @@ public class PlayerMovement : MonoBehaviour
 
     public bool ControllerEnabled;
     string JumpInput;
+
+    //public float vibrateDuration = 0f;
+    //public float LowSpeed;
+    //public float HighSpeed;
 
 
     //////// Stuff used here is for particle systems
@@ -107,6 +114,8 @@ public class PlayerMovement : MonoBehaviour
             if (jumpCount > 0 && JumpDetector.OnGround == false)
             {
                 gameObject.GetComponent<Animator>().SetBool("DoubleJumpActive", true);
+                Boombox.SetVibrationIntensity(.1f, .15f, .15f); // vibrate a lil bit ;)
+
             }
             else
             {
@@ -147,6 +156,7 @@ public class PlayerMovement : MonoBehaviour
 
             if (touchingWall && !JumpDetector.OnGround) //Wall Slide
             {
+                Boombox.SetVibrationIntensity(.1f, .15f, .15f); // vibrate a lil bit ;)
                 jumpCount = 0;
                 CreateDust();
                 fallSpeedCap = 6;
@@ -244,6 +254,7 @@ public class PlayerMovement : MonoBehaviour
 
             if (isJumping && !recentlyJumped) // counter jump force: if you release W after jumping you don't jump as high. In other words the longer you hold W the higher you jump.
             {
+                Gamepad.current.PauseHaptics();
                 if (!jumpKeyHeld && Vector2.Dot(playerBody.velocity, Vector2.up) > 0)
                 {
                     playerBody.AddForce(counterJumpForce * playerBody.mass * Vector2.down);
@@ -366,6 +377,7 @@ public class PlayerMovement : MonoBehaviour
             CreateDust();
             jumpAudioBox.playJumpSound();
         }
+        Boombox.SetVibrationIntensity(.1f, .25f, .75f); // vibrate a lil bit ;)
 
 
     }
@@ -386,6 +398,8 @@ public class PlayerMovement : MonoBehaviour
             GetComponent<Animator>().SetBool("onWall", false);
             CreateDust();
             jumpAudioBox.playWallJumpSound();
+            Boombox.SetVibrationIntensity(.3f, .08f, .08f); // vibrate a lil bit ;)
+
         }
 
 
@@ -428,6 +442,7 @@ public class PlayerMovement : MonoBehaviour
             //// JUMPING
             if (Input.GetButtonDown(JumpInput))
             {
+
                 jumpKeyHeld = true;
 
                 if (JumpDetector.OnGround && !recentlyJumped && jumpBuffer < 0) // Checks to see if player is on ground before jumping
@@ -478,4 +493,5 @@ public class PlayerMovement : MonoBehaviour
     {
         DustKickup.Play();
     }
+
 }

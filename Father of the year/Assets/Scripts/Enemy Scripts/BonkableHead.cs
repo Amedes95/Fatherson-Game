@@ -43,6 +43,7 @@ public class BonkableHead : MonoBehaviour
                     //collision.GetComponentInParent<Animator>().SetBool("DoubleJumpActive", true);
                     collision.GetComponentInParent<Animator>().SetTrigger("Jump");
                     Debug.Log("Bonk");
+                    Boombox.SetVibrationIntensity(.1f, .25f, .75f);
                     if (bonkTimer > 0)
                     {
                         collision.GetComponentInParent<Rigidbody2D>().AddForce(Vector2.down * PlayerMovement.jumpForce * 90);

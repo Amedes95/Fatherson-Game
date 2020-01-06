@@ -44,10 +44,10 @@ public class Trampoline : MonoBehaviour
                 }
                 IsBouncing = true;
                 PlayerMovement.floatingTimer = -1;
-                //collision.GetComponentInParent<Rigidbody2D>().AddForce(Vector2.up * PlayerMovement.jumpForce * 180);
                 GetComponent<Animator>().SetTrigger("Bounce");
                 collision.GetComponentInParent<Animator>().SetBool("DoubleJumpActive", false);
                 collision.GetComponentInParent<Animator>().SetTrigger("Jump");
+                Boombox.SetVibrationIntensity(.1f, .25f, .75f);
                 if (gameObject.GetComponentInChildren<ParticleSystem>() != null)
                 {
                     gameObject.GetComponentInChildren<ParticleSystem>().Play();
