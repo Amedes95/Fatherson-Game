@@ -14,6 +14,9 @@ public class DeathCanvas : MonoBehaviour
     GameObject VictoryMenu;
     GameObject PauseCanvas;
 
+    public GameObject SpaceBarText;
+    public GameObject PressStartText;
+
 
     public PostProcessingProfile Transition1; // For film grain
 
@@ -26,6 +29,18 @@ public class DeathCanvas : MonoBehaviour
 
     void Update()
     {
+        if (Boombox.ControllerModeEnabled)
+        {
+            SpaceBarText.SetActive(false);
+            PressStartText.SetActive(true);
+        }
+        else
+        {
+            SpaceBarText.SetActive(true);
+            PressStartText.SetActive(false);
+        }
+
+
         var Vinny = Transition1.vignette.settings;
 
         //// film grain stuff ////////

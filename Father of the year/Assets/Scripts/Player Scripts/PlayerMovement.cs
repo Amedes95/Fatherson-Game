@@ -89,6 +89,15 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
+        // Detect the method of input we should be referencing
+        if (Boombox.ControllerModeEnabled)
+        {
+            JumpInput = "JumpController";
+        }
+        else
+        {
+            JumpInput = "Jump";
+        }
 
         if (PlayerHealth.Dead == false) // Only allow movement if alive
         {
@@ -116,9 +125,6 @@ public class PlayerMovement : MonoBehaviour
             {
                 moveHorizontal = Input.GetAxis("ControllerHorizontal"); // left is -1, stopped is 0, right is 1
             }
-
-
-
             Vector2 movementPlayer = new Vector2(moveHorizontal, 0);
             playerVelocity = playerBody.velocity;
 
@@ -146,8 +152,6 @@ public class PlayerMovement : MonoBehaviour
                 fallSpeedCap = 6;
                 floatingTimer = 0;
                 GetComponent<Animator>().SetBool("onWall", true);
-                isJumping = false;
-
                 wallJumpBuffer = setWallJumpBuffer;
 
                 if (Mathf.Abs(moveHorizontal + playerDirection) > 1) //this fixes the bug where the player would stop moving downwards (cling) when holding into the wall
@@ -169,6 +173,7 @@ public class PlayerMovement : MonoBehaviour
                 }
             }
 
+            //// Ths fixes the bug where you don't stick to a walljump if you jump up to it facing backwards
             if (backTouchingWall && !JumpDetector.OnGround)
             {
                 FlipCharacter();
@@ -178,7 +183,7 @@ public class PlayerMovement : MonoBehaviour
             {
                 playerSpeed = fullSpeed;
             }
-            else if (Mathf.Abs(playerBody.velocity.x) < midVelocity && JumpDetector.OnGround) //quick movement from rest
+            else if (Mathf.Abs(playerBody.velocity.x) < midVelocity && JumpDetector.OnGround) //quick burst of movement from rest
             {
                 playerSpeed = startSpeed;
             }
@@ -196,14 +201,6 @@ public class PlayerMovement : MonoBehaviour
             {
                 playerBody.AddForce(Vector2.up * playerBody.gravityScale * 15);
             }
-            //else if (playerBody.velocity.y > riseSpeedCap)
-            //{
-            //    playerBody.AddForce(Vector2.down * playerBody.gravityScale * 15);
-            //}
-
-            ///// Vertical speed limiter
-            ///// This should hopefully fix the notorious "superjump" bug that occurs when jumping,
-            ///// bonking enemies, jumping on springs, and walljumping off corners
 
             if ((playerVelocity.y > riseSpeedCap) || (playerVelocity.y < fallSpeedCap))
             {
@@ -214,7 +211,7 @@ public class PlayerMovement : MonoBehaviour
             }
 
             ///// Movement left and right
-            if ((moveHorizontal > 0f) && !Trampoline.IsBouncing/* && (Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow))*/) // player is moving right
+            if ((moveHorizontal > 0f) && !Trampoline.IsBouncing) // player is moving right
             {
                 if ((Mathf.Sign(moveHorizontal) != Mathf.Sign(playerBody.velocity.x)) && !recentlyJumped && (Mathf.Abs(playerVelocity.x) > 2)) // this makes the character turn around quicker in the air for more control, I add the >2 part to prevent backdashing upond landing on the ground
                 {
@@ -227,7 +224,7 @@ public class PlayerMovement : MonoBehaviour
 
                 PlayerAnim.SetBool("Running", true);
             }
-            if ((moveHorizontal < 0f) && !Trampoline.IsBouncing /*&& (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow))*/) // player is moving left
+            if ((moveHorizontal < 0f) && !Trampoline.IsBouncing) // player is moving left
             {
                 if ((Mathf.Sign(moveHorizontal) != Mathf.Sign(playerBody.velocity.x)) && !recentlyJumped && (Mathf.Abs(playerVelocity.x) > 2))
                 {
@@ -243,10 +240,6 @@ public class PlayerMovement : MonoBehaviour
             if (Mathf.Abs(moveHorizontal) < .01) // player is stopped
             {
                 PlayerAnim.SetBool("Running", false);
-                //if (JumpDetector.OnGround)
-                //{
-                //    playerBody.AddForce(-playerDirection * playerSpeed * Vector2.right * Mathf.Abs(playerVelocity.x) / 10); //this slows down the player if they arent holding A/D
-                //}
             }
 
             if (isJumping && !recentlyJumped) // counter jump force: if you release W after jumping you don't jump as high. In other words the longer you hold W the higher you jump.
@@ -300,12 +293,6 @@ public class PlayerMovement : MonoBehaviour
                 {
                     SwitchFloatValue(false);
                 }
-                // I think the below line was causing the pop up on corners bug.
-                //else
-                //{
-                //    playerBody.AddForce(Vector2.up * playerBody.gravityScale * playerBody.mass * 1.4f);
-                //    //playerBody.velocity = new Vector2(playerBody.velocity.x, 0);
-                //}
             }
 
             if (JumpDetector.OnGround)
@@ -327,7 +314,7 @@ public class PlayerMovement : MonoBehaviour
             //Below code is a jump buffer when landing on ground
             //If you press w in this time before touching ground you will still jump
 
-            if (!JumpDetector.OnGround && Input.GetKeyDown(KeyCode.W) && !recentlyJumped)
+            if (!JumpDetector.OnGround && Input.GetButtonDown(JumpInput) && !recentlyJumped)
             {
                 jumpBuffer = .2f;
             }
@@ -460,17 +447,6 @@ public class PlayerMovement : MonoBehaviour
                     jumpCount -= 1;
                     jumpAudioBox.PlayDoubleJumpSound();
                 }
-
-
-                //// I removed this for now because it felt bad
-                //else if (isFloating)
-                //{
-                //    Debug.Log("floationg");
-                //    playerBody.velocity = new Vector2(playerBody.velocity.x, 4); // this makes the jump height consistent with grounded jumps. If this is not enabled, floating jumps are about 5/6ths of regular jumps
-                //    Jump();
-                //    SwitchFloatValue(false);
-                //}
-
             }
             else if (Input.GetButtonUp(JumpInput))
             {

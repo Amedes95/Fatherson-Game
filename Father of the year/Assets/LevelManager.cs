@@ -60,6 +60,9 @@ public class LevelManager : MonoBehaviour
     string NavAxis;
     string VerticalAxis;
 
+    public GameObject SpaceBarText;
+    public GameObject AText;
+
 
 
     // Start is called before the first frame update
@@ -90,11 +93,15 @@ public class LevelManager : MonoBehaviour
         {
             NavAxis = "UINavigateHorizontal";
             VerticalAxis = "UINavigateVertical";
+            SpaceBarText.SetActive(false);
+            AText.SetActive(true);
         }
         else
         {
             NavAxis = "UINavigate2";
             VerticalAxis = "UINavigate2Vertical";
+            SpaceBarText.SetActive(true);
+            AText.SetActive(false);
         }
 
         ActiveWorld = WorldsList[WorldIndex];

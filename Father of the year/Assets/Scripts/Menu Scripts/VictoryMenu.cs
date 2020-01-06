@@ -20,6 +20,8 @@ public class VictoryMenu : MonoBehaviour
     public AudioSource StaticSource;
     public AudioClip StaticNoise;
 
+    public GameObject SpaceBarText;
+
 
     private void Awake()
     {
@@ -43,7 +45,14 @@ public class VictoryMenu : MonoBehaviour
 
     private void Update()
     {
-
+        if (Boombox.ControllerModeEnabled)
+        {
+            SpaceBarText.SetActive(false);
+        }
+        else
+        {
+            SpaceBarText.SetActive(true);
+        }
         var Vinny = Transition1.vignette.settings;
 
         /// for film grain restart effect ///// 
@@ -65,7 +74,7 @@ public class VictoryMenu : MonoBehaviour
         if (GoalReached)
         {
             VictoryScreen.SetActive(true);
-            if (Input.GetKeyDown(KeyCode.Space)/* || Input.GetButtonDown("Pause")*/)
+            if (Input.GetKeyDown(KeyCode.Space) || Input.GetButtonDown("Pause"))
             {
                 LoadNextLevel();
             }
