@@ -21,6 +21,7 @@ public class Goal : MonoBehaviour
     // Start is called before the first frame update
     void Awake()
     {
+        PlayerPrefs.SetString("ExitedLevel", SceneManager.GetActiveScene().name); // lets keep track of what level you loaded into
         BestTime = PlayerPrefs.GetFloat(SceneManager.GetActiveScene().name);
         SpeedRunning = true;
         CompletionTime = 0f;
@@ -42,7 +43,6 @@ public class Goal : MonoBehaviour
             gameObject.GetComponent<Animator>().SetTrigger("Complete");
             Boombox.SetVibrationIntensity(.5f, .25f, .25f);
             collision.gameObject.SetActive(false);
-
 
             ////// Compare best time with completion time for records
             SpeedRunning = false; // stop timer

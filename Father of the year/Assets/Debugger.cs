@@ -10,6 +10,9 @@ public class Debugger : MonoBehaviour
 
     public void UnlockAllLevels()
     {
+
+        LevelManager.UnlockAllWorlds();
+
         foreach (GameObject World in LevelManager.WorldsList)
         {
             ListofLevels CurrentWorld = World.GetComponent<ListofLevels>();

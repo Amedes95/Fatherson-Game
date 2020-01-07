@@ -254,7 +254,10 @@ public class PlayerMovement : MonoBehaviour
 
             if (isJumping && !recentlyJumped) // counter jump force: if you release W after jumping you don't jump as high. In other words the longer you hold W the higher you jump.
             {
-                Gamepad.current.PauseHaptics();
+                if (Gamepad.current != null)
+                {
+                    Gamepad.current.PauseHaptics();
+                }
                 if (!jumpKeyHeld && Vector2.Dot(playerBody.velocity, Vector2.up) > 0)
                 {
                     playerBody.AddForce(counterJumpForce * playerBody.mass * Vector2.down);

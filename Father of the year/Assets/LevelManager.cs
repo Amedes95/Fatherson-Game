@@ -75,13 +75,15 @@ public class LevelManager : MonoBehaviour
         /// unlocks levels
         if (WorldsList.Contains(World1) == false && PlayerPrefs.GetInt("Tutorial_Complete") == 1)
         {
-            //Debug.Log(PlayerPrefs.GetInt("Tutorial_Complete") + "Tutorial Complete");
             WorldsList.Add(World1);
         }
         if (WorldsList.Contains(World2) == false && PlayerPrefs.GetInt("World1_Complete") == 1)
         {
             WorldsList.Add(World2);
         }
+
+
+        LoadCurrentWorld();
 
     }
 
@@ -290,6 +292,49 @@ public class LevelManager : MonoBehaviour
         LeftBG.GetComponent<BackgroundMove>().SwapDirections(Direction);
         TopBG.GetComponent<BackgroundMove>().SwapDirections(Direction);
         BottomBG.GetComponent<BackgroundMove>().SwapDirections(Direction);
+    }
+
+    public void LoadCurrentWorld()
+    {
+        string ExitedLevel = PlayerPrefs.GetString("ExitedLevel"); // we got this from the Goal script
+        //Debug.Log(ExitedLevel);
+        foreach (GameObject World in WorldsList) // check every level of every world
+        {
+            foreach (GameObject Level in World.GetComponent<ListofLevels>().LevelsWithinWorld) // foreach level in the array contained by the world
+            {
+                if (Level.GetComponent<LevelInfo>().SceneToLoad == ExitedLevel) // do we have a match?
+                {
+                    //Debug.Log("We got a match!");
+                    float LevelXPos = Level.transform.position.x; // get the info so we can move the selection box
+                    int StartingLevelIndex = World.GetComponent<ListofLevels>().LevelsWithinWorld.IndexOf(Level); // get the index of the level
+                    float WorldYPos = World.transform.position.y; // get the Y pos of the world its contained in
+
+
+                    // then move the items accordingly
+                    SelectionBox.transform.position = new Vector3(0, WorldYPos, 0); // update selection box
+                    Vector3 StartPos = new Vector3(0, WorldYPos, -10);
+                    Camera.transform.position = StartPos; // update camera
+
+                    // update the world pos
+                    World.transform.position = new Vector3(LevelXPos * -1, World.transform.position.y, 0);
+                    World.GetComponent<ListofLevels>().CurrentIndex = StartingLevelIndex;
+
+                    WorldIndex = WorldsList.IndexOf(World); // and the world index
+                    Debug.Log("World Index: " + WorldIndex);
+                    ActiveWorld = WorldsList[WorldIndex]; // and the active world
+                }
+            }
+        }
+
+    }
+
+    public void UnlockAllWorlds()
+    {
+        PlayerPrefs.SetInt("Tutorial_Complete", 1);
+        PlayerPrefs.GetInt("World1_Complete", 1);
+        WorldsList.Add(World1);
+        WorldsList.Add(World2);
+
     }
 
 }
