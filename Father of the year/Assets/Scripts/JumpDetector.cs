@@ -25,6 +25,8 @@ public class JumpDetector : MonoBehaviour
                 //collision.GetComponentInParent<PlayerMovement>().jumpAudioBox.playLandingSound();
                 LandingEffectClone = Instantiate(LandingEffect);
                 Destroy(LandingEffectClone, 1f);
+                Boombox.SetVibrationIntensity(.1f, .2f, .2f); // vibrate a lil bit ;)
+
             }
         }
     }

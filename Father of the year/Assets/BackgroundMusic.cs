@@ -13,6 +13,8 @@ public class BackgroundMusic : MonoBehaviour
     // Start is called before the first frame update
     void Awake()
     {
+        PlayerPrefs.SetFloat("RumbleToggled", 1);
+
         GameMusicPlayer = gameObject.GetComponent<AudioSource>();
 
         if (MusicControl == null)
