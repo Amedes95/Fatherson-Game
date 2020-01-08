@@ -13,8 +13,14 @@ public class stalactite : MonoBehaviour
     float fallVelocity;
     public float fallSpeedCap;
 
+    public float GlintFrequency;
+    float GlintCopy;
+
+    public ParticleSystem FallingDirt;
+
     void Awake()
     {
+        GlintCopy = GlintFrequency;
         gameObject.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeAll;
     }
 
@@ -49,6 +55,13 @@ public class stalactite : MonoBehaviour
                 }
             }
         }
+
+        GlintFrequency -= Time.smoothDeltaTime; // makes it glint every now and then
+        if (GlintFrequency <= 0)
+        {
+            gameObject.GetComponent<Animator>().SetTrigger("Glint");
+            GlintFrequency = GlintCopy;
+        }
     }
 
     public void RaycastGround()
@@ -62,6 +75,7 @@ public class stalactite : MonoBehaviour
         if (collision.tag == "Player")
         {
             walkedUnder = true;
+            FallingDirt.Play();
         }
     }
 }

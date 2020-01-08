@@ -9,14 +9,26 @@ public class MainMenu : MonoBehaviour
     public GameObject MenuScreen;
     public GameObject SettingsMenu;
     public GameObject ConfirmationMenu;
-    public GameObject TitleText;
     public AudioSource SettingsButton;
     public GameObject MusicSettingsMenu;
 
-    bool EditingSounds;
     bool WipingProgress;
-    bool ChoosingASetting;
+    bool AtMainMenu;
+    bool ChoosingASetting; // used with the moving camera to toggle a canvas
+    bool EditingSounds;
+    bool EditingVisuals;
+    bool EditingControls;
 
+    GameObject Camera;
+    Transform CurrentDestination; // this one gets set by the others
+
+    public Transform SettingsDestination; // set the current destination with these
+    public Transform MainMenuDestination;
+    public Transform IntroDestination;
+    public Transform SoundDestination;
+    public Transform ControllerDestination;
+    public Transform VisualsDestination;
+    public Transform ProgressWipeDestination;
 
     private void Update()
     {
@@ -33,6 +45,35 @@ public class MainMenu : MonoBehaviour
             else if (ChoosingASetting)
             {
                 ExitSettings();
+            }
+        }
+
+        Camera.transform.position = Vector3.MoveTowards(Camera.transform.position, CurrentDestination.position, .5f); // constantly move the camera to the "Current Destination"
+        if (Camera.transform.position == CurrentDestination.position) // we made it, decide from here
+        {
+            if (ChoosingASetting) // the destination was "settings menu"
+            {
+                SettingsMenu.SetActive(true);
+            }
+            else if (AtMainMenu) // "Main Menu"
+            {
+                MenuScreen.SetActive(true);
+            }
+            else if (EditingSounds)
+            {
+                MusicSettingsMenu.SetActive(true);
+            }
+            else if (EditingControls)
+            {
+                // turn on controls canvas
+            }
+            else if (EditingVisuals)
+            {
+                // tun on visuals canvas
+            }
+            else if (WipingProgress)
+            {
+                ConfirmationMenu.SetActive(true);
             }
         }
     }
@@ -56,71 +97,96 @@ public class MainMenu : MonoBehaviour
     public void Start()
     {
         MenuScreen.SetActive(true);
+        Camera = GameObject.FindGameObjectWithTag("MainCamera");
+
+        Camera.transform.position = IntroDestination.position; // start the camera at the beginning for now, maybe put something in later that doesn't play after the first time
+        CurrentDestination = MainMenuDestination; // now go to menu
     }
 
-    public void LoadSettings() // from menu to settings
+
+    public void LoadSettings() // loads settings options
     {
         ChoosingASetting = true;
+
+        AtMainMenu = false;
         EditingSounds = false;
+        EditingControls = false;
+        EditingVisuals = false;
         WipingProgress = false;
 
+        CurrentDestination = SettingsDestination; // where does the camera go?
 
         MenuScreen.SetActive(false);
         SettingsMenu.SetActive(true);
         MusicSettingsMenu.SetActive(false);
         SettingsButton.playOnAwake = true;
-        TitleText.SetActive(false);
     }
 
     public void ExitSettings() // settings to menu
     {
         ChoosingASetting = false;
+        AtMainMenu = true;
+        CurrentDestination = MainMenuDestination;
 
-        MenuScreen.SetActive(true);
         SettingsMenu.SetActive(false);
-        TitleText.SetActive(true);
     }
 
-    public void AskConfirmation()
+    public void AskConfirmation() // from settings to wiping progress screen
     {
+        ChoosingASetting = false;
         WipingProgress = true;
 
+        CurrentDestination = ProgressWipeDestination;
         SettingsMenu.SetActive(false);
-        ConfirmationMenu.SetActive(true);
-        TitleText.SetActive(false);
     }
 
-    public void DenyConfirmation()
+    public void DenyConfirmation() // from wipe progress confirmation screen to settings
     {
         WipingProgress = false;
+        ChoosingASetting = true;
 
+        CurrentDestination = SettingsDestination;
         ConfirmationMenu.SetActive(false);
-        SettingsMenu.SetActive(true);
     }
 
-    public void ConfirmProgressWipe()
+    public void ConfirmProgressWipe() // from progress wipe screen to settings
     {
         WipingProgress = false;
+        ChoosingASetting = true;
+        CurrentDestination = SettingsDestination;
 
         PlayerPrefs.DeleteAll();
-        //PlayerPrefs.SetFloat("GameBegun", 1);
         ConfirmationMenu.SetActive(false);
-        LoadMusicSettings();
-        LoadSettings();
-        ExitSettings();
         MusicSettingsMenu.GetComponent<SoundManager>().RevertSFXVolume();
         MusicSettingsMenu.GetComponent<SoundManager>().RevertToDefault();
 
     }
 
-    public void LoadMusicSettings()
+    public void LoadSoundSettings() // from settings to sound settings
     {
         EditingSounds = true;
+        ChoosingASetting = false;
 
+        CurrentDestination = SoundDestination;
         SettingsMenu.SetActive(false);
-        MusicSettingsMenu.SetActive(true);
-        TitleText.SetActive(false);
     }
 
+    public void LoadVisualSettings() // from settings to visual settings
+    {
+        EditingVisuals = true;
+        ChoosingASetting = false;
+
+        CurrentDestination = VisualsDestination;
+        SettingsMenu.SetActive(false);
+    }
+
+    public void LoadControllerSettings() // from settings to controller settings
+    {
+        EditingControls = true;
+        ChoosingASetting = false;
+
+        CurrentDestination = ControllerDestination;
+        SettingsMenu.SetActive(false);
+    }
 
 }

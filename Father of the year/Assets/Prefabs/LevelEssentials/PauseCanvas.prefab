@@ -4968,7 +4968,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 810, y: 258}
+  m_AnchoredPosition: {x: 692, y: 258}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &436920030221429508
@@ -6153,7 +6153,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -314, y: 274}
+  m_AnchoredPosition: {x: -71, y: 274}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &8969871364680091747
@@ -6773,7 +6773,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -310, y: 273}
+  m_AnchoredPosition: {x: -67, y: 273}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &3390753635190298124
@@ -9826,7 +9826,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Controller:'
+  m_text: 'Controller Mode:'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: e9d22510c2ced154dacf8091eb4f326a, type: 2}
   m_sharedMaterial: {fileID: 5874269020919152811, guid: e9d22510c2ced154dacf8091eb4f326a,
@@ -9896,10 +9896,10 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: -183.94186, w: 0}
   m_textInfo:
     textComponent: {fileID: 540367328348286780}
-    characterCount: 11
+    characterCount: 16
     spriteCount: 0
-    spaceCount: 0
-    wordCount: 1
+    spaceCount: 1
+    wordCount: 2
     linkCount: 0
     lineCount: 1
     pageCount: 1

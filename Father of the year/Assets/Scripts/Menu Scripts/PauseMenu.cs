@@ -182,7 +182,10 @@ public class PauseMenu : MonoBehaviour
     {
         if (!PlayerHealth.Dead)
         {
-            Gamepad.current.PauseHaptics();
+            if (Gamepad.current != null)
+            {
+                Gamepad.current.PauseHaptics();
+            }
             PauseScreen.SetActive(true);
             Player.GetComponent<PlayerMovement>().enabled = false;
             if (SceneManager.GetActiveScene().name == "WorldHub")
