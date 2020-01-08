@@ -8,9 +8,10 @@ public class MainMenu : MonoBehaviour
 {
     public GameObject MenuScreen;
     public GameObject SettingsMenu;
-    public GameObject ConfirmationMenu;
     public AudioSource SettingsButton;
+    public GameObject ConfirmationMenu;
     public GameObject MusicSettingsMenu;
+    public GameObject StatsMenu;
 
     bool WipingProgress;
     bool AtMainMenu;
@@ -18,6 +19,8 @@ public class MainMenu : MonoBehaviour
     bool EditingSounds;
     bool EditingVisuals;
     bool EditingControls;
+    bool WatchingIntro;
+    bool BrowsingStats;
 
     GameObject Camera;
     Transform CurrentDestination; // this one gets set by the others
@@ -29,6 +32,9 @@ public class MainMenu : MonoBehaviour
     public Transform ControllerDestination;
     public Transform VisualsDestination;
     public Transform ProgressWipeDestination;
+    public Transform StatsDestination;
+
+    public float CameraSpeed;
 
     private void Update()
     {
@@ -48,7 +54,13 @@ public class MainMenu : MonoBehaviour
             }
         }
 
-        Camera.transform.position = Vector3.MoveTowards(Camera.transform.position, CurrentDestination.position, .5f); // constantly move the camera to the "Current Destination"
+
+        Camera.transform.position = Vector3.MoveTowards(Camera.transform.position, CurrentDestination.position, CameraSpeed); // constantly move the camera to the "Current Destination"
+        if (WatchingIntro && Input.GetKeyDown(KeyCode.Space)) // skips intro
+        {
+            WatchingIntro = false;
+            Camera.transform.position = CurrentDestination.position;
+        }
         if (Camera.transform.position == CurrentDestination.position) // we made it, decide from here
         {
             if (ChoosingASetting) // the destination was "settings menu"
@@ -75,6 +87,10 @@ public class MainMenu : MonoBehaviour
             {
                 ConfirmationMenu.SetActive(true);
             }
+            else if (BrowsingStats)
+            {
+                StatsMenu.SetActive(true);
+            }
         }
     }
 
@@ -96,11 +112,13 @@ public class MainMenu : MonoBehaviour
 
     public void Start()
     {
-        MenuScreen.SetActive(true);
+        MenuScreen.SetActive(false);
         Camera = GameObject.FindGameObjectWithTag("MainCamera");
 
+        WatchingIntro = true;
+        CameraSpeed = .1f;
         Camera.transform.position = IntroDestination.position; // start the camera at the beginning for now, maybe put something in later that doesn't play after the first time
-        CurrentDestination = MainMenuDestination; // now go to menu
+        LoadMainMenu();
     }
 
 
@@ -115,9 +133,9 @@ public class MainMenu : MonoBehaviour
         WipingProgress = false;
 
         CurrentDestination = SettingsDestination; // where does the camera go?
+        CameraSpeed = .4f;
 
         MenuScreen.SetActive(false);
-        SettingsMenu.SetActive(true);
         MusicSettingsMenu.SetActive(false);
         SettingsButton.playOnAwake = true;
     }
@@ -127,33 +145,36 @@ public class MainMenu : MonoBehaviour
         ChoosingASetting = false;
         AtMainMenu = true;
         CurrentDestination = MainMenuDestination;
+        CameraSpeed = .4f;
 
         SettingsMenu.SetActive(false);
     }
 
     public void AskConfirmation() // from settings to wiping progress screen
     {
-        ChoosingASetting = false;
+        BrowsingStats = false;
         WipingProgress = true;
 
         CurrentDestination = ProgressWipeDestination;
-        SettingsMenu.SetActive(false);
+        CameraSpeed = .5f;
+        StatsMenu.SetActive(false);
     }
 
     public void DenyConfirmation() // from wipe progress confirmation screen to settings
     {
         WipingProgress = false;
-        ChoosingASetting = true;
+        BrowsingStats = true;
 
-        CurrentDestination = SettingsDestination;
+        CurrentDestination = StatsDestination;
+        CameraSpeed = .5f;
         ConfirmationMenu.SetActive(false);
     }
 
     public void ConfirmProgressWipe() // from progress wipe screen to settings
     {
         WipingProgress = false;
-        ChoosingASetting = true;
-        CurrentDestination = SettingsDestination;
+        BrowsingStats = true;
+        CurrentDestination = StatsDestination;
 
         PlayerPrefs.DeleteAll();
         ConfirmationMenu.SetActive(false);
@@ -168,6 +189,7 @@ public class MainMenu : MonoBehaviour
         ChoosingASetting = false;
 
         CurrentDestination = SoundDestination;
+        CameraSpeed = .4f;
         SettingsMenu.SetActive(false);
     }
 
@@ -187,6 +209,28 @@ public class MainMenu : MonoBehaviour
 
         CurrentDestination = ControllerDestination;
         SettingsMenu.SetActive(false);
+    }
+
+    public void LoadStatsMenu()
+    {
+        BrowsingStats = true;
+        AtMainMenu = false;
+
+        CurrentDestination = StatsDestination;
+        CameraSpeed = .4f;
+        MenuScreen.SetActive(false);
+    } // from menu to stats screen
+
+    public void LoadMainMenu() // from settings or stats to menu
+    {
+        AtMainMenu = true;
+        BrowsingStats = false;
+        ChoosingASetting = false;
+
+        CurrentDestination = MainMenuDestination;
+        SettingsMenu.SetActive(false);
+        StatsMenu.SetActive(false);
+
     }
 
 }
