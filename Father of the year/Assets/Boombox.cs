@@ -12,7 +12,6 @@ public class Boombox : MonoBehaviour
     public static bool EditorMode;
 
     public static bool ControllerModeEnabled;
-    public static bool ControllerButtonToggled;
 
     public static float vibrateDuration = 0f;
     public static float LowSpeed;
@@ -37,9 +36,6 @@ public class Boombox : MonoBehaviour
             BGMusic = GameObject.FindGameObjectWithTag("BGMusic").GetComponent<BackgroundMusic>();
             BGMusic.CompareSongs();
         }
-        PlayerPrefs.SetFloat("RumbleToggled", 1);
-
-
     }
 
     private void Update()

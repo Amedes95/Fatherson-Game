@@ -53,9 +53,6 @@ public class PlayerMovement : MonoBehaviour
     public bool ControllerEnabled;
     string JumpInput;
 
-    //public float vibrateDuration = 0f;
-    //public float LowSpeed;
-    //public float HighSpeed;
 
 
     //////// Stuff used here is for particle systems
@@ -495,6 +492,7 @@ public class PlayerMovement : MonoBehaviour
     void CreateDust()
     {
         DustKickup.Play();
+        Boombox.SetVibrationIntensity(.1f, .2f, .2f); // vibrate a lil bit ;)
     }
 
 }
