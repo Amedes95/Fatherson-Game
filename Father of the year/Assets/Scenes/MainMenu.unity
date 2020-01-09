@@ -61769,6 +61769,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3bb925d59510017408fdb93ad715c7c9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!82 &1648159383 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 1685168281068595210, guid: dc6fb55e61d90d94cbb4618f701368ef,
+    type: 3}
+  m_PrefabInstance: {fileID: 1685168281202649988}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1700844965
 GameObject:
   m_ObjectHideFlags: 0
@@ -62175,7 +62181,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MusicVolume: {fileID: 1411106852}
   SFXVolume: {fileID: 819132947}
-  BGM: {fileID: 0}
+  BGM: {fileID: 1648159383}
 --- !u!114 &1797672627
 MonoBehaviour:
   m_ObjectHideFlags: 0

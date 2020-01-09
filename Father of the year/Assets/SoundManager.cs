@@ -13,8 +13,8 @@ public class SoundManager : MonoBehaviour
     public GameObject SFXVolume;
     Slider MusicSlider;
     Slider SFXSlider;
-    float DefaultMusicVolume;
-    float DefaultSFXVolume = .8f;
+    float DefaultMusicVolume = .4f;
+    float DefaultSFXVolume = .6f;
     public AudioSource BGM;
     float MinorDelay = .1f;
     bool ReadyToGo;
@@ -33,21 +33,15 @@ public class SoundManager : MonoBehaviour
         }
     }
 
-    private void Awake()
+    private void Start()
     {
-        if (SceneManager.GetActiveScene().name == "MainMenu")
-        {
-            InitializeSound();
-            ReadyToGo = true;
-        }
+        InitializeSound();
+        ReadyToGo = true;
     }
 
 
     public void InitializeSound()
     {
-        BGM = GameObject.FindGameObjectWithTag("BGMusic").GetComponent<AudioSource>();
-        DefaultMusicVolume = BGM.volume;
-
         MusicSlider = MusicVolume.GetComponent<Slider>();
 
         SFXSlider = SFXVolume.GetComponent<Slider>();
@@ -66,6 +60,7 @@ public class SoundManager : MonoBehaviour
 
     public void RevertToDefault()
     {
+        InitializeSound();
         BGM.volume = DefaultMusicVolume;
         PlayerPrefs.SetFloat("MusicVolume", DefaultMusicVolume); // updates preferences with change
         MusicSlider.value = DefaultMusicVolume;
@@ -83,6 +78,7 @@ public class SoundManager : MonoBehaviour
 
     public void RevertSFXVolume()
     {
+        InitializeSound();
         PlayerPrefs.SetFloat("SFXVolume", DefaultSFXVolume);
         SFXSlider.value = DefaultSFXVolume;
     }
