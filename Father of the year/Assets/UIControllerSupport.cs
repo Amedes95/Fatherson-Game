@@ -31,7 +31,11 @@ public class UIControllerSupport : MonoBehaviour
         {
             EventSystem.current.SetSelectedGameObject(InitialHighlight);
         }
-        
+        else if (EventSystem.current.currentSelectedGameObject != null && Boombox.ControllerModeEnabled == false)
+        {
+            EventSystem.current.SetSelectedGameObject(null);
+        }
+
 
     }
 

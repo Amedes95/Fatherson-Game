@@ -12,6 +12,7 @@ public class MainMenu : MonoBehaviour
     public GameObject ConfirmationMenu;
     public GameObject MusicSettingsMenu;
     public GameObject StatsMenu;
+    public GameObject ControllerMenu;
 
     bool WipingProgress;
     bool AtMainMenu;
@@ -77,7 +78,7 @@ public class MainMenu : MonoBehaviour
             }
             else if (EditingControls)
             {
-                // turn on controls canvas
+                ControllerMenu.SetActive(true);
             }
             else if (EditingVisuals)
             {
@@ -137,6 +138,7 @@ public class MainMenu : MonoBehaviour
 
         MenuScreen.SetActive(false);
         MusicSettingsMenu.SetActive(false);
+        ControllerMenu.SetActive(false);
         SettingsButton.playOnAwake = true;
     }
 

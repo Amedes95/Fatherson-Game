@@ -16,12 +16,16 @@ public class ControlScreen : MonoBehaviour
     public GameObject RumbleOff;
 
     public Button ToggleButton;
+    public GameObject ControllerConnected;
+    public GameObject ControllerDisconnected;
 
 
     private void Update()
     {
         if (Boombox.ControllerModeEnabled)
         {
+            ControllerConnected.SetActive(true);
+            ControllerDisconnected.SetActive(false);
             ToggleButton.enabled = true;
             XboxButtons.SetActive(true);
             MouseButtons.SetActive(false);
@@ -33,6 +37,8 @@ public class ControlScreen : MonoBehaviour
         }
         else
         {
+            ControllerConnected.SetActive(false);
+            ControllerDisconnected.SetActive(true);
             ToggleButton.enabled = false;
             MouseButtons.SetActive(true);
             XboxButtons.SetActive(false);

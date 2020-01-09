@@ -91,7 +91,10 @@ public class Boombox : MonoBehaviour
                 else if (vibrateDuration <= 0)
                 {
                     vibrateDuration = 0;
-                    Gamepad.current.PauseHaptics();
+                    if (Gamepad.current != null)
+                    {
+                        Gamepad.current.PauseHaptics();
+                    }
                 }
             }
 
