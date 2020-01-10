@@ -117,7 +117,7 @@ public class MainMenu : MonoBehaviour
         Camera = GameObject.FindGameObjectWithTag("MainCamera");
 
         WatchingIntro = true;
-        CameraSpeed = .1f;
+        CameraSpeed = .05f;
         Camera.transform.position = IntroDestination.position; // start the camera at the beginning for now, maybe put something in later that doesn't play after the first time
         LoadMainMenu();
     }

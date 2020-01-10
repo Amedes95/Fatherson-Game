@@ -1,58 +1,76 @@
 fileFormatVersion: 2
-guid: 2239722a947d7fc42b2688c828550640
+guid: 4c4aab94b6a2f72458383593f5923de4
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -2437031719742495961
-    second: bubble emotes july update_0
+      213: 1960198971559912155
+    second: bunny-Sheet_0
   - first:
-      213: -7072279555941965246
-    second: bubble emotes july update_1
+      213: -8099419694550709681
+    second: bunny-Sheet_1
   - first:
-      213: 8401637877751856281
-    second: bubble emotes july update_2
+      213: 2878030614562194539
+    second: bunny-Sheet_2
   - first:
-      213: 623042661219316732
-    second: bubble emotes july update_3
+      213: 8030918158110580960
+    second: bunny-Sheet_3
   - first:
-      213: -5274037403950085060
-    second: bubble emotes july update_4
+      213: -4120478276291665280
+    second: bunny-Sheet_4
   - first:
-      213: -1246656971503637775
-    second: bubble emotes july update_5
+      213: -9123068923594955516
+    second: bunny-Sheet_5
   - first:
-      213: -3759277895688923426
-    second: bubble emotes july update_6
+      213: -4645286805111472428
+    second: bunny-Sheet_6
   - first:
-      213: -1490221186039758273
-    second: bubble emotes july update_7
+      213: 1550826516648182271
+    second: bunny-Sheet_7
   - first:
-      213: 2350736112299439981
-    second: bubble emotes july update_8
+      213: -6320621843993570819
+    second: bunny-Sheet_8
   - first:
-      213: -4707188459386293929
-    second: bubble emotes july update_9
+      213: -6519838377328888917
+    second: bunny-Sheet_9
   - first:
-      213: -4810175781096252807
-    second: bubble emotes july update_10
+      213: 6770488320095630562
+    second: bunny-Sheet_10
   - first:
-      213: 6139641901788236473
-    second: bubble emotes july update_11
+      213: 5580338384986191524
+    second: bunny-Sheet_11
   - first:
-      213: 4731654330665605258
-    second: bubble emotes july update_12
+      213: -5361425826716540991
+    second: bunny-Sheet_12
   - first:
-      213: 5723916683759687014
-    second: bubble emotes july update_13
+      213: -3074800844760083032
+    second: bunny-Sheet_13
   - first:
-      213: -5711725671821999659
-    second: bubble emotes july update_14
+      213: 7441375533558803482
+    second: bunny-Sheet_14
   - first:
-      213: 4759111234118647165
-    second: bubble emotes july update_15
+      213: -5639270200633600456
+    second: bunny-Sheet_15
   - first:
-      213: -5801497912056464070
-    second: bubble emotes july update_16
+      213: -9070988008526829131
+    second: bunny-Sheet_16
+  - first:
+      213: -5841911268052558676
+    second: bunny-Sheet_17
+  - first:
+      213: -5942300588567507827
+    second: bunny-Sheet_18
+  - first:
+      213: 6438787907139139667
+    second: bunny-Sheet_19
+  - first:
+      213: -2259908227173389601
+    second: bunny-Sheet_20
+  - first:
+      213: 2995684566218785404
+    second: bunny-Sheet_21
+  - first:
+      213: 6592315450395694517
+    second: bunny-Sheet_22
   externalObjects: {}
   serializedVersion: 10
   mipmaps:
@@ -161,13 +179,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: bubble emotes july update_0
+      name: bunny-Sheet_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 16
-        height: 16
+        x: 15
+        y: 373
+        width: 33
+        height: 65
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -175,20 +193,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ef76dff9d2ca30a428bd806f0db321f1
-      internalID: -2437031719742495961
+      spriteID: cd2b75355feda844da23f9ac2e37cd1c
+      internalID: 1960198971559912155
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: bubble emotes july update_1
+      name: bunny-Sheet_1
       rect:
         serializedVersion: 2
-        x: 16
-        y: 0
-        width: 16
-        height: 16
+        x: 70
+        y: 373
+        width: 33
+        height: 65
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -196,20 +214,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 67dad562a167fb24bb4db7681a21f598
-      internalID: -7072279555941965246
+      spriteID: 640297155d8bb9f4eb29d5c0c6005959
+      internalID: -8099419694550709681
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: bubble emotes july update_2
+      name: bunny-Sheet_2
       rect:
         serializedVersion: 2
-        x: 32
-        y: 0
-        width: 16
-        height: 16
+        x: 125
+        y: 373
+        width: 33
+        height: 65
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -217,20 +235,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: cf7feb3d5972b3d40a955ea19afdc322
-      internalID: 8401637877751856281
+      spriteID: c5c3109e61308314daf216769a13dd2f
+      internalID: 2878030614562194539
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: bubble emotes july update_3
+      name: bunny-Sheet_3
       rect:
         serializedVersion: 2
-        x: 48
-        y: 0
-        width: 16
-        height: 16
+        x: 178
+        y: 373
+        width: 35
+        height: 65
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -238,20 +256,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 346dc62cde08b684b9067b182c7b5842
-      internalID: 623042661219316732
+      spriteID: 3122a2778622995449929b9089cea22e
+      internalID: 8030918158110580960
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: bubble emotes july update_4
+      name: bunny-Sheet_4
       rect:
         serializedVersion: 2
-        x: 64
-        y: 0
-        width: 16
-        height: 16
+        x: 12
+        y: 299
+        width: 36
+        height: 65
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -259,20 +277,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b99859f0888086e4b840d0c4dded03d4
-      internalID: -5274037403950085060
+      spriteID: bf8be4e4a18c6d14c8942defbfab1e08
+      internalID: -4120478276291665280
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: bubble emotes july update_5
+      name: bunny-Sheet_5
       rect:
         serializedVersion: 2
-        x: 80
-        y: 0
-        width: 16
-        height: 16
+        x: 66
+        y: 299
+        width: 37
+        height: 65
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -280,20 +298,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: fbdf94625396c034e96a530e1eab12c9
-      internalID: -1246656971503637775
+      spriteID: 750a603586fb2344bba75d20b75c503f
+      internalID: -9123068923594955516
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: bubble emotes july update_6
+      name: bunny-Sheet_6
       rect:
         serializedVersion: 2
-        x: 96
-        y: 0
-        width: 16
-        height: 16
+        x: 121
+        y: 299
+        width: 37
+        height: 65
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -301,20 +319,125 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7e2d13bd5e2242d4590373b98d58e4aa
-      internalID: -3759277895688923426
+      spriteID: bed1e68abc32559448e70738f39c9dc8
+      internalID: -4645286805111472428
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: bubble emotes july update_7
+      name: bunny-Sheet_7
       rect:
         serializedVersion: 2
-        x: 35
+        x: 176
+        y: 300
+        width: 37
+        height: 65
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 177c89f1c3d030344be42a1ef2eb520d
+      internalID: 1550826516648182271
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bunny-Sheet_8
+      rect:
+        serializedVersion: 2
+        x: 6
+        y: 225
+        width: 42
+        height: 65
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4c4d263deb0bf6d4986ef4b98c307026
+      internalID: -6320621843993570819
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bunny-Sheet_9
+      rect:
+        serializedVersion: 2
+        x: 61
+        y: 225
+        width: 46
+        height: 65
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4779e0a641b8bf84d8662f9712302064
+      internalID: -6519838377328888917
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bunny-Sheet_10
+      rect:
+        serializedVersion: 2
+        x: 119
+        y: 222
+        width: 35
+        height: 65
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 13b19d8e030800a429d1e1e04a58b295
+      internalID: 6770488320095630562
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bunny-Sheet_11
+      rect:
+        serializedVersion: 2
+        x: 175
+        y: 223
+        width: 36
+        height: 65
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 008eae263f85b7540874421a1d6baff7
+      internalID: 5580338384986191524
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bunny-Sheet_12
+      rect:
+        serializedVersion: 2
+        x: 11
         y: 149
-        width: 10
-        height: 10
+        width: 37
+        height: 65
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -322,20 +445,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7172557a041ed8d4eb563393e6aed3cf
-      internalID: -1490221186039758273
+      spriteID: 619011feef5783e489d88ee8a9170e15
+      internalID: -5361425826716540991
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: bubble emotes july update_8
+      name: bunny-Sheet_13
       rect:
         serializedVersion: 2
-        x: 19
-        y: 148
-        width: 10
-        height: 10
+        x: 63
+        y: 149
+        width: 42
+        height: 65
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -343,20 +466,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8988e052afd4dbb428c5447d8d90b157
-      internalID: 2350736112299439981
+      spriteID: 16e04a9d22a769f49acdcc87d5018c60
+      internalID: -3074800844760083032
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: bubble emotes july update_9
+      name: bunny-Sheet_14
       rect:
         serializedVersion: 2
-        x: 67
-        y: 147
-        width: 10
-        height: 10
+        x: 124
+        y: 151
+        width: 34
+        height: 65
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -364,20 +487,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d5579e14b0c1d1a42a3a52dbd48440a8
-      internalID: -4707188459386293929
+      spriteID: 1e610b39ce473d540843475274ff9d4f
+      internalID: 7441375533558803482
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: bubble emotes july update_10
+      name: bunny-Sheet_15
       rect:
         serializedVersion: 2
-        x: 107
-        y: 115
-        width: 3
-        height: 3
+        x: 179
+        y: 151
+        width: 34
+        height: 65
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -385,20 +508,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ea563701ee3c6254487c41f407118216
-      internalID: -4810175781096252807
+      spriteID: 2bfe957d88c62c241869f27a84ff1311
+      internalID: -5639270200633600456
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: bubble emotes july update_11
+      name: bunny-Sheet_16
       rect:
         serializedVersion: 2
-        x: 118
-        y: 115
-        width: 8
-        height: 5
+        x: 14
+        y: 77
+        width: 34
+        height: 65
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -406,20 +529,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: fab99f433b1519b4db2328c9ca585a1e
-      internalID: 6139641901788236473
+      spriteID: 1a9b5058153321943afadef4f16fb3e2
+      internalID: -9070988008526829131
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: bubble emotes july update_12
+      name: bunny-Sheet_17
       rect:
         serializedVersion: 2
-        x: 130
-        y: 115
-        width: 13
-        height: 9
+        x: 70
+        y: 80
+        width: 33
+        height: 65
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -427,20 +550,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 00bb525fc2e78bc47956493ff6e635a2
-      internalID: 4731654330665605258
+      spriteID: 9d487af3673a3124aa797a7ab1da6c0a
+      internalID: -5841911268052558676
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: bubble emotes july update_13
+      name: bunny-Sheet_18
       rect:
         serializedVersion: 2
-        x: 134
-        y: 147
-        width: 4
-        height: 8
+        x: 126
+        y: 80
+        width: 32
+        height: 65
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -448,20 +571,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6991ce75399d23246bdd85e00232ecd8
-      internalID: 5723916683759687014
+      spriteID: 06e6e3faa527e7e4ca2f0f9ac58ea2f1
+      internalID: -5942300588567507827
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: bubble emotes july update_14
+      name: bunny-Sheet_19
       rect:
         serializedVersion: 2
-        x: 35
-        y: 21
-        width: 10
-        height: 9
+        x: 183
+        y: 80
+        width: 30
+        height: 65
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -469,20 +592,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 14428d2516a2ba845bd5abc9e0d81343
-      internalID: -5711725671821999659
+      spriteID: 9ca2954ceefd3784f89005fd286ecd59
+      internalID: 6438787907139139667
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: bubble emotes july update_15
+      name: bunny-Sheet_20
       rect:
         serializedVersion: 2
-        x: 38
-        y: 51
-        width: 4
-        height: 9
+        x: 23
+        y: 6
+        width: 25
+        height: 65
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -490,29 +613,50 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ac90e8a1dba63334584e049d62a1c569
-      internalID: 4759111234118647165
+      spriteID: aec2ffd093ff0254a949190b8e3d620a
+      internalID: -2259908227173389601
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: bubble emotes july update_16
+      name: bunny-Sheet_21
       rect:
         serializedVersion: 2
-        x: 84
-        y: 51
-        width: 8
-        height: 9
+        x: 78
+        y: 6
+        width: 25
+        height: 65
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 133c49f318ca5ce4b9981fed5d73dc04
-      internalID: -5801497912056464070
+      spriteID: d214239f64d413f418c56b9c17d39029
+      internalID: 2995684566218785404
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bunny-Sheet_22
+      rect:
+        serializedVersion: 2
+        x: 133
+        y: 0
+        width: 25
+        height: 71
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5a349e88cd891bb49881a9ebfceb9cf1
+      internalID: 6592315450395694517
       vertices: []
       indices: 
       edges: []
