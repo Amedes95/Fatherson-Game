@@ -35,6 +35,7 @@ public class SoundManager : MonoBehaviour
 
     private void Start()
     {
+        BGM = GameObject.FindGameObjectWithTag("BGMusic").GetComponent<AudioSource>();
         InitializeSound();
         ReadyToGo = true;
     }
