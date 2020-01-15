@@ -189,6 +189,14 @@ public class PlayerMovement : MonoBehaviour
             else if (JumpDetector.OnGround)
             {
                 playerSpeed = normalSpeed;
+                if (moveHorizontal == 0f)
+                {
+                    playerBody.velocity = new Vector2(0, playerBody.velocity.y);
+                }
+                //else if (playerBody.velocity.magnitude < .1 && Mathf.Abs(moveHorizontal) == 1) // please god fix the corner stuck glitch my wife left me she took the dog 1/15/2020
+                //{
+                  //  playerBody.AddForce(Vector2.up * 8);
+                //}
             }
 
             if (Mathf.Abs(playerBody.velocity.x) > maxVelocity && !JumpDetector.OnGround) //air speed cap
