@@ -17,14 +17,16 @@ public class PlayerMovement : MonoBehaviour
     public float jumpHeight;
     public static bool isJumping;
     public static bool wallJumping;
+    public static float jumpFallCooldown; // a timer used to make a minimum jump height with counterJumpForce
+    public static bool recentlyJumped;
     bool jumpKeyHeld;
     public static int jumpCount; // used for double jumps, used with fruit
     public float fallForce;
     public float fallSpeedCap;
     public float riseSpeedCap;
     public float startSpeed;
-    public float normalSpeed;
-    public float slowSpeed;
+    public float midSpeed;
+    public float fullSpeed;
     public static float maxVelocity;
     public float midVelocity;
     public Transform WallClingStart;
@@ -32,8 +34,11 @@ public class PlayerMovement : MonoBehaviour
     bool touchingWall; // used for wall slide animation and walljump
     public Transform backWallEndLine;
     bool backTouchingWall;
+    public Transform floatLine;
     int playerDirection;
     Vector2 walljumpVector;
+    public static bool isFloating;
+    public static float floatingTimer; // used for the "coyote effect", the player doesn't fall for a brief moment after running off a ledge and can jump during this time
     public float playerGravity;
     public Animator WindEffect;
     public float wallJumpBuffer; // used to make the player remain on the wall for the duration while holding away from the wall
@@ -59,10 +64,12 @@ public class PlayerMovement : MonoBehaviour
         playerBody = GetComponent<Rigidbody2D>();
         PlayerAnim = GetComponent<Animator>();
         startSpeed = 100;
-        normalSpeed = 26;
-        slowSpeed = 20;
+        midSpeed = 26;
+        fullSpeed = 20;
         maxVelocity = 8;
         midVelocity = 5;
+        floatingTimer = -1;
+        playerGravity = 2;
         setWallJumpBuffer = wallJumpBuffer;
         jumpBuffer = -1;
         jumpForce = CalculateJumpForce(playerBody.gravityScale, jumpHeight);
@@ -150,21 +157,22 @@ public class PlayerMovement : MonoBehaviour
                 jumpCount = 0;
                 CreateDust();
                 fallSpeedCap = 6;
+                floatingTimer = 0;
                 GetComponent<Animator>().SetBool("onWall", true);
                 wallJumpBuffer = setWallJumpBuffer;
 
-                //if (Mathf.Abs(moveHorizontal + playerDirection) > 1) //this fixes the bug where the player would stop moving downwards (cling) when holding into the wall
-                //{
-                //    playerSpeed = 0;
-                //}
-                //else
-                //{ playerSpeed = normalSpeed; }
+                if (Mathf.Abs(moveHorizontal + playerDirection) > 1) //this fixes the bug where the player would stop moving downwards (cling) when holding into the wall
+                {
+                    playerSpeed = 0;
+                }
+                else
+                { playerSpeed = midSpeed; }
 
             }
             else if (!touchingWall)
             {
                 fallSpeedCap = 15;
-                playerSpeed = normalSpeed;
+                playerSpeed = midSpeed;
                 GetComponent<Animator>().SetBool("onWall", false);
                 if (wallJumpBuffer > 0)
                 {
@@ -180,7 +188,7 @@ public class PlayerMovement : MonoBehaviour
 
             if (Mathf.Abs(playerBody.velocity.x) > maxVelocity && JumpDetector.OnGround) //ground speed cap
             {
-                playerSpeed = slowSpeed;
+                playerSpeed = fullSpeed;
             }
             else if (Mathf.Abs(playerBody.velocity.x) < midVelocity && JumpDetector.OnGround) //quick burst of movement from rest
             {
@@ -188,15 +196,7 @@ public class PlayerMovement : MonoBehaviour
             }
             else if (JumpDetector.OnGround)
             {
-                playerSpeed = normalSpeed;
-                if (moveHorizontal == 0f)
-                {
-                    playerBody.velocity = new Vector2(0, playerBody.velocity.y);
-                }
-                //else if (playerBody.velocity.magnitude < .1 && Mathf.Abs(moveHorizontal) == 1) // please god fix the corner stuck glitch my wife left me she took the dog 1/15/2020
-                //{
-                  //  playerBody.AddForce(Vector2.up * 8);
-                //}
+                playerSpeed = midSpeed;
             }
 
             if (Mathf.Abs(playerBody.velocity.x) > maxVelocity && !JumpDetector.OnGround) //air speed cap
@@ -220,7 +220,7 @@ public class PlayerMovement : MonoBehaviour
             ///// Movement left and right
             if ((moveHorizontal > 0f) && !Trampoline.IsBouncing) // player is moving right
             {
-                if ((Mathf.Sign(moveHorizontal) != Mathf.Sign(playerBody.velocity.x)) && (Mathf.Abs(playerVelocity.x) > 2)) // this makes the character turn around quicker in the air for more control, I add the >2 part to prevent backdashing upond landing on the ground
+                if ((Mathf.Sign(moveHorizontal) != Mathf.Sign(playerBody.velocity.x)) && !recentlyJumped && (Mathf.Abs(playerVelocity.x) > 2)) // this makes the character turn around quicker in the air for more control, I add the >2 part to prevent backdashing upond landing on the ground
                 {
                     playerBody.AddForce(movementPlayer * playerSpeed * 3);
                 }
@@ -233,7 +233,7 @@ public class PlayerMovement : MonoBehaviour
             }
             if ((moveHorizontal < 0f) && !Trampoline.IsBouncing) // player is moving left
             {
-                if ((Mathf.Sign(moveHorizontal) != Mathf.Sign(playerBody.velocity.x)) && (Mathf.Abs(playerVelocity.x) > 2))
+                if ((Mathf.Sign(moveHorizontal) != Mathf.Sign(playerBody.velocity.x)) && !recentlyJumped && (Mathf.Abs(playerVelocity.x) > 2))
                 {
                     playerBody.AddForce(movementPlayer * playerSpeed * 3);
                 }
@@ -249,7 +249,7 @@ public class PlayerMovement : MonoBehaviour
                 PlayerAnim.SetBool("Running", false);
             }
 
-            if (isJumping) // counter jump force: if you release W after jumping you don't jump as high. In other words the longer you hold W the higher you jump.
+            if (isJumping && !recentlyJumped) // counter jump force: if you release W after jumping you don't jump as high. In other words the longer you hold W the higher you jump.
             {
                 if (Gamepad.current != null)
                 {
@@ -262,10 +262,11 @@ public class PlayerMovement : MonoBehaviour
                 else if (Vector2.Dot(playerBody.velocity, Vector2.down) > 0) //this is new, may cause bugs
                 {
                     isJumping = false;
+                    floatingTimer = -1;
                 }
             }
 
-            if (wallJumping) // counter jump force but for wall jumps. If you release W you don't jump as high, if you hold opposite direction of your flight path you don't fly as far
+            if (wallJumping && !recentlyJumped) // counter jump force but for wall jumps. If you release W you don't jump as high, if you hold opposite direction of your flight path you don't fly as far
             {
 
                 if (!jumpKeyHeld && Vector2.Dot(playerBody.velocity, Vector2.up) > 0)
@@ -275,7 +276,45 @@ public class PlayerMovement : MonoBehaviour
                 else if (Vector2.Dot(playerBody.velocity, Vector2.down) > 0) //this is new, may cause bugs
                 {
                     wallJumping = false;
+                    floatingTimer = -1;
                 }
+            }
+
+            if (recentlyJumped) // timer creates a minimum jump height with counterjumpforce (without this timer tapping w makes you jump less than one block tall
+            {
+                jumpFallCooldown -= Time.smoothDeltaTime;
+                playerSpeed = 0;
+
+                if (jumpFallCooldown <= 0)
+                {
+                    recentlyJumped = false;
+                    playerSpeed = midSpeed;
+                }
+                else
+                {
+                    recentlyJumped = true;
+                }
+            }
+
+            if (isFloating)
+            {
+                floatingTimer -= Time.smoothDeltaTime;
+
+                if (floatingTimer <= 0 || Mathf.Sign(moveHorizontal) != Mathf.Sign(playerBody.velocity.x))
+                {
+                    SwitchFloatValue(false);
+                }
+            }
+
+            if (JumpDetector.OnGround)
+            {
+                SwitchFloatValue(false);
+                floatingTimer = .1f;
+            }
+            else if
+                (!(JumpDetector.OnGround || isJumping || touchingWall || wallJumping || Trampoline.IsBouncing) && floatingTimer > 0)
+            {
+                SwitchFloatValue(true);
             }
 
             if (StickyWeb.StuckInWeb)
@@ -286,7 +325,7 @@ public class PlayerMovement : MonoBehaviour
             //Below code is a jump buffer when landing on ground
             //If you press w in this time before touching ground you will still jump
 
-            if (!JumpDetector.OnGround && Input.GetButtonDown(JumpInput))
+            if (!JumpDetector.OnGround && Input.GetButtonDown(JumpInput) && !recentlyJumped)
             {
                 jumpBuffer = .2f;
             }
@@ -304,6 +343,20 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
+    public void SwitchFloatValue(bool variable)
+    {
+        if (variable == true)
+        {
+            isFloating = true;
+            playerBody.gravityScale = 0;
+        }
+        else if (variable == false)
+        {
+            isFloating = false;
+            playerBody.gravityScale = playerGravity;
+        }
+    }
+
     public void Jump()
     {
         playerBody.constraints = RigidbodyConstraints2D.FreezeRotation;
@@ -315,6 +368,8 @@ public class PlayerMovement : MonoBehaviour
         }
         if (Trampoline.IsBouncing == false)
         {
+            jumpFallCooldown = .05f;
+            recentlyJumped = true;
             playerBody.AddForce(Vector2.up * jumpForce * 180);
             PlayerAnim.SetTrigger("Jump");
             isJumping = true;
@@ -335,6 +390,8 @@ public class PlayerMovement : MonoBehaviour
 
             jumpForce = CalculateJumpForce(playerBody.gravityScale, jumpHeight);
             playerBody.velocity = new Vector2(0, 0);
+            jumpFallCooldown = .15f;
+            recentlyJumped = true;
             playerBody.AddForce(walljumpVector * jumpForce * 180);
             wallJumping = true;
             isJumping = false;
@@ -388,7 +445,7 @@ public class PlayerMovement : MonoBehaviour
 
                 jumpKeyHeld = true;
 
-                if (JumpDetector.OnGround && jumpBuffer < 0) // Checks to see if player is on ground before jumping
+                if (JumpDetector.OnGround && !recentlyJumped && jumpBuffer < 0) // Checks to see if player is on ground before jumping
                 {
                     Jump();
                 }

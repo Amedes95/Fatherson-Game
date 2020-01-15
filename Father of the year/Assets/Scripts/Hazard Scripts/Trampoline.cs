@@ -43,6 +43,7 @@ public class Trampoline : MonoBehaviour
                     collision.GetComponentInParent<Rigidbody2D>().AddForce(rotationVector * BounceForce * 180);
                 }
                 IsBouncing = true;
+                PlayerMovement.floatingTimer = -1;
                 GetComponent<Animator>().SetTrigger("Bounce");
                 collision.GetComponentInParent<Animator>().SetBool("DoubleJumpActive", false);
                 collision.GetComponentInParent<Animator>().SetTrigger("Jump");
@@ -70,7 +71,7 @@ public class Trampoline : MonoBehaviour
             IsBouncing = false;
             if (collision.gameObject.activeInHierarchy)
             {
-                collision.GetComponentInParent<PlayerMovement>().playerSpeed = collision.GetComponentInParent<PlayerMovement>().normalSpeed;
+                collision.GetComponentInParent<PlayerMovement>().playerSpeed = collision.GetComponentInParent<PlayerMovement>().midSpeed;
                 //collision.GetComponentInParent<Animator>().SetBool("DoubleJumpActive", false);
 
 
