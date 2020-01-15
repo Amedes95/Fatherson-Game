@@ -25,8 +25,8 @@ public class PlayerMovement : MonoBehaviour
     public float fallSpeedCap;
     public float riseSpeedCap;
     public float startSpeed;
-    public float midSpeed;
-    public float fullSpeed;
+    public float normalSpeed;
+    public float slowSpeed;
     public static float maxVelocity;
     public float midVelocity;
     public Transform WallClingStart;
@@ -64,8 +64,8 @@ public class PlayerMovement : MonoBehaviour
         playerBody = GetComponent<Rigidbody2D>();
         PlayerAnim = GetComponent<Animator>();
         startSpeed = 100;
-        midSpeed = 26;
-        fullSpeed = 20;
+        normalSpeed = 26;
+        slowSpeed = 20;
         maxVelocity = 8;
         midVelocity = 5;
         floatingTimer = -1;
@@ -166,13 +166,13 @@ public class PlayerMovement : MonoBehaviour
                     playerSpeed = 0;
                 }
                 else
-                { playerSpeed = midSpeed; }
+                { playerSpeed = normalSpeed; }
 
             }
             else if (!touchingWall)
             {
                 fallSpeedCap = 15;
-                playerSpeed = midSpeed;
+                playerSpeed = normalSpeed;
                 GetComponent<Animator>().SetBool("onWall", false);
                 if (wallJumpBuffer > 0)
                 {
@@ -186,18 +186,39 @@ public class PlayerMovement : MonoBehaviour
                 FlipCharacter();
             }
 
+            //if (Mathf.Abs(playerBody.velocity.x) > maxVelocity && JumpDetector.OnGround) //ground speed cap
+            //{
+            //    playerSpeed = slowSpeed;
+            //}
+            //else if (Mathf.Abs(playerBody.velocity.x) < midVelocity && JumpDetector.OnGround) //quick burst of movement from rest
+            //{
+            //    playerSpeed = startSpeed;
+            //}
+            //else if (JumpDetector.OnGround)
+            //{
+            //    playerSpeed = normalSpeed;
+            //}
+
+            // 1/15/2020 logic below to stop moving quickly on the ground
+
             if (Mathf.Abs(playerBody.velocity.x) > maxVelocity && JumpDetector.OnGround) //ground speed cap
             {
-                playerSpeed = fullSpeed;
+                playerSpeed = slowSpeed;
+            }
+            else if (JumpDetector.OnGround && Mathf.Abs(playerBody.velocity.x) > midVelocity)
+            {
+                playerSpeed = normalSpeed;
+                if (moveHorizontal == 0f)
+                {
+                    playerBody.velocity = new Vector2(0, playerBody.velocity.y);
+                }
             }
             else if (Mathf.Abs(playerBody.velocity.x) < midVelocity && JumpDetector.OnGround) //quick burst of movement from rest
             {
                 playerSpeed = startSpeed;
             }
-            else if (JumpDetector.OnGround)
-            {
-                playerSpeed = midSpeed;
-            }
+
+            //end 1/15/2020 logic above
 
             if (Mathf.Abs(playerBody.velocity.x) > maxVelocity && !JumpDetector.OnGround) //air speed cap
             {
@@ -288,7 +309,7 @@ public class PlayerMovement : MonoBehaviour
                 if (jumpFallCooldown <= 0)
                 {
                     recentlyJumped = false;
-                    playerSpeed = midSpeed;
+                    playerSpeed = normalSpeed;
                 }
                 else
                 {
