@@ -21,7 +21,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: 47f6ef1961b422445897f4b7be71a011, type: 2}
+  m_Motion: {fileID: 7400000, guid: cf3e239405eb64152a2fe2927c4ee288, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -74,7 +74,7 @@ AnimatorController:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Cobra
+  m_Name: RedCobra
   serializedVersion: 5
   m_AnimatorParameters:
   - m_Name: Attack
@@ -82,7 +82,7 @@ AnimatorController:
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 0}
+    m_Controller: {fileID: 9100000}
   m_AnimatorLayers:
   - serializedVersion: 5
     m_Name: Base Layer
@@ -117,7 +117,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: 7d9917a1d3a35b3479c1c63159f8eb4d, type: 2}
+  m_Motion: {fileID: 7400000, guid: fd04b699a8c4d4148be1231323572c28, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 

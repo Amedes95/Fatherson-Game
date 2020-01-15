@@ -11,12 +11,14 @@ public class BasicPatrol : MonoBehaviour
     bool TouchingWall;
     bool TouchingFloor;
     bool TouchingEnemy;
+    bool TouchingPlayer;
     bool TouchingObstacle;
     public float PatrolSpeed;
-    Vector2 PatrolDirection = new Vector2(1, 0);
+    public Vector2 PatrolDirection = new Vector2(1, 0);
     public bool avoidsLedges;
     public bool flipDirection;
-
+    public bool RedCobra; //for the lunge animation
+    public bool attacking;
 
     private void Awake()
     {
@@ -44,8 +46,6 @@ public class BasicPatrol : MonoBehaviour
             FlipCharacter();
             PatrolDirection = new Vector2(PatrolDirection.x * -1, 0);
         }
-
-        //Debug.Log(TouchingEnemy);
     }
 
     void RaycastingWall()
@@ -63,7 +63,7 @@ public class BasicPatrol : MonoBehaviour
 
     void RaycastingFloor()
     {
-        //Debug.DrawLine(transform.position, FloorLine.position, Color.green);  // during playtime, projects a line from a start point to and end point
+        Debug.DrawLine(transform.position, FloorLine.position, Color.green);  // during playtime, projects a line from a start point to and end point
         TouchingFloor = Physics2D.Linecast(transform.position, FloorLine.position, 1 << LayerMask.NameToLayer("Ground")); // returns true if line touches a ground tile
     }
 
@@ -75,13 +75,35 @@ public class BasicPatrol : MonoBehaviour
 
     public void WalkAround()
     {
-        //gameObject.GetComponent<Rigidbody2D>().AddForce(PatrolDirection * PatrolSpeed);
-        gameObject.GetComponent<Rigidbody2D>().velocity = PatrolDirection * PatrolSpeed;
+        if (!attacking)
+        {
+            //gameObject.GetComponent<Rigidbody2D>().AddForce(PatrolDirection * PatrolSpeed);
+            gameObject.GetComponent<Rigidbody2D>().velocity = PatrolDirection * PatrolSpeed;
+        }
     }
 
     public void FlipCharacter()
     {
+        attacking = false;
         transform.localScale = new Vector2(transform.localScale.x*-1, transform.localScale.y);
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.tag == "Player")
+        {
+            gameObject.GetComponent<Animator>().SetTrigger("Attack");
+            gameObject.GetComponent<Rigidbody2D>().AddForce(PatrolDirection * 10);
+        }
+    }
+
+    public void StartAttacking()
+    {
+        attacking = true;
+    }
+    public void StopAttacking()
+    {
+        attacking = false;
     }
 
 }
