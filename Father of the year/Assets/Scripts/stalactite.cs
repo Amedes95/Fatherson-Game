@@ -20,6 +20,7 @@ public class stalactite : MonoBehaviour
 
     void Awake()
     {
+        fallDelay += Random.Range(0f, 2f);
         GlintCopy = GlintFrequency;
         gameObject.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeAll;
     }

@@ -33,7 +33,7 @@ public class BasicPatrol : MonoBehaviour
     {
         RaycastingWall();
         RaycastingFloor();
-        //RaycastingEnemy();
+        RaycastingEnemy();
         RaycastingObstacle();
         WalkAround();
         if (TouchingWall || TouchingEnemy || TouchingObstacle)
