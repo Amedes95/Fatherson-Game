@@ -63,7 +63,7 @@ public class PlayerMovement : MonoBehaviour
         jumpCount = 0;
         playerBody = GetComponent<Rigidbody2D>();
         PlayerAnim = GetComponent<Animator>();
-        startSpeed = 100;
+        startSpeed = 200;
         normalSpeed = 26;
         slowSpeed = 20;
         maxVelocity = 8;
@@ -178,6 +178,8 @@ public class PlayerMovement : MonoBehaviour
                 {
                     wallJumpBuffer -= Time.smoothDeltaTime;
                 }
+                gameObject.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeRotation;
+
             }
 
             //// Ths fixes the bug where you don't stick to a walljump if you jump up to it facing backwards
@@ -205,7 +207,7 @@ public class PlayerMovement : MonoBehaviour
             {
                 playerSpeed = slowSpeed;
             }
-            else if (JumpDetector.OnGround && Mathf.Abs(playerBody.velocity.x) > midVelocity)
+            else if (JumpDetector.OnGround /*&& Mathf.Abs(playerBody.velocity.x) > midVelocity*/)
             {
                 playerSpeed = normalSpeed;
                 if (moveHorizontal == 0f)
@@ -331,6 +333,7 @@ public class PlayerMovement : MonoBehaviour
             {
                 SwitchFloatValue(false);
                 floatingTimer = .1f;
+                gameObject.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeRotation;
             }
             else if
                 (!(JumpDetector.OnGround || isJumping || touchingWall || wallJumping || Trampoline.IsBouncing) && floatingTimer > 0)

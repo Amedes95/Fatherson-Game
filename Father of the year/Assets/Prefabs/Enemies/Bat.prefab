@@ -104,10 +104,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: edc628b354759f542a27b3091dedfc85, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  FlySpeed: 2
+  FlySpeed: 4
   ReturnSpeed: 25
   SightBlocked: 0
   Disturbed: 0
+  radius: 0
+  playerDistance: 0
+  speedRatio: 0
 --- !u!58 &3480038132360188450
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -314,6 +317,8 @@ MonoBehaviour:
   Killable: 1
   DeathParticles: {fileID: 9012351662596608965, guid: 02b77112a40cb7f49b423d42b3b5fd7f,
     type: 3}
+  bonkTimer: 0
+  OnTrampoline: 0
 --- !u!61 &1520752435672144249
 BoxCollider2D:
   m_ObjectHideFlags: 0

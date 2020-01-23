@@ -53,6 +53,14 @@ public class MainMenu : MonoBehaviour
             {
                 ExitSettings();
             }
+            else if (BrowsingStats)
+            {
+                LoadMainMenu();
+            }
+            else if (EditingControls)
+            {
+                LoadSettings();
+            }
         }
 
 

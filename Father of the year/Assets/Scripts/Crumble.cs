@@ -40,7 +40,6 @@ public class Crumble : MonoBehaviour
         if (collision.tag == "Feet" || collision.tag == "Player")
         {
             BlockingRespawn = true;
-
         }
     }
 
