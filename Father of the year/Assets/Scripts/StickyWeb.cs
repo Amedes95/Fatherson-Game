@@ -8,10 +8,14 @@ public class StickyWeb : MonoBehaviour
 
     private void OnTriggerStay2D(Collider2D collision) // enter the web
     {
-        if (collision.tag == "Player")
+        if (collision.gameObject.activeInHierarchy)
         {
-            StuckInWeb = true;
+            if (collision.tag == "Player")
+            {
+                StuckInWeb = true;
+            }
         }
+
     }
 
     private void OnTriggerExit2D(Collider2D collision) // leave the web
