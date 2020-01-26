@@ -160,6 +160,8 @@ public class PauseMenu : MonoBehaviour
         if (SceneManager.GetActiveScene().name == "WorldHub")
         {
             LevelManager.GetComponent<LevelManager>().enabled = true;
+            Player.GetComponent<PlayerMovement>().enabled = false;
+
         }
 
         GameIsPaused = false;

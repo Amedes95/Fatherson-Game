@@ -74,7 +74,7 @@ MonoBehaviour:
     m_Settings:
       focusDistance: 0.1
       aperture: 32
-      focalLength: 0
+      focalLength: 300
       useCameraFov: 0
       kernelSize: 3
   motionBlur:
@@ -122,20 +122,20 @@ MonoBehaviour:
         neutralWhiteClip: 1.92
       basic:
         postExposure: 0
-        temperature: 0
-        tint: 0
-        hueShift: 0
-        saturation: 1
-        contrast: 1
+        temperature: 26
+        tint: -5
+        hueShift: 109
+        saturation: 2
+        contrast: 2
       channelMixer:
-        red: {x: 1, y: 0, z: 0}
-        green: {x: 0, y: 1, z: 0}
-        blue: {x: 0, y: 0, z: 1}
-        currentEditingChannel: 0
+        red: {x: 2, y: -2, z: -2}
+        green: {x: -2, y: 2, z: -2}
+        blue: {x: -2, y: -2, z: 2}
+        currentEditingChannel: 2
       colorWheels:
         mode: 1
         log:
-          slope: {r: 0.9637037, g: 0.98157054, b: 1, a: 0}
+          slope: {r: 0.9983869, g: 0.9881901, b: 1, a: 0}
           power: {r: 1, g: 0.9760773, b: 0.97607726, a: 0}
           offset: {r: 1, g: 1, b: 1, a: 0}
         linear:
@@ -150,7 +150,7 @@ MonoBehaviour:
             - serializedVersion: 3
               time: 0
               value: 0
-              inSlope: 1
+              inSlope: 0
               outSlope: 1
               tangentMode: 0
               weightedMode: 0
@@ -160,7 +160,7 @@ MonoBehaviour:
               time: 1
               value: 1
               inSlope: 1
-              outSlope: 1
+              outSlope: 0
               tangentMode: 0
               weightedMode: 0
               inWeight: 0

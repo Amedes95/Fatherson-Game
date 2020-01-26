@@ -15,7 +15,6 @@ public class StickyWeb : MonoBehaviour
                 StuckInWeb = true;
             }
         }
-
     }
 
     private void OnTriggerExit2D(Collider2D collision) // leave the web

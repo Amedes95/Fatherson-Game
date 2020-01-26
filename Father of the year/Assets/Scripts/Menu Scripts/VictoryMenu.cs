@@ -27,14 +27,18 @@ public class VictoryMenu : MonoBehaviour
     {
         PauseCanvas = GameObject.FindGameObjectWithTag("PauseCanvas");
         LoadingWorldHub = false;
+
+        // level transition vignette
         var Vinny = Transition1.vignette.settings;
         Vinny.intensity = 1f;
         transitioning = false;
 
+        // chromatic abberation
         var Chroma = Transition1.chromaticAberration.settings;
         Chroma.intensity = 0;
         Transition1.chromaticAberration.settings = Chroma;
 
+        // restart film grain
         var Grainy = Transition1.grain.settings;
         if (Grainy.intensity == 1f)
         {

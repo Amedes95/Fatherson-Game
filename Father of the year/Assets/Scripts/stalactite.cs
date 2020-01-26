@@ -17,9 +17,11 @@ public class stalactite : MonoBehaviour
     float GlintCopy;
 
     public ParticleSystem FallingDirt;
+    AudioSource StalactiteAudio;
 
     void Awake()
     {
+        StalactiteAudio = gameObject.GetComponent<AudioSource>();
         fallDelay += Random.Range(0f, 2f);
         GlintCopy = GlintFrequency;
         gameObject.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeAll;
@@ -77,6 +79,7 @@ public class stalactite : MonoBehaviour
         {
             walkedUnder = true;
             FallingDirt.Play();
+            StalactiteAudio.Play();
         }
     }
 }

@@ -57,6 +57,7 @@ public class Goal : MonoBehaviour
                 {
                     PlayerPrefs.SetFloat(SceneManager.GetActiveScene().name, (float)CompletionTime); // update playerprefs with your new best time!
                     Debug.Log("New record" + PlayerPrefs.GetFloat(SceneManager.GetActiveScene().name));
+                    // insert NEW BEST TIME sound effect here
                 }
 
             }
@@ -69,9 +70,13 @@ public class Goal : MonoBehaviour
     {
         VictoryScreen.GoalReached = true;
         var Chroma = Transition1.chromaticAberration.settings;
-        Chroma.intensity = 1;
-        Transition1.chromaticAberration.settings = Chroma;
-        PulsingChroma = true;
+        if (PlayerPrefs.GetInt("ChromaON") == 1)
+        {
+            Chroma.intensity = 1;
+            Transition1.chromaticAberration.settings = Chroma;
+            PulsingChroma = true;
+        }
+
     }
 
     private void Update()
