@@ -41,7 +41,10 @@ public class JumpDetector : MonoBehaviour
                 //PlayerMovement.isJumping = false;
                 //PlayerMovement.wallJumping = false;
                 PlayerMovement.jumpCount = 0;
-                collision.GetComponentInParent<Animator>().SetBool("Grounded", true);
+                if (Player.activeInHierarchy)
+                {
+                    collision.GetComponentInParent<Animator>().SetBool("Grounded", true);
+                }
             }
 
         }
