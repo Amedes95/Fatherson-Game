@@ -13,6 +13,7 @@ public class MainMenu : MonoBehaviour
     public GameObject MusicSettingsMenu;
     public GameObject StatsMenu;
     public GameObject ControllerMenu;
+    public GameObject VisualsMenu;
 
     bool WipingProgress;
     bool AtMainMenu;
@@ -61,11 +62,15 @@ public class MainMenu : MonoBehaviour
             {
                 LoadSettings();
             }
+            else if (EditingVisuals)
+            {
+                LoadSettings();
+            }
         }
 
 
         Camera.transform.position = Vector3.MoveTowards(Camera.transform.position, CurrentDestination.position, CameraSpeed); // constantly move the camera to the "Current Destination"
-        if (WatchingIntro && Input.GetKeyDown(KeyCode.Space)) // skips intro
+        if (WatchingIntro && (Input.GetKeyDown(KeyCode.Space) || Input.GetButtonDown("Pause"))) // skips intro
         {
             WatchingIntro = false;
             Camera.transform.position = CurrentDestination.position;
@@ -80,23 +85,23 @@ public class MainMenu : MonoBehaviour
             {
                 MenuScreen.SetActive(true);
             }
-            else if (EditingSounds)
+            else if (EditingSounds) // sound menu
             {
                 MusicSettingsMenu.SetActive(true);
             }
-            else if (EditingControls)
+            else if (EditingControls) // controls menu
             {
                 ControllerMenu.SetActive(true);
             }
-            else if (EditingVisuals)
+            else if (EditingVisuals) // visuals menu
             {
-                // tun on visuals canvas
+                VisualsMenu.SetActive(true);
             }
-            else if (WipingProgress)
+            else if (WipingProgress) // wipe menu
             {
                 ConfirmationMenu.SetActive(true);
             }
-            else if (BrowsingStats)
+            else if (BrowsingStats) // stats menu
             {
                 StatsMenu.SetActive(true);
             }
@@ -111,6 +116,7 @@ public class MainMenu : MonoBehaviour
     public void ExitGame() // Closes the game (builds only)
     {
         Application.Quit();
+        PlayerPrefs.SetInt("PartyModeON", 0); // always turns party mode off upon exiting the game
     }
 
     private void Awake()
@@ -147,6 +153,8 @@ public class MainMenu : MonoBehaviour
         MenuScreen.SetActive(false);
         MusicSettingsMenu.SetActive(false);
         ControllerMenu.SetActive(false);
+        VisualsMenu.SetActive(false);
+
         SettingsButton.playOnAwake = true;
     }
 
