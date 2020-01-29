@@ -1103,7 +1103,7 @@ RectTransform:
   - {fileID: 7167723375340772457}
   - {fileID: 7793173462981829803}
   m_Father: {fileID: 4907859793832739055}
-  m_RootOrder: 5
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -1160,8 +1160,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Navigation:
     m_Mode: 4
-    m_SelectOnUp: {fileID: 3504614745240871976}
-    m_SelectOnDown: {fileID: 301542841232194939}
+    m_SelectOnUp: {fileID: 301542841232194939}
+    m_SelectOnDown: {fileID: 3504614745240871976}
     m_SelectOnLeft: {fileID: 0}
     m_SelectOnRight: {fileID: 0}
   m_Transition: 1
@@ -3292,7 +3292,7 @@ RectTransform:
   - {fileID: 6744163591681748885}
   - {fileID: 5470994690186006202}
   m_Father: {fileID: 4907859793832739055}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -3349,8 +3349,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Navigation:
     m_Mode: 4
-    m_SelectOnUp: {fileID: 0}
-    m_SelectOnDown: {fileID: 5144959794723883001}
+    m_SelectOnUp: {fileID: 5144959794723883001}
+    m_SelectOnDown: {fileID: 301542841232194939}
     m_SelectOnLeft: {fileID: 0}
     m_SelectOnRight: {fileID: 0}
   m_Transition: 1
@@ -7656,8 +7656,8 @@ RectTransform:
   - {fileID: 6230345832163590739}
   - {fileID: 8743964550378283633}
   - {fileID: 2750880251276671392}
-  - {fileID: 6295581707931424401}
   - {fileID: 7881243776477376239}
+  - {fileID: 6295581707931424401}
   m_Father: {fileID: 3302911736048267715}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -12734,8 +12734,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Navigation:
     m_Mode: 4
-    m_SelectOnUp: {fileID: 5144959794723883001}
-    m_SelectOnDown: {fileID: 0}
+    m_SelectOnUp: {fileID: 3504614745240871976}
+    m_SelectOnDown: {fileID: 5144959794723883001}
     m_SelectOnLeft: {fileID: 0}
     m_SelectOnRight: {fileID: 0}
   m_Transition: 1

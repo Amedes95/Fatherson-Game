@@ -10,9 +10,13 @@ public class LungeBox : MonoBehaviour
     {
         if (collision.gameObject.tag == "Player")
         {
-            gameObject.GetComponentInParent<Animator>().SetTrigger("Attack");
-            PatrolDirection = gameObject.GetComponentInParent<BasicPatrol>().PatrolDirection;
-            gameObject.GetComponentInParent<Rigidbody2D>().AddForce(PatrolDirection * 500);
+            if (gameObject.GetComponentInParent<BasicPatrol>().TouchingFloor == true)
+            {
+                gameObject.GetComponentInParent<Animator>().SetTrigger("Attack");
+                PatrolDirection = gameObject.GetComponentInParent<BasicPatrol>().PatrolDirection;
+                gameObject.GetComponentInParent<Rigidbody2D>().AddForce(PatrolDirection * 500);
+            }
+
         }
     }
 }

@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class stalactite : MonoBehaviour
 {
-    bool walkedUnder;
+    public bool walkedUnder;
     public float fallDelay;
     bool falling;
     bool hitGround;
@@ -48,6 +48,7 @@ public class stalactite : MonoBehaviour
                 falling = false;
                 killZone.enabled = false;
                 GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeAll;
+                walkedUnder = false;
             }
             else if (falling)
             {
@@ -57,6 +58,10 @@ public class stalactite : MonoBehaviour
                     GetComponent<Rigidbody2D>().AddForce(Vector2.up * GetComponent<Rigidbody2D>().gravityScale * 100);
                 }
             }
+        }
+        else
+        {
+            GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeAll;
         }
 
         GlintFrequency -= Time.smoothDeltaTime; // makes it glint every now and then

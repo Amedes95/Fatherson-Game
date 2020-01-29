@@ -9,7 +9,7 @@ public class BasicPatrol : MonoBehaviour
     public Transform EnemyStart;
     public Transform EnemyLine;
     bool TouchingWall;
-    bool TouchingFloor;
+    public bool TouchingFloor;
     bool TouchingEnemy;
     bool TouchingPlayer;
     bool TouchingObstacle;
@@ -41,7 +41,7 @@ public class BasicPatrol : MonoBehaviour
             FlipCharacter();
             PatrolDirection = new Vector2(PatrolDirection.x * -1, 0);
         }
-        if (avoidsLedges && !TouchingFloor)
+        if (avoidsLedges && !TouchingFloor) // perhaps this is where the cobra spazz glitch occurs
         {
             FlipCharacter();
             PatrolDirection = new Vector2(PatrolDirection.x * -1, 0);
@@ -90,7 +90,7 @@ public class BasicPatrol : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.tag == "Player")
+        if (collision.gameObject.tag == "Player" && TouchingFloor == true)
         {
             gameObject.GetComponent<Animator>().SetTrigger("Attack");
             gameObject.GetComponent<Rigidbody2D>().AddForce(PatrolDirection * 10);

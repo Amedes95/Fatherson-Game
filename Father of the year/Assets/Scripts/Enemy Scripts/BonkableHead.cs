@@ -14,21 +14,14 @@ public class BonkableHead : MonoBehaviour
     public static GameObject DeathPartclesClone;
     public float bonkTimer;
     public bool OnTrampoline;
+    public int CurrentHP;
+    public int MaxHP;
+
 
     public void Awake()
     {
         CurrentlyBonking = false;
-        //gameObject.transform.parent.transform.eulerAngles = new Vector3 (0, 0, rotation);
-        //rotationVector = new Vector2(Mathf.Cos(rotation), Mathf.Sin(rotation));
-
-        //if (gameObject.transform.parent.tag == "Enemy" || gameObject.transform.parent.tag == "Sleeper")
-        //{
-        //    isEnemy = true;
-        //}
-        //else
-        //{
-        //    isEnemy = false;
-        //}
+        CurrentHP = MaxHP;
 
     }
 
@@ -42,7 +35,7 @@ public class BonkableHead : MonoBehaviour
                 {
                     //collision.GetComponentInParent<Animator>().SetBool("DoubleJumpActive", true);
                     collision.GetComponentInParent<Animator>().SetTrigger("Jump");
-                    Debug.Log("Bonk");
+                    //Debug.Log("Bonk");
                     Boombox.SetVibrationIntensity(.1f, .25f, .75f);
                     if (bonkTimer > 0)
                     {
@@ -52,10 +45,44 @@ public class BonkableHead : MonoBehaviour
                     CurrentlyBonking = true;
                     collision.GetComponentInParent<Rigidbody2D>().AddForce(Vector2.up * PlayerMovement.jumpForce * 150);
                     bonkTimer = .2f;
-                    if (Killable)  // kill when bonked
+
+                    if (Killable)  // kill when bonked or reduce health
                     {
-                        SpawnDeathParticles();
-                        //Destroy(gameObject.transform.parent.gameObject);
+                        if (gameObject.transform.parent.tag == "Boss") // for hopper boss
+                        {
+                            if (CurrentHP == MaxHP) // is it the first bonk?
+                            {
+                                gameObject.GetComponentInParent<Animator>().SetTrigger("Wake"); // awaken
+                                gameObject.GetComponentInParent<Animator>().SetBool("Hopping", true); // begin attacking
+                            }
+                            CurrentHP -= 1; // 1 bonk = 1 health lost
+                            if (CurrentHP <= 0) // when out of health, die
+                            {
+                                SpawnDeathParticles();
+                            }
+                            // trigger different attacks at different health points
+                            if (CurrentHP == MaxHP - 10)
+                            {
+                                gameObject.GetComponentInParent<Animator>().SetBool("Hopping", false);
+                                gameObject.GetComponentInParent<Animator>().SetTrigger("Roar");
+                            }
+                            if (CurrentHP == MaxHP - 20)
+                            {
+                                gameObject.GetComponentInParent<Animator>().SetBool("Hopping", false);
+                                gameObject.GetComponentInParent<Animator>().SetTrigger("Roar");
+
+                            }
+                            if (CurrentHP <= MaxHP - 30)
+                            {
+                                gameObject.GetComponentInParent<Animator>().SetBool("Hopping", false);
+                                gameObject.GetComponentInParent<Animator>().SetTrigger("Roar");
+
+                            }
+                        }
+                        else
+                        {
+                            SpawnDeathParticles();
+                        }
                     }
                 }
                 else
@@ -65,18 +92,29 @@ public class BonkableHead : MonoBehaviour
 
             }
         }
-        if (collision.tag == "Boss")
+        if (collision.tag == "Boss") // if the boss touches an enemy
         {
             if (Killable)
             {
                 SpawnDeathParticles();
             }
         }
-        if (collision.tag == "Stalactite")
+        if (collision.tag == "Stalactite") // if a stalactite touches an enemy
         {
             if (Killable)
             {
-                SpawnDeathParticles();
+                if (gameObject.transform.parent.tag == "Boss")
+                {
+                    //CurrentHP -= 1; // 1 bonk = 1 health lost
+                    //if (CurrentHP <= 0)
+                    //{
+                    //    SpawnDeathParticles();
+                    //}
+                }
+                else
+                {
+                    SpawnDeathParticles();
+                }
             }
         }
     }
@@ -93,6 +131,7 @@ public class BonkableHead : MonoBehaviour
     {
         DeathPartclesClone = Instantiate(DeathParticles, gameObject.transform.position, Quaternion.identity);
         Destroy(gameObject.transform.parent.gameObject);
+        Destroy(DeathPartclesClone, 3f); // kill after 3 seconds
         //DeathParticles.Play();
     }
 
