@@ -333,7 +333,8 @@ public class LevelManager : MonoBehaviour
     public void UnlockAllWorlds()
     {
         PlayerPrefs.SetInt("Tutorial_Complete", 1);
-        PlayerPrefs.GetInt("World1_Complete", 1);
+        PlayerPrefs.SetInt("World1_Complete", 1);
+        PlayerPrefs.SetInt("World2_Complete", 1);
         WorldsList.Add(World1);
         WorldsList.Add(World2);
 

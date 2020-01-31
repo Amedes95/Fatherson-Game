@@ -117,6 +117,8 @@ public class MainMenu : MonoBehaviour
     {
         Application.Quit();
         PlayerPrefs.SetInt("PartyModeON", 0); // always turns party mode off upon exiting the game
+        PlayerPrefs.SetFloat("GameBegun", 0);
+
     }
 
     private void Awake()
@@ -200,9 +202,6 @@ public class MainMenu : MonoBehaviour
         PlayerPrefs.SetFloat("GameBegun", 1);
         MusicSettingsMenu.GetComponent<SoundManager>().RevertSFXVolume();
         MusicSettingsMenu.GetComponent<SoundManager>().RevertToDefault();
-
-
-
     }
 
     public void LoadSoundSettings() // from settings to sound settings

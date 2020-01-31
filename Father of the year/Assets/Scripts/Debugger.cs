@@ -6,6 +6,8 @@ public class Debugger : MonoBehaviour
 {
     public LevelManager LevelManager;
     public PauseMenu PauseMenu;
+    public GameObject DebugCanvas;
+    bool BuggerActive;
 
 
     public void UnlockAllLevels()
@@ -23,5 +25,26 @@ public class Debugger : MonoBehaviour
             }
         }
         PauseMenu.Restart();
+    }
+
+    private void Update()
+    {
+        if (BuggerActive == false)
+        {
+            if (Input.GetKeyDown(KeyCode.B) && Input.GetKeyDown(KeyCode.U) && Input.GetKeyDown(KeyCode.G))
+            {
+                DebugCanvas.SetActive(true);
+                BuggerActive = true;
+            }
+        }
+        else
+        {
+            if (Input.GetKeyDown(KeyCode.B) && Input.GetKeyDown(KeyCode.U) && Input.GetKeyDown(KeyCode.G))
+            {
+                DebugCanvas.SetActive(false);
+                BuggerActive = false;
+            }
+        }
+
     }
 }

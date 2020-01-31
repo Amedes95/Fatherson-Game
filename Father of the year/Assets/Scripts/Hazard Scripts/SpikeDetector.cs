@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class SpikeDetector : MonoBehaviour
 {
+    public bool KillEnemies;
 
     // This function gets called when the player's collider touches the spike collider
     private void OnTriggerEnter2D(Collider2D collision)
@@ -11,6 +12,10 @@ public class SpikeDetector : MonoBehaviour
         if (collision.tag == "Player") // make sure it's the player
         {
             collision.GetComponent<PlayerHealth>().KillPlayer(); // I reference the HP component on the player and call one of its functions
+        }
+        if (collision.tag == "Enemy" && KillEnemies)
+        {
+            collision.GetComponentInChildren<BonkableHead>().SpawnDeathParticles();
         }
     }
 }

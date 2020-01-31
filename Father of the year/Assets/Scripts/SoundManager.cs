@@ -72,6 +72,7 @@ public class SoundManager : MonoBehaviour
     public void RevertToDefault()
     {
         InitializeSound();
+        BGM = GameObject.FindGameObjectWithTag("BGMusic").GetComponent<AudioSource>();
         BGM.volume = DefaultMusicVolume;
         PlayerPrefs.SetFloat("MusicVolume", DefaultMusicVolume); // updates preferences with change
         MusicSlider.value = DefaultMusicVolume;
