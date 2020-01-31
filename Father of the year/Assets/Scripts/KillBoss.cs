@@ -12,6 +12,7 @@ public class KillBoss : MonoBehaviour
         if (collision.tag == "Boss")
         {
             Destroy(collision.gameObject);
+            DeathParticles.transform.position = collision.transform.position;
             DeathParticles.SetActive(true);
         }
     }

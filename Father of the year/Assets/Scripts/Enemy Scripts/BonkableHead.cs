@@ -56,6 +56,7 @@ public class BonkableHead : MonoBehaviour
                                 gameObject.GetComponentInParent<Animator>().SetBool("Hopping", true); // begin attacking
                             }
                             CurrentHP -= 1; // 1 bonk = 1 health lost
+                            gameObject.GetComponentInParent<HopperSFX>().PlayHurtSound();
                             if (CurrentHP <= 0) // when out of health, die
                             {
                                 SpawnDeathParticles();

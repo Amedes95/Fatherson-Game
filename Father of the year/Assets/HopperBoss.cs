@@ -73,25 +73,26 @@ public class HopperBoss : MonoBehaviour
     public void Roar()
     {
         currentPhase += 1;
+        gameObject.GetComponent<HopperSFX>().PlayRoarSound();
         if (currentPhase == 1) // round 1
         {
             foreach (stalactite Stalactite in Stalactites)
             {
-                Stalactite.walkedUnder = true;
+                Stalactite.Fall();
             }
         }
         if (currentPhase == 2) // round 2
         {
             foreach (stalactite Stalactite in Stalactites2)
             {
-                Stalactite.walkedUnder = true;
+                Stalactite.Fall();
             }
         }
         if (currentPhase == 3) // final round
         {
             foreach (stalactite Stalactite in Stalactites3)
             {
-                Stalactite.walkedUnder = true;
+                Stalactite.Fall();
             }
         }
         Debug.Log(currentPhase);

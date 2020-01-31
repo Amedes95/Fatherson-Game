@@ -4,36 +4,38 @@ using UnityEngine;
 
 public class DestroyOnGround : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    public GameObject ImpactParticlePrefab;
+    public static GameObject ParticleClone;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.tag == "Ground")
         {
+            SpawnImpactParticles();
             Destroy(gameObject);
         }
         else if (collision.tag == "Enemy")
         {
+            SpawnImpactParticles();
             collision.GetComponentInChildren<BonkableHead>().SpawnDeathParticles();
             Destroy(gameObject);
         }
         else if (collision.tag == "Player")
         {
+            SpawnImpactParticles();
             Destroy(gameObject);
         }
         else if (collision.tag == "Feet")
         {
+            SpawnImpactParticles();
             Destroy(gameObject);
         }
+    }
+
+    public void SpawnImpactParticles()
+    {
+        ParticleClone = Instantiate(ImpactParticlePrefab, transform.position, Quaternion.identity);
+        Destroy(ParticleClone, 3f);
     }
 }

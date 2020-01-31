@@ -40,6 +40,16 @@ public class SoundManager : MonoBehaviour
         ReadyToGo = true;
     }
 
+    private void Update()
+    {
+        if ((PlayerPrefs.GetFloat("GameBegun") == 0))
+        {
+            PlayerPrefs.SetFloat("GameBegun", 1);
+            MusicSlider.value = DefaultMusicVolume;
+            SFXSlider.value = DefaultSFXVolume;
+        }
+    }
+
 
     public void InitializeSound()
     {

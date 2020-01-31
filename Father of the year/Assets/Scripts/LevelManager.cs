@@ -81,6 +81,8 @@ public class LevelManager : MonoBehaviour
         {
             WorldsList.Add(World2);
         }
+        /// add check for world 2 completion here (final level script)
+
 
 
         LoadCurrentWorld();

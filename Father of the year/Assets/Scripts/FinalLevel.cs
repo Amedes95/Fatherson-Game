@@ -11,13 +11,17 @@ public class FinalLevel : MonoBehaviour
     {
         if (collision.tag == "Player")
         {
-            if (SceneManager.GetActiveScene().name == "Tutorial_19") // if its the last level
+            if (SceneManager.GetActiveScene().name == "Tutorial_19") // if its the last level of the tutorial
             {
                 PlayerPrefs.SetInt("Tutorial_Complete", 1);
             }
-            if (SceneManager.GetActiveScene().name == "W1L22")
+            if (SceneManager.GetActiveScene().name == "W1BOSS") // w1 boss beaten
             {
                 PlayerPrefs.SetInt("World1_Complete", 1);
+            }
+            if (SceneManager.GetActiveScene().name == "W2BOSS") // w2 boss beaten
+            {
+                PlayerPrefs.SetInt("World2_Complete", 1);
             }
         }
     }

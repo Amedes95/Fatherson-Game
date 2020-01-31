@@ -4888,6 +4888,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bfd5efec6916a4942805f54f52b186fb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ImpactParticlePrefab: {fileID: 9012351662596608965, guid: 880cc3306b0a5c64abf6fe4c74e3530c,
+    type: 3}
 --- !u!82 &624550705508483460
 AudioSource:
   m_ObjectHideFlags: 0
@@ -4898,7 +4900,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: f059a948125e7ef4f9539a102818c3b7, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 4a4b8ead905724b4b8f1ffc27bdfd74f, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1

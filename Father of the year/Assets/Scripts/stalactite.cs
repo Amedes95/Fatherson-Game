@@ -82,9 +82,14 @@ public class stalactite : MonoBehaviour
     {
         if (collision.tag == "Player")
         {
-            walkedUnder = true;
-            FallingDirt.Play();
-            StalactiteAudio.Play();
+            Fall();
         }
+    }
+
+    public void Fall()
+    {
+        walkedUnder = true;
+        FallingDirt.Play();
+        StalactiteAudio.Play();
     }
 }

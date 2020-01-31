@@ -196,8 +196,12 @@ public class MainMenu : MonoBehaviour
 
         PlayerPrefs.DeleteAll();
         ConfirmationMenu.SetActive(false);
+
+        PlayerPrefs.SetFloat("GameBegun", 1);
         MusicSettingsMenu.GetComponent<SoundManager>().RevertSFXVolume();
         MusicSettingsMenu.GetComponent<SoundManager>().RevertToDefault();
+
+
 
     }
 
