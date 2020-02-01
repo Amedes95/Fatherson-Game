@@ -11,7 +11,7 @@ public class FinalLevel : MonoBehaviour
     {
         if (collision.tag == "Player")
         {
-            if (SceneManager.GetActiveScene().name == "Tutorial_19") // if its the last level of the tutorial
+            if (SceneManager.GetActiveScene().name == "Tutorial_20") // if its the last level of the tutorial
             {
                 PlayerPrefs.SetInt("Tutorial_Complete", 1);
             }

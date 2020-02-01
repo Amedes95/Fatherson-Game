@@ -9979,8 +9979,8 @@ MonoBehaviour:
   fallSpeedCap: 10
   riseSpeedCap: 0
   startSpeed: 0
-  midSpeed: 0
-  fullSpeed: 0
+  normalSpeed: 0
+  slowSpeed: 0
   midVelocity: 0
   WallClingStart: {fileID: 205827727}
   wallEndLine: {fileID: 1780781307}
@@ -10133,9 +10133,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   JumpSource: {fileID: 905208049979811284}
-  JumpClip: {fileID: 8300000, guid: bbdbf13bf5c1eb54cbf27598792b1657, type: 3}
-  DoubleJumpClip: {fileID: 8300000, guid: 9cf22735be12bbe40b9d0ee46c034c8b, type: 3}
-  WallJumpClip: {fileID: 8300000, guid: c6d8f61a0296aed4c91418a8312e1bc1, type: 3}
+  JumpClip: {fileID: 8300000, guid: 68604d0679198b94c8607e852cf10c34, type: 3}
+  DoubleJumpClip: {fileID: 8300000, guid: 98255dc892125aa47a759e2557985cb3, type: 3}
+  WallJumpClip: {fileID: 8300000, guid: 9df1ced18aff2a74f955e7aeac36d149, type: 3}
 --- !u!1 &8198306198543473746
 GameObject:
   m_ObjectHideFlags: 0

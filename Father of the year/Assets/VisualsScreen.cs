@@ -24,7 +24,7 @@ public class VisualsScreen : MonoBehaviour
     void Update()
     {
         /// settings for chromatic abberation
-        if (PlayerPrefs.GetInt("ChromaON") == 1) // chroma enabled
+        if (PlayerPrefs.GetInt("ChromaON") == 0) // chroma enabled
         {
             OnSymbol.SetActive(true);
             OffSymbol.SetActive(false);

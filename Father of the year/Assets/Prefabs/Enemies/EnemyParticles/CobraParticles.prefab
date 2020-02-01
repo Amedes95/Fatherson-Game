@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 5463042105056967985}
   - component: {fileID: 7588088450154837339}
   m_Layer: 0
-  m_Name: EnemyParticles
+  m_Name: CobraParticles
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4823,7 +4823,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 471bd958d6a8a41b7b4bec0ace03a86b, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 12fb2122964c8ff4384de1cdefeea51d, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1

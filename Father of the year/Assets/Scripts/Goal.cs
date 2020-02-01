@@ -70,7 +70,7 @@ public class Goal : MonoBehaviour
     {
         VictoryScreen.GoalReached = true;
         var Chroma = Transition1.chromaticAberration.settings;
-        if (PlayerPrefs.GetInt("ChromaON") == 1)
+        if (PlayerPrefs.GetInt("ChromaON") == 0) // prefs start at 0
         {
             Chroma.intensity = 1;
             Transition1.chromaticAberration.settings = Chroma;

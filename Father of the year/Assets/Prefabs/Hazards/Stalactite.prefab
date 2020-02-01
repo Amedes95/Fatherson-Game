@@ -211,6 +211,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 621df7b4a6f3e477a8401a2ff04f8cae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  walkedUnder: 0
   fallDelay: 0.25
   killZone: {fileID: 5640956511223900988}
   endLine: {fileID: 5640956510867651393}
@@ -293,7 +294,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 9b57f9686e0ccd74eb25d40ecda45c71, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 2732cc55a5db0a041841809dce7a2a7d, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1.5

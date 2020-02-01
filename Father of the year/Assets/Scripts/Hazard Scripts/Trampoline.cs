@@ -23,7 +23,6 @@ public class Trampoline : MonoBehaviour
     {
         if (collision.tag == "Feet")
         {
-
             if (!PlayerHealth.Dead && !IsBouncing)
             {
                 PlayerMovement.jumpCount = 0;
