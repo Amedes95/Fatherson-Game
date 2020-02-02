@@ -20,6 +20,7 @@ public class LevelManager : MonoBehaviour
 
     public GameObject World1;
     public GameObject World2;
+    public GameObject World3;
 
     int LevelIndex;
     int WorldIndex;
@@ -43,6 +44,7 @@ public class LevelManager : MonoBehaviour
     public Sprite TutorialBackground;
     public Sprite World1Background;
     public Sprite World2Background;
+    public Sprite World3Background;
 
 
     AudioSource WorldHubAudioSource;
@@ -81,6 +83,11 @@ public class LevelManager : MonoBehaviour
         {
             WorldsList.Add(World2);
         }
+        if (WorldsList.Contains(World3) == false && PlayerPrefs.GetInt("World3_Complete") == 1)
+        {
+            WorldsList.Add(World3);
+        }
+
         /// add check for world 2 completion here (final level script)
 
 
@@ -283,7 +290,16 @@ public class LevelManager : MonoBehaviour
             BottomBG.GetComponent<SpriteRenderer>().sprite = World2Background;
 
             BackgroundChangeDirection("Left");
+        }
+        else if (WorldIndex == 3) // purple squares
+        {
+            CenterBG.GetComponent<SpriteRenderer>().sprite = World3Background;
+            RightBG.GetComponent<SpriteRenderer>().sprite = World3Background;
+            LeftBG.GetComponent<SpriteRenderer>().sprite = World3Background;
+            TopBG.GetComponent<SpriteRenderer>().sprite = World3Background;
+            BottomBG.GetComponent<SpriteRenderer>().sprite = World3Background;
 
+            BackgroundChangeDirection("Down");
         }
     }
 
@@ -335,8 +351,10 @@ public class LevelManager : MonoBehaviour
         PlayerPrefs.SetInt("Tutorial_Complete", 1);
         PlayerPrefs.SetInt("World1_Complete", 1);
         PlayerPrefs.SetInt("World2_Complete", 1);
+        PlayerPrefs.SetInt("World3_Complete", 1);
         WorldsList.Add(World1);
         WorldsList.Add(World2);
+        WorldsList.Add(World3);
 
     }
 
