@@ -74,7 +74,7 @@ MonoBehaviour:
     m_Settings:
       focusDistance: 0.1
       aperture: 32
-      focalLength: 300
+      focalLength: 0
       useCameraFov: 0
       kernelSize: 3
   motionBlur:
@@ -124,7 +124,7 @@ MonoBehaviour:
         postExposure: 0
         temperature: 26
         tint: -5
-        hueShift: 109
+        hueShift: 30
         saturation: 2
         contrast: 2
       channelMixer:
