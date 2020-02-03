@@ -345,9 +345,9 @@ InputManager:
     m_Name: Drop
     descriptiveName: 
     descriptiveNegativeName: 
-    negativeButton: 
+    negativeButton: up
     positiveButton: down
-    altNegativeButton: 
+    altNegativeButton: w
     altPositiveButton: s
     gravity: 10
     dead: 0.9
@@ -367,7 +367,7 @@ InputManager:
     altPositiveButton: 
     gravity: 10
     dead: 0.9
-    sensitivity: 1000
+    sensitivity: 1
     snap: 1
     invert: 0
     type: 2

@@ -537,6 +537,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dc67f2157c1de4d5f92e02026dc72783, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  KillEnemies: 0
 --- !u!1 &159540085334520869
 GameObject:
   m_ObjectHideFlags: 0
@@ -731,7 +732,7 @@ CompositeCollider2D:
   m_CompositePaths:
     m_Paths: []
   m_VertexDistance: 0.0005
-  m_OffsetDistance: 0.1
+  m_OffsetDistance: 0.000005
 --- !u!19719996 &159540085334520871
 TilemapCollider2D:
   m_ObjectHideFlags: 0
@@ -747,7 +748,7 @@ TilemapCollider2D:
   m_UsedByComposite: 1
   m_Offset: {x: 0, y: 0}
   m_MaximumTileChangeCount: 1000
-  m_ExtrusionFactor: 0.00001
+  m_ExtrusionFactor: 0
 --- !u!1 &159540086302401815
 GameObject:
   m_ObjectHideFlags: 0
