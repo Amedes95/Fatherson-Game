@@ -188,29 +188,22 @@ public class PlayerMovement : MonoBehaviour
                 FlipCharacter();
             }
 
-            //if (Mathf.Abs(playerBody.velocity.x) > maxVelocity && JumpDetector.OnGround) //ground speed cap
-            //{
-            //    playerSpeed = slowSpeed;
-            //}
-            //else if (Mathf.Abs(playerBody.velocity.x) < midVelocity && JumpDetector.OnGround) //quick burst of movement from rest
-            //{
-            //    playerSpeed = startSpeed;
-            //}
-            //else if (JumpDetector.OnGround)
-            //{
-            //    playerSpeed = normalSpeed;
-            //}
-
-            // 1/15/2020 logic below to stop moving quickly on the ground
-
             if (Mathf.Abs(playerBody.velocity.x) > maxVelocity && JumpDetector.OnGround) //ground speed cap
             {
                 playerSpeed = slowSpeed;
             }
-            else if (JumpDetector.OnGround /*&& Mathf.Abs(playerBody.velocity.x) > midVelocity*/)
+            else if (JumpDetector.OnGround) // This makes the player turn sharper 2/22/20
             {
                 playerSpeed = normalSpeed;
                 if (moveHorizontal == 0f)
+                {
+                    playerBody.velocity = new Vector2(0, playerBody.velocity.y);
+                }
+                if (moveHorizontal > 0f && playerBody.velocity.x < 0f) // player is grounded, moving right, and pressing left input
+                {
+                    playerBody.velocity = new Vector2(0, playerBody.velocity.y);
+                }
+                else if (moveHorizontal < 0f && playerBody.velocity.x > 0f) // player is grounded, moving left, and pressing right input
                 {
                     playerBody.velocity = new Vector2(0, playerBody.velocity.y);
                 }
@@ -220,44 +213,43 @@ public class PlayerMovement : MonoBehaviour
                 playerSpeed = startSpeed;
             }
 
-            //end 1/15/2020 logic above
-
-            if (Mathf.Abs(playerBody.velocity.x) > maxVelocity && !JumpDetector.OnGround) //air speed cap
+            //// Air speed cap
+            if (Mathf.Abs(playerBody.velocity.x) > maxVelocity && !JumpDetector.OnGround)
             {
                 playerBody.AddForce(movementPlayer * playerSpeed * -1);
             }
 
-            if (playerBody.velocity.y < -fallSpeedCap) //fall speed cap
+           ///// Fall speed cap
+            if (playerBody.velocity.y < -fallSpeedCap)
             {
                 playerBody.AddForce(Vector2.up * playerBody.gravityScale * 15);
             }
 
+            ///// Rise and fall velocity clamps
             if ((playerVelocity.y > riseSpeedCap) || (playerVelocity.y < fallSpeedCap))
             {
-                playerVelocity = new Vector2(
-                    playerVelocity.x,
-                    Mathf.Clamp(playerVelocity.y, -fallSpeedCap, riseSpeedCap + .5f)
-                    );
+                playerVelocity = new Vector2(playerVelocity.x, Mathf.Clamp(playerVelocity.y, -fallSpeedCap, riseSpeedCap + .5f));
             }
 
             ///// Movement left and right
             if ((moveHorizontal > 0f) && !Trampoline.IsBouncing) // player is moving right
             {
-                if ((Mathf.Sign(moveHorizontal) != Mathf.Sign(playerBody.velocity.x)) && !recentlyJumped && (Mathf.Abs(playerVelocity.x) > 2)) // this makes the character turn around quicker in the air for more control, I add the >2 part to prevent backdashing upond landing on the ground
+                if ((moveHorizontal > 0f && playerBody.velocity.x < 0f) && !recentlyJumped && (Mathf.Abs(playerVelocity.x) > 2) && JumpDetector.OnGround == false && KeepWithPlatform.OnPlatform == false) // this makes the character turn around quicker in the air for more control, I add the >2 part to prevent backdashing upond landing on the ground
                 {
+                    playerBody.velocity = new Vector2(0, playerBody.velocity.y);
                     playerBody.AddForce(movementPlayer * playerSpeed * 3);
                 }
                 else
                 {
                     playerBody.AddForce(movementPlayer * playerSpeed);
                 }
-
                 PlayerAnim.SetBool("Running", true);
             }
             if ((moveHorizontal < 0f) && !Trampoline.IsBouncing) // player is moving left
             {
-                if ((Mathf.Sign(moveHorizontal) != Mathf.Sign(playerBody.velocity.x)) && !recentlyJumped && (Mathf.Abs(playerVelocity.x) > 2))
+                if ((moveHorizontal < 0f && playerBody.velocity.x > 0f) && !recentlyJumped && (Mathf.Abs(playerVelocity.x) > 2) && JumpDetector.OnGround == false && KeepWithPlatform.OnPlatform == false)
                 {
+                    playerBody.velocity = new Vector2(0, playerBody.velocity.y);
                     playerBody.AddForce(movementPlayer * playerSpeed * 3);
                 }
                 else
@@ -447,6 +439,11 @@ public class PlayerMovement : MonoBehaviour
         if (JumpDetector.OnGround && !touchingWall)
         {
             CreateDust();
+        }
+        // Makes the player pivot sharper
+        if (!wallJumping && JumpDetector.OnGround)
+        {
+            playerBody.velocity = new Vector2(0, playerBody.velocity.y);
         }
     }
 
