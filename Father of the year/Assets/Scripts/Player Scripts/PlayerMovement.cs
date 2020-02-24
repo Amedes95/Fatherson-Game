@@ -224,6 +224,10 @@ public class PlayerMovement : MonoBehaviour
             {
                 playerBody.AddForce(Vector2.up * playerBody.gravityScale * 15);
             }
+            if (playerBody.velocity.y > riseSpeedCap)
+            {
+                playerBody.AddForce(Vector2.down * playerBody.gravityScale * 15);
+            }
 
             ///// Rise and fall velocity clamps
             if ((playerVelocity.y > riseSpeedCap) || (playerVelocity.y < fallSpeedCap))
@@ -270,6 +274,7 @@ public class PlayerMovement : MonoBehaviour
                 {
                     Gamepad.current.PauseHaptics();
                 }
+
                 if (!jumpKeyHeld && Vector2.Dot(playerBody.velocity, Vector2.up) > 0)
                 {
                     playerBody.AddForce(counterJumpForce * playerBody.mass * Vector2.down);
@@ -382,7 +387,7 @@ public class PlayerMovement : MonoBehaviour
         {
             playerBody.velocity= new Vector2(playerBody.velocity.x, 0);
         }
-        if (Trampoline.IsBouncing == false)
+        if (Trampoline.IsBouncing == false) // and not bonking? 
         {
             jumpFallCooldown = .05f;
             recentlyJumped = true;

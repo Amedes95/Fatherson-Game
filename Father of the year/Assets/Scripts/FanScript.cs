@@ -22,17 +22,15 @@ public class FanScript : MonoBehaviour
         rotationVector = new Vector2(Mathf.Cos(Mathf.Deg2Rad * (rotation + 90)), Mathf.Sin(Mathf.Deg2Rad * (rotation + 90)));
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        Debug.Log(rotationVector);
-
-    }
-
     void CalculateFanStrength()
     {
         playerDistance = playerPosition.y - fanPosition.y;
         fanStrength = 1 / (1 + playerDistance) * fanConstant;
+        if (fanStrength > 30) // sometimes you just need to stop
+        {
+            fanStrength = 30;
+        }
+        Debug.Log(fanStrength);
     }
 
     private void OnTriggerStay2D(Collider2D collision)

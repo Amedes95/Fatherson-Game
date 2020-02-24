@@ -9973,11 +9973,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerSpeed: 10
-  counterJumpForce: 50
+  counterJumpForce: 200
   jumpHeight: 5
   fallForce: 10
   fallSpeedCap: 10
-  riseSpeedCap: 0
+  riseSpeedCap: 20
   startSpeed: 0
   normalSpeed: 0
   slowSpeed: 0

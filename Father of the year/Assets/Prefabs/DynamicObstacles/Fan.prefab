@@ -4764,6 +4764,7 @@ GameObject:
   - component: {fileID: 5827052591334705968}
   - component: {fileID: 8743266727642216875}
   - component: {fileID: 7724592673644666241}
+  - component: {fileID: 3394253627866262398}
   m_Layer: 0
   m_Name: Sharpzone
   m_TagString: Untagged
@@ -4823,6 +4824,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d47d4a895ae59414e912ab6a978b8b2a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &3394253627866262398
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5366096677512883671}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dc67f2157c1de4d5f92e02026dc72783, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  KillEnemies: 1
 --- !u!1 &6828027210908461493
 GameObject:
   m_ObjectHideFlags: 0

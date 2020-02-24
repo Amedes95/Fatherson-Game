@@ -25,31 +25,35 @@ public class Trampoline : MonoBehaviour
         {
             if (!PlayerHealth.Dead && !IsBouncing)
             {
-                PlayerMovement.jumpCount = 0;
-                collision.GetComponentInParent<PlayerMovement>().playerSpeed = 0;
-                collision.GetComponentInParent<PlayerMovement>().wallJumpBuffer = 0;
+                if (PlayerMovement.recentlyJumped == false)
+                {
+                    PlayerMovement.jumpCount = 0;
+                    //collision.GetComponentInParent<PlayerMovement>().playerSpeed = 0;
+                    collision.GetComponentInParent<PlayerMovement>().wallJumpBuffer = 0;
 
-                BounceForce = PlayerMovement.CalculateJumpForce(collision.GetComponentInParent<Rigidbody2D>().gravityScale, collision.GetComponentInParent<PlayerMovement>().jumpHeight);
+                    BounceForce = PlayerMovement.CalculateJumpForce(collision.GetComponentInParent<Rigidbody2D>().gravityScale, collision.GetComponentInParent<PlayerMovement>().jumpHeight);
 
-                collision.GetComponentInParent<Rigidbody2D>().position += .2f * rotationVector;
-                collision.GetComponentInParent<Rigidbody2D>().velocity = rotationVector;
-                if (JumpDetector.OnGround)
-                {
-                    collision.GetComponentInParent<Rigidbody2D>().AddForce(rotationVector * BounceForce * 180);
-                }
-                else
-                {
-                    collision.GetComponentInParent<Rigidbody2D>().AddForce(rotationVector * BounceForce * 180);
-                }
-                IsBouncing = true;
-                PlayerMovement.floatingTimer = -1;
-                GetComponent<Animator>().SetTrigger("Bounce");
-                collision.GetComponentInParent<Animator>().SetBool("DoubleJumpActive", false);
-                collision.GetComponentInParent<Animator>().SetTrigger("Jump");
-                Boombox.SetVibrationIntensity(.1f, .25f, .75f);
-                if (gameObject.GetComponentInChildren<ParticleSystem>() != null)
-                {
-                    gameObject.GetComponentInChildren<ParticleSystem>().Play();
+                    collision.GetComponentInParent<Rigidbody2D>().position += .2f * rotationVector;
+                    collision.GetComponentInParent<Rigidbody2D>().velocity = rotationVector;
+                    if (JumpDetector.OnGround)
+                    {
+                        collision.GetComponentInParent<Rigidbody2D>().AddForce(rotationVector * BounceForce * 180);
+                    }
+                    else
+                    {
+                        collision.GetComponentInParent<Rigidbody2D>().AddForce(rotationVector * BounceForce * 205);
+                    }
+                    IsBouncing = true;
+                    PlayerMovement.floatingTimer = -1;
+
+                    GetComponent<Animator>().SetTrigger("Bounce");
+                    collision.GetComponentInParent<Animator>().SetBool("DoubleJumpActive", false);
+                    collision.GetComponentInParent<Animator>().SetTrigger("Jump");
+                    Boombox.SetVibrationIntensity(.1f, .25f, .75f);
+                    if (gameObject.GetComponentInChildren<ParticleSystem>() != null)
+                    {
+                        gameObject.GetComponentInChildren<ParticleSystem>().Play();
+                    }
                 }
             }
         }
