@@ -399,8 +399,6 @@ public class PlayerMovement : MonoBehaviour
             jumpAudioBox.playJumpSound();
         }
         Boombox.SetVibrationIntensity(.1f, .25f, .75f); // vibrate a lil bit ;)
-
-
     }
 
     public void WallJump()
@@ -519,6 +517,14 @@ public class PlayerMovement : MonoBehaviour
     {
         DustKickup.Play();
         Boombox.SetVibrationIntensity(.1f, .2f, .2f); // vibrate a lil bit ;)
+    }
+
+    private void OnDisable()
+    {
+        isJumping = false;
+        recentlyJumped = false;
+        wallJumping = false;
+        StickyWeb.StuckInWeb = false;
     }
 
 }

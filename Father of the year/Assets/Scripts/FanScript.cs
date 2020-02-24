@@ -20,12 +20,22 @@ public class FanScript : MonoBehaviour
         gameObject.transform.rotation = new Quaternion(0, 0, 0, 0);
         gameObject.transform.eulerAngles = new Vector3(0, 0, rotation);
         rotationVector = new Vector2(Mathf.Cos(Mathf.Deg2Rad * (rotation + 90)), Mathf.Sin(Mathf.Deg2Rad * (rotation + 90)));
+        Debug.Log(rotationVector);
     }
 
-    void CalculateFanStrength()
+    void CalculateFanStrength() // only for upright fans right now
     {
-        playerDistance = playerPosition.y - fanPosition.y;
+        if (rotationVector.y == 1)
+        {
+            playerDistance = playerPosition.y - fanPosition.y;
+        }
+        else if (rotationVector.y == 0)
+        {
+            playerDistance = playerPosition.x - fanPosition.x;
+        }
         fanStrength = 1 / (1 + playerDistance) * fanConstant;
+
+
         if (fanStrength > 30) // sometimes you just need to stop
         {
             fanStrength = 30;
