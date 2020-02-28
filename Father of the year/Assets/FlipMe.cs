@@ -15,7 +15,7 @@ public class FlipMe : MonoBehaviour
         Raycasting();
         if (Flipped)
         {
-            Debug.Log("Flip");
+            //Debug.Log("Flip");
             if (Pivot.GetComponent<Turret>().Increasing)
             {
                 Pivot.GetComponent<Turret>().Increasing = false;
