@@ -20,7 +20,7 @@ public class FanScript : MonoBehaviour
         gameObject.transform.rotation = new Quaternion(0, 0, 0, 0);
         gameObject.transform.eulerAngles = new Vector3(0, 0, rotation);
         rotationVector = new Vector2(Mathf.Cos(Mathf.Deg2Rad * (rotation + 90)), Mathf.Sin(Mathf.Deg2Rad * (rotation + 90)));
-        Debug.Log(rotationVector);
+        //Debug.Log(rotationVector);
     }
 
     void CalculateFanStrength() // only for upright fans right now
