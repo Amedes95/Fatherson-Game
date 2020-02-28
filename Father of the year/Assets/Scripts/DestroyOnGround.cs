@@ -31,6 +31,11 @@ public class DestroyOnGround : MonoBehaviour
             SpawnImpactParticles();
             Destroy(gameObject);
         }
+        else if (collision.tag == "BossLaser")
+        {
+            SpawnImpactParticles();
+            Destroy(gameObject);
+        }
     }
 
     public void SpawnImpactParticles()
