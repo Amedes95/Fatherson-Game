@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class DestroyOnGround : MonoBehaviour
 {
-
     public GameObject ImpactParticlePrefab;
     public static GameObject ParticleClone;
 

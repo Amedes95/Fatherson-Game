@@ -19,7 +19,7 @@ public class PlayerMovement : MonoBehaviour
     public static bool wallJumping;
     public static float jumpFallCooldown; // a timer used to make a minimum jump height with counterJumpForce
     public static bool recentlyJumped;
-    bool jumpKeyHeld;
+    public bool jumpKeyHeld;
     public static int jumpCount; // used for double jumps, used with fruit
     public float fallForce;
     public float fallSpeedCap;
@@ -52,6 +52,8 @@ public class PlayerMovement : MonoBehaviour
 
     public bool ControllerEnabled;
     string JumpInput;
+
+    public bool FanFloating;
 
 
 
@@ -270,6 +272,7 @@ public class PlayerMovement : MonoBehaviour
 
             if (isJumping && !recentlyJumped) // counter jump force: if you release W after jumping you don't jump as high. In other words the longer you hold W the higher you jump.
             {
+
                 if (Gamepad.current != null)
                 {
                     Gamepad.current.PauseHaptics();
@@ -277,9 +280,12 @@ public class PlayerMovement : MonoBehaviour
 
                 if (!jumpKeyHeld && Vector2.Dot(playerBody.velocity, Vector2.up) > 0)
                 {
-                    playerBody.AddForce(counterJumpForce * playerBody.mass * Vector2.down);
+                    if (FanFloating == false) // This is new // 3/1/20
+                    {
+                        playerBody.AddForce(counterJumpForce * playerBody.mass * Vector2.down);
+                    }
                 }
-                else if (Vector2.Dot(playerBody.velocity, Vector2.down) > 0) //this is new, may cause bugs
+                else if (Vector2.Dot(playerBody.velocity, Vector2.down) > 0)
                 {
                     isJumping = false;
                     floatingTimer = -1;

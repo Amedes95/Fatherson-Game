@@ -9,18 +9,18 @@ public class OneWayFloor : MonoBehaviour
     string DropInput;
     string JumpInput;
     bool insideZone;
+    GameObject Player;
 
     // Start is called before the first frame update
     void Start()
     {
         effector2D = GetComponentInParent<PlatformEffector2D>();
+        Player = GameObject.FindGameObjectWithTag("Player");
     }
 
     // Update is called once per frame
     void Update()
     {
-
-
         // first see if we are using a controller or not
         if (Boombox.ControllerModeEnabled)
         {
@@ -121,6 +121,11 @@ public class OneWayFloor : MonoBehaviour
         if (collision.tag == "Player")
         {
             insideZone = false;
+            if (Player.GetComponent<Rigidbody2D>().velocity.y > Player.GetComponent<PlayerMovement>().riseSpeedCap)
+            {
+                Player.GetComponent<Rigidbody2D>().velocity = new Vector2(Player.GetComponent<Rigidbody2D>().velocity.x, 0);
+                Player.GetComponent<Rigidbody2D>().AddForce(Vector2.down * Player.GetComponent<Rigidbody2D>().gravityScale * 15);
+            }
         }
     }
 }

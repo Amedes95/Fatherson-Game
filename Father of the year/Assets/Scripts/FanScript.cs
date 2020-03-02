@@ -25,11 +25,11 @@ public class FanScript : MonoBehaviour
 
     void CalculateFanStrength() // only for upright fans right now
     {
-        if (rotationVector.y == 1)
+        if (rotationVector.y == 1) // vertical
         {
             playerDistance = playerPosition.y - fanPosition.y;
         }
-        else if (rotationVector.y == 0)
+        else if (rotationVector.y == 0) // horizontal
         {
             playerDistance = playerPosition.x - fanPosition.x;
         }
@@ -40,16 +40,30 @@ public class FanScript : MonoBehaviour
         {
             fanStrength = 30;
         }
-        Debug.Log(fanStrength);
+        //Debug.Log(fanStrength);
     }
 
     private void OnTriggerStay2D(Collider2D collision)
     {
         if (collision.tag == "Player")
         {
+            collision.GetComponent<PlayerMovement>().FanFloating = true;
             playerPosition = collision.transform.position;
             CalculateFanStrength();
+            if (collision.GetComponent<Rigidbody2D>().velocity.y > 10) // This is new 3/1/20
+            {
+                collision.GetComponent<Rigidbody2D>().velocity = new Vector2(collision.GetComponent<Rigidbody2D>().velocity.x, 10);
+            }
             collision.attachedRigidbody.AddForce(rotationVector * (fanStrength * collision.attachedRigidbody.mass));
+            //Debug.Log(collision.GetComponent<Rigidbody2D>().velocity);
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.tag == "Player")
+        {
+            collision.GetComponent<PlayerMovement>().FanFloating = false;
         }
     }
 }

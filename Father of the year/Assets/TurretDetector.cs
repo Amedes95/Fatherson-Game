@@ -19,7 +19,6 @@ public class TurretDetector : MonoBehaviour
         {
             WithinRange = false;
             gameObject.GetComponentInChildren<Turret>().InSights = false;
-            //gameObject.GetComponent<Animator>().enabled = true;
 
         }
     }
