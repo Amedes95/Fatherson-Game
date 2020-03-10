@@ -21,8 +21,6 @@ public class JumpDetector : MonoBehaviour
         {
             if (Player.activeInHierarchy)
             {
-                //collision.GetComponentInParent<PlayerMovement>().GetComponent<ParticleSystem>().Play();
-                //collision.GetComponentInParent<PlayerMovement>().jumpAudioBox.playLandingSound();
                 LandingEffectClone = Instantiate(LandingEffect);
                 Destroy(LandingEffectClone, 1f);
                 Boombox.SetVibrationIntensity(.1f, .2f, .2f); // vibrate a lil bit ;)
@@ -38,8 +36,6 @@ public class JumpDetector : MonoBehaviour
             if (!PlayerHealth.Dead)
             {
                 OnGround = true;
-                //PlayerMovement.isJumping = false;
-                //PlayerMovement.wallJumping = false;
                 PlayerMovement.jumpCount = 0;
                 if (Player.activeInHierarchy)
                 {

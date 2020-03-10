@@ -197,7 +197,7 @@ public class PlayerMovement : MonoBehaviour
             else if (JumpDetector.OnGround) // This makes the player turn sharper 2/22/20
             {
                 playerSpeed = normalSpeed;
-                if (moveHorizontal == 0f)
+                if (moveHorizontal == 0f && FanFloating == false)
                 {
                     playerBody.velocity = new Vector2(0, playerBody.velocity.y);
                 }

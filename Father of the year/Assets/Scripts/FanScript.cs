@@ -12,15 +12,17 @@ public class FanScript : MonoBehaviour
     float fanStrength;
     public float rotation;
     Vector2 rotationVector;
+    public bool FanBlocked;
+    GameObject Player;
 
     // Start is called before the first frame update
     void Start()
     {
+        Player = GameObject.FindGameObjectWithTag("Player");
         fanPosition = transform.position;
         gameObject.transform.rotation = new Quaternion(0, 0, 0, 0);
         gameObject.transform.eulerAngles = new Vector3(0, 0, rotation);
         rotationVector = new Vector2(Mathf.Cos(Mathf.Deg2Rad * (rotation + 90)), Mathf.Sin(Mathf.Deg2Rad * (rotation + 90)));
-        //Debug.Log(rotationVector);
     }
 
     void CalculateFanStrength() // only for upright fans right now
@@ -45,14 +47,17 @@ public class FanScript : MonoBehaviour
 
     private void OnTriggerStay2D(Collider2D collision)
     {
-        if (collision.tag == "Player")
+        if (collision.tag == "Player" && FanBlocked == false)
         {
             collision.GetComponent<PlayerMovement>().FanFloating = true;
             playerPosition = collision.transform.position;
             CalculateFanStrength();
             if (collision.GetComponent<Rigidbody2D>().velocity.y > 10) // This is new 3/1/20
             {
-                collision.GetComponent<Rigidbody2D>().velocity = new Vector2(collision.GetComponent<Rigidbody2D>().velocity.x, 10);
+                if (rotation != -90 && rotation != 90)
+                {
+                    collision.GetComponent<Rigidbody2D>().velocity = new Vector2(collision.GetComponent<Rigidbody2D>().velocity.x, 10);
+                }
             }
             collision.attachedRigidbody.AddForce(rotationVector * (fanStrength * collision.attachedRigidbody.mass));
             //Debug.Log(collision.GetComponent<Rigidbody2D>().velocity);
@@ -65,6 +70,17 @@ public class FanScript : MonoBehaviour
         {
             collision.GetComponent<PlayerMovement>().FanFloating = false;
         }
+    }
+
+    public void RaycastingPlayer() // Makes fans not work through walls
+    {
+        Debug.DrawLine(transform.position, Player.transform.position, Color.green);
+        FanBlocked = Physics2D.Linecast(transform.position, Player.transform.position, 1 << LayerMask.NameToLayer("Ground"));
+    }
+
+    private void Update()
+    {
+        RaycastingPlayer();
     }
 }
 

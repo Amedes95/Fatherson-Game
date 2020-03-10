@@ -24,7 +24,8 @@ public float size; //5 is a good size
     {
         if (collision.tag == "Player")
         {
-            this.transform.parent.gameObject.SetActive(false);
+            Destroy(gameObject.transform.parent.gameObject); // Using destroy instead because of fan logic
+            //this.transform.parent.gameObject.SetActive(false);
         }
     }
 }

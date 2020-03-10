@@ -19,6 +19,7 @@ public class BasicPatrol : MonoBehaviour
     public bool flipDirection;
     public bool RedCobra; //for the lunge animation
     public bool attacking;
+    public bool Falling;
 
     private void Awake()
     {
@@ -36,15 +37,23 @@ public class BasicPatrol : MonoBehaviour
         RaycastingEnemy();
         RaycastingObstacle();
         WalkAround();
-        if (TouchingWall || TouchingEnemy || TouchingObstacle)
+        if ((TouchingWall || TouchingEnemy || TouchingObstacle))
         {
             FlipCharacter();
             PatrolDirection = new Vector2(PatrolDirection.x * -1, 0);
         }
-        if (avoidsLedges && !TouchingFloor) // perhaps this is where the cobra spazz glitch occurs
+        if (avoidsLedges && !TouchingFloor) // perhaps this is where the cobra spazz glitch occurs.  IT IS.
         {
             FlipCharacter();
             PatrolDirection = new Vector2(PatrolDirection.x * -1, 0);
+        }
+        if (TouchingFloor == false)
+        {
+            Falling = true;
+        }
+        else
+        {
+            Falling = false;
         }
     }
 
@@ -84,8 +93,11 @@ public class BasicPatrol : MonoBehaviour
 
     public void FlipCharacter()
     {
+        if (Falling == false)
+        {
+            transform.localScale = new Vector2(transform.localScale.x * -1, transform.localScale.y);
+        }
         attacking = false;
-        transform.localScale = new Vector2(transform.localScale.x*-1, transform.localScale.y);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

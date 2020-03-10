@@ -16,6 +16,7 @@ public class Turret : MonoBehaviour
     public GameObject Projectile;
     public static GameObject ProjectileClone;
     public Transform LaunchZone;
+    public float ProjectileSpeed;
 
 
     // Start is called before the first frame update
@@ -40,8 +41,10 @@ public class Turret : MonoBehaviour
         // when the player is seen by the turret
         if (InSights)
         {
+            Debug.Log(rot_Z);   
             BarrelPivot.rotation = Quaternion.Euler(0f, 0f, rot_Z - 90);
             gameObject.GetComponentInParent<Animator>().SetBool("Alerted", true);
+            Debug.DrawLine(transform.position, Player.transform.position);
         }
         else
         {
@@ -107,6 +110,6 @@ public class Turret : MonoBehaviour
 
         ProjectileClone = Instantiate(Projectile, LaunchZone.position, Quaternion.identity);
         Destroy(ProjectileClone, 3f);
-        ProjectileClone.GetComponent<Rigidbody2D>().velocity = diff * 4;
+        ProjectileClone.GetComponent<Rigidbody2D>().velocity = diff * ProjectileSpeed;
     }
 }
