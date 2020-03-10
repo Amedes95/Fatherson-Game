@@ -59,6 +59,13 @@ public class FanScript : MonoBehaviour
                     collision.GetComponent<Rigidbody2D>().velocity = new Vector2(collision.GetComponent<Rigidbody2D>().velocity.x, 10);
                 }
             }
+            if (collision.GetComponent<Rigidbody2D>().velocity.x > 30) // This is new 3/1/20
+            {
+                if (rotation == -90 || rotation == 90)
+                {
+                    collision.GetComponent<Rigidbody2D>().velocity = new Vector2(30, collision.GetComponent<Rigidbody2D>().velocity.y);
+                }
+            }
             collision.attachedRigidbody.AddForce(rotationVector * (fanStrength * collision.attachedRigidbody.mass));
             //Debug.Log(collision.GetComponent<Rigidbody2D>().velocity);
         }
