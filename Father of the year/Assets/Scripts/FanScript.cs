@@ -38,9 +38,9 @@ public class FanScript : MonoBehaviour
         fanStrength = 1 / (1 + playerDistance) * fanConstant;
 
 
-        if (fanStrength > 30) // sometimes you just need to stop
+        if (fanStrength > 40) // sometimes you just need to stop
         {
-            fanStrength = 30;
+            fanStrength = 40;
         }
         //Debug.Log(fanStrength);
     }

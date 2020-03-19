@@ -270,7 +270,7 @@ public class PlayerMovement : MonoBehaviour
                 PlayerAnim.SetBool("Running", false);
             }
 
-            if (isJumping && !recentlyJumped) // counter jump force: if you release W after jumping you don't jump as high. In other words the longer you hold W the higher you jump.
+            if (isJumping && !recentlyJumped && FanFloating == false) // counter jump force: if you release W after jumping you don't jump as high. In other words the longer you hold W the higher you jump.
             {
 
                 if (Gamepad.current != null)
@@ -292,7 +292,7 @@ public class PlayerMovement : MonoBehaviour
                 }
             }
 
-            if (wallJumping && !recentlyJumped) // counter jump force but for wall jumps. If you release W you don't jump as high, if you hold opposite direction of your flight path you don't fly as far
+            if (wallJumping && !recentlyJumped && FanFloating == false) // counter jump force but for wall jumps. If you release W you don't jump as high, if you hold opposite direction of your flight path you don't fly as far
             {
 
                 if (!jumpKeyHeld && Vector2.Dot(playerBody.velocity, Vector2.up) > 0)
