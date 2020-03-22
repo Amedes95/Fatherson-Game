@@ -28,6 +28,8 @@ public class Trampoline : MonoBehaviour
                 if (PlayerMovement.recentlyJumped == false)
                 {
                     PlayerMovement.jumpCount = 0;
+                    PlayerMovement.BounceBuffer = .1f; // new 3/22/20
+                    PlayerMovement.JustBounced = true;
                     //collision.GetComponentInParent<PlayerMovement>().playerSpeed = 0;
                     collision.GetComponentInParent<PlayerMovement>().wallJumpBuffer = 0;
 

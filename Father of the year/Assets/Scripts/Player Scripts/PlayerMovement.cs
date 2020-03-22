@@ -55,6 +55,9 @@ public class PlayerMovement : MonoBehaviour
 
     public bool FanFloating;
 
+    public static bool JustBounced;
+    public static float BounceBuffer = .2f;
+
 
 
     //////// Stuff used here is for particle systems
@@ -103,6 +106,14 @@ public class PlayerMovement : MonoBehaviour
         else
         {
             JumpInput = "Jump";
+        }
+        if (BounceBuffer > 0)
+        {
+            BounceBuffer -= Time.deltaTime;
+        }
+        else if (BounceBuffer <= 0)
+        {
+            BounceBuffer = 0;
         }
 
         if (PlayerHealth.Dead == false) // Only allow movement if alive
@@ -238,7 +249,7 @@ public class PlayerMovement : MonoBehaviour
             }
 
             ///// Movement left and right
-            if ((moveHorizontal > 0f) && !Trampoline.IsBouncing) // player is moving right
+            if ((moveHorizontal > 0f) && !Trampoline.IsBouncing && BounceBuffer <= 0) // player is moving right
             {
                 if ((moveHorizontal > 0f && playerBody.velocity.x < 0f) && !recentlyJumped && (Mathf.Abs(playerVelocity.x) > 2) && JumpDetector.OnGround == false && KeepWithPlatform.OnPlatform == false) // this makes the character turn around quicker in the air for more control, I add the >2 part to prevent backdashing upond landing on the ground
                 {
@@ -251,7 +262,7 @@ public class PlayerMovement : MonoBehaviour
                 }
                 PlayerAnim.SetBool("Running", true);
             }
-            if ((moveHorizontal < 0f) && !Trampoline.IsBouncing) // player is moving left
+            if ((moveHorizontal < 0f) && !Trampoline.IsBouncing && BounceBuffer <= 0) // player is moving left
             {
                 if ((moveHorizontal < 0f && playerBody.velocity.x > 0f) && !recentlyJumped && (Mathf.Abs(playerVelocity.x) > 2) && JumpDetector.OnGround == false && KeepWithPlatform.OnPlatform == false)
                 {
@@ -270,7 +281,7 @@ public class PlayerMovement : MonoBehaviour
                 PlayerAnim.SetBool("Running", false);
             }
 
-            if (isJumping && !recentlyJumped && FanFloating == false) // counter jump force: if you release W after jumping you don't jump as high. In other words the longer you hold W the higher you jump.
+            if (isJumping && !recentlyJumped && FanFloating == false && JustBounced == false) // counter jump force: if you release W after jumping you don't jump as high. In other words the longer you hold W the higher you jump.
             {
 
                 if (Gamepad.current != null)
@@ -335,6 +346,7 @@ public class PlayerMovement : MonoBehaviour
             if (JumpDetector.OnGround)
             {
                 SwitchFloatValue(false);
+                JustBounced = false;
                 floatingTimer = .1f;
                 gameObject.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeRotation;
             }
