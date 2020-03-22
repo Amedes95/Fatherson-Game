@@ -37,12 +37,12 @@ public class BasicPatrol : MonoBehaviour
         RaycastingEnemy();
         RaycastingObstacle();
         WalkAround();
-        if ((TouchingWall || TouchingEnemy || TouchingObstacle))
+        if ((TouchingWall || TouchingEnemy || TouchingObstacle) && !Falling)
         {
             FlipCharacter();
             PatrolDirection = new Vector2(PatrolDirection.x * -1, 0);
         }
-        if (avoidsLedges && !TouchingFloor) // perhaps this is where the cobra spazz glitch occurs.  IT IS.
+        if (avoidsLedges && !TouchingFloor && !Falling) // perhaps this is where the cobra spazz glitch occurs.  IT IS.
         {
             FlipCharacter();
             PatrolDirection = new Vector2(PatrolDirection.x * -1, 0);
@@ -52,6 +52,10 @@ public class BasicPatrol : MonoBehaviour
             Falling = true;
         }
         else
+        {
+            Falling = false;
+        }
+        if (TouchingFloor && Falling)
         {
             Falling = false;
         }
