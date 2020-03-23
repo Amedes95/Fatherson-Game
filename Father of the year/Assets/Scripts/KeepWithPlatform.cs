@@ -6,6 +6,11 @@ public class KeepWithPlatform : MonoBehaviour
 {
     public static bool OnPlatform; // for the player
 
+
+    private void Awake()
+    {
+        OnPlatform = false;
+    }
     private void OnTriggerStay2D(Collider2D collision)
     {
         if (collision.tag == "Feet")

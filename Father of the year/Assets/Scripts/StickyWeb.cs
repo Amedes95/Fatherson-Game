@@ -6,6 +6,11 @@ public class StickyWeb : MonoBehaviour
 {
     public static bool StuckInWeb;
 
+    private void Awake()
+    {
+        StuckInWeb = false;
+    }
+
     private void OnTriggerStay2D(Collider2D collision) // enter the web
     {
         if (collision.gameObject.activeInHierarchy)
