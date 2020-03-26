@@ -83,7 +83,7 @@ public class LevelManager : MonoBehaviour
         {
             WorldsList.Add(World2);
         }
-        if (WorldsList.Contains(World3) == false && PlayerPrefs.GetInt("World3_Complete") == 1)
+        if (WorldsList.Contains(World3) == false && PlayerPrefs.GetInt("World2_Complete") == 1)
         {
             WorldsList.Add(World3);
         }
@@ -340,6 +340,8 @@ public class LevelManager : MonoBehaviour
                     WorldIndex = WorldsList.IndexOf(World); // and the world index
                     Debug.Log("World Index: " + WorldIndex);
                     ActiveWorld = WorldsList[WorldIndex]; // and the active world
+                    BackGroudSwapper();
+
                 }
             }
         }
