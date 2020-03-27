@@ -17,6 +17,8 @@ public class BonkableHead : MonoBehaviour
     public int CurrentHP;
     public int MaxHP;
 
+    public bool Stunable;
+
 
     public void Awake()
     {
@@ -36,6 +38,8 @@ public class BonkableHead : MonoBehaviour
                     //collision.GetComponentInParent<Animator>().SetBool("DoubleJumpActive", true);
                     collision.GetComponentInParent<Animator>().SetTrigger("Jump");
                     //Debug.Log("Bonk");
+                    PlayerMovement.BounceBuffer = .1f; // new 3/22/20
+                    PlayerMovement.JustBounced = true;
                     Boombox.SetVibrationIntensity(.1f, .25f, .75f);
                     if (bonkTimer > 0)
                     {
@@ -62,18 +66,18 @@ public class BonkableHead : MonoBehaviour
                                 SpawnDeathParticles();
                             }
                             // trigger different attacks at different health points
-                            if (CurrentHP == MaxHP - 10)
+                            if (CurrentHP == MaxHP - 8)
                             {
                                 gameObject.GetComponentInParent<Animator>().SetBool("Hopping", false);
                                 gameObject.GetComponentInParent<Animator>().SetTrigger("Roar");
                             }
-                            if (CurrentHP == MaxHP - 20)
+                            if (CurrentHP == MaxHP - 18)
                             {
                                 gameObject.GetComponentInParent<Animator>().SetBool("Hopping", false);
                                 gameObject.GetComponentInParent<Animator>().SetTrigger("Roar");
 
                             }
-                            if (CurrentHP <= MaxHP - 30)
+                            if (CurrentHP <= MaxHP - 28)
                             {
                                 gameObject.GetComponentInParent<Animator>().SetBool("Hopping", false);
                                 gameObject.GetComponentInParent<Animator>().SetTrigger("Roar");
@@ -84,6 +88,10 @@ public class BonkableHead : MonoBehaviour
                         {
                             SpawnDeathParticles();
                         }
+                    }
+                    else if (Stunable)
+                    {
+                        gameObject.GetComponentInParent<Animator>().SetTrigger("Stun");
                     }
                 }
                 else
