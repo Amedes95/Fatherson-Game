@@ -14,10 +14,10 @@ public class MushroomBoos : MonoBehaviour
     public float WalkSpeed;
 
     public Transform RayCastEnd;
+    public Transform RaycastEndWall;
     bool TouchingFloor;
+    bool TouchingWall;
     float StunDuration;
-
-    bool CanBeKilled;
 
     // Start is called before the first frame update
     void Awake()
@@ -31,11 +31,12 @@ public class MushroomBoos : MonoBehaviour
     {
         if (Player.activeInHierarchy == false)
         {
-            //gameObject.GetComponent<Animator>().SetBool("PlayerKilled", true);
+            gameObject.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeAll;
         }
 
         RaycastingFloor();
-        if ((JumpDetector.OnGround || TouchingFloor == false) && gameObject.GetComponent<Animator>().GetBool("Stunned")== false)
+        RaycastingWall();
+        if ((JumpDetector.OnGround || (TouchingFloor == false || TouchingWall)) && gameObject.GetComponent<Animator>().GetBool("Stunned")== false)
         {
             if (Player.transform.position.x < transform.position.x) // if the player is to the left of the boss
             {
@@ -108,6 +109,12 @@ public class MushroomBoos : MonoBehaviour
         TouchingFloor = Physics2D.Linecast(transform.position, RayCastEnd.position, 1 << LayerMask.NameToLayer("Ground"));
     }
 
+    void RaycastingWall()
+    {
+        Debug.DrawLine(transform.position, RaycastEndWall.position, Color.green);
+        TouchingWall = Physics2D.Linecast(transform.position, RaycastEndWall.position, 1 << LayerMask.NameToLayer("Ground"));
+    }
+
     public void LockMovement()
     {
         gameObject.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeAll;
@@ -121,7 +128,7 @@ public class MushroomBoos : MonoBehaviour
     public void SubtractHP()
     {
         CurrentBossHP -= 1;
-        if (CurrentBossHP <= MAXHP - 6)
+        if (CurrentBossHP <= MAXHP - 8) // 8 bonks later
         {
             StunDuration = 5f;
             StunnedMode();
@@ -141,15 +148,5 @@ public class MushroomBoos : MonoBehaviour
             UnlockMovement();
             gameObject.GetComponent<Animator>().SetBool("Stunned", false);
         }
-    }
-
-    public void BecomeVulnerable()
-    {
-        CanBeKilled = true;
-    }
-
-    public void BecomeInvulnerable()
-    {
-        CanBeKilled = false;
     }
 }

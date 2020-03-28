@@ -7031,24 +7031,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 67af531bc452e684fbe82f5fc9027d07, type: 3}
---- !u!1 &1188328373 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 19677182290878138, guid: 67af531bc452e684fbe82f5fc9027d07,
-    type: 3}
-  m_PrefabInstance: {fileID: 1188328372}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1188328374
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1188328373}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1c6d7147989d5034b9fb5ce3737d08c5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1190689864
 GameObject:
   m_ObjectHideFlags: 0
@@ -21939,6 +21921,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Tiles.Array.data[347].second.m_ColliderType
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 159540085334520864, guid: 94ece9c099684bc4da8db7a011b652d7,
+        type: 3}
+      propertyPath: m_ChunkCullingBounds.y
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 159540085334520870, guid: 94ece9c099684bc4da8db7a011b652d7,
         type: 3}
@@ -41525,6 +41512,11 @@ PrefabInstance:
       propertyPath: m_CompositePaths.m_Paths.Array.data[2].Array.data[71].y
       value: -3.0000117
       objectReference: {fileID: 0}
+    - target: {fileID: 159540085334520871, guid: 94ece9c099684bc4da8db7a011b652d7,
+        type: 3}
+      propertyPath: m_ExtrusionFactor
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 159540086302401820, guid: 94ece9c099684bc4da8db7a011b652d7,
         type: 3}
       propertyPath: m_Tiles.Array.size
@@ -44386,16 +44378,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_CompositePaths.m_Paths.Array.data[12].Array.data[3].y
       value: -2.12501
-      objectReference: {fileID: 0}
-    - target: {fileID: 159540085334520864, guid: 94ece9c099684bc4da8db7a011b652d7,
-        type: 3}
-      propertyPath: m_ChunkCullingBounds.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 159540085334520871, guid: 94ece9c099684bc4da8db7a011b652d7,
-        type: 3}
-      propertyPath: m_ExtrusionFactor
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 159540085090495512, guid: 94ece9c099684bc4da8db7a011b652d7,
         type: 3}
