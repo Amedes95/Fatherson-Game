@@ -29,7 +29,8 @@ public class BackgroundMove : MonoBehaviour
 
     private void Start()
     {
-        StartPos = transform.position;
+        StartPos = transform.localPosition;
+        Debug.Log(StartPos + gameObject.name);
 
         XLoopRight = RightLoopPos.transform.position.x;
         XLoopLeft = LeftLoopPos.transform.position.x;
@@ -61,7 +62,7 @@ public class BackgroundMove : MonoBehaviour
                     transform.position = new Vector3(transform.position.x + 160, LeftLoopPos.position.y, 0);
                 }
             }
-            if (Right) // Moving left
+            if (Right) // Moving right
             {
 
                 CenterTile.GetComponent<SpriteRenderer>().enabled = true;
@@ -109,7 +110,7 @@ public class BackgroundMove : MonoBehaviour
 
                 LeftLoopPos.GetComponent<SpriteRenderer>().enabled = false;
                 RightLoopPos.GetComponent<SpriteRenderer>().enabled = false;
-                BottomLoopPos.GetComponent<SpriteRenderer>().enabled = false; ;
+                BottomLoopPos.GetComponent<SpriteRenderer>().enabled = false;
 
                 //transform.Translate(Vector3.down * Speed);
                 gameObject.transform.position = new Vector2(transform.position.x, transform.position.y - Speed);
@@ -126,7 +127,7 @@ public class BackgroundMove : MonoBehaviour
 
     public void ResetAllPositions()
     {
-        transform.position = StartPos;
+        transform.localPosition = StartPos;
     }
 
 

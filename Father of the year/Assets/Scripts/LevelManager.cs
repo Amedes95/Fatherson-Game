@@ -21,6 +21,7 @@ public class LevelManager : MonoBehaviour
     public GameObject World1;
     public GameObject World2;
     public GameObject World3;
+    public GameObject World4;
 
     int LevelIndex;
     int WorldIndex;
@@ -45,6 +46,7 @@ public class LevelManager : MonoBehaviour
     public Sprite World1Background;
     public Sprite World2Background;
     public Sprite World3Background;
+    public Sprite World4Background;
 
 
     AudioSource WorldHubAudioSource;
@@ -86,6 +88,10 @@ public class LevelManager : MonoBehaviour
         if (WorldsList.Contains(World3) == false && PlayerPrefs.GetInt("World2_Complete") == 1)
         {
             WorldsList.Add(World3);
+        }
+        if (WorldsList.Contains(World4) == false && PlayerPrefs.GetInt("World3_Complete") == 1)
+        {
+            WorldsList.Add(World4);
         }
 
         /// add check for world 2 completion here (final level script)
@@ -157,9 +163,9 @@ public class LevelManager : MonoBehaviour
                 ActiveWorld.GetComponent<ListofLevels>().CurrentIndex = LevelIndex;
             }
 
-
+            Vector3 NewPos = new Vector3(0, ActiveWorld.transform.position.y, -10);
             //// Shifts world indexer up and down
-            if (Input.GetAxis(VerticalAxis) == -1 && AbleToNavigate) // move down a world
+            if (Input.GetAxis(VerticalAxis) == -1 && AbleToNavigate && Camera.transform.position == NewPos) // move down a world
             {
                 if (WorldIndex > 0)
                 {
@@ -173,7 +179,7 @@ public class LevelManager : MonoBehaviour
                 //Debug.Log(WorldIndex);
 
             }
-            else if (Input.GetAxis(VerticalAxis) == 1 && AbleToNavigate) // moves up
+            else if (Input.GetAxis(VerticalAxis) == 1 && AbleToNavigate && Camera.transform.position == NewPos) // moves up
             {
                 if (WorldIndex < WorldsList.Count - 1)
                 {
@@ -194,7 +200,7 @@ public class LevelManager : MonoBehaviour
 
 
             // moves camera and selection box to active level
-            Vector3 NewPos = new Vector3(0, ActiveWorld.transform.position.y, -10);
+            //Vector3 NewPos = new Vector3(0, ActiveWorld.transform.position.y, -10);
             Camera.transform.position = Vector3.MoveTowards(Camera.transform.position, NewPos, .5f);
             SelectionBox.transform.position = new Vector3(0, ActiveWorld.transform.position.y, 0);
 
@@ -227,9 +233,6 @@ public class LevelManager : MonoBehaviour
         {
             DownArrow.SetActive(true);
         }
-
-
-
 
     }
 
@@ -270,6 +273,7 @@ public class LevelManager : MonoBehaviour
             BottomBG.GetComponent<SpriteRenderer>().sprite = TutorialBackground;
 
             BackgroundChangeDirection("Right");
+
         }
         else if (WorldIndex == 1) // Orange arrows
         {
@@ -280,6 +284,7 @@ public class LevelManager : MonoBehaviour
             BottomBG.GetComponent<SpriteRenderer>().sprite = World1Background;
 
             BackgroundChangeDirection("Up");
+
         }
         else if (WorldIndex == 2) // green squares
         {
@@ -290,6 +295,7 @@ public class LevelManager : MonoBehaviour
             BottomBG.GetComponent<SpriteRenderer>().sprite = World2Background;
 
             BackgroundChangeDirection("Left");
+
         }
         else if (WorldIndex == 3) // purple squares
         {
@@ -300,6 +306,18 @@ public class LevelManager : MonoBehaviour
             BottomBG.GetComponent<SpriteRenderer>().sprite = World3Background;
 
             BackgroundChangeDirection("Down");
+
+        }
+        else if (WorldIndex == 4) // pink lines
+        {
+            CenterBG.GetComponent<SpriteRenderer>().sprite = World4Background;
+            RightBG.GetComponent<SpriteRenderer>().sprite = World4Background;
+            LeftBG.GetComponent<SpriteRenderer>().sprite = World4Background;
+            TopBG.GetComponent<SpriteRenderer>().sprite = World4Background;
+            BottomBG.GetComponent<SpriteRenderer>().sprite = World4Background;
+
+            BackgroundChangeDirection("Right");
+
         }
     }
 
@@ -338,7 +356,7 @@ public class LevelManager : MonoBehaviour
                     World.GetComponent<ListofLevels>().CurrentIndex = StartingLevelIndex;
 
                     WorldIndex = WorldsList.IndexOf(World); // and the world index
-                    Debug.Log("World Index: " + WorldIndex);
+                    //Debug.Log("World Index: " + WorldIndex);
                     ActiveWorld = WorldsList[WorldIndex]; // and the active world
                     BackGroudSwapper();
 
@@ -354,9 +372,12 @@ public class LevelManager : MonoBehaviour
         PlayerPrefs.SetInt("World1_Complete", 1);
         PlayerPrefs.SetInt("World2_Complete", 1);
         PlayerPrefs.SetInt("World3_Complete", 1);
+        PlayerPrefs.SetInt("World4_Complete", 1);
+
         WorldsList.Add(World1);
         WorldsList.Add(World2);
         WorldsList.Add(World3);
+        WorldsList.Add(World4);
 
     }
 
