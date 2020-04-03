@@ -108,7 +108,10 @@ public class BasicPatrol : MonoBehaviour
     {
         if (collision.gameObject.tag == "Player" && TouchingFloor == true)
         {
-            gameObject.GetComponent<Animator>().SetTrigger("Attack");
+            if (gameObject.tag != "Sleeper")
+            {
+                gameObject.GetComponent<Animator>().SetTrigger("Attack");
+            }
             gameObject.GetComponent<Rigidbody2D>().AddForce(PatrolDirection * 10);
         }
     }

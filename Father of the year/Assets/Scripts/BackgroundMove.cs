@@ -30,7 +30,6 @@ public class BackgroundMove : MonoBehaviour
     private void Start()
     {
         StartPos = transform.localPosition;
-        Debug.Log(StartPos + gameObject.name);
 
         XLoopRight = RightLoopPos.transform.position.x;
         XLoopLeft = LeftLoopPos.transform.position.x;
