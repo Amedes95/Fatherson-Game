@@ -10,6 +10,8 @@ public class Collectible : MonoBehaviour
     float RespawnDelayStart;
     bool Consumed;
 
+    public bool NegatesLava;
+
     private void Awake()
     {
         RespawnDelayStart = RespawnDelay;
@@ -21,8 +23,16 @@ public class Collectible : MonoBehaviour
         {
             GetComponent<Animator>().SetTrigger("Collected"); // pop
             collision.GetComponent<Collector>().FruitFromLevel += Value; // The players current fruit plus the value of the fruit obtained
-            PlayerMovement.jumpCount = 1;
-            collision.GetComponent<PlayerMovement>().SpawnDoubleJumpParticles();
+            if (!NegatesLava)
+            {
+                PlayerMovement.jumpCount = 1;
+                collision.GetComponent<PlayerMovement>().SpawnDoubleJumpParticles();
+            }
+            else
+            {
+                PlayerMovement.InvincibilityTimer = 12f;
+            }
+
             Consumed = true;
         }
     }

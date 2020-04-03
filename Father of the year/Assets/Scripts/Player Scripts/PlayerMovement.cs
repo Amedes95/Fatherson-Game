@@ -58,6 +58,10 @@ public class PlayerMovement : MonoBehaviour
     public static bool JustBounced;
     public static float BounceBuffer = .2f;
 
+    public static bool PlayerInvincible;
+    public static float InvincibilityTimer;
+    public GameObject LavaShield;
+
 
 
     //////// Stuff used here is for particle systems
@@ -78,6 +82,7 @@ public class PlayerMovement : MonoBehaviour
         setWallJumpBuffer = wallJumpBuffer;
         jumpBuffer = -1;
         jumpForce = CalculateJumpForce(playerBody.gravityScale, jumpHeight);
+        InvincibilityTimer = 0f;
 
         if (flipOnSpawn)
         {
@@ -131,6 +136,35 @@ public class PlayerMovement : MonoBehaviour
             {
                 DoubleJumpEffect.GetComponent<ParticleSystem>().Stop();
                 gameObject.GetComponent<Animator>().SetBool("DoubleJumpActive", false);
+            }
+
+            ///// Lava invincibility timer
+            if (InvincibilityTimer > 0)
+            {
+                Debug.Log(InvincibilityTimer);
+                InvincibilityTimer -= Time.smoothDeltaTime;
+                PlayerInvincible = true; // Invincible while timer is active
+                LavaShield.GetComponent<SpriteRenderer>().enabled = true;
+                LavaShield.GetComponent<Animator>().SetBool("Active", true);
+
+                if (InvincibilityTimer <= 4f) // warning effect for lava shield
+                {
+                    LavaShield.GetComponent<Animator>().SetBool("Warning", true);
+                }
+                else
+                {
+                    LavaShield.GetComponent<Animator>().SetBool("Warning", false);
+                }
+            }
+
+            else if (InvincibilityTimer <= 0)
+            {
+                InvincibilityTimer = 0f;
+                PlayerInvincible = false;
+                LavaShield.GetComponent<SpriteRenderer>().enabled = false;
+                LavaShield.GetComponent<Animator>().SetBool("Active", false);
+                LavaShield.GetComponent<Animator>().SetBool("Warning", false);
+
             }
 
 
