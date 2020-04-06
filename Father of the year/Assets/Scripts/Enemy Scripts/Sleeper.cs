@@ -21,6 +21,14 @@ public class Sleeper : MonoBehaviour
         if (awake)
         {
             GetComponent<BasicPatrol>().enabled = true;
+            if (PlayerMovement.PlayerInvincible)
+            {
+                BonkableHead.SetActive(true);
+            }
+            else
+            {
+                BonkableHead.SetActive(false);
+            }
         }
     }
 
