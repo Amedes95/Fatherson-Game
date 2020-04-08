@@ -30,7 +30,7 @@ public class Collectible : MonoBehaviour
             }
             else
             {
-                PlayerMovement.InvincibilityTimer = 12f;
+                PlayerMovement.InvincibilityTimer = 8f;
             }
 
             Consumed = true;

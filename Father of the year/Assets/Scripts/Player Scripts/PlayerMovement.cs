@@ -147,7 +147,7 @@ public class PlayerMovement : MonoBehaviour
                 LavaShield.GetComponent<SpriteRenderer>().enabled = true;
                 LavaShield.GetComponent<Animator>().SetBool("Active", true);
 
-                if (InvincibilityTimer <= 4f) // warning effect for lava shield
+                if (InvincibilityTimer <= 3.5f) // warning effect for lava shield
                 {
                     LavaShield.GetComponent<Animator>().SetBool("Warning", true);
                 }
