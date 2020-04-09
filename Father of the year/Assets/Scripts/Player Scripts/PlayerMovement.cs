@@ -83,6 +83,7 @@ public class PlayerMovement : MonoBehaviour
         jumpBuffer = -1;
         jumpForce = CalculateJumpForce(playerBody.gravityScale, jumpHeight);
         InvincibilityTimer = 0f;
+        wallJumping = false;
 
         if (flipOnSpawn)
         {
@@ -141,7 +142,7 @@ public class PlayerMovement : MonoBehaviour
             ///// Lava invincibility timer
             if (InvincibilityTimer > 0)
             {
-                Debug.Log(InvincibilityTimer);
+                //Debug.Log(InvincibilityTimer);
                 InvincibilityTimer -= Time.smoothDeltaTime;
                 PlayerInvincible = true; // Invincible while timer is active
                 LavaShield.GetComponent<SpriteRenderer>().enabled = true;
@@ -441,14 +442,19 @@ public class PlayerMovement : MonoBehaviour
         }
         if (Trampoline.IsBouncing == false) // and not bonking? 
         {
-            jumpFallCooldown = .05f;
-            recentlyJumped = true;
-            playerBody.AddForce(Vector2.up * jumpForce * 180);
-            PlayerAnim.SetTrigger("Jump");
-            isJumping = true;
-            wallJumping = false;
-            CreateDust();
-            jumpAudioBox.playJumpSound();
+            if (!wallJumping && JumpDetector.OnGround == true) /////// this check is new 4/8/20 to fix two-way platform launching
+            {
+                Debug.Log("Jumped");
+                jumpFallCooldown = .05f;
+                recentlyJumped = true;
+                playerBody.AddForce(Vector2.up * jumpForce * 180);
+                PlayerAnim.SetTrigger("Jump");
+                isJumping = true;
+                wallJumping = false;
+                CreateDust();
+                jumpAudioBox.playJumpSound();
+            }
+
         }
         Boombox.SetVibrationIntensity(.1f, .25f, .75f); // vibrate a lil bit ;)
     }

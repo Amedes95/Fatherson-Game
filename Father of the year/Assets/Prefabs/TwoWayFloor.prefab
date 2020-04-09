@@ -70,7 +70,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1512684217
-  m_SortingLayer: 4
+  m_SortingLayer: 5
   m_SortingOrder: 0
   m_Sprite: {fileID: -165595439601589375, guid: 359dd8efb3e3be24d88a806e07862db1,
     type: 3}
@@ -149,8 +149,8 @@ GameObject:
   - component: {fileID: 7749361210334062552}
   - component: {fileID: 2141425340087534575}
   m_Layer: 8
-  m_Name: OneWayFloor
-  m_TagString: Untagged
+  m_Name: TwoWayFloor
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -206,7 +206,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1512684217
-  m_SortingLayer: 4
+  m_SortingLayer: 5
   m_SortingOrder: 0
   m_Sprite: {fileID: -165595439601589375, guid: 359dd8efb3e3be24d88a806e07862db1,
     type: 3}
