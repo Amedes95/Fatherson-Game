@@ -31,7 +31,7 @@ Transform:
   m_GameObject: {fileID: 6919814163421973077}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -4.23, y: 14.21, z: 0}
-  m_LocalScale: {x: 2, y: 2, z: 2}
+  m_LocalScale: {x: 1.5, y: 1.5, z: 1.5}
   m_Children:
   - {fileID: 6919814164004092567}
   - {fileID: 6919814164110555776}
@@ -278,6 +278,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d47d4a895ae59414e912ab6a978b8b2a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  LavaSource: 0
 --- !u!1 &6919814164004092566
 GameObject:
   m_ObjectHideFlags: 0
@@ -322,7 +323,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9bd21f1d72c167146a08551fd0a1fe0f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Killable: 0
+  Killable: 1
   DeathParticles: {fileID: 9012351662596608965, guid: 1561efb2e76e061499aef521f9ad52d1,
     type: 3}
   bonkTimer: 0
