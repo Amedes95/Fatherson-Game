@@ -34,6 +34,7 @@ public class FlyingDemon : MonoBehaviour
             }
         }
 
+
     }
 
     public void SpawnLavaDrop()

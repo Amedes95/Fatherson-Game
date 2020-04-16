@@ -1,5 +1,35 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &6424692804375518535
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1990656812912639824}
+  m_Layer: 11
+  m_Name: EnemycastStart
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1990656812912639824
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6424692804375518535}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.339, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 6919814163421973096}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &6919814163421973077
 GameObject:
   m_ObjectHideFlags: 0
@@ -15,7 +45,7 @@ GameObject:
   - component: {fileID: 6919814163421973097}
   - component: {fileID: 6919814163421973099}
   - component: {fileID: 6919814163421973100}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: FlyingDemon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -38,6 +68,7 @@ Transform:
   - {fileID: 6919814163673191764}
   - {fileID: 6919814163817393376}
   - {fileID: 6919814164055850050}
+  - {fileID: 1990656812912639824}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -161,7 +192,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   EndLine: {fileID: 6919814163673191764}
   FloorLine: {fileID: 6919814164110555776}
-  EnemyStart: {fileID: 6919814163421973096}
+  EnemyStart: {fileID: 1990656812912639824}
   EnemyLine: {fileID: 6919814163673191764}
   TouchingFloor: 0
   PatrolSpeed: 1.5
@@ -171,6 +202,7 @@ MonoBehaviour:
   RedCobra: 0
   attacking: 0
   Falling: 0
+  FlyingEnemy: 1
 --- !u!114 &6919814163421973100
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -134,6 +134,8 @@ GameObject:
   m_Component:
   - component: {fileID: 3807604467174098303}
   - component: {fileID: 3807604467174098302}
+  - component: {fileID: 7651168711224632497}
+  - component: {fileID: 5721134342770869481}
   m_Layer: 0
   m_Name: FireLauncher
   m_TagString: Untagged
@@ -206,3 +208,32 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!58 &7651168711224632497
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3807604467174098297}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.000000021520572, y: 0.007368476}
+  serializedVersion: 2
+  m_Radius: 0.15842845
+--- !u!114 &5721134342770869481
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3807604467174098297}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d47d4a895ae59414e912ab6a978b8b2a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  LavaSource: 0

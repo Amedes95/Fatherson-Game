@@ -20,6 +20,7 @@ public class BasicPatrol : MonoBehaviour
     public bool RedCobra; //for the lunge animation
     public bool attacking;
     public bool Falling;
+    public bool FlyingEnemy;
 
     private void Awake()
     {
@@ -47,7 +48,11 @@ public class BasicPatrol : MonoBehaviour
             FlipCharacter();
             PatrolDirection = new Vector2(PatrolDirection.x * -1, 0);
         }
-        if (TouchingFloor == false)
+        if (FlyingEnemy && TouchingEnemy)
+        {
+            Falling = false;
+        }
+        if (TouchingFloor == false && !FlyingEnemy)
         {
             Falling = true;
         }

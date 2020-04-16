@@ -442,9 +442,8 @@ public class PlayerMovement : MonoBehaviour
         }
         if (Trampoline.IsBouncing == false) // and not bonking? 
         {
-            if (!wallJumping && JumpDetector.OnGround == true) /////// this check is new 4/8/20 to fix two-way platform launching
+            if (!wallJumping && JumpDetector.OnGround == true || (!wallJumping && jumpCount > 0)) /////// this check is new 4/8/20 to fix two-way platform launching
             {
-                Debug.Log("Jumped");
                 jumpFallCooldown = .05f;
                 recentlyJumped = true;
                 playerBody.AddForce(Vector2.up * jumpForce * 180);
