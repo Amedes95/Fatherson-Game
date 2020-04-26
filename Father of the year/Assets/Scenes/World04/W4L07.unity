@@ -402,7 +402,7 @@ PrefabInstance:
     - target: {fileID: 4284295574517526958, guid: df153f6aa0c2b554fbe0ea555c7182d3,
         type: 3}
       propertyPath: LevelNumberDisplay
-      value: BLANK SCENE
+      value: World 7
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: df153f6aa0c2b554fbe0ea555c7182d3, type: 3}
@@ -15358,11 +15358,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Tiles.Array.data[275].second.m_ColliderType
       value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 159540085334520864, guid: 94ece9c099684bc4da8db7a011b652d7,
-        type: 3}
-      propertyPath: m_ChunkCullingBounds.y
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 159540085334520870, guid: 94ece9c099684bc4da8db7a011b652d7,
         type: 3}
@@ -35034,11 +35029,6 @@ PrefabInstance:
       propertyPath: m_CompositePaths.m_Paths.Array.data[6].Array.data[41].x
       value: -6.999745
       objectReference: {fileID: 0}
-    - target: {fileID: 159540085334520871, guid: 94ece9c099684bc4da8db7a011b652d7,
-        type: 3}
-      propertyPath: m_ExtrusionFactor
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 159540086302401820, guid: 94ece9c099684bc4da8db7a011b652d7,
         type: 3}
       propertyPath: m_Tiles.Array.size
@@ -39550,6 +39540,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_CompositePaths.m_Paths.Array.data[20].Array.data[3].y
       value: 0.87499
+      objectReference: {fileID: 0}
+    - target: {fileID: 159540085334520864, guid: 94ece9c099684bc4da8db7a011b652d7,
+        type: 3}
+      propertyPath: m_ChunkCullingBounds.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 159540085334520871, guid: 94ece9c099684bc4da8db7a011b652d7,
+        type: 3}
+      propertyPath: m_ExtrusionFactor
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 159540085090495512, guid: 94ece9c099684bc4da8db7a011b652d7,
         type: 3}
@@ -54402,6 +54402,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Pivot.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7472411387764395205, guid: 20b20a7763791de48978cdb88ee458a5,
+        type: 3}
+      propertyPath: NextLevel
+      value: W4L08
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 20b20a7763791de48978cdb88ee458a5, type: 3}
