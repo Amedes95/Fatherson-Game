@@ -51,4 +51,9 @@ public class FlameTrap : MonoBehaviour
             SteppedOn = false;
         }
     }
+
+    public void PlayTriggeredNoise()
+    {
+        gameObject.GetComponent<AudioSource>().Play();
+    }
 }

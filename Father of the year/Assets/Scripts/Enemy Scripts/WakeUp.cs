@@ -18,6 +18,12 @@ public class WakeUp : MonoBehaviour
         if (collision.tag == "Player" && !Enemy.SightBlocked)
         {
             GetComponentInParent<Animator>().SetTrigger("Wake");
+            PlayDisturbedNoise();
         }
+    }
+
+    public void PlayDisturbedNoise()
+    {
+        gameObject.GetComponent<AudioSource>().Play();
     }
 }

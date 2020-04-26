@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 5463042105056967985}
   - component: {fileID: 7588088450154837339}
   m_Layer: 0
-  m_Name: LavaDrop
+  m_Name: FireballImpact
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -227,8 +227,8 @@ ParticleSystem:
       maxColor: {r: 0.15860271, g: 1, b: 0, a: 1}
       maxGradient:
         serializedVersion: 2
-        key0: {r: 1, g: 0, b: 0, a: 1}
-        key1: {r: 1, g: 0.6683483, b: 0, a: 1}
+        key0: {r: 1, g: 0.8632076, b: 0.8632076, a: 1}
+        key1: {r: 0.2264151, g: 0.2264151, b: 0.2264151, a: 1}
         key2: {r: 0, g: 0, b: 0, a: 0}
         key3: {r: 0, g: 0, b: 0, a: 0}
         key4: {r: 0, g: 0, b: 0, a: 0}
@@ -256,8 +256,8 @@ ParticleSystem:
         m_NumAlphaKeys: 2
       minGradient:
         serializedVersion: 2
-        key0: {r: 1, g: 0.24368122, b: 0, a: 1}
-        key1: {r: 0.9827944, g: 1, b: 0, a: 1}
+        key0: {r: 0.3962264, g: 0.3962264, b: 0.3962264, a: 1}
+        key1: {r: 1, g: 1, b: 1, a: 1}
         key2: {r: 0, g: 0, b: 0, a: 0}
         key3: {r: 0, g: 0, b: 0, a: 0}
         key4: {r: 0, g: 0, b: 0, a: 0}
@@ -1363,16 +1363,16 @@ ParticleSystem:
       maxColor: {r: 1, g: 1, b: 1, a: 1}
       maxGradient:
         serializedVersion: 2
-        key0: {r: 1, g: 0.8178636, b: 0, a: 1}
-        key1: {r: 1, g: 0.1487732, b: 0, a: 1}
-        key2: {r: 1, g: 0.1487732, b: 0, a: 0}
+        key0: {r: 1, g: 0.1487732, b: 0, a: 1}
+        key1: {r: 0.3207547, g: 0.3207547, b: 0.3207547, a: 1}
+        key2: {r: 1, g: 1, b: 1, a: 0}
         key3: {r: 0, g: 0, b: 0, a: 0}
         key4: {r: 0, g: 0, b: 0, a: 0}
         key5: {r: 0, g: 0, b: 0, a: 0}
         key6: {r: 0, g: 0, b: 0, a: 0}
         key7: {r: 0, g: 0, b: 0, a: 0}
-        ctime0: 11951
-        ctime1: 38936
+        ctime0: 2699
+        ctime1: 22937
         ctime2: 54163
         ctime3: 0
         ctime4: 0
@@ -4823,7 +4823,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 471bd958d6a8a41b7b4bec0ace03a86b, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 2db106e37a472d34c9a05d3e5bd7966a, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 0.5

@@ -8,6 +8,7 @@ public class Sleeper : MonoBehaviour
     Transform Player;
     public bool SightBlocked;
     public GameObject BonkableHead;
+    public GameObject DisturbZone;
 
     private void Awake()
     {
@@ -36,6 +37,8 @@ public class Sleeper : MonoBehaviour
     {
         awake = true;
         BonkableHead.SetActive(false);
+        DisturbZone.SetActive(false);
+
     }
 
     public void Raycasting() // Checks to see if there are walls between the enemy and player

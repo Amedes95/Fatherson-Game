@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 3789810136291099153}
   - component: {fileID: 7690278222233848246}
   - component: {fileID: 2893087745823039013}
+  - component: {fileID: 44906942072271272}
   m_Layer: 0
   m_Name: Lollipop
   m_TagString: Untagged
@@ -145,7 +146,7 @@ AudioSource:
   m_Enabled: 0
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 02656981be2b6d54a98bda2b9713423e, type: 3}
+  m_audioClip: {fileID: 8300000, guid: e7448c6ce874968498ac4fbf426d3526, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
@@ -231,6 +232,18 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &44906942072271272
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4141941966095315901}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3bb925d59510017408fdb93ad715c7c9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &5885517107637728716
 GameObject:
   m_ObjectHideFlags: 0

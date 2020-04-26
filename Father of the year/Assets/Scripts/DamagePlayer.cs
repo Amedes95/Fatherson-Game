@@ -5,6 +5,7 @@ using UnityEngine;
 public class DamagePlayer : MonoBehaviour
 {
     public bool LavaSource;
+    public bool PoolOfLava;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -17,6 +18,10 @@ public class DamagePlayer : MonoBehaviour
             else if (!LavaSource) // kill player if not a lava source
             {
                 collision.GetComponent<PlayerHealth>().KillPlayer();
+            }
+            if (PoolOfLava)
+            {
+                gameObject.GetComponentInParent<AudioSource>().Play();
             }
         }
         else if (collision.tag == "Feet" && PlayerMovement.PlayerInvincible == false)
