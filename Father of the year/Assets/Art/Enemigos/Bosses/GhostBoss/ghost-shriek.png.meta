@@ -1,22 +1,19 @@
 fileFormatVersion: 2
-guid: 8bc29711b68c6a5428148c7058d835ac
+guid: 0318fe6b8d542b94d97f01f1eb2fc002
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -4848053936953373318
-    second: LavaPit_0
+      213: 2379501848054709139
+    second: ghost-shriek_0
   - first:
-      213: 8877538144186761983
-    second: LavaPit_1
+      213: -3165567103950484387
+    second: ghost-shriek_1
   - first:
-      213: -6547647728535781188
-    second: LavaPit_2
+      213: -8980364135857683555
+    second: ghost-shriek_2
   - first:
-      213: -5460701523042120553
-    second: LavaPit_3
-  - first:
-      213: -8741332583287429651
-    second: LavaPit_4
+      213: -7974593361352643873
+    second: ghost-shriek_3
   externalObjects: {}
   serializedVersion: 10
   mipmaps:
@@ -125,97 +122,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: LavaPit_0
+      name: ghost-shriek_0
       rect:
         serializedVersion: 2
-        x: 8
-        y: 144
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: c76ab04fdc8a1a443b46730c012a6940
-      internalID: -4848053936953373318
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: LavaPit_1
-      rect:
-        serializedVersion: 2
-        x: 48
-        y: 144
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 28aed37a27c9d374e91ede262fd33923
-      internalID: 8877538144186761983
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: LavaPit_2
-      rect:
-        serializedVersion: 2
-        x: 90
-        y: 144
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 77f5f30ab1a3e51429d6cd9e368993e1
-      internalID: -6547647728535781188
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: LavaPit_3
-      rect:
-        serializedVersion: 2
-        x: 131
-        y: 144
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 4e967a2d790e3714296b73759b87e699
-      internalID: -5460701523042120553
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: LavaPit_4
-      rect:
-        serializedVersion: 2
-        x: 8
-        y: 144
-        width: 33
-        height: 16
+        x: 20
+        y: 19
+        width: 24
+        height: 42
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -223,8 +136,71 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d8507dcc0688819469c56a2b1a7006a2
-      internalID: -8741332583287429651
+      spriteID: 0229e4465d7d4ff43a1634007142a6d5
+      internalID: 2379501848054709139
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ghost-shriek_1
+      rect:
+        serializedVersion: 2
+        x: 79
+        y: 21
+        width: 31
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 49076a6c0ef13974fb18065178bb9c01
+      internalID: -3165567103950484387
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ghost-shriek_2
+      rect:
+        serializedVersion: 2
+        x: 136
+        y: 23
+        width: 46
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fadd0d68f57ba104ba64e99cc64863ad
+      internalID: -8980364135857683555
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ghost-shriek_3
+      rect:
+        serializedVersion: 2
+        x: 200
+        y: 23
+        width: 44
+        height: 43
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: edd07b828f7214c41863203052398649
+      internalID: -7974593361352643873
       vertices: []
       indices: 
       edges: []

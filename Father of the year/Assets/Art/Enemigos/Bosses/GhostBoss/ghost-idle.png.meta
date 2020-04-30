@@ -1,22 +1,28 @@
 fileFormatVersion: 2
-guid: 8bc29711b68c6a5428148c7058d835ac
+guid: 7f67534715d3efc4e8663f84b813e3a4
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -4848053936953373318
-    second: LavaPit_0
+      213: -3858331487878545982
+    second: ghost-idle_0
   - first:
-      213: 8877538144186761983
-    second: LavaPit_1
+      213: -9020526837838253266
+    second: ghost-idle_1
   - first:
-      213: -6547647728535781188
-    second: LavaPit_2
+      213: -8000090020037720741
+    second: ghost-idle_2
   - first:
-      213: -5460701523042120553
-    second: LavaPit_3
+      213: -8128101060005746365
+    second: ghost-idle_3
   - first:
-      213: -8741332583287429651
-    second: LavaPit_4
+      213: -2512726588018041774
+    second: ghost-idle_4
+  - first:
+      213: -6601246393727790213
+    second: ghost-idle_5
+  - first:
+      213: -7920442971677258228
+    second: ghost-idle_6
   externalObjects: {}
   serializedVersion: 10
   mipmaps:
@@ -125,13 +131,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: LavaPit_0
+      name: ghost-idle_0
       rect:
         serializedVersion: 2
-        x: 8
-        y: 144
-        width: 32
-        height: 32
+        x: 20
+        y: 19
+        width: 24
+        height: 42
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -139,20 +145,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c76ab04fdc8a1a443b46730c012a6940
-      internalID: -4848053936953373318
+      spriteID: a00b9af1daa46b14388d6df2107a8535
+      internalID: -3858331487878545982
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: LavaPit_1
+      name: ghost-idle_1
       rect:
         serializedVersion: 2
-        x: 48
-        y: 144
-        width: 32
-        height: 32
+        x: 82
+        y: 18
+        width: 28
+        height: 44
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -160,20 +166,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 28aed37a27c9d374e91ede262fd33923
-      internalID: 8877538144186761983
+      spriteID: 10bf1cf92739a9c4d82d489338898ad8
+      internalID: -9020526837838253266
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: LavaPit_2
+      name: ghost-idle_2
       rect:
         serializedVersion: 2
-        x: 90
-        y: 144
-        width: 32
-        height: 32
+        x: 146
+        y: 15
+        width: 28
+        height: 44
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -181,20 +187,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 77f5f30ab1a3e51429d6cd9e368993e1
-      internalID: -6547647728535781188
+      spriteID: 042948220d86859439ff9e9a1af270e2
+      internalID: -8000090020037720741
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: LavaPit_3
+      name: ghost-idle_3
       rect:
         serializedVersion: 2
-        x: 131
-        y: 144
-        width: 32
-        height: 32
+        x: 209
+        y: 15
+        width: 28
+        height: 44
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -202,29 +208,71 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4e967a2d790e3714296b73759b87e699
-      internalID: -5460701523042120553
+      spriteID: d508927103c9f0f4db798a77fa410be5
+      internalID: -8128101060005746365
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: LavaPit_4
+      name: ghost-idle_4
       rect:
         serializedVersion: 2
-        x: 8
-        y: 144
-        width: 33
-        height: 16
+        x: 273
+        y: 14
+        width: 28
+        height: 44
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d8507dcc0688819469c56a2b1a7006a2
-      internalID: -8741332583287429651
+      spriteID: 18c1fcdaa8d872c418bfa773ec2e4fd0
+      internalID: -2512726588018041774
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ghost-idle_5
+      rect:
+        serializedVersion: 2
+        x: 337
+        y: 15
+        width: 28
+        height: 44
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: edb5b3f2afbba824c8a6f336e7ce4041
+      internalID: -6601246393727790213
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ghost-idle_6
+      rect:
+        serializedVersion: 2
+        x: 401
+        y: 17
+        width: 28
+        height: 44
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b9a0059e9b8985544a9022b60cb6f272
+      internalID: -7920442971677258228
       vertices: []
       indices: 
       edges: []
