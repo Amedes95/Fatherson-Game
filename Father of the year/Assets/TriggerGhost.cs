@@ -10,6 +10,11 @@ public class TriggerGhost : MonoBehaviour
     public bool FaceBossRight;
     public bool PauseLavaToo;
     public float NewLavaSpeed;
+    public bool SpawnLavaPillars;
+    public GameObject LavaPillar1;
+    public GameObject LavaPillar2;
+    public bool RemoveKnigt;
+    public GameObject Knight;
 
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -30,6 +35,15 @@ public class TriggerGhost : MonoBehaviour
             {
                 RisingLava.Rising = false;
                 RisingLava.RiseSpeed = NewLavaSpeed;
+            }
+            if (SpawnLavaPillars)
+            {
+                LavaPillar1.SetActive(true);
+                LavaPillar2.SetActive(true);
+            }
+            if (RemoveKnigt)
+            {
+                Knight.SetActive(false);
             }
             Destroy(gameObject);
         }

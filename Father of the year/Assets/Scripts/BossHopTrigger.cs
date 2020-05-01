@@ -13,6 +13,10 @@ public class BossHopTrigger : MonoBehaviour
             collision.GetComponent<FleaController>().Hop(Force);
             collision.GetComponent<FleaController>().Walking = false;
         }
+        else if (collision.tag == "Knight")
+        {
+            collision.GetComponent<Knight>().Hop(Force);
+        }
     }
 
 

@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class GhostBoss : MonoBehaviour
 {
+    public GameObject Knight;
     // Start is called before the first frame update
     void Awake()
     {
@@ -24,6 +25,11 @@ public class GhostBoss : MonoBehaviour
     public void PauseLavaRise()
     {
         RisingLava.Rising = false;
+    }
+
+    public void SpawnKnight()
+    {
+        Knight.SetActive(true);
     }
 
 }
