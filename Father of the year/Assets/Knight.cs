@@ -10,6 +10,11 @@ public class Knight : MonoBehaviour
     public GameObject GhostBoss;
     public GameObject Flamepillar1;
     public GameObject Flamepillar2;
+    public GameObject BanishEffect;
+    public static GameObject BanishEffectClone;
+    public GameObject Portal;
+    public AudioClip GhostDeathSound;
+
     // Start is called before the first frame update
 
     private void Awake()
@@ -60,6 +65,9 @@ public class Knight : MonoBehaviour
     public void BanishGhost()
     {
         GhostBoss.GetComponent<Animator>().SetTrigger("Killed");
+        GhostBoss.GetComponent<AudioSource>().clip = GhostDeathSound;
+        GhostBoss.GetComponent<AudioSource>().pitch = .6f;
+        GhostBoss.GetComponent<AudioSource>().Play();
     }
 
     public void Deactivate()
@@ -67,6 +75,9 @@ public class Knight : MonoBehaviour
         gameObject.SetActive(false);
         Flamepillar1.SetActive(false);
         Flamepillar2.SetActive(false);
+        BanishEffectClone = Instantiate(BanishEffect, transform.position, Quaternion.identity);
+        Portal.transform.position = new Vector2(transform.position.x, transform.position.y + 2);
+        Destroy(BanishEffectClone, 5f);
     }
 
 }
