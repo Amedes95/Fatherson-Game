@@ -24,6 +24,8 @@ public class HopperBoss : MonoBehaviour
     public Transform SpitSpawn;
     public float SpitSpeed;
 
+    public GameObject Zzz;
+
 
 
 
@@ -57,6 +59,11 @@ public class HopperBoss : MonoBehaviour
         {
             HopperAnimator.SetBool("Grounded", false);
         }
+        if (gameObject.GetComponentInChildren<BonkableHead>().CurrentHP < gameObject.GetComponentInChildren<BonkableHead>().MaxHP)
+        {
+            Zzz.SetActive(false);
+        }
+
     }
 
     public void Spit()

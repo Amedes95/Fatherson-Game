@@ -7,6 +7,7 @@ public class HopperSFX : MonoBehaviour
     public AudioClip Roar;
     public AudioClip BossOuch1;
     public AudioClip BossOuch2;
+    public Animator Ouchie;
 
     AudioSource Hopper;
     public AudioSource BonkableHead;
@@ -34,11 +35,13 @@ public class HopperSFX : MonoBehaviour
         {
             BonkableHead.clip = BossOuch1;
             BonkableHead.Play();
+            Ouchie.SetTrigger("Bonked");
         }
         else // must be a 1
         {
             BonkableHead.clip = BossOuch2;
             BonkableHead.Play();
+            Ouchie.SetTrigger("Bonked");
         }
     }
 

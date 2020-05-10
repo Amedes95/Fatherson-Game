@@ -23,6 +23,8 @@ public class SpawnCobras : MonoBehaviour
     float Spawn4Time;
     bool Spawning;
 
+    public GameObject HopperBoss;
+
 
     // Start is called before the first frame update
     void Start()
@@ -73,7 +75,7 @@ public class SpawnCobras : MonoBehaviour
 
     private void OnTriggerStay2D(Collider2D collision)
     {
-        if (collision.tag == "Player")
+        if (collision.tag == "Player" && HopperBoss.activeInHierarchy)
         {
             Spawning = true;
         }
