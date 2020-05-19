@@ -4870,7 +4870,7 @@ CircleCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3005182223296247397}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
@@ -4907,6 +4907,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d47d4a895ae59414e912ab6a978b8b2a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  LavaSource: 0
+  PoolOfLava: 0
 --- !u!114 &2840879427730406221
 MonoBehaviour:
   m_ObjectHideFlags: 0

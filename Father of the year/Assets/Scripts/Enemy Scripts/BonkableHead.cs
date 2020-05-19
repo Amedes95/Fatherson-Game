@@ -66,18 +66,18 @@ public class BonkableHead : MonoBehaviour
                                 SpawnDeathParticles();
                             }
                             // trigger different attacks at different health points
-                            if (CurrentHP == MaxHP - 8)
+                            if (CurrentHP == MaxHP - 6)
                             {
                                 gameObject.GetComponentInParent<Animator>().SetBool("Hopping", false);
                                 gameObject.GetComponentInParent<Animator>().SetTrigger("Roar");
                             }
-                            if (CurrentHP == MaxHP - 18)
+                            if (CurrentHP == MaxHP - 14)
                             {
                                 gameObject.GetComponentInParent<Animator>().SetBool("Hopping", false);
                                 gameObject.GetComponentInParent<Animator>().SetTrigger("Roar");
 
                             }
-                            if (CurrentHP <= MaxHP - 28)
+                            if (CurrentHP <= MaxHP - 22)
                             {
                                 gameObject.GetComponentInParent<Animator>().SetBool("Hopping", false);
                                 gameObject.GetComponentInParent<Animator>().SetTrigger("Roar");
