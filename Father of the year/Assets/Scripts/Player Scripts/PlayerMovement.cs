@@ -32,6 +32,7 @@ public class PlayerMovement : MonoBehaviour
     public Transform WallClingStart;
     public Transform wallEndLine;
     bool touchingWall; // used for wall slide animation and walljump
+    bool touchingIce;
     public Transform backWallEndLine;
     bool backTouchingWall;
     public Transform floatLine;
@@ -127,6 +128,7 @@ public class PlayerMovement : MonoBehaviour
             //// Walljumping
             WallRaycasting();
             backWallRaycasting();
+            IceRaycasting();
             if (jumpCount > 0 && JumpDetector.OnGround == false)
             {
                 gameObject.GetComponent<Animator>().SetBool("DoubleJumpActive", true);
@@ -204,7 +206,14 @@ public class PlayerMovement : MonoBehaviour
                 Boombox.SetVibrationIntensity(.1f, .15f, .15f); // vibrate a lil bit ;)
                 jumpCount = 0;
                 CreateDust();
-                fallSpeedCap = 6;
+                if (touchingIce) // NEW 5/22/20 ICE WALLSLIDE
+                {
+                    fallSpeedCap = 12;
+                }
+                else
+                {
+                    fallSpeedCap = 6;
+                }
                 floatingTimer = 0;
                 GetComponent<Animator>().SetBool("onWall", true);
                 wallJumpBuffer = setWallJumpBuffer;
@@ -240,10 +249,10 @@ public class PlayerMovement : MonoBehaviour
             {
                 playerSpeed = slowSpeed;
             }
-            else if (JumpDetector.OnGround) // This makes the player turn sharper 2/22/20
+            else if (JumpDetector.OnGround && IceZone.OnIce == false) // This makes the player turn sharper (ICE STUFF ADDED RECENTLY 5/22/20)
             {
                 playerSpeed = normalSpeed;
-                if (moveHorizontal == 0f && FanFloating == false)
+                if (moveHorizontal == 0f && FanFloating == false && IceZone.OnIce == false)
                 {
                     playerBody.velocity = new Vector2(0, playerBody.velocity.y);
                 }
@@ -256,7 +265,7 @@ public class PlayerMovement : MonoBehaviour
                     playerBody.velocity = new Vector2(0, playerBody.velocity.y);
                 }
             }
-            else if (Mathf.Abs(playerBody.velocity.x) < midVelocity && JumpDetector.OnGround) //quick burst of movement from rest
+            else if (Mathf.Abs(playerBody.velocity.x) < midVelocity && JumpDetector.OnGround && IceZone.OnIce == false) //quick burst of movement from rest
             {
                 playerSpeed = startSpeed;
             }
@@ -316,7 +325,7 @@ public class PlayerMovement : MonoBehaviour
                 PlayerAnim.SetBool("Running", false);
             }
 
-            if (isJumping && !recentlyJumped && FanFloating == false && JustBounced == false) // counter jump force: if you release W after jumping you don't jump as high. In other words the longer you hold W the higher you jump.
+            if (isJumping && !recentlyJumped && FanFloating == false && JustBounced == false && touchingIce == false) // counter jump force: if you release W after jumping you don't jump as high. In other words the longer you hold W the higher you jump.
             {
 
                 if (Gamepad.current != null)
@@ -446,7 +455,14 @@ public class PlayerMovement : MonoBehaviour
             {
                 jumpFallCooldown = .05f;
                 recentlyJumped = true;
-                playerBody.AddForce(Vector2.up * jumpForce * 180);
+                if (touchingIce)
+                {
+                    playerBody.AddForce(Vector2.up * jumpForce * 210);
+                }
+                else
+                {
+                    playerBody.AddForce(Vector2.up * jumpForce * 180);
+                }
                 PlayerAnim.SetTrigger("Jump");
                 isJumping = true;
                 wallJumping = false;
@@ -485,6 +501,13 @@ public class PlayerMovement : MonoBehaviour
     {
         Debug.DrawLine(WallClingStart.position, wallEndLine.position, Color.red);  // during playtime, projects a line from a start point to and end point
         touchingWall = Physics2D.Linecast(WallClingStart.position, wallEndLine.position, 1 << LayerMask.NameToLayer("Ground"));
+    }
+
+
+    public void IceRaycasting()
+    {
+        Debug.DrawLine(WallClingStart.position, wallEndLine.position, Color.red);  // during playtime, projects a line from a start point to and end point
+        touchingIce = Physics2D.Linecast(WallClingStart.position, wallEndLine.position, 1 << LayerMask.NameToLayer("Ice"));
     }
 
     public void backWallRaycasting()
