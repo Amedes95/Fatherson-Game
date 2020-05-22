@@ -337,7 +337,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1512684217
-  m_SortingLayer: 4
+  m_SortingLayer: 5
   m_SortingOrder: -1
   m_Sprite: {fileID: -6730168949062582761, guid: 982f288e8e979db49968b21cd7f1b91d,
     type: 3}
@@ -439,7 +439,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1512684217
-  m_SortingLayer: 4
+  m_SortingLayer: 5
   m_SortingOrder: -1
   m_Sprite: {fileID: -6730168949062582761, guid: 982f288e8e979db49968b21cd7f1b91d,
     type: 3}
@@ -541,7 +541,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1512684217
-  m_SortingLayer: 4
+  m_SortingLayer: 5
   m_SortingOrder: -1
   m_Sprite: {fileID: -6730168949062582761, guid: 982f288e8e979db49968b21cd7f1b91d,
     type: 3}
@@ -643,7 +643,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1512684217
-  m_SortingLayer: 4
+  m_SortingLayer: 5
   m_SortingOrder: -1
   m_Sprite: {fileID: -6730168949062582761, guid: 982f288e8e979db49968b21cd7f1b91d,
     type: 3}
@@ -745,7 +745,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1512684217
-  m_SortingLayer: 4
+  m_SortingLayer: 5
   m_SortingOrder: -1
   m_Sprite: {fileID: -6730168949062582761, guid: 982f288e8e979db49968b21cd7f1b91d,
     type: 3}
@@ -804,6 +804,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   KillEnemies: 1
+  LavaSource: 0
 --- !u!61 &179271103
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -987,7 +988,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1512684217
-  m_SortingLayer: 4
+  m_SortingLayer: 5
   m_SortingOrder: -1
   m_Sprite: {fileID: -6730168949062582761, guid: 982f288e8e979db49968b21cd7f1b91d,
     type: 3}
@@ -1089,7 +1090,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1512684217
-  m_SortingLayer: 4
+  m_SortingLayer: 5
   m_SortingOrder: -1
   m_Sprite: {fileID: -6730168949062582761, guid: 982f288e8e979db49968b21cd7f1b91d,
     type: 3}
@@ -1191,7 +1192,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1512684217
-  m_SortingLayer: 4
+  m_SortingLayer: 5
   m_SortingOrder: -1
   m_Sprite: {fileID: -6730168949062582761, guid: 982f288e8e979db49968b21cd7f1b91d,
     type: 3}
@@ -1293,7 +1294,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1512684217
-  m_SortingLayer: 4
+  m_SortingLayer: 5
   m_SortingOrder: -1
   m_Sprite: {fileID: -6730168949062582761, guid: 982f288e8e979db49968b21cd7f1b91d,
     type: 3}
@@ -1395,7 +1396,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1512684217
-  m_SortingLayer: 4
+  m_SortingLayer: 5
   m_SortingOrder: -1
   m_Sprite: {fileID: -6730168949062582761, guid: 982f288e8e979db49968b21cd7f1b91d,
     type: 3}
@@ -1454,6 +1455,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   KillEnemies: 1
+  LavaSource: 0
 --- !u!61 &234778394
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1525,6 +1527,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   KillEnemies: 1
+  LavaSource: 0
 --- !u!61 &237766620
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1596,6 +1599,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   KillEnemies: 1
+  LavaSource: 0
 --- !u!61 &262499385
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1835,6 +1839,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   KillEnemies: 1
+  LavaSource: 0
 --- !u!61 &294289062
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1990,6 +1995,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   KillEnemies: 1
+  LavaSource: 0
 --- !u!61 &307274318
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2061,6 +2067,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   KillEnemies: 1
+  LavaSource: 0
 --- !u!61 &309643218
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2132,6 +2139,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   KillEnemies: 1
+  LavaSource: 0
 --- !u!61 &321894280
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2287,6 +2295,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   KillEnemies: 1
+  LavaSource: 0
 --- !u!61 &436764879
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2481,7 +2490,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1512684217
-  m_SortingLayer: 4
+  m_SortingLayer: 5
   m_SortingOrder: -1
   m_Sprite: {fileID: -6730168949062582761, guid: 982f288e8e979db49968b21cd7f1b91d,
     type: 3}
@@ -2624,6 +2633,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   KillEnemies: 1
+  LavaSource: 0
 --- !u!61 &478897749
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2738,7 +2748,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1512684217
-  m_SortingLayer: 4
+  m_SortingLayer: 5
   m_SortingOrder: -1
   m_Sprite: {fileID: -6730168949062582761, guid: 982f288e8e979db49968b21cd7f1b91d,
     type: 3}
@@ -2866,6 +2876,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   KillEnemies: 1
+  LavaSource: 0
 --- !u!61 &536379620
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2937,6 +2948,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   KillEnemies: 1
+  LavaSource: 0
 --- !u!61 &566091147
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -3008,6 +3020,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   KillEnemies: 1
+  LavaSource: 0
 --- !u!61 &579518545
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -3122,7 +3135,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1512684217
-  m_SortingLayer: 4
+  m_SortingLayer: 5
   m_SortingOrder: -1
   m_Sprite: {fileID: -6730168949062582761, guid: 982f288e8e979db49968b21cd7f1b91d,
     type: 3}
@@ -3224,7 +3237,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1512684217
-  m_SortingLayer: 4
+  m_SortingLayer: 5
   m_SortingOrder: -1
   m_Sprite: {fileID: -6730168949062582761, guid: 982f288e8e979db49968b21cd7f1b91d,
     type: 3}
@@ -3352,6 +3365,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   KillEnemies: 1
+  LavaSource: 0
 --- !u!61 &622260860
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -3680,6 +3694,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   KillEnemies: 1
+  LavaSource: 0
 --- !u!61 &711743747
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -3794,7 +3809,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1512684217
-  m_SortingLayer: 4
+  m_SortingLayer: 5
   m_SortingOrder: -1
   m_Sprite: {fileID: -6730168949062582761, guid: 982f288e8e979db49968b21cd7f1b91d,
     type: 3}
@@ -3853,6 +3868,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   KillEnemies: 1
+  LavaSource: 0
 --- !u!61 &751697821
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -3967,7 +3983,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1512684217
-  m_SortingLayer: 4
+  m_SortingLayer: 5
   m_SortingOrder: -1
   m_Sprite: {fileID: -6730168949062582761, guid: 982f288e8e979db49968b21cd7f1b91d,
     type: 3}
@@ -4212,7 +4228,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1512684217
-  m_SortingLayer: 4
+  m_SortingLayer: 5
   m_SortingOrder: -1
   m_Sprite: {fileID: -6730168949062582761, guid: 982f288e8e979db49968b21cd7f1b91d,
     type: 3}
@@ -4314,7 +4330,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1512684217
-  m_SortingLayer: 4
+  m_SortingLayer: 5
   m_SortingOrder: -1
   m_Sprite: {fileID: -6730168949062582761, guid: 982f288e8e979db49968b21cd7f1b91d,
     type: 3}
@@ -4416,7 +4432,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1512684217
-  m_SortingLayer: 4
+  m_SortingLayer: 5
   m_SortingOrder: -1
   m_Sprite: {fileID: -6730168949062582761, guid: 982f288e8e979db49968b21cd7f1b91d,
     type: 3}
@@ -4475,6 +4491,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   KillEnemies: 1
+  LavaSource: 0
 --- !u!61 &998164457
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -4673,7 +4690,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1512684217
-  m_SortingLayer: 4
+  m_SortingLayer: 5
   m_SortingOrder: -1
   m_Sprite: {fileID: -6730168949062582761, guid: 982f288e8e979db49968b21cd7f1b91d,
     type: 3}
@@ -4732,6 +4749,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   KillEnemies: 1
+  LavaSource: 0
 --- !u!61 &1063528437
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -4846,7 +4864,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1512684217
-  m_SortingLayer: 4
+  m_SortingLayer: 5
   m_SortingOrder: -1
   m_Sprite: {fileID: -6730168949062582761, guid: 982f288e8e979db49968b21cd7f1b91d,
     type: 3}
@@ -4948,7 +4966,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1512684217
-  m_SortingLayer: 4
+  m_SortingLayer: 5
   m_SortingOrder: -1
   m_Sprite: {fileID: -6730168949062582761, guid: 982f288e8e979db49968b21cd7f1b91d,
     type: 3}
@@ -5160,6 +5178,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   KillEnemies: 1
+  LavaSource: 0
 --- !u!61 &1133933048
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -5231,6 +5250,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   KillEnemies: 1
+  LavaSource: 0
 --- !u!61 &1158671611
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -5345,7 +5365,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1512684217
-  m_SortingLayer: 4
+  m_SortingLayer: 5
   m_SortingOrder: -1
   m_Sprite: {fileID: -6730168949062582761, guid: 982f288e8e979db49968b21cd7f1b91d,
     type: 3}
@@ -5447,7 +5467,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1512684217
-  m_SortingLayer: 4
+  m_SortingLayer: 5
   m_SortingOrder: -1
   m_Sprite: {fileID: -6730168949062582761, guid: 982f288e8e979db49968b21cd7f1b91d,
     type: 3}
@@ -5549,7 +5569,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1512684217
-  m_SortingLayer: 4
+  m_SortingLayer: 5
   m_SortingOrder: -1
   m_Sprite: {fileID: -6730168949062582761, guid: 982f288e8e979db49968b21cd7f1b91d,
     type: 3}
@@ -5608,6 +5628,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   KillEnemies: 1
+  LavaSource: 0
 --- !u!61 &1183409847
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -5679,6 +5700,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   KillEnemies: 1
+  LavaSource: 0
 --- !u!61 &1188029582
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -5874,6 +5896,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   KillEnemies: 1
+  LavaSource: 0
 --- !u!61 &1195033494
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -6057,7 +6080,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1512684217
-  m_SortingLayer: 4
+  m_SortingLayer: 5
   m_SortingOrder: -1
   m_Sprite: {fileID: -6730168949062582761, guid: 982f288e8e979db49968b21cd7f1b91d,
     type: 3}
@@ -6116,6 +6139,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   KillEnemies: 1
+  LavaSource: 0
 --- !u!61 &1218741717
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -6187,6 +6211,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   KillEnemies: 1
+  LavaSource: 0
 --- !u!61 &1222667742
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -6687,6 +6712,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   KillEnemies: 1
+  LavaSource: 0
 --- !u!61 &1321938097
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -6758,6 +6784,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   KillEnemies: 1
+  LavaSource: 0
 --- !u!61 &1349144973
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -6829,6 +6856,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   KillEnemies: 1
+  LavaSource: 0
 --- !u!61 &1360380416
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -7012,7 +7040,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1512684217
-  m_SortingLayer: 4
+  m_SortingLayer: 5
   m_SortingOrder: -1
   m_Sprite: {fileID: -6730168949062582761, guid: 982f288e8e979db49968b21cd7f1b91d,
     type: 3}
@@ -7071,6 +7099,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   KillEnemies: 1
+  LavaSource: 0
 --- !u!61 &1406657674
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -7185,7 +7214,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1512684217
-  m_SortingLayer: 4
+  m_SortingLayer: 5
   m_SortingOrder: -1
   m_Sprite: {fileID: -6730168949062582761, guid: 982f288e8e979db49968b21cd7f1b91d,
     type: 3}
@@ -7244,6 +7273,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   KillEnemies: 1
+  LavaSource: 0
 --- !u!61 &1427154205
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -7358,7 +7388,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1512684217
-  m_SortingLayer: 4
+  m_SortingLayer: 5
   m_SortingOrder: -1
   m_Sprite: {fileID: -6730168949062582761, guid: 982f288e8e979db49968b21cd7f1b91d,
     type: 3}
@@ -7460,7 +7490,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1512684217
-  m_SortingLayer: 4
+  m_SortingLayer: 5
   m_SortingOrder: -1
   m_Sprite: {fileID: -6730168949062582761, guid: 982f288e8e979db49968b21cd7f1b91d,
     type: 3}
@@ -7519,6 +7549,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   KillEnemies: 1
+  LavaSource: 0
 --- !u!61 &1499614897
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -7590,6 +7621,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   KillEnemies: 1
+  LavaSource: 0
 --- !u!61 &1519233416
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -37128,16 +37160,6 @@ PrefabInstance:
       propertyPath: m_CompositePaths.m_Paths.Array.data[3].Array.data[11].y
       value: 12.00001
       objectReference: {fileID: 0}
-    - target: {fileID: 159540085334520864, guid: 94ece9c099684bc4da8db7a011b652d7,
-        type: 3}
-      propertyPath: m_ChunkCullingBounds.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 159540085334520871, guid: 94ece9c099684bc4da8db7a011b652d7,
-        type: 3}
-      propertyPath: m_ExtrusionFactor
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 159540085090495512, guid: 94ece9c099684bc4da8db7a011b652d7,
         type: 3}
       propertyPath: m_Tiles.Array.size
@@ -63077,6 +63099,16 @@ PrefabInstance:
       propertyPath: m_Tiles.Array.data[858].second.m_ColliderType
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 159540085334520864, guid: 94ece9c099684bc4da8db7a011b652d7,
+        type: 3}
+      propertyPath: m_ChunkCullingBounds.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 159540085334520871, guid: 94ece9c099684bc4da8db7a011b652d7,
+        type: 3}
+      propertyPath: m_ExtrusionFactor
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 94ece9c099684bc4da8db7a011b652d7, type: 3}
 --- !u!1 &1584988066
@@ -63124,6 +63156,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   KillEnemies: 1
+  LavaSource: 0
 --- !u!61 &1584988069
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -63238,7 +63271,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1512684217
-  m_SortingLayer: 4
+  m_SortingLayer: 5
   m_SortingOrder: -1
   m_Sprite: {fileID: -6730168949062582761, guid: 982f288e8e979db49968b21cd7f1b91d,
     type: 3}
@@ -63340,7 +63373,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1512684217
-  m_SortingLayer: 4
+  m_SortingLayer: 5
   m_SortingOrder: -1
   m_Sprite: {fileID: -6730168949062582761, guid: 982f288e8e979db49968b21cd7f1b91d,
     type: 3}
@@ -63442,7 +63475,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1512684217
-  m_SortingLayer: 4
+  m_SortingLayer: 5
   m_SortingOrder: -1
   m_Sprite: {fileID: -6730168949062582761, guid: 982f288e8e979db49968b21cd7f1b91d,
     type: 3}
@@ -63544,7 +63577,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1512684217
-  m_SortingLayer: 4
+  m_SortingLayer: 5
   m_SortingOrder: -1
   m_Sprite: {fileID: -6730168949062582761, guid: 982f288e8e979db49968b21cd7f1b91d,
     type: 3}
@@ -63603,6 +63636,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   KillEnemies: 1
+  LavaSource: 0
 --- !u!61 &1721688055
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -63674,6 +63708,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   KillEnemies: 1
+  LavaSource: 0
 --- !u!61 &1726813894
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -63745,6 +63780,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   KillEnemies: 1
+  LavaSource: 0
 --- !u!61 &1736710921
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -63816,6 +63852,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   KillEnemies: 1
+  LavaSource: 0
 --- !u!61 &1741934179
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -64049,7 +64086,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1512684217
-  m_SortingLayer: 4
+  m_SortingLayer: 5
   m_SortingOrder: -1
   m_Sprite: {fileID: -6730168949062582761, guid: 982f288e8e979db49968b21cd7f1b91d,
     type: 3}
@@ -64151,7 +64188,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1512684217
-  m_SortingLayer: 4
+  m_SortingLayer: 5
   m_SortingOrder: -1
   m_Sprite: {fileID: -6730168949062582761, guid: 982f288e8e979db49968b21cd7f1b91d,
     type: 3}
@@ -64253,7 +64290,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1512684217
-  m_SortingLayer: 4
+  m_SortingLayer: 5
   m_SortingOrder: -1
   m_Sprite: {fileID: -6730168949062582761, guid: 982f288e8e979db49968b21cd7f1b91d,
     type: 3}
@@ -64312,6 +64349,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   KillEnemies: 1
+  LavaSource: 0
 --- !u!61 &1902453618
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -64383,6 +64421,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   KillEnemies: 1
+  LavaSource: 0
 --- !u!61 &1939984836
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -64711,7 +64750,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1512684217
-  m_SortingLayer: 4
+  m_SortingLayer: 5
   m_SortingOrder: -1
   m_Sprite: {fileID: -6730168949062582761, guid: 982f288e8e979db49968b21cd7f1b91d,
     type: 3}
@@ -64839,6 +64878,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   KillEnemies: 1
+  LavaSource: 0
 --- !u!61 &1989774424
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -64953,7 +64993,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1512684217
-  m_SortingLayer: 4
+  m_SortingLayer: 5
   m_SortingOrder: -1
   m_Sprite: {fileID: -6730168949062582761, guid: 982f288e8e979db49968b21cd7f1b91d,
     type: 3}
@@ -65012,6 +65052,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   KillEnemies: 1
+  LavaSource: 0
 --- !u!61 &2014394143
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -65126,7 +65167,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1512684217
-  m_SortingLayer: 4
+  m_SortingLayer: 5
   m_SortingOrder: -1
   m_Sprite: {fileID: -6730168949062582761, guid: 982f288e8e979db49968b21cd7f1b91d,
     type: 3}
@@ -65151,6 +65192,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: FallingPlatform (6)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2707354659731949517, guid: effcbe09dcb389540b2d81f65efc7070,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2707354659731949515, guid: effcbe09dcb389540b2d81f65efc7070,
         type: 3}
@@ -65297,7 +65343,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1512684217
-  m_SortingLayer: 4
+  m_SortingLayer: 5
   m_SortingOrder: -1
   m_Sprite: {fileID: -6730168949062582761, guid: 982f288e8e979db49968b21cd7f1b91d,
     type: 3}
