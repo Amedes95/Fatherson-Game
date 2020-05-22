@@ -22,6 +22,7 @@ public class LevelManager : MonoBehaviour
     public GameObject World2;
     public GameObject World3;
     public GameObject World4;
+    public GameObject World5;
 
     int LevelIndex;
     int WorldIndex;
@@ -47,6 +48,8 @@ public class LevelManager : MonoBehaviour
     public Sprite World2Background;
     public Sprite World3Background;
     public Sprite World4Background;
+    public Sprite World5Background;
+
 
 
     AudioSource WorldHubAudioSource;
@@ -92,6 +95,10 @@ public class LevelManager : MonoBehaviour
         if (WorldsList.Contains(World4) == false && PlayerPrefs.GetInt("World3_Complete") == 1)
         {
             WorldsList.Add(World4);
+        }
+        if (WorldsList.Contains(World5) == false && PlayerPrefs.GetInt("World4_Complete") == 1)
+        {
+            WorldsList.Add(World5);
         }
 
         /// add check for world 2 completion here (final level script)
@@ -319,6 +326,17 @@ public class LevelManager : MonoBehaviour
             BackgroundChangeDirection("Right");
 
         }
+        else if (WorldIndex == 5) // blue squares
+        {
+            CenterBG.GetComponent<SpriteRenderer>().sprite = World5Background;
+            RightBG.GetComponent<SpriteRenderer>().sprite = World5Background;
+            LeftBG.GetComponent<SpriteRenderer>().sprite = World5Background;
+            TopBG.GetComponent<SpriteRenderer>().sprite = World5Background;
+            BottomBG.GetComponent<SpriteRenderer>().sprite = World5Background;
+
+            BackgroundChangeDirection("Up");
+
+        }
     }
 
     public void BackgroundChangeDirection(string Direction)
@@ -373,11 +391,14 @@ public class LevelManager : MonoBehaviour
         PlayerPrefs.SetInt("World2_Complete", 1);
         PlayerPrefs.SetInt("World3_Complete", 1);
         PlayerPrefs.SetInt("World4_Complete", 1);
+        PlayerPrefs.SetInt("World5_Complete", 1);
+
 
         WorldsList.Add(World1);
         WorldsList.Add(World2);
         WorldsList.Add(World3);
         WorldsList.Add(World4);
+        WorldsList.Add(World5);
 
     }
 
