@@ -31,6 +31,11 @@ public class BasicPatrol : MonoBehaviour
         }
     }
 
+    public void Deactivate()
+    {
+        gameObject.SetActive(false);
+    }
+
     private void FixedUpdate()
     {
         RaycastingWall();

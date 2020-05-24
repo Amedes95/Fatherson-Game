@@ -62,6 +62,7 @@ public class PlayerMovement : MonoBehaviour
     public static bool PlayerInvincible;
     public static float InvincibilityTimer;
     public GameObject LavaShield;
+    public GameObject IceBlock;
 
 
 
@@ -123,8 +124,22 @@ public class PlayerMovement : MonoBehaviour
             BounceBuffer = 0;
         }
 
-        if (PlayerHealth.Dead == false) // Only allow movement if alive
+        // toggles frozen ice block when player is frozen
+        if (FreezePlayer.Frozen)
         {
+            IceBlock.SetActive(true);
+            floatingTimer = 0;
+            isFloating = false;
+        }
+        else
+        {
+            IceBlock.SetActive(false);
+        }
+
+        if (PlayerHealth.Dead == false && FreezePlayer.Frozen == false) // Only allow movement if alive and not frozen
+        {
+
+
             //// Walljumping
             WallRaycasting();
             backWallRaycasting();
@@ -365,6 +380,8 @@ public class PlayerMovement : MonoBehaviour
             {
                 jumpFallCooldown -= Time.smoothDeltaTime;
                 playerSpeed = 0;
+                floatingTimer = 0;
+                isFloating = false;
 
                 if (jumpFallCooldown <= 0)
                 {
@@ -379,8 +396,8 @@ public class PlayerMovement : MonoBehaviour
 
             if (isFloating)
             {
+                //Debug.Log("Floating");
                 floatingTimer -= Time.smoothDeltaTime;
-
                 if (floatingTimer <= 0 || Mathf.Sign(moveHorizontal) != Mathf.Sign(playerBody.velocity.x))
                 {
                     SwitchFloatValue(false);
@@ -389,13 +406,13 @@ public class PlayerMovement : MonoBehaviour
 
             if (JumpDetector.OnGround)
             {
-                SwitchFloatValue(false);
+                //SwitchFloatValue(false);
                 JustBounced = false;
                 floatingTimer = .1f;
+                isFloating = false;
                 gameObject.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeRotation;
             }
-            else if
-                (!(JumpDetector.OnGround || isJumping || touchingWall || wallJumping || Trampoline.IsBouncing) && floatingTimer > 0)
+            else if (!(JumpDetector.OnGround || isJumping || touchingWall || wallJumping || Trampoline.IsBouncing) && floatingTimer > 0)
             {
                 SwitchFloatValue(true);
             }
@@ -431,12 +448,12 @@ public class PlayerMovement : MonoBehaviour
         if (variable == true)
         {
             isFloating = true;
-            playerBody.gravityScale = 0;
+            //playerBody.gravityScale = 0;
         }
         else if (variable == false)
         {
             isFloating = false;
-            playerBody.gravityScale = playerGravity;
+            //playerBody.gravityScale = playerGravity;
         }
     }
 
@@ -451,8 +468,10 @@ public class PlayerMovement : MonoBehaviour
         }
         if (Trampoline.IsBouncing == false) // and not bonking? 
         {
-            if (!wallJumping && JumpDetector.OnGround == true || (!wallJumping && jumpCount > 0)) /////// this check is new 4/8/20 to fix two-way platform launching
+            if (!wallJumping && (JumpDetector.OnGround == true || isFloating) || (!wallJumping && jumpCount > 0)) /////// this check is new 4/8/20 to fix two-way platform launching
             {
+                isFloating = false;
+                floatingTimer = 0;
                 jumpFallCooldown = .05f;
                 recentlyJumped = true;
                 if (touchingIce)
@@ -541,7 +560,7 @@ public class PlayerMovement : MonoBehaviour
             JumpInput = "Jump";
         }
 
-        if (PlayerHealth.Dead == false && PauseMenu.GameIsPaused == false) // Only allow inputs if alive
+        if (PlayerHealth.Dead == false && PauseMenu.GameIsPaused == false && FreezePlayer.Frozen == false) // Only allow inputs if alive
         {
             //// JUMPING
             if (Input.GetButtonDown(JumpInput))
@@ -566,6 +585,12 @@ public class PlayerMovement : MonoBehaviour
                     jumpCount -= 1;
                     jumpAudioBox.PlayDoubleJumpSound();
                 }
+                if (isFloating)
+                {
+                    Jump();
+                }
+                isFloating = false;
+                floatingTimer = 0;
             }
             else if (Input.GetButtonUp(JumpInput))
             {
@@ -590,6 +615,10 @@ public class PlayerMovement : MonoBehaviour
                     FlipCharacter();
                 }
             }
+        }
+        if (FreezePlayer.Frozen)
+        {
+            PlayerAnim.SetBool("Grounded", false);
         }
     }
 

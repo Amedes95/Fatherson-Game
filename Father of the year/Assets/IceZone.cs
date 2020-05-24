@@ -13,13 +13,14 @@ public class IceZone : MonoBehaviour
     private void Awake()
     {
         Player = GameObject.FindGameObjectWithTag("Player");
+        OnIce = false;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.tag == "Feet" && PlayerMovement.playerVelocity.y < -6)
         {
-            if (Player.activeInHierarchy)
+            if (Player.activeInHierarchy && FreezePlayer.Frozen == false)
             {
                 LandingEffectClone = Instantiate(LandingEffect);
                 Destroy(LandingEffectClone, 1f);
@@ -33,11 +34,10 @@ public class IceZone : MonoBehaviour
     {
         if (collision.tag == "Feet")
         {
-            if (!PlayerHealth.Dead)
+            if (!PlayerHealth.Dead && FreezePlayer.Frozen == false)
             {
                 OnIce = true;
                 PlayerMovement.jumpCount = 0;
-                Debug.Log("cool");
             }
         }
     }

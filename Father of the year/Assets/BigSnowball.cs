@@ -15,7 +15,7 @@ public class BigSnowball : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        Debug.Log(gameObject.GetComponent<Rigidbody2D>().velocity.x);
+
         if (Mathf.Abs(gameObject.GetComponent<Rigidbody2D>().velocity.x) < 1.8f)
         {
             SnowParticlesClone = Instantiate(SnowParticles, transform.position, Quaternion.identity);
