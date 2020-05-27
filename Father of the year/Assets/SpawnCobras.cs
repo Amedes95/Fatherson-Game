@@ -38,7 +38,8 @@ public class SpawnCobras : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        if (Spawning)
+
+        if (Spawning && HopperBoss.activeInHierarchy == true)
         {
             SpawnDelayL -= Time.smoothDeltaTime;
             SpawnDelayR -= Time.smoothDeltaTime;

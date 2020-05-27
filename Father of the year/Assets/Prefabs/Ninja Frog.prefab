@@ -70,7 +70,7 @@ GameObject:
   m_Component:
   - component: {fileID: 834077212}
   - component: {fileID: 1188663047}
-  m_Layer: 9
+  m_Layer: 17
   m_Name: Feet
   m_TagString: Feet
   m_Icon: {fileID: 0}
@@ -120,8 +120,8 @@ PolygonCollider2D:
       - {x: 0.03645084, y: 0.080722935}
       - {x: -0.033826265, y: 0.08089357}
       - {x: -0.058, y: -0.042}
-      - {x: -0.013, y: -0.107}
-      - {x: 0.013, y: -0.107}
+      - {x: -0.014336319, y: -0.109135896}
+      - {x: 0.013534529, y: -0.10913589}
 --- !u!1 &873758915
 GameObject:
   m_ObjectHideFlags: 0
@@ -5285,7 +5285,7 @@ Transform:
   m_GameObject: {fileID: 1403929325073341483}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 0}
+  m_LocalScale: {x: 1.1783, y: 1.1783, z: 0}
   m_Children: []
   m_Father: {fileID: 5981030734712421034}
   m_RootOrder: 12
@@ -10182,6 +10182,7 @@ GameObject:
   - component: {fileID: 1029529505}
   - component: {fileID: 1516110846328749759}
   - component: {fileID: 40138316}
+  - component: {fileID: 8350467831098472573}
   m_Layer: 9
   m_Name: Ninja Frog
   m_TagString: Player
@@ -10363,14 +10364,14 @@ CapsuleCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5981030734712421047}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Density: 1
   m_Material: {fileID: 6200000, guid: 7d0ec76ec805b5441995091c9e715c50, type: 2}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0.01, y: 0}
-  m_Size: {x: 0.13, y: 0.2}
+  m_Size: {x: 0.13, y: 0.225}
   m_Direction: 0
 --- !u!114 &1516110846328749759
 MonoBehaviour:
@@ -10398,6 +10399,32 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   TotalFruitCollected: 0
   FruitFromLevel: 0
+--- !u!61 &8350467831098472573
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5981030734712421047}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 6200000, guid: 7d0ec76ec805b5441995091c9e715c50, type: 2}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.010142058, y: -0.0007239133}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 0.23, y: 0.24}
+    newSize: {x: 0.32, y: 0.32}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.13147785, y: 0.22407353}
+  m_EdgeRadius: 0
 --- !u!1 &7609760640675207495
 GameObject:
   m_ObjectHideFlags: 0

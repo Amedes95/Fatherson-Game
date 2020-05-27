@@ -557,12 +557,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 21
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &398523468 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 2169429890324912924, guid: b5bdddb827a561143a0adac71f74a341,
-    type: 3}
-  m_PrefabInstance: {fileID: 653986306}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &428116494
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -804,11 +798,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5981030734712421032, guid: b5bdddb827a561143a0adac71f74a341,
-        type: 3}
-      propertyPath: IceBlock
-      value: 
-      objectReference: {fileID: 398523468}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b5bdddb827a561143a0adac71f74a341, type: 3}
 --- !u!1001 &666382612

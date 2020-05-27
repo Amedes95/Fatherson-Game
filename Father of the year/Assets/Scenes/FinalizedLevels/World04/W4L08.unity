@@ -454,6 +454,11 @@ PrefabInstance:
       propertyPath: InitialDelay
       value: 0.1
       objectReference: {fileID: 0}
+    - target: {fileID: 3807604466428271627, guid: dcfc477e9777af343bf9537f9cb4ca9c,
+        type: 3}
+      propertyPath: FireRate
+      value: 1.8
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: dcfc477e9777af343bf9537f9cb4ca9c, type: 3}
 --- !u!1 &169304624
@@ -37385,11 +37390,6 @@ PrefabInstance:
       propertyPath: m_CompositePaths.m_Paths.Array.data[0].Array.data[133].y
       value: -2
       objectReference: {fileID: 0}
-    - target: {fileID: 159540085334520871, guid: 94ece9c099684bc4da8db7a011b652d7,
-        type: 3}
-      propertyPath: m_ExtrusionFactor
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 159540086302401820, guid: 94ece9c099684bc4da8db7a011b652d7,
         type: 3}
       propertyPath: m_Tiles.Array.size
@@ -43351,6 +43351,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Tiles.Array.data[20].second.m_ColliderType
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 159540085334520871, guid: 94ece9c099684bc4da8db7a011b652d7,
+        type: 3}
+      propertyPath: m_ExtrusionFactor
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 94ece9c099684bc4da8db7a011b652d7, type: 3}

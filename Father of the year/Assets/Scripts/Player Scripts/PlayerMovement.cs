@@ -284,6 +284,10 @@ public class PlayerMovement : MonoBehaviour
             {
                 playerSpeed = startSpeed;
             }
+            else if (Mathf.Abs(playerBody.velocity.x) < midVelocity && JumpDetector.OnGround && IceZone.OnIce == true && touchingWall) //quick burst of movement from rest
+            {
+                playerSpeed = normalSpeed;
+            }
 
             //// Air speed cap
             if (Mathf.Abs(playerBody.velocity.x) > maxVelocity && !JumpDetector.OnGround)
@@ -398,15 +402,21 @@ public class PlayerMovement : MonoBehaviour
             {
                 //Debug.Log("Floating");
                 floatingTimer -= Time.smoothDeltaTime;
+                playerBody.gravityScale = 0;
                 if (floatingTimer <= 0 || Mathf.Sign(moveHorizontal) != Mathf.Sign(playerBody.velocity.x))
                 {
                     SwitchFloatValue(false);
                 }
             }
+            else
+            {
+                playerBody.gravityScale = 2;
+            }
 
             if (JumpDetector.OnGround)
             {
                 //SwitchFloatValue(false);
+                wallJumpBuffer = 0;
                 JustBounced = false;
                 floatingTimer = .1f;
                 isFloating = false;
@@ -460,6 +470,7 @@ public class PlayerMovement : MonoBehaviour
     public void Jump()
     {
         playerBody.constraints = RigidbodyConstraints2D.FreezeRotation;
+        playerBody.gravityScale = 2;
 
         jumpForce = CalculateJumpForce(playerBody.gravityScale, jumpHeight);
         if (KeepWithPlatform.OnPlatform) //make this universal for all moving platforms

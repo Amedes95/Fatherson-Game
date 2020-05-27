@@ -14,12 +14,17 @@ public class SnowCannon : MonoBehaviour
     float FireRateCopy;
     bool InRange;
     GameObject Player;
+    public bool FireImmediately;
 
 
     private void Awake()
     {
         Player = GameObject.FindGameObjectWithTag("Player");
         FireRateCopy = FireRate;
+        //if (FireImmediately)
+        //{
+        //    FireRate = .001f;
+        //}
     }
 
     public void FireSnowBall()
@@ -42,6 +47,14 @@ public class SnowCannon : MonoBehaviour
         if (collision.tag == "Player" && Player.activeInHierarchy)
         {
             InRange = true;
+        }
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.tag == "Player")
+        {
+            FireRate = .001f;
         }
     }
 
