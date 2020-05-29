@@ -19,8 +19,13 @@ public class stalactite : MonoBehaviour
     public ParticleSystem FallingDirt;
     AudioSource StalactiteAudio;
 
+    public GameObject ExplodeParticles;
+    public static GameObject ExplodeParticlesClone;
+    BoxCollider2D TriggerZone;
+
     void Awake()
     {
+        TriggerZone = gameObject.GetComponent<BoxCollider2D>();
         StalactiteAudio = gameObject.GetComponent<AudioSource>();
         fallDelay += Random.Range(0f, 2f);
         GlintCopy = GlintFrequency;
@@ -33,6 +38,7 @@ public class stalactite : MonoBehaviour
 
         if (walkedUnder)
         {
+            TriggerZone.enabled = false;
             if (fallDelay >= 0)
             {
                 fallDelay -= Time.smoothDeltaTime;
@@ -49,6 +55,8 @@ public class stalactite : MonoBehaviour
                 killZone.enabled = false;
                 GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeAll;
                 walkedUnder = false;
+
+
             }
             else if (falling)
             {
@@ -83,6 +91,12 @@ public class stalactite : MonoBehaviour
         if (collision.tag == "Player")
         {
             Fall();
+        }
+        else if (collision.tag == "Ground" && falling)
+        {
+            ExplodeParticlesClone = Instantiate(ExplodeParticles, transform.position, Quaternion.identity);
+            Destroy(ExplodeParticlesClone, 3f);
+            gameObject.SetActive(false);
         }
     }
 
