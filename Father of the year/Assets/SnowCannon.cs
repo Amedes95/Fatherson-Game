@@ -15,6 +15,7 @@ public class SnowCannon : MonoBehaviour
     bool InRange;
     GameObject Player;
     public bool FireImmediately;
+    bool SightsBlocked;
 
 
     private void Awake()
@@ -44,7 +45,7 @@ public class SnowCannon : MonoBehaviour
 
     private void OnTriggerStay2D(Collider2D collision)
     {
-        if (collision.tag == "Player" && Player.activeInHierarchy)
+        if (collision.tag == "Player" && Player.activeInHierarchy && SightsBlocked == false)
         {
             InRange = true;
         }
@@ -75,7 +76,14 @@ public class SnowCannon : MonoBehaviour
         if (FireRate <= 0)
         {
             FireRate = FireRateCopy;
-            gameObject.GetComponent<Animator>().SetTrigger("Fire");
+            gameObject.GetComponentInParent<Animator>().SetTrigger("Fire");
         }
+        RaycastSights();
+    }
+
+    public void RaycastSights()
+    {
+        Debug.DrawLine(transform.position, Player.transform.position, Color.green);
+        SightsBlocked = Physics2D.Linecast(transform.position, Player.transform.position, 1 << LayerMask.NameToLayer("Ground"));
     }
 }

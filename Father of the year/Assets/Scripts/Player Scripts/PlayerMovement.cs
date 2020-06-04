@@ -366,7 +366,7 @@ public class PlayerMovement : MonoBehaviour
                 }
             }
 
-            if (wallJumping && !recentlyJumped && FanFloating == false) // counter jump force but for wall jumps. If you release W you don't jump as high, if you hold opposite direction of your flight path you don't fly as far
+            if (wallJumping && !recentlyJumped && FanFloating == false && JustBounced == false) // counter jump force but for wall jumps. If you release W you don't jump as high, if you hold opposite direction of your flight path you don't fly as far
             {
 
                 if (!jumpKeyHeld && Vector2.Dot(playerBody.velocity, Vector2.up) > 0)
@@ -431,6 +431,7 @@ public class PlayerMovement : MonoBehaviour
             {
                playerBody.velocity = new Vector2 (Mathf.Clamp(playerBody.velocity.x, -2, 2), Mathf.Clamp(playerBody.velocity.y, -2, 8)) ;
             }
+
 
             //Below code is a jump buffer when landing on ground
             //If you press w in this time before touching ground you will still jump
