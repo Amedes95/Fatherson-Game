@@ -21,6 +21,7 @@ public class FlyingEnemy : MonoBehaviour
     {
         Player = GameObject.FindGameObjectWithTag("Player").transform;
         radius = GetComponent<CircleCollider2D>().radius * transform.parent.localScale.magnitude;
+
     }
 
     // Update is called once per frame

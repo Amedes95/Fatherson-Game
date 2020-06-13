@@ -431,6 +431,18 @@ public class PlayerMovement : MonoBehaviour
             {
                playerBody.velocity = new Vector2 (Mathf.Clamp(playerBody.velocity.x, -2, 2), Mathf.Clamp(playerBody.velocity.y, -2, 8)) ;
             }
+            if (touchingWall)
+            {
+                JustBounced = false;
+            }
+            if (Trampoline.IsBouncing)
+            {
+                JustBounced = true;
+            }
+            if (jumpCount > 0)
+            {
+                JustBounced = false;
+            }
 
 
             //Below code is a jump buffer when landing on ground
