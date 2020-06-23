@@ -1406,7 +1406,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b0cf6bbfb23246f4fa11f6d7843efddc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  LandingEffect: {fileID: 4406549245856049026, guid: 65cf0f4de0e144fcbbfd11faacd22f7b,
+  LandingEffect: {fileID: 4406549245856049026, guid: 5f3a7e1c41f63ae45a2b9682b21e8145,
     type: 3}
 --- !u!1001 &710966187
 PrefabInstance:
@@ -52877,6 +52877,12 @@ PrefabInstance:
       propertyPath: m_CompositePaths.m_Paths.Array.data[31].Array.data[3].y
       value: -30.31251
       objectReference: {fileID: 0}
+    - target: {fileID: 159540086302401809, guid: 94ece9c099684bc4da8db7a011b652d7,
+        type: 3}
+      propertyPath: LandingEffect
+      value: 
+      objectReference: {fileID: 4406549245856049026, guid: 6a4bb3cd2dd9f5945ad25544b8aa511a,
+        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 94ece9c099684bc4da8db7a011b652d7, type: 3}
 --- !u!4 &1534665921 stripped
