@@ -138,6 +138,10 @@ MonoBehaviour:
   DeathParticles: {fileID: 9012351662596608965, guid: 02b77112a40cb7f49b423d42b3b5fd7f,
     type: 3}
   bonkTimer: 0
+  OnTrampoline: 0
+  CurrentHP: 0
+  MaxHP: 0
+  Stunable: 0
 --- !u!61 &1977417751
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -301,9 +305,15 @@ MonoBehaviour:
   FloorLine: {fileID: 688864110}
   EnemyStart: {fileID: 1852710300}
   EnemyLine: {fileID: 1099558807}
+  TouchingFloor: 0
   PatrolSpeed: 2
+  PatrolDirection: {x: 1, y: 0}
   avoidsLedges: 1
   flipDirection: 0
+  RedCobra: 0
+  attacking: 0
+  Falling: 0
+  FlyingEnemy: 0
 --- !u!95 &2636196673049084172
 Animator:
   serializedVersion: 3
@@ -357,7 +367,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.022031628, y: 0.002734013}
+  m_Offset: {x: 0.022031628, y: -0.006948674}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -368,7 +378,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.08469306, y: 0.13453196}
+  m_Size: {x: 0.08469306, y: 0.11516659}
   m_EdgeRadius: 0
 --- !u!1 &7443900423913753035
 GameObject:
@@ -414,6 +424,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d47d4a895ae59414e912ab6a978b8b2a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  LavaSource: 0
+  PoolOfLava: 0
 --- !u!61 &3175681089652898783
 BoxCollider2D:
   m_ObjectHideFlags: 0

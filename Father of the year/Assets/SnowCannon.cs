@@ -16,6 +16,7 @@ public class SnowCannon : MonoBehaviour
     GameObject Player;
     public bool FireImmediately;
     bool SightsBlocked;
+    public bool DestroyOnImpact;
 
 
     private void Awake()
@@ -31,6 +32,10 @@ public class SnowCannon : MonoBehaviour
     public void FireSnowBall()
     {
         SnowBallClone = Instantiate(SnowBall, FireZone.position, Quaternion.identity);
+        if (DestroyOnImpact)
+        {
+            SnowBallClone.GetComponent<BigSnowball>().DestroyOnImpact = true;
+        }
         if (FireRight)
         {
             FireDirection = Vector2.right;
