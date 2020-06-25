@@ -6,6 +6,7 @@ public class TriggerBoss : MonoBehaviour
 {
     public bool Flea;
     public bool Mushroom;
+    public bool IceSkeleton;
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.tag == "Player")
@@ -22,6 +23,11 @@ public class TriggerBoss : MonoBehaviour
                 gameObject.GetComponentInParent<MushroomBoos>().Walking = true;
                 gameObject.GetComponentInParent<MushroomBoos>().FightTriggered = true;
 
+                gameObject.SetActive(false);
+            }
+            if (IceSkeleton)
+            {
+                gameObject.GetComponentInParent<Animator>().SetTrigger("Thaw");
                 gameObject.SetActive(false);
             }
 

@@ -104,6 +104,9 @@ public class stalactite : MonoBehaviour
     {
         walkedUnder = true;
         FallingDirt.Play();
-        StalactiteAudio.Play();
+        if (gameObject.activeInHierarchy)
+        {
+            StalactiteAudio.Play();
+        }
     }
 }

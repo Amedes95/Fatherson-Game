@@ -49,7 +49,10 @@ public class FlyingEnemy : MonoBehaviour
     {
         if (collision.tag == "Player" && !SightBlocked)
         {
-            GetComponentInParent<Animator>().SetBool("Attacking", true);
+            if (gameObject.activeInHierarchy)
+            {
+                GetComponentInParent<Animator>().SetBool("Attacking", true);
+            }
             Disturbed = true;
             GetComponentInParent<Rigidbody2D>().AddForce(MoveDirection * FlySpeed * speedRatio);
         }
@@ -61,7 +64,10 @@ public class FlyingEnemy : MonoBehaviour
         {
             if (Disturbed)
             {
-                GetComponentInParent<Rigidbody2D>().velocity = new Vector2(GetComponentInParent<Rigidbody2D>().velocity.x * .5f, GetComponentInParent<Rigidbody2D>().velocity.y * .5f);
+                if (gameObject.activeInHierarchy)
+                {
+                    GetComponentInParent<Rigidbody2D>().velocity = new Vector2(GetComponentInParent<Rigidbody2D>().velocity.x * .5f, GetComponentInParent<Rigidbody2D>().velocity.y * .5f);
+                }
             }
         }
     }

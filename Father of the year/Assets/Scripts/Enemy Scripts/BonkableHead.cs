@@ -19,6 +19,9 @@ public class BonkableHead : MonoBehaviour
 
     public bool Stunable;
 
+    public bool DeactivateNotDestroy;
+
+
 
     public void Awake()
     {
@@ -114,16 +117,28 @@ public class BonkableHead : MonoBehaviour
             {
                 if (gameObject.transform.parent.tag == "Boss")
                 {
-                    //CurrentHP -= 1; // 1 bonk = 1 health lost
-                    //if (CurrentHP <= 0)
-                    //{
-                    //    SpawnDeathParticles();
-                    //}
+  
                 }
                 else
                 {
                     SpawnDeathParticles();
                 }
+            }
+            if (Stunable)
+            {
+
+
+                if (CurrentHP == MaxHP) // after first hit, phase 1 begins
+                {
+                    gameObject.GetComponentInParent<IceSkeleton>().PhaseCounter = 1;
+                }
+                if (CurrentHP <= 0)
+                {
+                    SpawnDeathParticles();
+                }
+                gameObject.GetComponentInParent<Animator>().SetTrigger("Stun");
+                CurrentHP -= 1; // 1 bonk = 1 health lost
+                Destroy(collision.gameObject);
             }
         }
     }
@@ -139,7 +154,14 @@ public class BonkableHead : MonoBehaviour
     public void SpawnDeathParticles()
     {
         DeathPartclesClone = Instantiate(DeathParticles, gameObject.transform.position, Quaternion.identity);
-        Destroy(gameObject.transform.parent.gameObject);
+        if (DeactivateNotDestroy)
+        {
+            transform.parent.gameObject.SetActive(false);
+        }
+        else
+        {
+            Destroy(gameObject.transform.parent.gameObject);
+        }
         Destroy(DeathPartclesClone, 3f); // kill after 3 seconds
         //DeathParticles.Play();
     }
