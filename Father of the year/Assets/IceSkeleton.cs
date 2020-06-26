@@ -19,10 +19,14 @@ public class IceSkeleton : MonoBehaviour
     public List<GameObject> EnemyWave1;
     public GameObject PortalSpawnEffect;
     public static GameObject PortalClone;
+    GameObject Player;
+    float FaceDirection;
+
 
     // Start is called before the first frame update
     void Start()
     {
+        Player = GameObject.FindGameObjectWithTag("Player");
         PhaseCounter = 0;
         Firing = false;
         FireDelayCopy = FireDelay;
@@ -53,6 +57,16 @@ public class IceSkeleton : MonoBehaviour
             gameObject.GetComponent<Animator>().SetTrigger("Thaw");
 
         }
+        if (Player.transform.position.x < transform.position.x) // if the player is to the left of the boss
+        {
+            transform.localScale = new Vector2(Mathf.Abs(transform.localScale.x), transform.localScale.y);
+            FaceDirection = -1;
+        }
+        else if (Player.transform.position.x > transform.position.x)
+        {
+            transform.localScale = new Vector2(-Mathf.Abs(transform.localScale.x), transform.localScale.y);
+            FaceDirection = 1;
+        }
 
     }
 
@@ -63,10 +77,20 @@ public class IceSkeleton : MonoBehaviour
 
     public void SpawnProjectile()
     {
-        ProjectileClone = Instantiate(IceProjectile, FireZone.position,IceProjectile.transform.rotation);
+        Vector2 FireDirection = new Vector2(FaceDirection, 0);
+        ProjectileClone = Instantiate(IceProjectile, FireZone.position, IceProjectile.transform.rotation);
         Destroy(ProjectileClone, 5f);
-        ProjectileClone.GetComponent<Rigidbody2D>().AddForce(Vector2.left * ProjectileSpeed);
+        ProjectileClone.GetComponent<Rigidbody2D>().AddForce(FireDirection * ProjectileSpeed);
         ProjectileClone.GetComponent<Rigidbody2D>().velocity = Vector2.left;
+        if (FaceDirection == -1)
+        {
+            ProjectileClone.GetComponent<SpriteRenderer>().flipY = false;
+        }
+        else
+        {
+            ProjectileClone.GetComponent<SpriteRenderer>().flipY = true;
+        }
+
     }
 
     public void FiringWeapon()
