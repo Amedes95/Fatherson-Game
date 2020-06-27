@@ -11,6 +11,9 @@ public class Midget : MonoBehaviour
     public GameObject EndPortal;
     public Transform PortalPos;
     Vector3 PortalMovePos;
+    public GameObject DeathParticles;
+    public static GameObject ParticlesClone;
+
     // Start is called before the first frame update
 
 
@@ -38,6 +41,7 @@ public class Midget : MonoBehaviour
         if (gameObject.GetComponent<Rigidbody2D>().velocity.x == 0)
         {
             Velocity = Vector2.right * Speed;
+            gameObject.GetComponent<AudioSource>().Play();
         }
     }
     public void CheckHeight()
@@ -49,5 +53,8 @@ public class Midget : MonoBehaviour
     private void OnDisable()
     {
         EndPortal.transform.position = PortalMovePos;
+        ParticlesClone = Instantiate(DeathParticles, transform.position, Quaternion.identity);
+        Destroy(ParticlesClone, 5f);
     }
+
 }

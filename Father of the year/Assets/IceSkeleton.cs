@@ -25,6 +25,9 @@ public class IceSkeleton : MonoBehaviour
     public static GameObject ExplosionCopy;
     public GameObject Midget;
     public GameObject[] BossParts;
+    public GameObject HiltEffect;
+    public static GameObject Effectclone;
+    public Transform EffectPos;
 
 
     // Start is called before the first frame update
@@ -206,4 +209,11 @@ public class IceSkeleton : MonoBehaviour
 
 
     }
+
+    public void HiltSlam()
+    {
+        Effectclone = Instantiate(HiltEffect, EffectPos.position, Quaternion.identity);
+        Destroy(Effectclone, 5f);
+    }
+
 }
