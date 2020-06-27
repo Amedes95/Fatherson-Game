@@ -7,6 +7,12 @@ public class SpawnEnemies : MonoBehaviour
     public List<GameObject> EnemyWave;
     public GameObject PortalSpawnEffect;
     public static GameObject PortalClone;
+    GameObject Player;
+
+    private void Awake()
+    {
+        Player = GameObject.FindGameObjectWithTag("Player");
+    }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -19,10 +25,14 @@ public class SpawnEnemies : MonoBehaviour
 
     public void CreateEnemies()
     {
-        foreach (GameObject Enemy in EnemyWave)
+        if (Player.activeInHierarchy) // Dont spawn enemies if player is dead
         {
-            Enemy.SetActive(true);
-            PortalClone = Instantiate(PortalSpawnEffect, Enemy.transform.position, Quaternion.identity);
+            foreach (GameObject Enemy in EnemyWave)
+            {
+                Enemy.SetActive(true);
+                PortalClone = Instantiate(PortalSpawnEffect, Enemy.transform.position, Quaternion.identity);
+            }
         }
+
     }
 }

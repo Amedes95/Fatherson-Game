@@ -132,6 +132,11 @@ public class BonkableHead : MonoBehaviour
                 {
                     gameObject.GetComponentInParent<IceSkeleton>().PhaseCounter = 1;
                 }
+                if (gameObject.GetComponentInParent<IceSkeleton>().PhaseCounter == 2)
+                {
+                    Debug.Log("Phase 3 beginning");
+                    gameObject.GetComponentInParent<IceSkeleton>().PhaseCounter = 3;
+                }
                 if (CurrentHP <= 0)
                 {
                     SpawnDeathParticles();

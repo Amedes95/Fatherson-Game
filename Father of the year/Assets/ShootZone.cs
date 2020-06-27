@@ -22,7 +22,7 @@ public class ShootZone : MonoBehaviour
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        if (collision.tag == "Player")
+        if (collision.tag == "Player" && transform.parent.gameObject.activeInHierarchy)
         {
             gameObject.GetComponentInParent<Animator>().SetBool("ShootRange", false);
         }

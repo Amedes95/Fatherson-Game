@@ -54,7 +54,10 @@ public class FlyingEnemy : MonoBehaviour
                 GetComponentInParent<Animator>().SetBool("Attacking", true);
             }
             Disturbed = true;
-            GetComponentInParent<Rigidbody2D>().AddForce(MoveDirection * FlySpeed * speedRatio);
+            if (transform.parent.gameObject.activeInHierarchy)
+            {
+                GetComponentInParent<Rigidbody2D>().AddForce(MoveDirection * FlySpeed * speedRatio);
+            }
         }
     }
 

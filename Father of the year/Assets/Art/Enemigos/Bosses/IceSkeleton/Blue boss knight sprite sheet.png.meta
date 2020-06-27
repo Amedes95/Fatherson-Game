@@ -110,6 +110,18 @@ TextureImporter:
   - first:
       213: 9214332425189380784
     second: Blue boss knight sprite sheet_35
+  - first:
+      213: -84640476674493173
+    second: Blue boss knight sprite sheet_36
+  - first:
+      213: 7747438258990835947
+    second: Blue boss knight sprite sheet_37
+  - first:
+      213: 3570713701004018297
+    second: Blue boss knight sprite sheet_38
+  - first:
+      213: -1822982403515670035
+    second: Blue boss knight sprite sheet_39
   externalObjects: {}
   serializedVersion: 10
   mipmaps:
@@ -308,7 +320,7 @@ TextureImporter:
         x: 56
         y: 151
         width: 24
-        height: 32
+        height: 33
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -940,7 +952,7 @@ TextureImporter:
         width: 32
         height: 35
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -961,7 +973,7 @@ TextureImporter:
         width: 33
         height: 33
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -969,6 +981,90 @@ TextureImporter:
       bones: []
       spriteID: 4ee93fe4ae2cadd4c848adec7ebe89e0
       internalID: 9214332425189380784
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Blue boss knight sprite sheet_36
+      rect:
+        serializedVersion: 2
+        x: 205
+        y: 204
+        width: 10
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ed7a990a038b4c44598d98f5a913781a
+      internalID: -84640476674493173
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Blue boss knight sprite sheet_37
+      rect:
+        serializedVersion: 2
+        x: 226
+        y: 222
+        width: 11
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 27a16eae278d5fa488a9a7d32f67a9c4
+      internalID: 7747438258990835947
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Blue boss knight sprite sheet_38
+      rect:
+        serializedVersion: 2
+        x: 223
+        y: 195
+        width: 15
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: aa25da70ada675d4a9d339cb3b481ea4
+      internalID: 3570713701004018297
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Blue boss knight sprite sheet_39
+      rect:
+        serializedVersion: 2
+        x: 245
+        y: 206
+        width: 14
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d18e717945187ca4b8f35b0e2612c461
+      internalID: -1822982403515670035
       vertices: []
       indices: 
       edges: []

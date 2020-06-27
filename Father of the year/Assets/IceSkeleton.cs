@@ -21,6 +21,10 @@ public class IceSkeleton : MonoBehaviour
     public static GameObject PortalClone;
     GameObject Player;
     float FaceDirection;
+    public GameObject Explosion;
+    public static GameObject ExplosionCopy;
+    public GameObject Midget;
+    public GameObject[] BossParts;
 
 
     // Start is called before the first frame update
@@ -52,10 +56,15 @@ public class IceSkeleton : MonoBehaviour
         }
         if (EnemyWave1.Count <= 0)
         {
-            PhaseCounter = 2;
             gameObject.GetComponent<Animator>().SetBool("Phase1", false);
             gameObject.GetComponent<Animator>().SetTrigger("Thaw");
 
+        }
+        if (PhaseCounter == 3)
+        {
+            gameObject.GetComponent<Animator>().SetBool("Phase1", false);
+            gameObject.GetComponent<Animator>().SetBool("Phase2", false);
+            gameObject.GetComponent<Animator>().SetBool("Phase3", true);
         }
         if (Player.transform.position.x < transform.position.x) // if the player is to the left of the boss
         {
@@ -116,15 +125,19 @@ public class IceSkeleton : MonoBehaviour
 
     public void SpawnEnemies()
     {
-        if (PhaseCounter == 1)
+        if (Player.activeInHierarchy)
         {
-            foreach (GameObject Enemy in EnemyWave1)
+            if (PhaseCounter == 1)
             {
-                Enemy.SetActive(true);
-                PortalClone = Instantiate(PortalSpawnEffect, Enemy.transform.position, Quaternion.identity);
-                Destroy(PortalClone, 5f);
+                foreach (GameObject Enemy in EnemyWave1)
+                {
+                    Enemy.SetActive(true);
+                    PortalClone = Instantiate(PortalSpawnEffect, Enemy.transform.position, Quaternion.identity);
+                    Destroy(PortalClone, 5f);
+                }
             }
         }
+
 
     }
 
@@ -141,6 +154,56 @@ public class IceSkeleton : MonoBehaviour
             }
 
         }
+
+    }
+
+    public void Explode()
+    {
+        if (PhaseCounter == 3)
+        {
+            ExplosionCopy = Instantiate(Explosion, transform.position, Quaternion.identity);
+            ExplosionCopy.transform.localScale = new Vector3(3f, 3f, 3f);
+            Destroy(ExplosionCopy, 10f);
+            foreach (GameObject part in BossParts)
+            {
+                part.SetActive(true);
+                int randInt = Random.Range(0, 3); // 0,1,2
+                Vector2 Direction;
+                if (randInt == 1)
+                {
+                    Direction = new Vector2(Mathf.Sqrt(2) / 2, Mathf.Sqrt(2) / 2);
+                }
+                else if (randInt == 2)
+                {
+                    Direction = new Vector2(-Mathf.Sqrt(2) / 2, Mathf.Sqrt(3 / 2));
+                }
+                else
+                {
+                    Direction = new Vector2(-Mathf.Sqrt(3 / 2), 1/2);
+                }
+                part.GetComponent<Rigidbody2D>().AddForce(Direction * 500);
+                Debug.Log(randInt);
+                Debug.Log(Direction);
+                Debug.Log(part.name);
+            }
+
+            Midget.SetActive(true);
+            gameObject.SetActive(false);
+        }
+
+    }
+
+    public void Thaw()
+    {
+        if (Player.activeInHierarchy)
+        {
+            if (PhaseCounter == 1)
+            {
+                PhaseCounter = 2;
+                gameObject.GetComponent<Animator>().SetBool("Phase2", true);
+            }
+        }
+
 
     }
 }
