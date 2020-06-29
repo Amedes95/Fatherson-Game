@@ -18,6 +18,8 @@ public class SoundManager : MonoBehaviour
     public AudioSource BGM;
     float MinorDelay = .1f;
     bool ReadyToGo;
+    public AudioSource SFXClicks;
+    public AudioSource MusicClicks;
 
     private void FixedUpdate()
     {
@@ -42,12 +44,12 @@ public class SoundManager : MonoBehaviour
 
     private void Update()
     {
-        if ((PlayerPrefs.GetFloat("GameBegun") == 0))
-        {
-            PlayerPrefs.SetFloat("GameBegun", 1);
-            MusicSlider.value = DefaultMusicVolume;
-            SFXSlider.value = DefaultSFXVolume;
-        }
+        //if ((PlayerPrefs.GetFloat("GameBegun") == 0))
+        //{
+        //    PlayerPrefs.SetFloat("GameBegun", 1);
+        //    MusicSlider.value = DefaultMusicVolume;
+        //    SFXSlider.value = DefaultSFXVolume;
+        //}
     }
 
 
@@ -59,8 +61,8 @@ public class SoundManager : MonoBehaviour
         if (PlayerPrefs.GetFloat("GameBegun") == 0)
         {
             PlayerPrefs.SetFloat("GameBegun", 1);
-            MusicSlider.value = DefaultMusicVolume;
-            SFXSlider.value = DefaultSFXVolume;
+            RevertToDefault();
+
         }
         else
         {
@@ -74,8 +76,13 @@ public class SoundManager : MonoBehaviour
         InitializeSound();
         BGM = GameObject.FindGameObjectWithTag("BGMusic").GetComponent<AudioSource>();
         BGM.volume = DefaultMusicVolume;
-        PlayerPrefs.SetFloat("MusicVolume", DefaultMusicVolume); // updates preferences with change
         MusicSlider.value = DefaultMusicVolume;
+        PlayerPrefs.SetFloat("MusicVolume", DefaultMusicVolume); // updates preferences with change
+
+
+        SFXSlider.value = DefaultSFXVolume;
+        PlayerPrefs.SetFloat("SFXVolume", DefaultSFXVolume);
+
     }
 
     public void EditVolume()
@@ -84,6 +91,10 @@ public class SoundManager : MonoBehaviour
         {
             BGM.volume = MusicSlider.value;
             PlayerPrefs.SetFloat("MusicVolume", BGM.volume); // updates preferences with change
+            if (MusicClicks.gameObject.activeInHierarchy)
+            {
+                MusicClicks.Play();
+            }
         }
     }
 
@@ -100,6 +111,10 @@ public class SoundManager : MonoBehaviour
         if (Boombox.EditorMode == false)
         {
             PlayerPrefs.SetFloat("SFXVolume", SFXSlider.value);
+            if (SFXClicks.gameObject.activeInHierarchy)
+            {
+                SFXClicks.Play();
+            }
         }
     }
 }

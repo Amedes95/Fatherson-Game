@@ -14,6 +14,7 @@ public class MainMenu : MonoBehaviour
     public GameObject StatsMenu;
     public GameObject ControllerMenu;
     public GameObject VisualsMenu;
+    public GameObject SkipCanvas;
 
     bool WipingProgress;
     bool AtMainMenu;
@@ -70,10 +71,9 @@ public class MainMenu : MonoBehaviour
 
 
         Camera.transform.position = Vector3.MoveTowards(Camera.transform.position, CurrentDestination.position, CameraSpeed); // constantly move the camera to the "Current Destination"
-        if (WatchingIntro && (Input.GetKeyDown(KeyCode.Space) || Input.GetButtonDown("Pause"))) // skips intro
+        if (WatchingIntro && (Input.GetKeyDown(KeyCode.Space) || Input.GetButtonDown("Pause")) && Camera.transform.position != CurrentDestination.position) // skips intro
         {
-            WatchingIntro = false;
-            Camera.transform.position = CurrentDestination.position;
+            SkipCanvas.SetActive(true);
         }
         if (Camera.transform.position == CurrentDestination.position) // we made it, decide from here
         {
@@ -84,6 +84,7 @@ public class MainMenu : MonoBehaviour
             else if (AtMainMenu) // "Main Menu"
             {
                 MenuScreen.SetActive(true);
+                SkipCanvas.SetActive(false);
             }
             else if (EditingSounds) // sound menu
             {
@@ -200,8 +201,8 @@ public class MainMenu : MonoBehaviour
         ConfirmationMenu.SetActive(false);
 
         PlayerPrefs.SetFloat("GameBegun", 1);
-        MusicSettingsMenu.GetComponent<SoundManager>().RevertSFXVolume();
-        MusicSettingsMenu.GetComponent<SoundManager>().RevertToDefault();
+        MusicSettingsMenu.GetComponentInParent<SoundManager>().RevertSFXVolume();
+        MusicSettingsMenu.GetComponentInParent<SoundManager>().RevertToDefault();
     }
 
     public void LoadSoundSettings() // from settings to sound settings
@@ -252,6 +253,14 @@ public class MainMenu : MonoBehaviour
         SettingsMenu.SetActive(false);
         StatsMenu.SetActive(false);
 
+    }
+
+    public void SkipIntro()
+    {
+        WatchingIntro = false;
+        Camera.transform.position = CurrentDestination.position;
+        SkipCanvas.SetActive(false);
+        LoadMainMenu();
     }
 
 }

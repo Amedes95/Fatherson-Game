@@ -15,8 +15,6 @@ public class Midget : MonoBehaviour
     public static GameObject ParticlesClone;
 
     // Start is called before the first frame update
-
-
     private void Awake()
     {
         PortalMovePos = PortalPos.position;

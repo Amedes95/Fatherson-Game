@@ -86,6 +86,9 @@ public class PlayerMovement : MonoBehaviour
         jumpForce = CalculateJumpForce(playerBody.gravityScale, jumpHeight);
         InvincibilityTimer = 0f;
         wallJumping = false;
+        isFloating = false;
+
+
 
         if (flipOnSpawn)
         {
