@@ -128,7 +128,7 @@ public class MushroomBoos : MonoBehaviour
     public void SubtractHP()
     {
         CurrentBossHP -= 1;
-        if (CurrentBossHP <= MAXHP - 8) // 8 bonks later
+        if (CurrentBossHP <= MAXHP - 6) // 8 bonks later
         {
             StunDuration = 5f;
             StunnedMode();
