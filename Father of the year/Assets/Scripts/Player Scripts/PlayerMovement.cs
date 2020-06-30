@@ -608,9 +608,11 @@ public class PlayerMovement : MonoBehaviour
                 {
                     gameObject.GetComponent<Animator>().SetBool("DoubleJumpActive", true);
                     playerBody.velocity = new Vector2(playerBody.velocity.x, 0);
+                    wallJumping = false;
                     Jump();
                     jumpCount -= 1;
                     jumpAudioBox.PlayDoubleJumpSound();
+
                 }
                 if (isFloating)
                 {
