@@ -23,6 +23,7 @@ public class LevelManager : MonoBehaviour
     public GameObject World3;
     public GameObject World4;
     public GameObject World5;
+    public GameObject World6;
 
     int LevelIndex;
     int WorldIndex;
@@ -49,6 +50,7 @@ public class LevelManager : MonoBehaviour
     public Sprite World3Background;
     public Sprite World4Background;
     public Sprite World5Background;
+    public Sprite World6Background;
 
 
 
@@ -100,6 +102,11 @@ public class LevelManager : MonoBehaviour
         {
             WorldsList.Add(World5);
         }
+        if (WorldsList.Contains(World6) == false && PlayerPrefs.GetInt("World5_Complete") == 1)
+        {
+            WorldsList.Add(World6);
+        }
+
 
         /// add check for world 2 completion here (final level script)
 
@@ -337,6 +344,17 @@ public class LevelManager : MonoBehaviour
             BackgroundChangeDirection("Up");
 
         }
+        else if (WorldIndex == 6) // white squares
+        {
+            CenterBG.GetComponent<SpriteRenderer>().sprite = World6Background;
+            RightBG.GetComponent<SpriteRenderer>().sprite = World6Background;
+            LeftBG.GetComponent<SpriteRenderer>().sprite = World6Background;
+            TopBG.GetComponent<SpriteRenderer>().sprite = World6Background;
+            BottomBG.GetComponent<SpriteRenderer>().sprite = World6Background;
+
+            BackgroundChangeDirection("Right");
+
+        }
     }
 
     public void BackgroundChangeDirection(string Direction)
@@ -392,6 +410,7 @@ public class LevelManager : MonoBehaviour
         PlayerPrefs.SetInt("World3_Complete", 1);
         PlayerPrefs.SetInt("World4_Complete", 1);
         PlayerPrefs.SetInt("World5_Complete", 1);
+        PlayerPrefs.SetInt("World6_Complete", 1);
 
 
         WorldsList.Add(World1);
@@ -399,6 +418,8 @@ public class LevelManager : MonoBehaviour
         WorldsList.Add(World3);
         WorldsList.Add(World4);
         WorldsList.Add(World5);
+        WorldsList.Add(World6);
+
 
     }
 

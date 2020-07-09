@@ -35,6 +35,10 @@ public class FinalLevel : MonoBehaviour
             {
                 PlayerPrefs.SetInt("World5_Complete", 1);
             }
+            if (SceneManager.GetActiveScene().name == "W6BOSS") // w6 boss beaten
+            {
+                PlayerPrefs.SetInt("World6_Complete", 1);
+            }
         }
     }
 }
