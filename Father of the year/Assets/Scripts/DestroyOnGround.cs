@@ -35,6 +35,11 @@ public class DestroyOnGround : MonoBehaviour
             SpawnImpactParticles();
             Destroy(gameObject);
         }
+        else if (collision.tag == "Bunny")
+        {
+            collision.GetComponent<BunnyBoss>().DamageMe();
+            Destroy(gameObject);
+        }
     }
 
     public void SpawnImpactParticles()

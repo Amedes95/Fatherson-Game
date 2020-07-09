@@ -9,6 +9,7 @@ public class CameraLocker : MonoBehaviour
     public float CameraZoom;
     public bool TrapPlayer;
     public GameObject TrapperBounds;
+    public bool ZoomCameraOut;
 
     // Start is called before the first frame update
     void Awake()
@@ -29,6 +30,10 @@ public class CameraLocker : MonoBehaviour
             if (TrapPlayer)
             {
                 TrapperBounds.SetActive(true);
+            }
+            if (Camera.GetComponent<Camera>().orthographicSize < CameraZoom && ZoomCameraOut)
+            {
+                Camera.GetComponent<Camera>().orthographicSize += .5f;
             }
         }
 
