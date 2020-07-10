@@ -18,6 +18,9 @@ public class Goal : MonoBehaviour
     bool SpeedRunning;
     public float CompletionTime;
 
+    public bool SpecialCredits;
+
+
     // Start is called before the first frame update
     void Awake()
     {
@@ -61,8 +64,10 @@ public class Goal : MonoBehaviour
                 }
 
             }
-
-
+            if (SpecialCredits)
+            {
+                VictoryScreen.ExitToHub();
+            }
         }
     }
 

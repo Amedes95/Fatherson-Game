@@ -22,6 +22,9 @@ public class VictoryMenu : MonoBehaviour
 
     public GameObject SpaceBarText;
 
+    public bool SpecialVictory;
+
+
 
     private void Awake()
     {
@@ -45,6 +48,7 @@ public class VictoryMenu : MonoBehaviour
             StaticSource.clip = StaticNoise;
             StaticSource.Play();
         }
+
     }
 
     private void Update()
@@ -86,6 +90,10 @@ public class VictoryMenu : MonoBehaviour
         else
         {
             VictoryScreen.SetActive(false);
+        }
+        if (GoalReached && SpecialVictory)
+        {
+            ExitToHub();
         }
 
         // post processing transition

@@ -5,11 +5,18 @@ using UnityEngine;
 public class SkipCanvas : MonoBehaviour
 {
 
-    public MainMenu MenuManager;
-
+    public GameObject MenuManager;
+    public bool Credits;
 
     public void SkipIntro()
     {
-        MenuManager.SkipIntro();
+        if (!Credits)
+        {
+            MenuManager.GetComponent<MainMenu>().SkipIntro();
+        }
+        else
+        {
+            MenuManager.GetComponent<CreditsManager>().SkipOutro();
+        }
     }
 }
