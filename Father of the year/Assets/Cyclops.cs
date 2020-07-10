@@ -18,9 +18,16 @@ public class Cyclops : MonoBehaviour
     public GameObject RockPrefab;
     public static GameObject RockClone;
     public Transform RockDropZone;
+    public BunnyBoss BunnyBoss;
 
     int LaserCount;
     int RockCount;
+    public GameObject Tears;
+
+    public float EndTimer = 5f;
+    public GameObject Portal;
+
+
 
 
 
@@ -36,7 +43,7 @@ public class Cyclops : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        if (Player.activeInHierarchy)
+        if (Player.activeInHierarchy && BunnyBoss.dead == false)
         {
             if (Walking)
             {
@@ -65,6 +72,22 @@ public class Cyclops : MonoBehaviour
                 }
             }
             RockDropZone.transform.position = new Vector2(Player.transform.position.x, RockDropZone.position.y); // moves the drop zone over the players head
+        }
+        if (BunnyBoss.dead)
+        {
+            gameObject.GetComponent<Animator>().SetBool("Crying", true);
+            Tears.SetActive(true);
+            EndTimer -= Time.smoothDeltaTime;
+            if (EndTimer <= 0)
+            {
+                EndTimer = 0;
+                Portal.transform.position = Player.transform.position;
+            }
+
+        }
+        else
+        {
+            Tears.SetActive(false);
         }
     }
         

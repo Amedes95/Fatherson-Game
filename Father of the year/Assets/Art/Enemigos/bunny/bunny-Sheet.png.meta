@@ -71,6 +71,9 @@ TextureImporter:
   - first:
       213: 6592315450395694517
     second: bunny-Sheet_22
+  - first:
+      213: 8524744098344794682
+    second: bunny-Sheet_23
   externalObjects: {}
   serializedVersion: 10
   mipmaps:
@@ -521,7 +524,7 @@ TextureImporter:
         x: 14
         y: 77
         width: 34
-        height: 65
+        height: 68
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -645,9 +648,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 133
-        y: 0
+        y: 6
         width: 25
-        height: 71
+        height: 65
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -657,6 +660,27 @@ TextureImporter:
       bones: []
       spriteID: 5a349e88cd891bb49881a9ebfceb9cf1
       internalID: 6592315450395694517
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bunny-Sheet_23
+      rect:
+        serializedVersion: 2
+        x: 188
+        y: 6
+        width: 25
+        height: 65
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b21cb6d0c91992642b8cb21e88befeef
+      internalID: 8524744098344794682
       vertices: []
       indices: 
       edges: []

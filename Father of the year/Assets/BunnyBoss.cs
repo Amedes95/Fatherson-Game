@@ -10,7 +10,11 @@ public class BunnyBoss : MonoBehaviour
     public GameObject HpBar;
     public bool WakePhase;
     public GameObject BossCanvas;
-    bool dead;
+    public bool dead;
+
+
+    public GameObject DeathParticles;
+    public static GameObject ParticlesClone;
 
     // Start is called before the first frame update
     void Start()
@@ -41,6 +45,9 @@ public class BunnyBoss : MonoBehaviour
             dead = true;
             BossCanvas.SetActive(false);
             Debug.Log("I am vanquished");
+            ParticlesClone = Instantiate(DeathParticles, transform.position, Quaternion.identity);
+            Destroy(ParticlesClone, 5f);
+            gameObject.SetActive(false);
         }
         SetHPSize(CurrentHP / MaxHP);
     }
@@ -61,6 +68,7 @@ public class BunnyBoss : MonoBehaviour
     {
         CurrentHP -= 1;
         SetHPSize(CurrentHP / MaxHP);
+        gameObject.GetComponent<Animator>().SetTrigger("Hurt");
     }
 
     public void SetHPSize(float sizeNormalized)
