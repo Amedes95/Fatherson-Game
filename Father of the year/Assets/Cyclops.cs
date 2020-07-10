@@ -36,34 +36,38 @@ public class Cyclops : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        if (Walking)
+        if (Player.activeInHierarchy)
         {
-            gameObject.transform.position = Vector3.MoveTowards(gameObject.transform.position, CyclopsZone.position, MoveSpeed); // constantly move the camera to the "Current Destination"
-        }
-        if (gameObject.transform.position == CyclopsZone.position)
-        {
-            Walking = false;
-            gameObject.GetComponent<Animator>().SetBool("Walk", false);
-            gameObject.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeAll;
-            AttackCycleCooldown -= Time.smoothDeltaTime;
-            if (AttackCycleCooldown <= 0)
+            if (Walking)
             {
-                int Randint = Random.Range(0, 2);
-                if (Randint == 1 && LaserCount < 10 || RockCount >= 4)
-                {
-                    gameObject.GetComponent<Animator>().SetTrigger("Laser");
-
-                }
-                else if (Randint == 0 && RockCount < 4 || LaserCount >= 10)
-                {
-                    gameObject.GetComponent<Animator>().SetTrigger("Rock");
-
-                }
-                AttackCycleCooldown = CycleCooldownCopy;
+                gameObject.transform.position = Vector3.MoveTowards(gameObject.transform.position, CyclopsZone.position, MoveSpeed); // constantly move the camera to the "Current Destination"
             }
+            if (gameObject.transform.position == CyclopsZone.position)
+            {
+                Walking = false;
+                gameObject.GetComponent<Animator>().SetBool("Walk", false);
+                gameObject.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeAll;
+                AttackCycleCooldown -= Time.smoothDeltaTime;
+                if (AttackCycleCooldown <= 0)
+                {
+                    int Randint = Random.Range(0, 2);
+                    if (Randint == 1 && LaserCount < 10 || RockCount >= 4)
+                    {
+                        gameObject.GetComponent<Animator>().SetTrigger("Laser");
+
+                    }
+                    else if (Randint == 0 && RockCount < 4 || LaserCount >= 10)
+                    {
+                        gameObject.GetComponent<Animator>().SetTrigger("Rock");
+
+                    }
+                    AttackCycleCooldown = CycleCooldownCopy;
+                }
+            }
+            RockDropZone.transform.position = new Vector2(Player.transform.position.x, RockDropZone.position.y); // moves the drop zone over the players head
         }
-        RockDropZone.transform.position = new Vector2(Player.transform.position.x, RockDropZone.position.y); // moves the drop zone over the players head
     }
+        
 
     public void SpawnRock()
     {
