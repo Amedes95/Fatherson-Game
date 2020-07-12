@@ -47,6 +47,21 @@ TextureImporter:
   - first:
       213: 3629163291313435071
     second: pipo-gate01b192_24
+  - first:
+      213: 2449565211956633123
+    second: pipo-gate01b192_0
+  - first:
+      213: -4667167216807992864
+    second: pipo-gate01b192_1
+  - first:
+      213: -4305029124289174284
+    second: pipo-gate01b192_4
+  - first:
+      213: 7183332432782641253
+    second: pipo-gate01b192_13
+  - first:
+      213: 5142370900134397789
+    second: pipo-gate01b192_14
   externalObjects: {}
   serializedVersion: 10
   mipmaps:
@@ -155,21 +170,63 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: pipo-gate01b192_2
+      name: pipo-gate01b192_0
       rect:
         serializedVersion: 2
-        x: 18
-        y: 406
-        width: 153
-        height: 149
+        x: 15
+        y: 407
+        width: 160
+        height: 154
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d83367034b9f36d4e941ee0174fd6185
+      spriteID: 995f8de028ffeaf4d9110e38312ad662
+      internalID: 2449565211956633123
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pipo-gate01b192_1
+      rect:
+        serializedVersion: 2
+        x: 209
+        y: 407
+        width: 160
+        height: 154
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0408bfb08af5b1f46867ead0a7fa88f8
+      internalID: -4667167216807992864
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pipo-gate01b192_2
+      rect:
+        serializedVersion: 2
+        x: 403
+        y: 407
+        width: 160
+        height: 154
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a47068bf3e058f34bb572563b253f0fb
       internalID: -6427057377911135160
       vertices: []
       indices: 
@@ -179,19 +236,40 @@ TextureImporter:
       name: pipo-gate01b192_3
       rect:
         serializedVersion: 2
-        x: 204
-        y: 406
-        width: 159
-        height: 152
+        x: 595
+        y: 407
+        width: 160
+        height: 154
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 87eb461612f6da34b88f7b5902c9fc8b
+      spriteID: 93df87e991efc2b478d30b5db4ea5df6
       internalID: 8013513800663958056
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pipo-gate01b192_4
+      rect:
+        serializedVersion: 2
+        x: 787
+        y: 407
+        width: 160
+        height: 154
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fa7b922c321f5e9419344549c11c5374
+      internalID: -4305029124289174284
       vertices: []
       indices: 
       edges: []
@@ -200,18 +278,18 @@ TextureImporter:
       name: pipo-gate01b192_5
       rect:
         serializedVersion: 2
-        x: 404
-        y: 405
-        width: 151
-        height: 156
+        x: 21
+        y: 214
+        width: 160
+        height: 154
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e046353d9d5d4364a93550596a34f725
+      spriteID: fd56df8f5d5b12349b5d5b1a0f7b29d9
       internalID: 4117517548719649272
       vertices: []
       indices: 
@@ -221,18 +299,18 @@ TextureImporter:
       name: pipo-gate01b192_6
       rect:
         serializedVersion: 2
-        x: 596
-        y: 403
-        width: 153
-        height: 151
+        x: 211
+        y: 214
+        width: 160
+        height: 154
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b40f65f8c34f68c49a96e822a9cce4c5
+      spriteID: 76bc9d9cb3c70c146bdb69287809ae92
       internalID: -1522121705350619642
       vertices: []
       indices: 
@@ -242,18 +320,18 @@ TextureImporter:
       name: pipo-gate01b192_7
       rect:
         serializedVersion: 2
-        x: 783
-        y: 397
-        width: 159
-        height: 157
+        x: 401
+        y: 213
+        width: 160
+        height: 154
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: cc7bf244a72b17e4cbc054f7c3ab77ae
+      spriteID: 62a36fafde79e0944af678bd6aca2ed9
       internalID: 5915284766984440341
       vertices: []
       indices: 
@@ -263,18 +341,18 @@ TextureImporter:
       name: pipo-gate01b192_8
       rect:
         serializedVersion: 2
-        x: 22
-        y: 215
-        width: 155
-        height: 147
+        x: 594
+        y: 214
+        width: 160
+        height: 154
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b59c775755b715340a63316ef5d3ff30
+      spriteID: d724fdd568e68bf47ab5607d33e6eaf7
       internalID: -6740173857648105274
       vertices: []
       indices: 
@@ -284,18 +362,18 @@ TextureImporter:
       name: pipo-gate01b192_9
       rect:
         serializedVersion: 2
-        x: 214
-        y: 214
-        width: 157
-        height: 148
+        x: 784
+        y: 215
+        width: 160
+        height: 154
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4254d332bd3865848962f84f950e0a76
+      spriteID: 5a31726c9f2cfa348b60849b23344d16
       internalID: -4474810096655203912
       vertices: []
       indices: 
@@ -305,18 +383,18 @@ TextureImporter:
       name: pipo-gate01b192_10
       rect:
         serializedVersion: 2
-        x: 404
-        y: 214
-        width: 161
-        height: 151
+        x: 17
+        y: 23
+        width: 160
+        height: 154
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 454b784b9fa1e8141a466703cc7405f3
+      spriteID: 59274282f5d92484f9f1b29192ac78d7
       internalID: 6443053500412989632
       vertices: []
       indices: 
@@ -326,18 +404,18 @@ TextureImporter:
       name: pipo-gate01b192_11
       rect:
         serializedVersion: 2
-        x: 598
-        y: 214
-        width: 161
+        x: 211
+        y: 23
+        width: 160
         height: 154
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6857014a59817e04fb08df84183dd2fc
+      spriteID: e81363e9bd25ce14a8d75d16e4c18e09
       internalID: 5795184008786538534
       vertices: []
       indices: 
@@ -347,124 +425,61 @@ TextureImporter:
       name: pipo-gate01b192_12
       rect:
         serializedVersion: 2
-        x: 790
-        y: 214
-        width: 152
-        height: 155
+        x: 402
+        y: 24
+        width: 160
+        height: 154
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: cf1ef7e5d7387bd42a485cfabb2ce424
+      spriteID: 05ac337075de6b04186cb05fbf4a93bd
       internalID: 3466174807390249245
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: pipo-gate01b192_19
+      name: pipo-gate01b192_13
       rect:
         serializedVersion: 2
-        x: 20
-        y: 19
-        width: 157
-        height: 150
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: e3d781830e792d34a9163617c6395c86
-      internalID: 8641834442508830807
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: pipo-gate01b192_21
-      rect:
-        serializedVersion: 2
-        x: 209
-        y: 14
-        width: 166
+        x: 593
+        y: 25
+        width: 160
         height: 154
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ca0adc4d0c2f7d34d8a00701c26e795d
-      internalID: -2888104521413969294
+      spriteID: c579d7786da93e949b4340fa9fbbe3d6
+      internalID: 7183332432782641253
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: pipo-gate01b192_22
+      name: pipo-gate01b192_14
       rect:
         serializedVersion: 2
-        x: 406
-        y: 23
-        width: 165
-        height: 145
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 0a5e58beedd3585488e54a51d18941f8
-      internalID: 1890346127205826204
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: pipo-gate01b192_23
-      rect:
-        serializedVersion: 2
-        x: 588
-        y: 21
-        width: 175
-        height: 148
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 02227b7dc84ec024eb22a83de50d953f
-      internalID: 1526125584517266842
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: pipo-gate01b192_24
-      rect:
-        serializedVersion: 2
-        x: 791
-        y: 19
-        width: 156
+        x: 785
+        y: 24
+        width: 160
         height: 154
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b2d3ee8b355b7bc46a15d2eea0ea728e
-      internalID: 3629163291313435071
+      spriteID: 51326bef52f43a94b8bfdc40a3f5633d
+      internalID: 5142370900134397789
       vertices: []
       indices: 
       edges: []

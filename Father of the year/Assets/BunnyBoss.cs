@@ -69,6 +69,7 @@ public class BunnyBoss : MonoBehaviour
         CurrentHP -= 1;
         SetHPSize(CurrentHP / MaxHP);
         gameObject.GetComponent<Animator>().SetTrigger("Hurt");
+        gameObject.GetComponent<AudioSource>().Play();
     }
 
     public void SetHPSize(float sizeNormalized)

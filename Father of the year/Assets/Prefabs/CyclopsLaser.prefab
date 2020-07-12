@@ -225,8 +225,8 @@ ParticleSystem:
       maxColor: {r: 1, g: 0.10849059, b: 0.10849059, a: 1}
       maxGradient:
         serializedVersion: 2
-        key0: {r: 1, g: 0, b: 0, a: 1}
-        key1: {r: 1, g: 0.17776965, b: 0, a: 1}
+        key0: {r: 0, g: 0.74053, b: 1, a: 1}
+        key1: {r: 1, g: 0.5033311, b: 0, a: 1}
         key2: {r: 0, g: 0, b: 0, a: 0}
         key3: {r: 0, g: 0, b: 0, a: 0}
         key4: {r: 0, g: 0, b: 0, a: 0}
@@ -4770,6 +4770,7 @@ GameObject:
   - component: {fileID: 2840879427730406221}
   - component: {fileID: 624550705508483460}
   - component: {fileID: 7433133126810635093}
+  - component: {fileID: 4577684410772460245}
   m_Layer: 16
   m_Name: CyclopsLaser
   m_TagString: BossLaser
@@ -4786,7 +4787,7 @@ Transform:
   m_GameObject: {fileID: 3005182223296247397}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1.5, y: 1.5, z: 2}
+  m_LocalScale: {x: 1.5561693, y: 1.5561693, z: 2.0748923}
   m_Children:
   - {fileID: 2106523493580967799}
   - {fileID: 6698907840764220773}
@@ -4831,8 +4832,9 @@ SpriteRenderer:
   m_SortingLayerID: 2094072539
   m_SortingLayer: 6
   m_SortingOrder: -1
-  m_Sprite: {fileID: 21300000, guid: 89a5ee91162b09d45ad3341f4005a961, type: 3}
-  m_Color: {r: 1, g: 0, b: 0, a: 1}
+  m_Sprite: {fileID: -6427057377911135160, guid: 951abe62982adfe438d7abdebf9621b8,
+    type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -4923,6 +4925,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ImpactParticlePrefab: {fileID: 9012351662596608965, guid: d461d1dbcf032e8448555ae53242f868,
     type: 3}
+  SpinMe: 1
 --- !u!82 &624550705508483460
 AudioSource:
   m_ObjectHideFlags: 0
@@ -4933,10 +4936,10 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 8318ec647167a8548a0f7bb9950edb76, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 9d81d08cd3f95c145953f0f1cb235925, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
-  m_Pitch: 1
+  m_Pitch: 2
   Loop: 0
   Mute: 0
   Spatialize: 0
@@ -5031,6 +5034,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3bb925d59510017408fdb93ad715c7c9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!95 &4577684410772460245
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3005182223296247397}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 9c2d6248adb27e24ca03964c8d04a389, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &8955625890474458870
 GameObject:
   m_ObjectHideFlags: 0

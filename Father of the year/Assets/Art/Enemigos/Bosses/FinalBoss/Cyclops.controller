@@ -238,25 +238,25 @@ AnimatorController:
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 0}
+    m_Controller: {fileID: 9100000}
   - m_Name: Laser
     m_Type: 9
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 0}
+    m_Controller: {fileID: 9100000}
   - m_Name: Rock
     m_Type: 9
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 0}
+    m_Controller: {fileID: 9100000}
   - m_Name: Crying
     m_Type: 4
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 0}
+    m_Controller: {fileID: 9100000}
   m_AnimatorLayers:
   - serializedVersion: 5
     m_Name: Base Layer
@@ -545,25 +545,25 @@ AnimatorStateMachine:
     m_Position: {x: 200, y: -60, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 6828508508310997613}
-    m_Position: {x: 260, y: 10, z: 0}
+    m_Position: {x: 300, y: 0, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 7304904504104385152}
-    m_Position: {x: 120, y: 160, z: 0}
+    m_Position: {x: 90, y: 160, z: 0}
   - serializedVersion: 1
     m_State: {fileID: -3870514904793040291}
-    m_Position: {x: 340, y: 300, z: 0}
+    m_Position: {x: 310, y: 90, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 8234204424920749273}
     m_Position: {x: -40, y: 380, z: 0}
   - serializedVersion: 1
     m_State: {fileID: -7715111794027307304}
-    m_Position: {x: 380, y: 170, z: 0}
+    m_Position: {x: 380, y: 230, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 8140012317487930893}
     m_Position: {x: -120, y: 230, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 2231709865998533692}
-    m_Position: {x: 120, y: 260, z: 0}
+    m_Position: {x: 110, y: 300, z: 0}
   m_ChildStateMachines: []
   m_AnyStateTransitions: []
   m_EntryTransitions: []

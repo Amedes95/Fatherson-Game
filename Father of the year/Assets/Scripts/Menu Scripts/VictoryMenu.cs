@@ -136,7 +136,10 @@ public class VictoryMenu : MonoBehaviour
     {
         LoadingWorldHub = true;
         transitioning = true;
-        PauseCanvas.SetActive(false);
+        if (!SpecialVictory)
+        {
+            PauseCanvas.SetActive(false);
+        }
     }
 
     public void ReloadScene() // Restart

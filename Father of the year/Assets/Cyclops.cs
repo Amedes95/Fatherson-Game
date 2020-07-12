@@ -27,6 +27,9 @@ public class Cyclops : MonoBehaviour
     public float EndTimer = 5f;
     public GameObject Portal;
 
+    public AudioClip Grunt;
+    public AudioClip RockThrow;
+
 
 
 
@@ -94,22 +97,44 @@ public class Cyclops : MonoBehaviour
 
     public void SpawnRock()
     {
-        RockClone = Instantiate(RockPrefab, RockDropZone.position, Quaternion.identity);
-        RockCount += 1;
-        LaserCount = 0;
-        Debug.Log("rock" + RockCount);
+        if (BunnyBoss.dead  == false)
+        {
+            RockClone = Instantiate(RockPrefab, RockDropZone.position, Quaternion.identity);
+            RockCount += 1;
+            LaserCount = 0;
+            //Debug.Log("rock" + RockCount);
+            gameObject.GetComponent<AudioSource>().clip = RockThrow;
+            gameObject.GetComponent<AudioSource>().Play();
+        }
+
     }
 
     public void Shoot()
     {
-        Vector3 diff = Player.transform.position - ShootZone.position;
-        diff.Normalize();
+        if (BunnyBoss.dead == false)
+        {
+            Vector3 diff = Player.transform.position - ShootZone.position;
+            diff.Normalize();
 
-        ProjectileClone = Instantiate(Projectile, ShootZone.position, Quaternion.identity);
-        Destroy(ProjectileClone, 6f);
-        ProjectileClone.GetComponent<Rigidbody2D>().velocity = diff * ProjectileSpeed;
-        LaserCount += 1;
-        RockCount = 0;
-        Debug.Log("laser" + LaserCount);
+            ProjectileClone = Instantiate(Projectile, ShootZone.position, Quaternion.identity);
+            Destroy(ProjectileClone, 6f);
+            ProjectileClone.GetComponent<Rigidbody2D>().velocity = diff * ProjectileSpeed;
+            LaserCount += 1;
+            RockCount = 0;
+            //Debug.Log("laser" + LaserCount);
+        }
+
     }
+
+    public void PlayGrunt()
+    {
+        if (gameObject.transform.position == CyclopsZone.position)
+        {
+            gameObject.GetComponent<AudioSource>().clip = Grunt;
+            gameObject.GetComponent<AudioSource>().Play();
+        }
+
+    }
+
+
 }
