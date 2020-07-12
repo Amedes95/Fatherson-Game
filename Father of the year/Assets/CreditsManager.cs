@@ -21,6 +21,7 @@ public class CreditsManager : MonoBehaviour
     public float CameraSpeed;
 
     public GameObject Credits;
+    bool Skipping;
 
     private void Update()
     {
@@ -37,6 +38,10 @@ public class CreditsManager : MonoBehaviour
                 //SkipCanvas.SetActive(false);
                 Credits.SetActive(true);
             }
+        }
+        if (Skipping)
+        {
+            Credits.GetComponent<Animator>().SetBool("Skip", true);
         }
     }
 
@@ -71,11 +76,11 @@ public class CreditsManager : MonoBehaviour
 
     public void SkipOutro()
     {
+        Skipping = true;
         WatchingOutro = false;
         Camera.transform.position = CurrentDestination.position;
         SkipCanvas.SetActive(false);
         LoadOutroSequenec();
-        Credits.GetComponent<Animator>().SetTrigger("Skip");
     }
 
 }

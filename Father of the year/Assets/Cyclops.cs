@@ -81,7 +81,7 @@ public class Cyclops : MonoBehaviour
             if (EndTimer <= 0)
             {
                 EndTimer = 0;
-                Portal.transform.position = Player.transform.position;
+                Portal.transform.position = BunnyBoss.transform.position;
             }
 
         }
