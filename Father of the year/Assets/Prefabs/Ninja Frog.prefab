@@ -10293,6 +10293,7 @@ GameObject:
   - component: {fileID: 1516110846328749759}
   - component: {fileID: 40138316}
   - component: {fileID: 8350467831098472573}
+  - component: {fileID: 6208610389031249773}
   m_Layer: 9
   m_Name: Ninja Frog
   m_TagString: Player
@@ -10535,6 +10536,21 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.13147785, y: 0.22407353}
   m_EdgeRadius: 0
+--- !u!114 &6208610389031249773
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5981030734712421047}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e73ac8acef69c98478337676df5d8028, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  NinjaFrogOverride: {fileID: 22100000, guid: 909c2fe2e04996a42878b1ac1769650d, type: 2}
+  VirtualGuyOverride: {fileID: 22100000, guid: 8fe1796ca2b697646a57476b03d5d88c, type: 2}
+  MaskDudeOverride: {fileID: 22100000, guid: deb71ee08ab1eb24c8f0699cf002bde2, type: 2}
 --- !u!1 &7609760640675207495
 GameObject:
   m_ObjectHideFlags: 0

@@ -90,6 +90,7 @@ public class PlayerMovement : MonoBehaviour
 
 
 
+
         if (flipOnSpawn)
         {
             FlipCharacter();
@@ -664,5 +665,6 @@ public class PlayerMovement : MonoBehaviour
         wallJumping = false;
         StickyWeb.StuckInWeb = false;
     }
+
 
 }

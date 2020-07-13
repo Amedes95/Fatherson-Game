@@ -15,6 +15,7 @@ public class MainMenu : MonoBehaviour
     public GameObject ControllerMenu;
     public GameObject VisualsMenu;
     public GameObject SkipCanvas;
+    public GameObject CostumeMenu;
 
     bool WipingProgress;
     bool AtMainMenu;
@@ -24,6 +25,7 @@ public class MainMenu : MonoBehaviour
     bool EditingControls;
     bool WatchingIntro;
     bool BrowsingStats;
+    bool ChangingCostumes;
 
     GameObject Camera;
     Transform CurrentDestination; // this one gets set by the others
@@ -36,6 +38,7 @@ public class MainMenu : MonoBehaviour
     public Transform VisualsDestination;
     public Transform ProgressWipeDestination;
     public Transform StatsDestination;
+    public Transform CostumeDestination;
 
     public float CameraSpeed;
 
@@ -66,6 +69,10 @@ public class MainMenu : MonoBehaviour
             else if (EditingVisuals)
             {
                 LoadSettings();
+            }
+            else if (ChangingCostumes)
+            {
+                LoadStatsMenu();
             }
         }
 
@@ -105,6 +112,10 @@ public class MainMenu : MonoBehaviour
             else if (BrowsingStats) // stats menu
             {
                 StatsMenu.SetActive(true);
+            }
+            else if (ChangingCostumes)
+            {
+                CostumeMenu.SetActive(true);
             }
         }
     }
@@ -236,11 +247,15 @@ public class MainMenu : MonoBehaviour
     public void LoadStatsMenu()
     {
         BrowsingStats = true;
+        ChangingCostumes = false;
         AtMainMenu = false;
 
         CurrentDestination = StatsDestination;
         CameraSpeed = .4f;
         MenuScreen.SetActive(false);
+        CostumeMenu.SetActive(false);
+
+
     } // from menu to stats screen
 
     public void LoadMainMenu() // from settings or stats to menu
@@ -261,6 +276,15 @@ public class MainMenu : MonoBehaviour
         Camera.transform.position = CurrentDestination.position;
         SkipCanvas.SetActive(false);
         LoadMainMenu();
+    }
+
+    public void LoadCostumes()
+    {
+        ChangingCostumes = true;
+        BrowsingStats = false;
+        CurrentDestination = CostumeDestination;
+        CameraSpeed = .4f;
+        StatsMenu.SetActive(false);
     }
 
 }

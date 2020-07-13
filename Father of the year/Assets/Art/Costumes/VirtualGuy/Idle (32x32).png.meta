@@ -1,52 +1,40 @@
 fileFormatVersion: 2
-guid: 35199bc032c2e994dbff133be3b29742
+guid: 81e7eb529cbc64f45ae29a36b3753225
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -7677729207880525318
-    second: Food Pack_0
+      213: -6367560908665664636
+    second: Idle (32x32)_0
   - first:
-      213: -7547048322564260773
-    second: Food Pack_1
+      213: -6056987297122131021
+    second: Idle (32x32)_1
   - first:
-      213: 2145546535534620527
-    second: Food Pack_4
+      213: 8416797952724722639
+    second: Idle (32x32)_2
   - first:
-      213: -2891858885073237266
-    second: Food Pack_5
+      213: 4883129791460916795
+    second: Idle (32x32)_3
   - first:
-      213: -2368939572688267112
-    second: Food Pack_6
+      213: 4278371960119211202
+    second: Idle (32x32)_4
   - first:
-      213: -4432913163493636867
-    second: Food Pack_7
+      213: 8644832591467991550
+    second: Idle (32x32)_5
   - first:
-      213: -9049458107268444948
-    second: Food Pack_9
+      213: -7152759390613953277
+    second: Idle (32x32)_6
   - first:
-      213: -5628993538474078070
-    second: Food Pack_10
+      213: 6456874251884481089
+    second: Idle (32x32)_7
   - first:
-      213: 1385295037352095845
-    second: Food Pack_11
+      213: -2526832996998184344
+    second: Idle (32x32)_8
   - first:
-      213: -8022849093278661041
-    second: Food Pack_12
+      213: 4392827059107796345
+    second: Idle (32x32)_9
   - first:
-      213: -3764138868619224865
-    second: Food Pack_13
-  - first:
-      213: -1161905122252887641
-    second: Food Pack_14
-  - first:
-      213: -8157090562497178376
-    second: Food Pack_15
-  - first:
-      213: -1941811708945851415
-    second: Food Pack_2
-  - first:
-      213: 8861761871806804698
-    second: Food Pack_3
+      213: -1363835404106015672
+    second: Idle (32x32)_10
   externalObjects: {}
   serializedVersion: 10
   mipmaps:
@@ -155,307 +143,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Food Pack_0
+      name: Idle (32x32)_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 144
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: a96ce7a1016778e4fa388453742e6448
-      internalID: -7677729207880525318
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Food Pack_1
-      rect:
-        serializedVersion: 2
-        x: 48
-        y: 145
-        width: 16
-        height: 11
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 6712b5cdb88964e42a6faec4d8f4a42c
-      internalID: -7547048322564260773
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Food Pack_4
-      rect:
-        serializedVersion: 2
-        x: 33
-        y: 97
-        width: 14
-        height: 12
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: ee139f16a6b18b243b9d47efb050eb12
-      internalID: 2145546535534620527
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Food Pack_5
-      rect:
-        serializedVersion: 2
-        x: 48
-        y: 97
-        width: 16
-        height: 14
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 3d8b434e491b01046b3a9e03b12423ba
-      internalID: -2891858885073237266
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Food Pack_6
-      rect:
-        serializedVersion: 2
-        x: 32
-        y: 83
-        width: 16
-        height: 9
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 012fd56b5fc810e46a5e0162c7743a1e
-      internalID: -2368939572688267112
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Food Pack_7
-      rect:
-        serializedVersion: 2
-        x: 51
-        y: 80
-        width: 10
-        height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: dbac60ef8a634a74393e5bc41b54993b
-      internalID: -4432913163493636867
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Food Pack_9
-      rect:
-        serializedVersion: 2
-        x: 34
-        y: 64
-        width: 12
-        height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: e2aac0d0650f6a64da1f021b39133906
-      internalID: -9049458107268444948
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Food Pack_10
-      rect:
-        serializedVersion: 2
-        x: 32
-        y: 16
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: b8a7d3ba9f16f5048ac06782a0a1875c
-      internalID: -5628993538474078070
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Food Pack_11
-      rect:
-        serializedVersion: 2
-        x: 49
-        y: 16
-        width: 14
-        height: 14
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 94ba4dfd8d192b848ad8326926333289
-      internalID: 1385295037352095845
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Food Pack_12
-      rect:
-        serializedVersion: 2
-        x: 33
+        x: 5
         y: 0
-        width: 14
-        height: 15
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 5d4e7dcc132fec34db486397c2e9cf20
-      internalID: -8022849093278661041
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Food Pack_13
-      rect:
-        serializedVersion: 2
-        x: 48
-        y: 0
-        width: 16
-        height: 14
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: d7f0b82c4f409bb48b24724a5ffa5c64
-      internalID: -3764138868619224865
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Food Pack_14
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 96
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 50b1fd1f4e3387c48be26ea4dc782e13
-      internalID: -1161905122252887641
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Food Pack_15
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 112
-        width: 16
-        height: 15
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 791c536902bccb340bcf0cb0932cd65e
-      internalID: -8157090562497178376
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Food Pack_2
-      rect:
-        serializedVersion: 2
-        x: 2
-        y: 80
-        width: 14
-        height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: d157a1ff644b0474481d7f7b3d366970
-      internalID: -1941811708945851415
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Food Pack_3
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 127
-        width: 16
-        height: 17
+        width: 22
+        height: 24
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -463,8 +157,218 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 000f0d974dcab744190115d1085da2b4
-      internalID: 8861761871806804698
+      spriteID: 673e65414d5b4174e92246751a184089
+      internalID: -6367560908665664636
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Idle (32x32)_1
+      rect:
+        serializedVersion: 2
+        x: 37
+        y: 0
+        width: 22
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: aa8ed774bace6084dadc358acb2cf826
+      internalID: -6056987297122131021
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Idle (32x32)_2
+      rect:
+        serializedVersion: 2
+        x: 69
+        y: 0
+        width: 22
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 06fdf17f3bfa0f044b3c6bdb2f26281d
+      internalID: 8416797952724722639
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Idle (32x32)_3
+      rect:
+        serializedVersion: 2
+        x: 101
+        y: 0
+        width: 22
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e4a3a3bd240f12141812b0d9667fbd53
+      internalID: 4883129791460916795
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Idle (32x32)_4
+      rect:
+        serializedVersion: 2
+        x: 133
+        y: 0
+        width: 22
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0416783e28ee54c448315391d5585cb4
+      internalID: 4278371960119211202
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Idle (32x32)_5
+      rect:
+        serializedVersion: 2
+        x: 165
+        y: 0
+        width: 22
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 80cd3ac312143a544a98eb98a3130763
+      internalID: 8644832591467991550
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Idle (32x32)_6
+      rect:
+        serializedVersion: 2
+        x: 197
+        y: 0
+        width: 22
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 445e28c57a4330143acd594ccaa23372
+      internalID: -7152759390613953277
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Idle (32x32)_7
+      rect:
+        serializedVersion: 2
+        x: 229
+        y: 0
+        width: 22
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c01e61b8bca50324e8837929790753a3
+      internalID: 6456874251884481089
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Idle (32x32)_8
+      rect:
+        serializedVersion: 2
+        x: 261
+        y: 0
+        width: 22
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6ca8aa50a7d6d2142b6f7fc14991375a
+      internalID: -2526832996998184344
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Idle (32x32)_9
+      rect:
+        serializedVersion: 2
+        x: 293
+        y: 0
+        width: 22
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ee8b7c504c9d681459ac4e7b22b07d3c
+      internalID: 4392827059107796345
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Idle (32x32)_10
+      rect:
+        serializedVersion: 2
+        x: 325
+        y: 0
+        width: 22
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 989fa1f0c7d6f2b46b0e70bbf68ad53d
+      internalID: -1363835404106015672
       vertices: []
       indices: 
       edges: []

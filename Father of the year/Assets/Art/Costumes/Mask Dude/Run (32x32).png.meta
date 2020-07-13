@@ -1,52 +1,43 @@
 fileFormatVersion: 2
-guid: 35199bc032c2e994dbff133be3b29742
+guid: 774b9b767b636ab46b77522ceda93a91
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -7677729207880525318
-    second: Food Pack_0
+      213: 7166236263522030466
+    second: Run (32x32)_0
   - first:
-      213: -7547048322564260773
-    second: Food Pack_1
+      213: 2470319409956435798
+    second: Run (32x32)_1
   - first:
-      213: 2145546535534620527
-    second: Food Pack_4
+      213: -4540918584354326388
+    second: Run (32x32)_2
   - first:
-      213: -2891858885073237266
-    second: Food Pack_5
+      213: -4455822056875728695
+    second: Run (32x32)_3
   - first:
-      213: -2368939572688267112
-    second: Food Pack_6
+      213: -5364790588639958657
+    second: Run (32x32)_4
   - first:
-      213: -4432913163493636867
-    second: Food Pack_7
+      213: -1512656188830553638
+    second: Run (32x32)_5
   - first:
-      213: -9049458107268444948
-    second: Food Pack_9
+      213: -2754230144694611447
+    second: Run (32x32)_6
   - first:
-      213: -5628993538474078070
-    second: Food Pack_10
+      213: -2419971920513260168
+    second: Run (32x32)_7
   - first:
-      213: 1385295037352095845
-    second: Food Pack_11
+      213: 1843850012483549754
+    second: Run (32x32)_8
   - first:
-      213: -8022849093278661041
-    second: Food Pack_12
+      213: 241620830004830169
+    second: Run (32x32)_9
   - first:
-      213: -3764138868619224865
-    second: Food Pack_13
+      213: -362971539341918764
+    second: Run (32x32)_10
   - first:
-      213: -1161905122252887641
-    second: Food Pack_14
-  - first:
-      213: -8157090562497178376
-    second: Food Pack_15
-  - first:
-      213: -1941811708945851415
-    second: Food Pack_2
-  - first:
-      213: 8861761871806804698
-    second: Food Pack_3
+      213: 2178398316516280758
+    second: Run (32x32)_11
   externalObjects: {}
   serializedVersion: 10
   mipmaps:
@@ -155,307 +146,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Food Pack_0
+      name: Run (32x32)_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 144
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: a96ce7a1016778e4fa388453742e6448
-      internalID: -7677729207880525318
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Food Pack_1
-      rect:
-        serializedVersion: 2
-        x: 48
-        y: 145
-        width: 16
-        height: 11
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 6712b5cdb88964e42a6faec4d8f4a42c
-      internalID: -7547048322564260773
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Food Pack_4
-      rect:
-        serializedVersion: 2
-        x: 33
-        y: 97
-        width: 14
-        height: 12
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: ee139f16a6b18b243b9d47efb050eb12
-      internalID: 2145546535534620527
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Food Pack_5
-      rect:
-        serializedVersion: 2
-        x: 48
-        y: 97
-        width: 16
-        height: 14
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 3d8b434e491b01046b3a9e03b12423ba
-      internalID: -2891858885073237266
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Food Pack_6
-      rect:
-        serializedVersion: 2
-        x: 32
-        y: 83
-        width: 16
-        height: 9
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 012fd56b5fc810e46a5e0162c7743a1e
-      internalID: -2368939572688267112
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Food Pack_7
-      rect:
-        serializedVersion: 2
-        x: 51
-        y: 80
-        width: 10
-        height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: dbac60ef8a634a74393e5bc41b54993b
-      internalID: -4432913163493636867
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Food Pack_9
-      rect:
-        serializedVersion: 2
-        x: 34
-        y: 64
-        width: 12
-        height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: e2aac0d0650f6a64da1f021b39133906
-      internalID: -9049458107268444948
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Food Pack_10
-      rect:
-        serializedVersion: 2
-        x: 32
-        y: 16
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: b8a7d3ba9f16f5048ac06782a0a1875c
-      internalID: -5628993538474078070
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Food Pack_11
-      rect:
-        serializedVersion: 2
-        x: 49
-        y: 16
-        width: 14
-        height: 14
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 94ba4dfd8d192b848ad8326926333289
-      internalID: 1385295037352095845
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Food Pack_12
-      rect:
-        serializedVersion: 2
-        x: 33
-        y: 0
-        width: 14
-        height: 15
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 5d4e7dcc132fec34db486397c2e9cf20
-      internalID: -8022849093278661041
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Food Pack_13
-      rect:
-        serializedVersion: 2
-        x: 48
-        y: 0
-        width: 16
-        height: 14
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: d7f0b82c4f409bb48b24724a5ffa5c64
-      internalID: -3764138868619224865
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Food Pack_14
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 96
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 50b1fd1f4e3387c48be26ea4dc782e13
-      internalID: -1161905122252887641
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Food Pack_15
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 112
-        width: 16
-        height: 15
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 791c536902bccb340bcf0cb0932cd65e
-      internalID: -8157090562497178376
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Food Pack_2
-      rect:
-        serializedVersion: 2
-        x: 2
-        y: 80
-        width: 14
-        height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: d157a1ff644b0474481d7f7b3d366970
-      internalID: -1941811708945851415
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Food Pack_3
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 127
-        width: 16
-        height: 17
+        x: 6
+        y: 3
+        width: 24
+        height: 28
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -463,8 +160,239 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 000f0d974dcab744190115d1085da2b4
-      internalID: 8861761871806804698
+      spriteID: 10eaf4e1d65a2a849b89a25df7dd3aab
+      internalID: 7166236263522030466
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Run (32x32)_1
+      rect:
+        serializedVersion: 2
+        x: 38
+        y: 4
+        width: 24
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1b50a8d31491adc469e77bc5528f2eb9
+      internalID: 2470319409956435798
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Run (32x32)_2
+      rect:
+        serializedVersion: 2
+        x: 70
+        y: 4
+        width: 24
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6d5123d7ce805994ab1012c4fe0f9ef3
+      internalID: -4540918584354326388
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Run (32x32)_3
+      rect:
+        serializedVersion: 2
+        x: 102
+        y: 2
+        width: 24
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dfca31dce9e7b43428cb2f05a74240a1
+      internalID: -4455822056875728695
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Run (32x32)_4
+      rect:
+        serializedVersion: 2
+        x: 133
+        y: 0
+        width: 26
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 69e670ffacc43c44aa7ee056eff5cad0
+      internalID: -5364790588639958657
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Run (32x32)_5
+      rect:
+        serializedVersion: 2
+        x: 165
+        y: 0
+        width: 26
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a5ba1b58ef3511945bc8d44ad0e5e175
+      internalID: -1512656188830553638
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Run (32x32)_6
+      rect:
+        serializedVersion: 2
+        x: 197
+        y: 3
+        width: 25
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 23ec24c95859ed746819ad4403ed3e90
+      internalID: -2754230144694611447
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Run (32x32)_7
+      rect:
+        serializedVersion: 2
+        x: 229
+        y: 4
+        width: 25
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 52efae64a0625c14f86088b03c39d0f5
+      internalID: -2419971920513260168
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Run (32x32)_8
+      rect:
+        serializedVersion: 2
+        x: 261
+        y: 4
+        width: 25
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d22bc5da29c6af84ca1732776bcd7caa
+      internalID: 1843850012483549754
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Run (32x32)_9
+      rect:
+        serializedVersion: 2
+        x: 293
+        y: 2
+        width: 25
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6e52390dd1e33164f889188a36e57e6e
+      internalID: 241620830004830169
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Run (32x32)_10
+      rect:
+        serializedVersion: 2
+        x: 325
+        y: 0
+        width: 26
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: be6949a51de08c94fb5594999707e8f1
+      internalID: -362971539341918764
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Run (32x32)_11
+      rect:
+        serializedVersion: 2
+        x: 357
+        y: 0
+        width: 26
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b5a3c3d7e9cf73f41a92288171a82705
+      internalID: 2178398316516280758
       vertices: []
       indices: 
       edges: []
