@@ -16,6 +16,7 @@ public class MainMenu : MonoBehaviour
     public GameObject VisualsMenu;
     public GameObject SkipCanvas;
     public GameObject CostumeMenu;
+    public GameObject AchievementMenu;
 
     bool WipingProgress;
     bool AtMainMenu;
@@ -26,6 +27,7 @@ public class MainMenu : MonoBehaviour
     bool WatchingIntro;
     bool BrowsingStats;
     bool ChangingCostumes;
+    bool BrowsingAchievements;
 
     GameObject Camera;
     Transform CurrentDestination; // this one gets set by the others
@@ -39,6 +41,7 @@ public class MainMenu : MonoBehaviour
     public Transform ProgressWipeDestination;
     public Transform StatsDestination;
     public Transform CostumeDestination;
+    public Transform AchievementDestination;
 
     public float CameraSpeed;
 
@@ -71,6 +74,10 @@ public class MainMenu : MonoBehaviour
                 LoadSettings();
             }
             else if (ChangingCostumes)
+            {
+                LoadStatsMenu();
+            }
+            else if (BrowsingAchievements)
             {
                 LoadStatsMenu();
             }
@@ -116,6 +123,10 @@ public class MainMenu : MonoBehaviour
             else if (ChangingCostumes)
             {
                 CostumeMenu.SetActive(true);
+            }
+            else if (BrowsingAchievements)
+            {
+                AchievementMenu.SetActive(true);
             }
         }
     }
@@ -248,12 +259,14 @@ public class MainMenu : MonoBehaviour
     {
         BrowsingStats = true;
         ChangingCostumes = false;
+        BrowsingAchievements = false;
         AtMainMenu = false;
 
         CurrentDestination = StatsDestination;
         CameraSpeed = .4f;
         MenuScreen.SetActive(false);
         CostumeMenu.SetActive(false);
+        AchievementMenu.SetActive(false);
 
 
     } // from menu to stats screen
@@ -283,6 +296,15 @@ public class MainMenu : MonoBehaviour
         ChangingCostumes = true;
         BrowsingStats = false;
         CurrentDestination = CostumeDestination;
+        CameraSpeed = .4f;
+        StatsMenu.SetActive(false);
+    }
+
+    public void LoadAchievements()
+    {
+        BrowsingAchievements = true;
+        BrowsingStats = false;
+        CurrentDestination = AchievementDestination;
         CameraSpeed = .4f;
         StatsMenu.SetActive(false);
     }
