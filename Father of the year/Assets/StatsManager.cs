@@ -2,22 +2,17 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using TMPro;
 
 public class StatsManager : MonoBehaviour
 {
     public GameObject VeganConfirmation;
+    public TextMeshProUGUI DeathsText;
+    public TextMeshProUGUI TrophiesText;
+    public TextMeshProUGUI ApplesText;
+    public TextMeshProUGUI EnemiesText;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 
     public void AskToConfirmVeganMode()
     {
@@ -34,5 +29,14 @@ public class StatsManager : MonoBehaviour
     public void DenyVeganConfirmation()
     {
         VeganConfirmation.SetActive(false);
+    }
+
+    private void Update()
+    {
+        DeathsText.text = PlayerPrefs.GetInt("DeathCount").ToString();
+        TrophiesText.text = PlayerPrefs.GetInt("GoldMedalsEarned").ToString();
+        ApplesText.text = PlayerPrefs.GetInt("ApplesEaten").ToString();
+        EnemiesText.text = PlayerPrefs.GetInt("EnemiesKilled").ToString();
+
     }
 }
