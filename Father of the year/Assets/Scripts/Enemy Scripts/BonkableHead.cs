@@ -21,13 +21,15 @@ public class BonkableHead : MonoBehaviour
 
     public bool DeactivateNotDestroy;
 
+    public static int EnemiesKilled;
+
 
 
     public void Awake()
     {
         CurrentlyBonking = false;
         CurrentHP = MaxHP;
-
+        EnemiesKilled = PlayerPrefs.GetInt("EnemiesKilled");
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -90,7 +92,33 @@ public class BonkableHead : MonoBehaviour
                         else
                         {
                             SpawnDeathParticles();
+                            PlayerPrefs.SetInt("EnemiesKilled", EnemiesKilled  += 1);
                         }
+                        /// Unlocks Bonk! Achievement
+                        if (PlayerPrefs.GetInt("Bonk!") == 0 && EnemiesKilled >= 20)
+                        {
+                            PlayerPrefs.SetInt("Bonk!", 1);
+                            Debug.Log("Bonk! Unlocked");
+                            Boombox Boombox = GameObject.FindGameObjectWithTag("LevelBoombox").GetComponent<Boombox>();
+                            Boombox.UnlockCheevo("Bonk!");
+                        }
+                        /// Unlocks Bonk Expert Achievement
+                        if (PlayerPrefs.GetInt("Bonk Expert") == 0 && EnemiesKilled >= 60)
+                        {
+                            PlayerPrefs.SetInt("Bonk Expert", 1);
+                            Debug.Log("Bonk Expert Unlocked");
+                            Boombox Boombox = GameObject.FindGameObjectWithTag("LevelBoombox").GetComponent<Boombox>();
+                            Boombox.UnlockCheevo("Bonk Expert");
+                        }
+                        /// Unlocks Absolutely Bonkers Achievement
+                        if (PlayerPrefs.GetInt("Absolutely Bonkers") == 0 && EnemiesKilled >= 100)
+                        {
+                            PlayerPrefs.SetInt("Absolutely Bonkers", 1);
+                            Debug.Log("Absolutely Bonkers Unlocked");
+                            Boombox Boombox = GameObject.FindGameObjectWithTag("LevelBoombox").GetComponent<Boombox>();
+                            Boombox.UnlockCheevo("Absolutely Bonkers");
+                        }
+                        Debug.Log(EnemiesKilled);
                     }
                     else if (Stunable)
                     {

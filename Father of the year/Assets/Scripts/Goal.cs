@@ -12,6 +12,7 @@ public class Goal : MonoBehaviour
     bool PulsingChroma;
     bool Rising;
     float BestTime;
+    public bool Level1Portal;
 
 
 
@@ -34,6 +35,10 @@ public class Goal : MonoBehaviour
         var Chroma = Transition1.chromaticAberration.settings;
         Chroma.intensity = 0;
         Transition1.chromaticAberration.settings = Chroma;
+        if (Level1Portal)
+        {
+            PlayerPrefs.SetInt("Flawless Run", 0); // related to no deaths in a world achievement
+        }
     }
 
 

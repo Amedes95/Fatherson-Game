@@ -46,6 +46,7 @@ public class CostumeManager : MonoBehaviour
     {
         CharacterSelectScreen.SetActive(true);
         CostumeIndex = PlayerPrefs.GetInt("CostumeIndex");
+        ToggleVsibility();
     }
     private void OnDisable()
     {
@@ -54,6 +55,19 @@ public class CostumeManager : MonoBehaviour
             CharacterSelectScreen.SetActive(false);
         }
         PlayerPrefs.SetInt("CostumeIndex", CostumeIndex); // 0, 1, etc..
+
+        //achievement for changing costime once
+        if (PlayerPrefs.GetInt("CostumeIndex") != 0) // unlock if not default
+        {
+            /// Unlocks Fashionable Achievement
+            if (PlayerPrefs.GetInt("Fashionable") == 0)
+            {
+                PlayerPrefs.SetInt("Fashionable", 1);
+                Debug.Log("Fashionable Unlocked");
+                Boombox Boombox = GameObject.FindGameObjectWithTag("LevelBoombox").GetComponent<Boombox>();
+                Boombox.UnlockCheevo("Fashionable");
+            }
+        }
     }
 
     // Update is called once per frame

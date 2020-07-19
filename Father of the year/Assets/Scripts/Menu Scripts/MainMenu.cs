@@ -146,6 +146,7 @@ public class MainMenu : MonoBehaviour
 
     private void Awake()
     {
+        PlayerPrefs.SetInt("Flawless Run", 1); // related to no deaths in a world achievement
         SettingsButton.playOnAwake = false;
         Time.timeScale = 1f;
     }

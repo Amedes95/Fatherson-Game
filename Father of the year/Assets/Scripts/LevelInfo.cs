@@ -23,6 +23,7 @@ public class LevelInfo : MonoBehaviour
     bool GoldTierAchieved;
     bool SilverTierAchieved;
     bool BronzeTierAchieved;
+    public static int GoldMedalsEarned;
 
 
     private void OnTriggerStay2D(Collider2D collision)
@@ -43,7 +44,7 @@ public class LevelInfo : MonoBehaviour
             // How do you stack up?
 
             //// GOLD?
-            if (PlayerPrefs.GetFloat(SceneToLoad) <= GoldStandard)
+            if (PlayerPrefs.GetFloat(SceneToLoad) <= GoldStandard) // if your time is faster than the set gold standard
             {
                 //Debug.Log("GOLD TIER" + PlayerPrefs.GetFloat(SceneToLoad).ToString("F2"));
                 CompletedTrophy.GetComponent<Animator>().SetTrigger("Gold");
@@ -86,9 +87,34 @@ public class LevelInfo : MonoBehaviour
         {
             LockedSymbol.SetActive(true);
         }
+    }
 
+    private void Awake()
+    {
 
+        //// GOLD?
+        if (PlayerPrefs.GetFloat(SceneToLoad) <= GoldStandard && PlayerPrefs.GetFloat(SceneToLoad) != 0) // if your time is faster than the set gold standard
+        {
+            PlayerPrefs.SetInt("GoldMedalsEarned", GoldMedalsEarned += 1);
+            //Debug.Log("gold trophy");
+        }
 
+        /// Unlocks Oooh Shiny! Achievement
+        if (PlayerPrefs.GetInt("Oooh Shiny!") == 0 && GoldMedalsEarned >= 1)
+        {
+            PlayerPrefs.SetInt("Oooh Shiny!", 1);
+            Debug.Log("Oooh Shiny! Unlocked");
+            Boombox Boombox = GameObject.FindGameObjectWithTag("LevelBoombox").GetComponent<Boombox>();
+            Boombox.UnlockCheevo("Oooh Shiny!");
+        }
+        /// Unlocks Gold Medalist Achievement
+        if (PlayerPrefs.GetInt("Gold Medalist") == 0 && GoldMedalsEarned >= 140)
+        {
+            PlayerPrefs.SetInt("Gold Medalist", 1);
+            Debug.Log("Gold Medalist Unlocked");
+            Boombox Boombox = GameObject.FindGameObjectWithTag("LevelBoombox").GetComponent<Boombox>();
+            Boombox.UnlockCheevo("Gold Medalist");
+        }
     }
 
 }

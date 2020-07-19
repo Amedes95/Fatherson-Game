@@ -9,12 +9,16 @@ public class Collectible : MonoBehaviour
     public float RespawnDelay;
     float RespawnDelayStart;
     bool Consumed;
+    int ApplesEaten;
+    int LollipopsEaten;
 
     public bool NegatesLava;
 
     private void Awake()
     {
         RespawnDelayStart = RespawnDelay;
+        ApplesEaten = PlayerPrefs.GetInt("ApplesEaten");
+        LollipopsEaten = PlayerPrefs.GetInt("LollipopsEaten");
     }
 
     private void OnTriggerEnter2D(Collider2D collision) // Triggered when fruit is picked up by the player
@@ -27,10 +31,39 @@ public class Collectible : MonoBehaviour
             {
                 PlayerMovement.jumpCount = 1;
                 collision.GetComponent<PlayerMovement>().SpawnDoubleJumpParticles();
+
+                PlayerPrefs.SetInt("ApplesEaten", ApplesEaten += 1);
+
+                // an apple a day achievement
+                if (PlayerPrefs.GetInt("Doctor Repellent") == 0 && ApplesEaten >= 10)
+                {
+                    PlayerPrefs.SetInt("Doctor Repellent", 1);
+                    Debug.Log("Doctor Repellent");
+                    Boombox Boombox = GameObject.FindGameObjectWithTag("LevelBoombox").GetComponent<Boombox>();
+                    Boombox.UnlockCheevo("Doctor Repellent");
+                }
+                // nutritious! achievement
+                if (PlayerPrefs.GetInt("Nutritious!") == 0 && ApplesEaten >= 50)
+                {
+                    PlayerPrefs.SetInt("Nutritious!", 1);
+                    Debug.Log("Nutritious! Unlocked");
+                    Boombox Boombox = GameObject.FindGameObjectWithTag("LevelBoombox").GetComponent<Boombox>();
+                    Boombox.UnlockCheevo("Nutritious!");
+                }
             }
             else
             {
                 PlayerMovement.InvincibilityTimer = 8f;
+                PlayerPrefs.SetInt("LollipopsEaten", LollipopsEaten += 1);
+                // Sugar Rush! achievement
+                if (PlayerPrefs.GetInt("Sugar Rush!") == 0 && LollipopsEaten >= 15)
+                {
+                    PlayerPrefs.SetInt("Sugar Rush!", 1);
+                    Debug.Log("Sugar Rush! Unlocked");
+                    Boombox Boombox = GameObject.FindGameObjectWithTag("LevelBoombox").GetComponent<Boombox>();
+                    Boombox.UnlockCheevo("Sugar Rush!");
+                }
+
             }
 
             Consumed = true;

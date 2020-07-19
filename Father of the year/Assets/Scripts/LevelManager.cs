@@ -73,10 +73,10 @@ public class LevelManager : MonoBehaviour
     public GameObject AText;
 
 
-
     // Start is called before the first frame update
     void Awake()
     {
+        PlayerPrefs.SetInt("Flawless Run", 1); // voids achievement if exited.  Only resets on start of level 1
         WorldHubAudioSource = gameObject.GetComponent<AudioSource>();
         PauseScreen = GameObject.FindGameObjectWithTag("PauseCanvas").GetComponent<PauseMenu>();
         WorldIndex = 0;
@@ -355,6 +355,8 @@ public class LevelManager : MonoBehaviour
             BackgroundChangeDirection("Right");
 
         }
+
+
     }
 
     public void BackgroundChangeDirection(string Direction)
@@ -422,5 +424,6 @@ public class LevelManager : MonoBehaviour
 
 
     }
+
 
 }

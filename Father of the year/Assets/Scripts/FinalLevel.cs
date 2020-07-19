@@ -28,12 +28,12 @@ public class FinalLevel : MonoBehaviour
             {
                 PlayerPrefs.SetInt("World1_Complete", 1);
                 /// Unlocks Flea Flee! Achievement
-                if (PlayerPrefs.GetInt("Flea Flee!") == 0)
+                if (PlayerPrefs.GetInt("Flea Flee") == 0)
                 {
-                    PlayerPrefs.SetInt("Flea Flee!", 1);
-                    Debug.Log("Flea Flee! Unlocked");
+                    PlayerPrefs.SetInt("Flea Flee", 1);
+                    Debug.Log("Flea Flee Unlocked");
                     Boombox Boombox = GameObject.FindGameObjectWithTag("LevelBoombox").GetComponent<Boombox>();
-                    Boombox.UnlockCheevo("Flea Flee!");
+                    Boombox.UnlockCheevo("Flea Flee");
                 }
 
             }
@@ -41,12 +41,12 @@ public class FinalLevel : MonoBehaviour
             {
                 PlayerPrefs.SetInt("World2_Complete", 1);
                 /// Unlocks Yee Haw! Achievement
-                if (PlayerPrefs.GetInt("Yee Haw!") == 0)
+                if (PlayerPrefs.GetInt("Spoiled Appetite") == 0)
                 {
-                    PlayerPrefs.SetInt("Yee Haw!", 1);
-                    Debug.Log("Yee Haw!");
+                    PlayerPrefs.SetInt("Spoiled Appetite", 1);
+                    Debug.Log("Spoiled Appetite");
                     Boombox Boombox = GameObject.FindGameObjectWithTag("LevelBoombox").GetComponent<Boombox>();
-                    Boombox.UnlockCheevo("Yee Haw!");
+                    Boombox.UnlockCheevo("Spoiled Appetite");
                 }
             }
             if (SceneManager.GetActiveScene().name == "W3BOSS") // w3 boss beaten
@@ -96,6 +96,14 @@ public class FinalLevel : MonoBehaviour
                     Boombox Boombox = GameObject.FindGameObjectWithTag("LevelBoombox").GetComponent<Boombox>();
                     Boombox.UnlockCheevo("Hippidy Hoppidy");
                 }
+            }
+            // unlocks Vegetarian achievement
+            if (PlayerPrefs.GetInt("Vegetarian") == 0 && PlayerPrefs.GetInt("Flawless Run") == 0)
+            {
+                PlayerPrefs.SetInt("Vegetarian", 1);
+                Debug.Log("Vegetarian");
+                Boombox Boombox = GameObject.FindGameObjectWithTag("LevelBoombox").GetComponent<Boombox>();
+                Boombox.UnlockCheevo("Vegetarian");
             }
 
 

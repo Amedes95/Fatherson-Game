@@ -128,7 +128,7 @@ public class Boombox : MonoBehaviour
     public void UnlockCheevo(string CheevoName)
     {
         //PlayerPrefs.SetInt(CheevoName, 1); // updates player prefs with unlock
-        CheevoText.text = "Achievement Unlocked:   " + CheevoName;
+        CheevoText.text = "Achievement Unlocked: " + CheevoName;
         gameObject.GetComponentInChildren<Animator>().SetTrigger("Unlock");
     }
 
