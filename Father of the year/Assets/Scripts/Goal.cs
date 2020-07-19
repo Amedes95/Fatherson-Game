@@ -41,6 +41,15 @@ public class Goal : MonoBehaviour
     {
         if (collision.tag == "Player" && PauseMenu.GameIsPaused == false && PlayerHealth.Dead == false)
         {
+            /// Unlocks Noobie Achievement
+            if (PlayerPrefs.GetInt("Noobie") == 0)
+            {
+                PlayerPrefs.SetInt("Noobie", 1);
+                Debug.Log("Noobie Unlocked");
+                Boombox Boombox = GameObject.FindGameObjectWithTag("LevelBoombox").GetComponent<Boombox>();
+                Boombox.UnlockCheevo("Noobie");
+            }
+
             collision.GetComponent<Collector>().AddToFruitStash();
             collision.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeAll;
             gameObject.GetComponent<Animator>().SetTrigger("Complete");

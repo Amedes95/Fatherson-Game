@@ -6369,7 +6369,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 69c79e73b13e3a84abb4859e879d22ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AchievementTitle: Voracious
+  AchievementTitle: Yee Haw!
   AchievementDescription: Defeat The Devourer
   Locked: 0
   Secret: 1
@@ -12716,7 +12716,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 69c79e73b13e3a84abb4859e879d22ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AchievementTitle: Flea Flee
+  AchievementTitle: Flea Flee!
   AchievementDescription: Defeat The Great Flea
   Locked: 0
   Secret: 1
@@ -20175,11 +20175,11 @@ RectTransform:
   m_Father: {fileID: 438789024}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 64.45, y: 32}
-  m_SizeDelta: {x: 139.35, y: 30}
-  m_Pivot: {x: 0, y: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -829, y: -484}
+  m_SizeDelta: {x: 139.34998, y: 30}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1107851350
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -22408,7 +22408,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 69c79e73b13e3a84abb4859e879d22ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AchievementTitle: Verified Scientist
+  AchievementTitle: Synthetic Scientist
   AchievementDescription: Complete World 3
   Locked: 0
   Secret: 1
@@ -28363,6 +28363,56 @@ PrefabInstance:
       propertyPath: LevelMusic
       value: 
       objectReference: {fileID: 8300000, guid: c49cd1e077dd922439d80d6da1e08b2c, type: 3}
+    - target: {fileID: 6461043595239595459, guid: 15568e4f5adce48aa8fd0734bd90ff56,
+        type: 3}
+      propertyPath: m_textInfo.characterCount
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6461043595239595459, guid: 15568e4f5adce48aa8fd0734bd90ff56,
+        type: 3}
+      propertyPath: m_textInfo.spaceCount
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6461043595239595459, guid: 15568e4f5adce48aa8fd0734bd90ff56,
+        type: 3}
+      propertyPath: m_textInfo.wordCount
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6461043595239595459, guid: 15568e4f5adce48aa8fd0734bd90ff56,
+        type: 3}
+      propertyPath: m_textInfo.lineCount
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6461043595239595459, guid: 15568e4f5adce48aa8fd0734bd90ff56,
+        type: 3}
+      propertyPath: m_textInfo.pageCount
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8181810101590654097, guid: 15568e4f5adce48aa8fd0734bd90ff56,
+        type: 3}
+      propertyPath: m_textInfo.characterCount
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8181810101590654097, guid: 15568e4f5adce48aa8fd0734bd90ff56,
+        type: 3}
+      propertyPath: m_textInfo.spaceCount
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8181810101590654097, guid: 15568e4f5adce48aa8fd0734bd90ff56,
+        type: 3}
+      propertyPath: m_textInfo.wordCount
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8181810101590654097, guid: 15568e4f5adce48aa8fd0734bd90ff56,
+        type: 3}
+      propertyPath: m_textInfo.lineCount
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8181810101590654097, guid: 15568e4f5adce48aa8fd0734bd90ff56,
+        type: 3}
+      propertyPath: m_textInfo.pageCount
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 15568e4f5adce48aa8fd0734bd90ff56, type: 3}
 --- !u!1 &1430272752
@@ -124749,7 +124799,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 69c79e73b13e3a84abb4859e879d22ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AchievementTitle: Ghastly
+  AchievementTitle: Ghastly Escape
   AchievementDescription: Escaped The Ghost
   Locked: 0
   Secret: 1

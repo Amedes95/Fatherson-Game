@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using TMPro;
+using UnityEngine.UI;
 
 
 public class Boombox : MonoBehaviour
@@ -18,6 +20,10 @@ public class Boombox : MonoBehaviour
     public static float HighSpeed;
 
     bool RumbleEnabled;
+
+    public TextMeshProUGUI CheevoText;
+
+
 
     // Start is called before the first frame update
     void Awake()
@@ -117,4 +123,13 @@ public class Boombox : MonoBehaviour
         LowSpeed = lowerSpeed;
         HighSpeed = higherspeed;
     }
+
+
+    public void UnlockCheevo(string CheevoName)
+    {
+        //PlayerPrefs.SetInt(CheevoName, 1); // updates player prefs with unlock
+        CheevoText.text = "Achievement Unlocked:   " + CheevoName;
+        gameObject.GetComponentInChildren<Animator>().SetTrigger("Unlock");
+    }
+
 }

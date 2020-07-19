@@ -22,11 +22,12 @@ public class CreditsManager : MonoBehaviour
 
     public GameObject Credits;
     bool Skipping;
+    public GameObject GoalParent;
 
     private void Update()
     {
         Camera.transform.position = Vector3.MoveTowards(Camera.transform.position, CurrentDestination.position, CameraSpeed); // constantly move the camera to the "Current Destination"
-        if (WatchingOutro && (Input.GetKeyDown(KeyCode.Space) || Input.GetButtonDown("Pause")) && Camera.transform.position != CurrentDestination.position) // skips intro
+        if (WatchingOutro && (Input.GetKeyDown(KeyCode.Space) || Input.GetButtonDown("Pause")) && Camera.transform.position != CurrentDestination.position && GoalParent.transform.localPosition.y != 9.5) // skips intro
         {
             SkipCanvas.SetActive(true);
         }
@@ -42,6 +43,10 @@ public class CreditsManager : MonoBehaviour
         if (Skipping)
         {
             Credits.GetComponent<Animator>().SetBool("Skip", true);
+        }
+        if (GoalParent.transform.localPosition.y == 9.5)
+        {
+            SkipCanvas.SetActive(false);
         }
     }
 
