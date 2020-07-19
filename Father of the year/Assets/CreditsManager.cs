@@ -58,6 +58,28 @@ public class CreditsManager : MonoBehaviour
     private void Awake()
     {
         Time.timeScale = 1f;
+        /// Unlocks Carnist Achievement
+        if (PlayerPrefs.GetInt("Carnist") == 0 && PlayerPrefs.GetInt("VeganMode") == 1)
+        {
+            PlayerPrefs.SetInt("Carnist", 1);
+            Debug.Log("Carnist Unlocked");
+            Boombox Boombox = GameObject.FindGameObjectWithTag("LevelBoombox").GetComponent<Boombox>();
+            Boombox.UnlockCheevo("Carnist");
+        }
+
+        if (PlayerPrefs.GetFloat("VeganTimer") <= 7200 && PlayerPrefs.GetInt("VeganMode") == 1) // if credits are reached under 2 hours
+        {
+            /// Unlocks Fast Food Achievement
+            if (PlayerPrefs.GetInt("Fast Food") == 0)
+            {
+                PlayerPrefs.SetInt("Fast Food", 1);
+                Debug.Log("Fast Food Unlocked");
+                Boombox Boombox = GameObject.FindGameObjectWithTag("LevelBoombox").GetComponent<Boombox>();
+                Boombox.UnlockCheevo("Fast Food");
+            }
+        }
+        PlayerPrefs.SetInt("VeganMode", 0); // stops vegan mode
+
     }
 
     public void Start()

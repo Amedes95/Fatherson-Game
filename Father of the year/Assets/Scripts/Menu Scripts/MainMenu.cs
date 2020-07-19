@@ -17,6 +17,7 @@ public class MainMenu : MonoBehaviour
     public GameObject SkipCanvas;
     public GameObject CostumeMenu;
     public GameObject AchievementMenu;
+    public GameObject BonusGameMenu;
 
     bool WipingProgress;
     bool AtMainMenu;
@@ -28,6 +29,7 @@ public class MainMenu : MonoBehaviour
     bool BrowsingStats;
     bool ChangingCostumes;
     bool BrowsingAchievements;
+    bool BrowsingGames;
 
     GameObject Camera;
     Transform CurrentDestination; // this one gets set by the others
@@ -42,6 +44,7 @@ public class MainMenu : MonoBehaviour
     public Transform StatsDestination;
     public Transform CostumeDestination;
     public Transform AchievementDestination;
+    public Transform BonusGamesDestination;
 
     public float CameraSpeed;
 
@@ -78,6 +81,10 @@ public class MainMenu : MonoBehaviour
                 LoadStatsMenu();
             }
             else if (BrowsingAchievements)
+            {
+                LoadStatsMenu();
+            }
+            else if (BrowsingGames)
             {
                 LoadStatsMenu();
             }
@@ -128,6 +135,10 @@ public class MainMenu : MonoBehaviour
             {
                 AchievementMenu.SetActive(true);
             }
+            else if (BrowsingGames)
+            {
+                BonusGameMenu.SetActive(true);
+            }
         }
     }
 
@@ -147,6 +158,10 @@ public class MainMenu : MonoBehaviour
     private void Awake()
     {
         PlayerPrefs.SetInt("Flawless Run", 1); // related to no deaths in a world achievement
+        PlayerPrefs.SetInt("VeganMode", 0); // cancel vegan mode if cheating
+        PlayerPrefs.SetFloat("VeganTimer", 0);
+        PlayerPrefs.SetInt("Party Run", 0); // cancel party run, no cheating
+        PlayerPrefs.SetInt("PartyModeON", 0);
         SettingsButton.playOnAwake = false;
         Time.timeScale = 1f;
     }
@@ -262,12 +277,14 @@ public class MainMenu : MonoBehaviour
         ChangingCostumes = false;
         BrowsingAchievements = false;
         AtMainMenu = false;
+        BrowsingGames = false;
 
         CurrentDestination = StatsDestination;
         CameraSpeed = .4f;
         MenuScreen.SetActive(false);
         CostumeMenu.SetActive(false);
         AchievementMenu.SetActive(false);
+        BonusGameMenu.SetActive(false);
 
 
     } // from menu to stats screen
@@ -306,6 +323,15 @@ public class MainMenu : MonoBehaviour
         BrowsingAchievements = true;
         BrowsingStats = false;
         CurrentDestination = AchievementDestination;
+        CameraSpeed = .4f;
+        StatsMenu.SetActive(false);
+    }
+
+    public void LoadBonusGames()
+    {
+        BrowsingGames = true;
+        BrowsingStats = false;
+        CurrentDestination = BonusGamesDestination;
         CameraSpeed = .4f;
         StatsMenu.SetActive(false);
     }

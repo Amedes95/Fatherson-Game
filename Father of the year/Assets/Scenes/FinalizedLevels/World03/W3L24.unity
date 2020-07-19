@@ -7157,6 +7157,21 @@ PrefabInstance:
       propertyPath: VictoryMenu
       value: 
       objectReference: {fileID: 1947083834}
+    - target: {fileID: 19677182290878142, guid: 67af531bc452e684fbe82f5fc9027d07,
+        type: 3}
+      propertyPath: VeganAlternative
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 19677182290878142, guid: 67af531bc452e684fbe82f5fc9027d07,
+        type: 3}
+      propertyPath: VeganAlternativeLevel
+      value: W3BOSS
+      objectReference: {fileID: 0}
+    - target: {fileID: 19677182290878142, guid: 67af531bc452e684fbe82f5fc9027d07,
+        type: 3}
+      propertyPath: EndPartyPortal
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 19677184046853023, guid: 67af531bc452e684fbe82f5fc9027d07,
         type: 3}
       propertyPath: m_Mesh
@@ -9167,11 +9182,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Grid
-      objectReference: {fileID: 0}
-    - target: {fileID: 159540085334520871, guid: 94ece9c099684bc4da8db7a011b652d7,
-        type: 3}
-      propertyPath: m_ExtrusionFactor
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 159540085077653487, guid: 94ece9c099684bc4da8db7a011b652d7,
         type: 3}
@@ -42551,6 +42561,11 @@ PrefabInstance:
       propertyPath: m_Tiles.Array.data[347].second.m_ColliderType
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 159540085334520864, guid: 94ece9c099684bc4da8db7a011b652d7,
+        type: 3}
+      propertyPath: m_ChunkCullingBounds.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 159540085334520870, guid: 94ece9c099684bc4da8db7a011b652d7,
         type: 3}
       propertyPath: m_ColliderPaths.Array.data[0].m_ColliderPaths.Array.size
@@ -62136,6 +62151,11 @@ PrefabInstance:
       propertyPath: m_CompositePaths.m_Paths.Array.data[2].Array.data[71].y
       value: -3.0000117
       objectReference: {fileID: 0}
+    - target: {fileID: 159540085334520871, guid: 94ece9c099684bc4da8db7a011b652d7,
+        type: 3}
+      propertyPath: m_ExtrusionFactor
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 159540086302401820, guid: 94ece9c099684bc4da8db7a011b652d7,
         type: 3}
       propertyPath: m_Tiles.Array.size
@@ -64998,11 +65018,6 @@ PrefabInstance:
       propertyPath: m_CompositePaths.m_Paths.Array.data[12].Array.data[3].y
       value: -2.12501
       objectReference: {fileID: 0}
-    - target: {fileID: 159540085334520864, guid: 94ece9c099684bc4da8db7a011b652d7,
-        type: 3}
-      propertyPath: m_ChunkCullingBounds.y
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 94ece9c099684bc4da8db7a011b652d7, type: 3}
 --- !u!1 &1533184092
@@ -65772,6 +65787,21 @@ PrefabInstance:
       propertyPath: m_LocalScale.x
       value: 10.139311
       objectReference: {fileID: 0}
+    - target: {fileID: 959981947732278700, guid: da79d67de012b428c9c84be79d567caf,
+        type: 3}
+      propertyPath: m_SortingLayerID
+      value: 1512684217
+      objectReference: {fileID: 0}
+    - target: {fileID: 959981947732278700, guid: da79d67de012b428c9c84be79d567caf,
+        type: 3}
+      propertyPath: m_SortingLayer
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 959981947732278700, guid: da79d67de012b428c9c84be79d567caf,
+        type: 3}
+      propertyPath: m_SortingOrder
+      value: -2
+      objectReference: {fileID: 0}
     - target: {fileID: 1507201837597381605, guid: da79d67de012b428c9c84be79d567caf,
         type: 3}
       propertyPath: m_Offset.x
@@ -65796,21 +65826,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalPosition.y
       value: 0.942
-      objectReference: {fileID: 0}
-    - target: {fileID: 959981947732278700, guid: da79d67de012b428c9c84be79d567caf,
-        type: 3}
-      propertyPath: m_SortingLayerID
-      value: 1512684217
-      objectReference: {fileID: 0}
-    - target: {fileID: 959981947732278700, guid: da79d67de012b428c9c84be79d567caf,
-        type: 3}
-      propertyPath: m_SortingLayer
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 959981947732278700, guid: da79d67de012b428c9c84be79d567caf,
-        type: 3}
-      propertyPath: m_SortingOrder
-      value: -2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: da79d67de012b428c9c84be79d567caf, type: 3}

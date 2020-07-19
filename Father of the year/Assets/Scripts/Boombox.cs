@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using TMPro;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 
 public class Boombox : MonoBehaviour
@@ -22,7 +23,7 @@ public class Boombox : MonoBehaviour
     bool RumbleEnabled;
 
     public TextMeshProUGUI CheevoText;
-
+    float VeganTimer;
 
 
     // Start is called before the first frame update
@@ -109,6 +110,16 @@ public class Boombox : MonoBehaviour
         else
         {
             RumbleEnabled = false;
+        }
+    }
+
+    private void FixedUpdate()
+    {
+        if (PlayerPrefs.GetInt("VeganMode") == 1 && SceneManager.GetActiveScene().name != "MainMenu" && PauseMenu.GameIsPaused == false) // if vegan mode is active and not at the menu
+        {
+            VeganTimer = PlayerPrefs.GetFloat("VeganTimer");
+            PlayerPrefs.SetFloat("VeganTimer", VeganTimer += Time.smoothDeltaTime);
+            Debug.Log(PlayerPrefs.GetFloat("VeganTimer").ToString("F2"));
         }
     }
 

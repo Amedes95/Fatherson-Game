@@ -77,6 +77,10 @@ public class LevelManager : MonoBehaviour
     void Awake()
     {
         PlayerPrefs.SetInt("Flawless Run", 1); // voids achievement if exited.  Only resets on start of level 1
+        PlayerPrefs.SetInt("Party Run", 0); // cancel party run, no cheating
+        PlayerPrefs.SetInt("VeganMode", 0); // cancel vegan mode if exited
+        PlayerPrefs.SetFloat("VeganTimer", 0);
+
         WorldHubAudioSource = gameObject.GetComponent<AudioSource>();
         PauseScreen = GameObject.FindGameObjectWithTag("PauseCanvas").GetComponent<PauseMenu>();
         WorldIndex = 0;

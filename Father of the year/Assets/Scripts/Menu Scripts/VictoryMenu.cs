@@ -25,7 +25,6 @@ public class VictoryMenu : MonoBehaviour
     public bool SpecialVictory;
 
 
-
     private void Awake()
     {
         PauseCanvas = GameObject.FindGameObjectWithTag("PauseCanvas");
@@ -149,4 +148,5 @@ public class VictoryMenu : MonoBehaviour
         Transition1.grain.settings = Grainy;
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
+
 }

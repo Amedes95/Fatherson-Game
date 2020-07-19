@@ -65,6 +65,7 @@ public class VisualsScreen : MonoBehaviour
         if (PlayerPrefs.GetInt("PartyModeON") == 1) // turn party off... :(
         {
             PlayerPrefs.SetInt("PartyModeON", 0);
+            PlayerPrefs.SetInt("Party Run", 0); // cancel party run, no cheating
         }
         else
         {

@@ -47,6 +47,12 @@ TextureImporter:
   - first:
       213: 8861761871806804698
     second: Food Pack_3
+  - first:
+      213: -1255247151672190627
+    second: Food Pack_8
+  - first:
+      213: -7144789002471039955
+    second: Food Pack_16
   externalObjects: {}
   serializedVersion: 10
   mipmaps:
@@ -457,7 +463,7 @@ TextureImporter:
         width: 16
         height: 17
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -465,6 +471,48 @@ TextureImporter:
       bones: []
       spriteID: 000f0d974dcab744190115d1085da2b4
       internalID: 8861761871806804698
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Food Pack_8
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 144
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0ce9da1864d786a42b274ccd1ca2ea65
+      internalID: -1255247151672190627
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Food Pack_16
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 128
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 02f3d4d6513b210468d231b0f577449f
+      internalID: -7144789002471039955
       vertices: []
       indices: 
       edges: []

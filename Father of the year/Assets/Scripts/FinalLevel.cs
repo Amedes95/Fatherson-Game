@@ -36,6 +36,15 @@ public class FinalLevel : MonoBehaviour
                     Boombox.UnlockCheevo("Flea Flee");
                 }
 
+                /// Unlocks Party Crasher Achievement
+                if (PlayerPrefs.GetInt("Party Crasher") == 0 && PlayerPrefs.GetInt("PartyModeON") == 1)
+                {
+                    PlayerPrefs.SetInt("Party Crasher", 1);
+                    Debug.Log("Party Crasher Unlocked");
+                    Boombox Boombox = GameObject.FindGameObjectWithTag("LevelBoombox").GetComponent<Boombox>();
+                    Boombox.UnlockCheevo("Party Crasher");
+                }
+
             }
             if (SceneManager.GetActiveScene().name == "W2BOSS") // w2 boss beaten
             {
@@ -47,6 +56,14 @@ public class FinalLevel : MonoBehaviour
                     Debug.Log("Spoiled Appetite");
                     Boombox Boombox = GameObject.FindGameObjectWithTag("LevelBoombox").GetComponent<Boombox>();
                     Boombox.UnlockCheevo("Spoiled Appetite");
+                }
+                /// Unlocks Party Crasher Achievement
+                if (PlayerPrefs.GetInt("Party Crasher") == 0 && PlayerPrefs.GetInt("PartyModeON") == 1)
+                {
+                    PlayerPrefs.SetInt("Party Crasher", 1);
+                    Debug.Log("Party Crasher Unlocked");
+                    Boombox Boombox = GameObject.FindGameObjectWithTag("LevelBoombox").GetComponent<Boombox>();
+                    Boombox.UnlockCheevo("Party Crasher");
                 }
             }
             if (SceneManager.GetActiveScene().name == "W3BOSS") // w3 boss beaten
@@ -60,6 +77,14 @@ public class FinalLevel : MonoBehaviour
                     Boombox Boombox = GameObject.FindGameObjectWithTag("LevelBoombox").GetComponent<Boombox>();
                     Boombox.UnlockCheevo("Fungus Among Us");
                 }
+                /// Unlocks Party Crasher Achievement
+                if (PlayerPrefs.GetInt("Party Crasher") == 0 && PlayerPrefs.GetInt("PartyModeON") == 1)
+                {
+                    PlayerPrefs.SetInt("Party Crasher", 1);
+                    Debug.Log("Party Crasher Unlocked");
+                    Boombox Boombox = GameObject.FindGameObjectWithTag("LevelBoombox").GetComponent<Boombox>();
+                    Boombox.UnlockCheevo("Party Crasher");
+                }
             }
             if (SceneManager.GetActiveScene().name == "W4BOSS") // w4 boss beaten
             {
@@ -71,6 +96,14 @@ public class FinalLevel : MonoBehaviour
                     Debug.Log("Ghastly Escape");
                     Boombox Boombox = GameObject.FindGameObjectWithTag("LevelBoombox").GetComponent<Boombox>();
                     Boombox.UnlockCheevo("Ghastly Escape");
+                }
+                /// Unlocks Party Crasher Achievement
+                if (PlayerPrefs.GetInt("Party Crasher") == 0 && PlayerPrefs.GetInt("PartyModeON") == 1)
+                {
+                    PlayerPrefs.SetInt("Party Crasher", 1);
+                    Debug.Log("Party Crasher Unlocked");
+                    Boombox Boombox = GameObject.FindGameObjectWithTag("LevelBoombox").GetComponent<Boombox>();
+                    Boombox.UnlockCheevo("Party Crasher");
                 }
             }
             if (SceneManager.GetActiveScene().name == "W5BOSS") // w5 boss beaten
@@ -84,6 +117,14 @@ public class FinalLevel : MonoBehaviour
                     Boombox Boombox = GameObject.FindGameObjectWithTag("LevelBoombox").GetComponent<Boombox>();
                     Boombox.UnlockCheevo("Frostbitten");
                 }
+                /// Unlocks Party Crasher Achievement
+                if (PlayerPrefs.GetInt("Party Crasher") == 0 && PlayerPrefs.GetInt("PartyModeON") == 1)
+                {
+                    PlayerPrefs.SetInt("Party Crasher", 1);
+                    Debug.Log("Party Crasher Unlocked");
+                    Boombox Boombox = GameObject.FindGameObjectWithTag("LevelBoombox").GetComponent<Boombox>();
+                    Boombox.UnlockCheevo("Party Crasher");
+                }
             }
             if (SceneManager.GetActiveScene().name == "W6BOSS") // w6 boss beaten
             {
@@ -95,6 +136,14 @@ public class FinalLevel : MonoBehaviour
                     Debug.Log("Hippidy Hoppidy");
                     Boombox Boombox = GameObject.FindGameObjectWithTag("LevelBoombox").GetComponent<Boombox>();
                     Boombox.UnlockCheevo("Hippidy Hoppidy");
+                }
+                /// Unlocks Party Crasher Achievement
+                if (PlayerPrefs.GetInt("Party Crasher") == 0 && PlayerPrefs.GetInt("PartyModeON") == 1)
+                {
+                    PlayerPrefs.SetInt("Party Crasher", 1);
+                    Debug.Log("Party Crasher Unlocked");
+                    Boombox Boombox = GameObject.FindGameObjectWithTag("LevelBoombox").GetComponent<Boombox>();
+                    Boombox.UnlockCheevo("Party Crasher");
                 }
             }
             // unlocks Vegetarian achievement

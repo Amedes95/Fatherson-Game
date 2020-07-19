@@ -13,6 +13,7 @@ public class Goal : MonoBehaviour
     bool Rising;
     float BestTime;
     public bool Level1Portal;
+    public bool EndPartyPortal;
 
 
 
@@ -20,6 +21,9 @@ public class Goal : MonoBehaviour
     public float CompletionTime;
 
     public bool SpecialCredits;
+
+    public bool VeganAlternative;
+    public string VeganAlternativeLevel;
 
 
     // Start is called before the first frame update
@@ -38,6 +42,11 @@ public class Goal : MonoBehaviour
         if (Level1Portal)
         {
             PlayerPrefs.SetInt("Flawless Run", 0); // related to no deaths in a world achievement
+            if (PlayerPrefs.GetInt("PartyModeON") == 1)
+            {
+                PlayerPrefs.SetInt("Party Run", 1);
+
+            }
         }
     }
 
@@ -53,6 +62,22 @@ public class Goal : MonoBehaviour
                 Debug.Log("Noobie Unlocked");
                 Boombox Boombox = GameObject.FindGameObjectWithTag("LevelBoombox").GetComponent<Boombox>();
                 Boombox.UnlockCheevo("Noobie");
+            }
+            /// Unlocks Party Animal Achievement
+            if (PlayerPrefs.GetInt("Party Animal") == 0 && PlayerPrefs.GetInt("PartyModeON") == 1)
+            {
+                PlayerPrefs.SetInt("Party Animal", 1);
+                Debug.Log("Party Animal Unlocked");
+                Boombox Boombox = GameObject.FindGameObjectWithTag("LevelBoombox").GetComponent<Boombox>();
+                Boombox.UnlockCheevo("Party Animal");
+            }
+            /// Unlocks Disco Fever Achievement
+            if (PlayerPrefs.GetInt("Disco Fever") == 0 && PlayerPrefs.GetInt("PartyModeON") == 1 && PlayerPrefs.GetInt("Party Run") == 1 && EndPartyPortal)
+            {
+                PlayerPrefs.SetInt("Disco Fever", 1);
+                Debug.Log("Disco Fever Unlocked");
+                Boombox Boombox = GameObject.FindGameObjectWithTag("LevelBoombox").GetComponent<Boombox>();
+                Boombox.UnlockCheevo("Disco Fever");
             }
 
             collision.GetComponent<Collector>().AddToFruitStash();
@@ -81,6 +106,19 @@ public class Goal : MonoBehaviour
             if (SpecialCredits)
             {
                 VictoryScreen.ExitToHub();
+            }
+
+            if (PlayerPrefs.GetInt("VeganMode") == 1) // you are on vegan mode, rapid complete the level
+            {
+                if (VeganAlternative) // am I one of the final levels?
+                {
+                    VictoryScreen.NextLevel = VeganAlternativeLevel;
+                    VictoryScreen.LoadNextLevel();
+                }
+                else
+                {
+                    VictoryScreen.LoadNextLevel();
+                }
             }
         }
     }

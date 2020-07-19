@@ -41,7 +41,8 @@ public class PauseMenu : MonoBehaviour
 
     string PauseInput;
 
-
+    public GameObject VeganModeDisplay;
+    public TextMeshProUGUI VeganTimer;
 
     // Start is called before the first frame update
     void Awake()
@@ -56,6 +57,7 @@ public class PauseMenu : MonoBehaviour
         var Blurry = Transition1.depthOfField.settings;
         Blurry.focalLength = 0f;
         Transition1.depthOfField.settings = Blurry;
+
     }
 
     private void Start()
@@ -70,6 +72,16 @@ public class PauseMenu : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (PlayerPrefs.GetInt("VeganMode") == 1)
+        {
+            VeganModeDisplay.SetActive(true);
+            VeganTimer.text = "Time Passed: " + PlayerPrefs.GetFloat("VeganTimer").ToString("F2");
+        }
+        else
+        {
+            VeganModeDisplay.SetActive(false);
+        }
+
         if (Boombox.ControllerModeEnabled)
         {
             PauseInput = "Pause";
