@@ -54,7 +54,16 @@ public class CostumeManager : MonoBehaviour
         {
             CharacterSelectScreen.SetActive(false);
         }
-        PlayerPrefs.SetInt("CostumeIndex", CostumeIndex); // 0, 1, etc..
+
+        if (CurrentCostume.GetComponent<CostumeInfo>().Locked) // locked costumes
+        {
+            PlayerPrefs.SetInt("CostumeIndex", 0); // default to normal costume if locked character is chosen
+        }
+        else
+        {
+            PlayerPrefs.SetInt("CostumeIndex", CostumeIndex); // 0, 1, etc..
+        }
+
 
         //achievement for changing costime once
         if (PlayerPrefs.GetInt("CostumeIndex") != 0) // unlock if not default
@@ -74,6 +83,14 @@ public class CostumeManager : MonoBehaviour
     void Update()
     {
         CurrentCostume = CostumesList[CostumeIndex];
+        if (CurrentCostume.GetComponent<CostumeInfo>().Locked)
+        {
+            CostumeDisplayName.text = CurrentCostume.GetComponent<CostumeInfo>().SecretName.ToString();
+        }
+        else
+        {
+            CostumeDisplayName.text = CurrentCostume.GetComponent<CostumeInfo>().CostumeName.ToString();
+        }
     }
 
     public void ShiftRight()
@@ -129,6 +146,7 @@ public class CostumeManager : MonoBehaviour
     {
         CurrentCostume = CostumesList[CostumeIndex];
 
+
         foreach (GameObject costume in CostumesList)
         {
             if (costume != CurrentCostume)
@@ -139,7 +157,14 @@ public class CostumeManager : MonoBehaviour
             {
                 costume.transform.position = PrimaryZone.position;
                 costume.SetActive(true);
-                CostumeDisplayName.text = costume.GetComponent<CostumeInfo>().CostumeName.ToString();
+                if (CurrentCostume.GetComponent<CostumeInfo>().Locked)
+                {
+                    CostumeDisplayName.text = costume.GetComponent<CostumeInfo>().SecretName.ToString();
+                }
+                else
+                {
+                    CostumeDisplayName.text = costume.GetComponent<CostumeInfo>().CostumeName.ToString();
+                }
             }
         }
     }

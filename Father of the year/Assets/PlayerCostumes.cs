@@ -7,6 +7,8 @@ public class PlayerCostumes : MonoBehaviour
     public AnimatorOverrideController NinjaFrogOverride;
     public AnimatorOverrideController VirtualGuyOverride;
     public AnimatorOverrideController MaskDudeOverride;
+    public AnimatorOverrideController PinkManOverride;
+    public AnimatorOverrideController GoldenFrogOverride;
 
 
 
@@ -34,6 +36,14 @@ public class PlayerCostumes : MonoBehaviour
         else if (PlayerPrefs.GetInt("CostumeIndex") == 2) // Mask Dude
         {
             CurrentAnimator.runtimeAnimatorController = MaskDudeOverride;
+        }
+        else if (PlayerPrefs.GetInt("CostumeIndex") == 3) // Pink Guy
+        {
+            CurrentAnimator.runtimeAnimatorController = PinkManOverride;
+        }
+        else if (PlayerPrefs.GetInt("CostumeIndex") == 4) // Golden Frog
+        {
+            CurrentAnimator.runtimeAnimatorController = GoldenFrogOverride;
         }
     }
 }

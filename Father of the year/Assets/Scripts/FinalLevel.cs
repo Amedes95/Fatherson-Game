@@ -24,9 +24,12 @@ public class FinalLevel : MonoBehaviour
                     Boombox.UnlockCheevo("Baby steps");
                 }
             }
-            if (SceneManager.GetActiveScene().name == "W1BOSS") // w1 boss beaten
+            if (SceneManager.GetActiveScene().name == "CarrotRescue") // rescue carrot, unlock new world
             {
                 PlayerPrefs.SetInt("World1_Complete", 1);
+            }
+            if (SceneManager.GetActiveScene().name == "W1BOSS") // w1 boss beaten, unlock cheevo
+            {
                 /// Unlocks Flea Flee! Achievement
                 if (PlayerPrefs.GetInt("Flea Flee") == 0)
                 {
@@ -46,9 +49,12 @@ public class FinalLevel : MonoBehaviour
                 }
 
             }
-            if (SceneManager.GetActiveScene().name == "W2BOSS") // w2 boss beaten
+            if (SceneManager.GetActiveScene().name == "TurnipRescue") // turnip rescued, unlock new world
             {
                 PlayerPrefs.SetInt("World2_Complete", 1);
+            }
+            if (SceneManager.GetActiveScene().name == "W2BOSS") // w2 boss beaten, unlock cheevo
+            {
                 /// Unlocks Yee Haw! Achievement
                 if (PlayerPrefs.GetInt("Spoiled Appetite") == 0)
                 {
@@ -66,9 +72,12 @@ public class FinalLevel : MonoBehaviour
                     Boombox.UnlockCheevo("Party Crasher");
                 }
             }
-            if (SceneManager.GetActiveScene().name == "W3BOSS") // w3 boss beaten
+            if (SceneManager.GetActiveScene().name == "CornRescue") // rescue corn, unlock new world
             {
                 PlayerPrefs.SetInt("World3_Complete", 1);
+            }
+            if (SceneManager.GetActiveScene().name == "W3BOSS") // w3 boss beaten, unlock cheevo
+            {
                 /// Unlocks Fungus Among Us Achievement
                 if (PlayerPrefs.GetInt("Fungus Among Us") == 0)
                 {
@@ -86,9 +95,12 @@ public class FinalLevel : MonoBehaviour
                     Boombox.UnlockCheevo("Party Crasher");
                 }
             }
-            if (SceneManager.GetActiveScene().name == "W4BOSS") // w4 boss beaten
+            if (SceneManager.GetActiveScene().name == "TomatoRescue") // rescue tomato, unlock new world
             {
                 PlayerPrefs.SetInt("World4_Complete", 1);
+            }
+            if (SceneManager.GetActiveScene().name == "W4BOSS") // w4 boss beaten, unlock cheevo
+            {
                 /// Unlocks Ghastly Escape Achievement
                 if (PlayerPrefs.GetInt("Ghastly Escape") == 0)
                 {
@@ -106,9 +118,12 @@ public class FinalLevel : MonoBehaviour
                     Boombox.UnlockCheevo("Party Crasher");
                 }
             }
-            if (SceneManager.GetActiveScene().name == "W5BOSS") // w5 boss beaten
+            if (SceneManager.GetActiveScene().name == "PotatoRescue") // rescue potato, unlock new world
             {
                 PlayerPrefs.SetInt("World5_Complete", 1);
+            }
+            if (SceneManager.GetActiveScene().name == "W5BOSS") // w5 boss beaten, unlock cheevo
+            {
                 /// Unlocks Frostbitten Achievement
                 if (PlayerPrefs.GetInt("Frostbitten") == 0)
                 {

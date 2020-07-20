@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!221 &22100000
+AnimatorOverrideController:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Golden Frog
+  m_Controller: {fileID: 9100000, guid: 6fef0536f0ccd446786fc5aadd9200fd, type: 2}
+  m_Clips:
+  - m_OriginalClip: {fileID: 7400000, guid: da679490e554cf24b8d7667e73366c7b, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 330310d064573724cbfdb07972287e8b, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: 469d42b899adf0b4da9a4c8760fef7f1, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 1b0de9a9c852edf42895a77c567f5236, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: 4eeb8ad057cdf46019aebbbff6fb8538, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 2de52b99c5d9a8b4986fef7ac5a041b5, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: 4b9c9e98bf54c4a0c85c1241aa0c34b4, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 729380ecb67550a47b9be6e91bed9ec3, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: 72248c340158e15499ea854e09ea4792, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: a98157172bbae1e4682c3b20b29c2cfc, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: 00262c2f32ad6c545893a387584199d2, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 1b3656b7ef6c5374ca4008aeff2b249c, type: 2}
