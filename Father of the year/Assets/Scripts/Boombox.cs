@@ -119,7 +119,21 @@ public class Boombox : MonoBehaviour
         {
             VeganTimer = PlayerPrefs.GetFloat("VeganTimer");
             PlayerPrefs.SetFloat("VeganTimer", VeganTimer += Time.smoothDeltaTime);
-            Debug.Log(PlayerPrefs.GetFloat("VeganTimer").ToString("F2"));
+            //Debug.Log(PlayerPrefs.GetFloat("VeganTimer").ToString("F2"));
+            //if (Input.GetKey(KeyCode.O))
+            //{
+            //    PlayerPrefs.SetFloat("VeganTimer", 3590);
+            //}
+            string hours = Mathf.Floor(VeganTimer/60/60).ToString("00");
+            string minutes = Mathf.Floor((VeganTimer / 60) % 60).ToString("00");
+            string seconds = (VeganTimer % 60).ToString("00");
+
+            PlayerPrefs.SetString("VeganHours", hours);
+            PlayerPrefs.SetString("VeganMinutes", minutes);
+            PlayerPrefs.SetString("VeganSeconds", seconds);
+
+
+            print(string.Format("{0}:{1}:{2}", hours, minutes, seconds));
         }
     }
 

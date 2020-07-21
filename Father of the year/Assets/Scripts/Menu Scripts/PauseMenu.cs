@@ -79,7 +79,8 @@ public class PauseMenu : MonoBehaviour
         if (PlayerPrefs.GetInt("VeganMode") == 1)
         {
             VeganModeDisplay.SetActive(true);
-            VeganTimer.text = "Time Passed: " + PlayerPrefs.GetFloat("VeganTimer").ToString("F2");
+
+            VeganTimer.text = "Time Passed: " + PlayerPrefs.GetFloat("VeganHours") + ":" + PlayerPrefs.GetString("VeganMinutes") + ":" + PlayerPrefs.GetString("VeganSeconds");
         }
         else
         {
