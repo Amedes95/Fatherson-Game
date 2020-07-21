@@ -92,7 +92,7 @@ public class MainMenu : MonoBehaviour
 
 
         Camera.transform.position = Vector3.MoveTowards(Camera.transform.position, CurrentDestination.position, CameraSpeed); // constantly move the camera to the "Current Destination"
-        if (WatchingIntro && (Input.GetKeyDown(KeyCode.Space) || Input.GetButtonDown("Pause")) && Camera.transform.position != CurrentDestination.position) // skips intro
+        if (WatchingIntro && (Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.Escape) || Input.GetButtonDown("Pause")) && Camera.transform.position != CurrentDestination.position) // skips intro
         {
             SkipCanvas.SetActive(true);
         }

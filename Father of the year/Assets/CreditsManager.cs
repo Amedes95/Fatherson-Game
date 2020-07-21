@@ -27,7 +27,7 @@ public class CreditsManager : MonoBehaviour
     private void Update()
     {
         Camera.transform.position = Vector3.MoveTowards(Camera.transform.position, CurrentDestination.position, CameraSpeed); // constantly move the camera to the "Current Destination"
-        if (WatchingOutro && (Input.GetKeyDown(KeyCode.Space) || Input.GetButtonDown("Pause")) && Camera.transform.position != CurrentDestination.position && GoalParent.transform.localPosition.y != 9.5) // skips intro
+        if (WatchingOutro && (Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.Escape) || Input.GetButtonDown("Pause")) && Camera.transform.position != CurrentDestination.position && GoalParent.transform.localPosition.y != 9.5) // skips intro
         {
             SkipCanvas.SetActive(true);
         }
@@ -78,7 +78,19 @@ public class CreditsManager : MonoBehaviour
                 Boombox.UnlockCheevo("Fast Food");
             }
         }
+        if (PlayerPrefs.GetFloat("Insatiable Appetite") <= 7200 && PlayerPrefs.GetInt("MalnourishedMode") == 1) // if credits are reached during malnourished mode
+        {
+            /// Unlocks Insatiable Appetite Achievement
+            if (PlayerPrefs.GetInt("Insatiable Appetite") == 0)
+            {
+                PlayerPrefs.SetInt("Insatiable Appetite", 1);
+                Debug.Log("Insatiable Appetite");
+                Boombox Boombox = GameObject.FindGameObjectWithTag("LevelBoombox").GetComponent<Boombox>();
+                Boombox.UnlockCheevo("Insatiable Appetite");
+            }
+        }
         PlayerPrefs.SetInt("VeganMode", 0); // stops vegan mode
+        PlayerPrefs.SetInt("MalnourishedMode", 0); // stop malnourished mode
 
     }
 

@@ -7,6 +7,7 @@ public class PlayerHealth : MonoBehaviour
     GameObject deathParticles;
     public static bool Dead; // it's static because I refence it directly from the playermovement && and death canvas script
     public static int DeathCount;
+    int MalnourishedLives;
 
     void Awake() // we don't start dead when the scene loads now do we?
     {
@@ -31,6 +32,14 @@ public class PlayerHealth : MonoBehaviour
         gameObject.SetActive(false);
         PlayerPrefs.SetInt("DeathCount", DeathCount += 1);
         PlayerPrefs.SetInt("Flawless Run", 1); // voids achievement if dead.  Only resets on start of level 1
+
+        if (PlayerPrefs.GetInt("MalnourishedMode") == 1)
+        {
+            MalnourishedLives = PlayerPrefs.GetInt("MalnourishedLives");
+            MalnourishedLives -= 1;
+            PlayerPrefs.SetInt("MalnourishedLives", MalnourishedLives);
+            Debug.Log("Malnourished lives" + PlayerPrefs.GetInt("MalnourishedLives"));
+        }
 
 
         /// player dies for the first time achievement

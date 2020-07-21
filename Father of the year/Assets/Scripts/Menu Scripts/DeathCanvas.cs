@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.PostProcessing;
+using UnityEngine.UIElements;
+using TMPro;
 
 
 public class DeathCanvas : MonoBehaviour
@@ -16,6 +18,10 @@ public class DeathCanvas : MonoBehaviour
 
     public GameObject SpaceBarText;
     public GameObject PressStartText;
+
+    public GameObject MalnourishedDisplay;
+    public TextMeshProUGUI DeathCountDisplay;
+    public GameObject MalnourishedButton;
 
 
     public PostProcessingProfile Transition1; // For film grain
@@ -39,6 +45,20 @@ public class DeathCanvas : MonoBehaviour
             SpaceBarText.SetActive(true);
             PressStartText.SetActive(false);
         }
+        if (PlayerPrefs.GetInt("MalnourishedMode") == 1)
+        {
+            MalnourishedDisplay.SetActive(true);
+            DeathCountDisplay.text = PlayerPrefs.GetInt("MalnourishedLives").ToString();
+            if (PlayerPrefs.GetInt("MalnourishedLives") <= 0)
+            {
+                MalnourishedButton.SetActive(true);
+            }
+        }
+        else
+        {
+            MalnourishedDisplay.SetActive(false);
+        }
+
 
 
         var Vinny = Transition1.vignette.settings;
@@ -64,7 +84,14 @@ public class DeathCanvas : MonoBehaviour
             }
             if (Input.GetKeyDown(KeyCode.Space) || Input.GetButtonDown("Pause")) // make them wait...
             {
-                ReloadScene();
+                if (PlayerPrefs.GetInt("MalnourishedMode") == 1 && PlayerPrefs.GetInt("MalnourishedLives") > 0)
+                {
+                    ReloadScene();
+                }
+                else if (PlayerPrefs.GetInt("MalnourishedMode") == 0)
+                {
+                    ReloadScene();
+                }
             }
 
             if (transitioning)

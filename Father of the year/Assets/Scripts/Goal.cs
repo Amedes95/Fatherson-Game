@@ -24,6 +24,7 @@ public class Goal : MonoBehaviour
 
     public bool VeganAlternative;
     public string VeganAlternativeLevel;
+    int MalnourishedLives;
 
 
     // Start is called before the first frame update
@@ -47,6 +48,10 @@ public class Goal : MonoBehaviour
                 PlayerPrefs.SetInt("Party Run", 1);
 
             }
+        }
+        if (PlayerPrefs.GetInt("MalnourishedMode") == 1)
+        {
+            MalnourishedLives = PlayerPrefs.GetInt("MalnourishedLives");
         }
     }
 
@@ -119,6 +124,12 @@ public class Goal : MonoBehaviour
                 {
                     VictoryScreen.LoadNextLevel();
                 }
+            }
+            if (PlayerPrefs.GetInt("MalnourishedMode") == 1)
+            {
+                MalnourishedLives += 3;
+                PlayerPrefs.SetInt("MalnourishedLives", MalnourishedLives);
+                Debug.Log("Malnourished lives" + PlayerPrefs.GetInt("MalnourishedLives"));
             }
         }
     }

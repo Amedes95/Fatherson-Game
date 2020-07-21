@@ -7,6 +7,7 @@ using TMPro;
 public class StatsManager : MonoBehaviour
 {
     public GameObject VeganConfirmation;
+    public GameObject MalnourishedConfirmation;
     public TextMeshProUGUI DeathsText;
     public TextMeshProUGUI TrophiesText;
     public TextMeshProUGUI ApplesText;
@@ -14,10 +15,18 @@ public class StatsManager : MonoBehaviour
 
 
 
+
     public void AskToConfirmVeganMode()
     {
         VeganConfirmation.SetActive(true);
+
     }
+    public void AskToConfirmMalnourishedMode()
+    {
+        MalnourishedConfirmation.SetActive(true);
+
+    }
+
     public void BeginVeganMode()
     {
         PlayerPrefs.SetInt("VeganMode", 1); // toggle bool
@@ -25,10 +34,20 @@ public class StatsManager : MonoBehaviour
 
         SceneManager.LoadScene("Tutorial_01");
     }
+    public void BeginMalnourishedMode()
+    {
+        PlayerPrefs.SetInt("MalnourishedMode", 1); // toggle bool
+        PlayerPrefs.SetInt("MalnourishedLives", 3); // give player 3 lives
+        SceneManager.LoadScene("Tutorial_01");
+    }
 
     public void DenyVeganConfirmation()
     {
         VeganConfirmation.SetActive(false);
+    }
+    public void DenyMalnourishedConfirmation()
+    {
+        MalnourishedConfirmation.SetActive(false);
     }
 
     private void Update()

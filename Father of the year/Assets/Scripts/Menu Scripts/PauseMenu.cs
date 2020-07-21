@@ -44,6 +44,10 @@ public class PauseMenu : MonoBehaviour
     public GameObject VeganModeDisplay;
     public TextMeshProUGUI VeganTimer;
 
+    public GameObject MalnourishedDisplay;
+    public TextMeshProUGUI MalnourishedLives;
+    int MalLives;
+
     // Start is called before the first frame update
     void Awake()
     {
@@ -81,6 +85,17 @@ public class PauseMenu : MonoBehaviour
         {
             VeganModeDisplay.SetActive(false);
         }
+        // malnourished pause display
+        if (PlayerPrefs.GetInt("MalnourishedMode") == 1)
+        {
+            MalnourishedDisplay.SetActive(true);
+            MalnourishedLives.text = PlayerPrefs.GetInt("MalnourishedLives").ToString();
+        }
+        else
+        {
+            MalnourishedDisplay.SetActive(false);
+        }
+
 
         if (Boombox.ControllerModeEnabled)
         {
@@ -220,9 +235,31 @@ public class PauseMenu : MonoBehaviour
 
     public void Restart()
     {
-
         Time.timeScale = 1f;
-        VictoryScreen.ReloadScene();
+        MalLives = PlayerPrefs.GetInt("MalnourishedLives");
+        MalLives -= 1;
+        if (PlayerPrefs.GetInt("MalnourishedMode") == 1 && MalLives > 0) // mal mode and lives remaining
+        {
+            PlayerPrefs.SetInt("MalnourishedLives", MalLives);
+            Debug.Log("Malnourished lives" + PlayerPrefs.GetInt("MalnourishedLives"));
+            if (MalLives <= 0)
+            {
+                QuitLevel();
+            }
+            else
+            {
+                VictoryScreen.ReloadScene();
+            }
+        }
+        else if (PlayerPrefs.GetInt("MalnourishedMode") == 1 && MalLives <= 0) // mal mode and last life
+        {
+            QuitLevel();
+        }
+        else
+        {
+            VictoryScreen.ReloadScene();
+        }
+
     }
 
     public void QuitLevel()

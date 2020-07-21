@@ -23,6 +23,9 @@ public class VictoryMenu : MonoBehaviour
     public GameObject SpaceBarText;
 
     public bool SpecialVictory;
+    public GameObject ReplayButton;
+    public GameObject ExitButton;
+    public GameObject MalnourishedText;
 
 
     private void Awake()
@@ -60,6 +63,13 @@ public class VictoryMenu : MonoBehaviour
         {
             SpaceBarText.SetActive(true);
         }
+        if (PlayerPrefs.GetInt("MalnourishedMode") == 1)
+        {
+            ReplayButton.SetActive(false);
+            ExitButton.SetActive(false);
+            MalnourishedText.SetActive(true);
+        }
+
         var Vinny = Transition1.vignette.settings;
 
         /// for film grain restart effect ///// 

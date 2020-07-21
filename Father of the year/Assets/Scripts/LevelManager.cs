@@ -81,6 +81,9 @@ public class LevelManager : MonoBehaviour
         PlayerPrefs.SetInt("VeganMode", 0); // cancel vegan mode if exited
         PlayerPrefs.SetFloat("VeganTimer", 0);
 
+        PlayerPrefs.SetInt("MalnourishedMode", 0); // cancel if quit
+        PlayerPrefs.SetInt("MalnourishedLives", 0);
+
         WorldHubAudioSource = gameObject.GetComponent<AudioSource>();
         PauseScreen = GameObject.FindGameObjectWithTag("PauseCanvas").GetComponent<PauseMenu>();
         WorldIndex = 0;
