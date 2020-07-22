@@ -12,6 +12,8 @@ public class ShowHelp : MonoBehaviour
 
     public GameObject Player;
 
+    bool TouchingZone;
+
 
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -43,6 +45,8 @@ public class ShowHelp : MonoBehaviour
                 InfoBubble.SetBool("Helping", false);
             }
         }
+        TouchingZone = false;
+
     }
 
     private void OnTriggerStay2D(Collider2D collision)
@@ -59,25 +63,31 @@ public class ShowHelp : MonoBehaviour
             InfoBubble.SetBool("Helping", true);
 
         }
+        TouchingZone = true;
+
     }
 
     private void Update()
     {
         if (Player.activeInHierarchy)
         {
-            if (Boombox.ControllerModeEnabled)
+            if (TouchingZone)
             {
-                InfoBubble.SetBool("ControllerActive", true);
-                ControllerBubble.SetBool("ControllerActive", true);
-                ControllerBubble.SetBool("Helping", true);
-            }
-            else
-            {
-                InfoBubble.SetBool("ControllerActive", false);
-                ControllerBubble.SetBool("ControllerActive", false);
-                InfoBubble.SetBool("Helping", true);
+                if (Boombox.ControllerModeEnabled)
+                {
+                    InfoBubble.SetBool("ControllerActive", true);
+                    ControllerBubble.SetBool("ControllerActive", true);
+                    ControllerBubble.SetBool("Helping", true);
+                }
+                else
+                {
+                    InfoBubble.SetBool("ControllerActive", false);
+                    ControllerBubble.SetBool("ControllerActive", false);
+                    InfoBubble.SetBool("Helping", true);
 
+                }
             }
+
         }
 
     }
