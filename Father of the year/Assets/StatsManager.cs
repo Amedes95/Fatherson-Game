@@ -14,6 +14,7 @@ public class StatsManager : MonoBehaviour
     public TextMeshProUGUI TrophiesText;
     public TextMeshProUGUI ApplesText;
     public TextMeshProUGUI EnemiesText;
+    public UIControllerSupport BackButton;
 
 
     public void AskToConfirmVeganMode()
@@ -53,14 +54,17 @@ public class StatsManager : MonoBehaviour
     public void DenyVeganConfirmation()
     {
         VeganConfirmation.SetActive(false);
+        BackButton.FindFocus();
     }
     public void DenyMalnourishedConfirmation()
     {
         MalnourishedConfirmation.SetActive(false);
+        BackButton.FindFocus();
     }
     public void DenyBossRush()
     {
         BossRushConfirmation.SetActive(false);
+        BackButton.FindFocus();
     }
 
     private void Update()

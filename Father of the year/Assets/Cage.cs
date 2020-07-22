@@ -17,6 +17,7 @@ public class Cage : MonoBehaviour
             BoxCollider.enabled = false;
             Trigger.enabled = false;
             PlayerPrefs.SetString("ExitedLevel", WorldHubExitLevel);
+            gameObject.GetComponent<AudioSource>().Play();
         }
     }
 

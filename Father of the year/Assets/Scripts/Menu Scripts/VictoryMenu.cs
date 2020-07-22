@@ -76,7 +76,11 @@ public class VictoryMenu : MonoBehaviour
             ReplayButton.SetActive(false);
             RestartButtonBoss.SetActive(true);
         }
-        else
+        if (PlayerPrefs.GetInt("VeganMode") == 1)
+        {
+            ReplayButton.SetActive(false);
+        }
+        else if(PlayerPrefs.GetInt("VeganMode") == 0 && PlayerPrefs.GetInt("BossRush") == 0 && PlayerPrefs.GetInt("MalnourishedMode") == 0)
         {
             ReplayButton.SetActive(true);
             RestartButtonBoss.SetActive(false);

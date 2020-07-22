@@ -54,16 +54,13 @@ public class CostumeManager : MonoBehaviour
         {
             CharacterSelectScreen.SetActive(false);
         }
-        if (CurrentCostume.activeInHierarchy)
+        if (CurrentCostume.GetComponent<CostumeInfo>().Locked) // locked costumes
         {
-            if (CurrentCostume.GetComponent<CostumeInfo>().Locked) // locked costumes
-            {
-                PlayerPrefs.SetInt("CostumeIndex", 0); // default to normal costume if locked character is chosen
-            }
-            else
-            {
-                PlayerPrefs.SetInt("CostumeIndex", CostumeIndex); // 0, 1, etc..
-            }
+            PlayerPrefs.SetInt("CostumeIndex", 0); // default to normal costume if locked character is chosen
+        }
+        else
+        {
+            PlayerPrefs.SetInt("CostumeIndex", CostumeIndex); // 0, 1, etc..
         }
 
 

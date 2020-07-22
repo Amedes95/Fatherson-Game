@@ -84,7 +84,7 @@ public class Cyclops : MonoBehaviour
             if (EndTimer <= 0)
             {
                 EndTimer = 0;
-                Portal.transform.position = BunnyBoss.transform.position;
+                Portal.transform.position = new Vector2(BunnyBoss.transform.position.x, BunnyBoss.transform.position.y + 1.5f);
             }
 
         }

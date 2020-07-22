@@ -46,6 +46,12 @@ public class MainMenu : MonoBehaviour
     public Transform AchievementDestination;
     public Transform BonusGamesDestination;
 
+    public GameObject VeganConfirm;
+    public GameObject MalConfirm;
+    public GameObject BossConfirm;
+    public StatsManager StatScreen;
+    public UIControllerSupport BackButton;
+
     public float CameraSpeed;
 
     private void Update()
@@ -86,7 +92,25 @@ public class MainMenu : MonoBehaviour
             }
             else if (BrowsingGames)
             {
-                LoadStatsMenu();
+                if (BossConfirm.activeInHierarchy)
+                {
+                    StatScreen.DenyBossRush();
+                    BackButton.FindFocus();
+                }
+                else if (MalConfirm.activeInHierarchy)
+                {
+                    StatScreen.DenyMalnourishedConfirmation();
+                    BackButton.FindFocus();
+                }
+                else if (VeganConfirm.activeInHierarchy)
+                {
+                    StatScreen.DenyVeganConfirmation();
+                    BackButton.FindFocus();
+                }
+                else
+                {
+                    LoadStatsMenu();
+                }
             }
         }
 
