@@ -84,6 +84,8 @@ public class LevelManager : MonoBehaviour
         PlayerPrefs.SetInt("MalnourishedMode", 0); // cancel if quit
         PlayerPrefs.SetInt("MalnourishedLives", 0);
 
+        PlayerPrefs.SetInt("BossRush", 0); // cancel boss rush
+
         WorldHubAudioSource = gameObject.GetComponent<AudioSource>();
         PauseScreen = GameObject.FindGameObjectWithTag("PauseCanvas").GetComponent<PauseMenu>();
         WorldIndex = 0;

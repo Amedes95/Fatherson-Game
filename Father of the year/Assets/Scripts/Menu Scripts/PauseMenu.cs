@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 using UnityEngine.PostProcessing;
 using TMPro;
 using UnityEngine.InputSystem;
+using UnityEngine.UIElements;
 
 
 public class PauseMenu : MonoBehaviour
@@ -47,6 +48,10 @@ public class PauseMenu : MonoBehaviour
     public GameObject MalnourishedDisplay;
     public TextMeshProUGUI MalnourishedLives;
     int MalLives;
+
+    public GameObject BossRushDisplay;
+    public GameObject RestartButton;
+    public GameObject RestartButtonBoss;
 
     // Start is called before the first frame update
     void Awake()
@@ -95,6 +100,21 @@ public class PauseMenu : MonoBehaviour
         else
         {
             MalnourishedDisplay.SetActive(false);
+        }
+
+        // Boss rush display
+        if (PlayerPrefs.GetInt("BossRush") == 1)
+        {
+            BossRushDisplay.SetActive(true);
+
+            RestartButton.SetActive(false);
+            RestartButtonBoss.SetActive(true);
+        }
+        else
+        {
+            RestartButton.SetActive(true);
+            RestartButtonBoss.SetActive(false);
+            BossRushDisplay.SetActive(false);
         }
 
 
@@ -258,7 +278,14 @@ public class PauseMenu : MonoBehaviour
         }
         else
         {
-            VictoryScreen.ReloadScene();
+            if (PlayerPrefs.GetInt("BossRush") == 1)
+            {
+                QuitLevel();
+            }
+            else
+            {
+                VictoryScreen.ReloadScene();
+            }
         }
 
     }

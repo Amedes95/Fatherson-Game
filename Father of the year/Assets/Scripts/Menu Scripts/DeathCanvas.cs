@@ -23,6 +23,8 @@ public class DeathCanvas : MonoBehaviour
     public TextMeshProUGUI DeathCountDisplay;
     public GameObject MalnourishedButton;
 
+    public TextMeshProUGUI RespawnText;
+
 
     public PostProcessingProfile Transition1; // For film grain
 
@@ -61,6 +63,7 @@ public class DeathCanvas : MonoBehaviour
 
 
 
+
         var Vinny = Transition1.vignette.settings;
 
         //// film grain stuff ////////
@@ -88,10 +91,22 @@ public class DeathCanvas : MonoBehaviour
                 {
                     ReloadScene();
                 }
-                else if (PlayerPrefs.GetInt("MalnourishedMode") == 0)
+                else if (PlayerPrefs.GetInt("BossRush") == 1) // if you try to restart boss rush, start the mode over
+                {
+                    SceneManager.LoadScene("W1BOSS");
+                }
+                else if (PlayerPrefs.GetInt("MalnourishedMode") == 0 && PlayerPrefs.GetInt("BossRush") == 0)
                 {
                     ReloadScene();
                 }
+            }
+            if (PlayerPrefs.GetInt("BossRush") == 1)
+            {
+                RespawnText.text = " Try Again?";
+            }
+            else
+            {
+                RespawnText.text = "Respawn";
             }
 
             if (transitioning)

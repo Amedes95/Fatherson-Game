@@ -89,8 +89,21 @@ public class CreditsManager : MonoBehaviour
                 Boombox.UnlockCheevo("Insatiable Appetite");
             }
         }
+        if (PlayerPrefs.GetInt("BossRush") == 1)
+        {
+            /// Unlocks Indigestible Achievement
+            if (PlayerPrefs.GetInt("Indigestible") == 0)
+            {
+                PlayerPrefs.SetInt("Indigestible", 1);
+                Debug.Log("Indigestible");
+                Boombox Boombox = GameObject.FindGameObjectWithTag("LevelBoombox").GetComponent<Boombox>();
+                Boombox.UnlockCheevo("Indigestible");
+            }
+        }
+
         PlayerPrefs.SetInt("VeganMode", 0); // stops vegan mode
         PlayerPrefs.SetInt("MalnourishedMode", 0); // stop malnourished mode
+        PlayerPrefs.SetInt("BosRush", 0); // stop bosh rush mode
 
     }
 

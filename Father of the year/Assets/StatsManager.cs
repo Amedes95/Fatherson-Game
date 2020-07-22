@@ -8,12 +8,12 @@ public class StatsManager : MonoBehaviour
 {
     public GameObject VeganConfirmation;
     public GameObject MalnourishedConfirmation;
+    public GameObject BossRushConfirmation;
+    // add a best time for vegan mode?
     public TextMeshProUGUI DeathsText;
     public TextMeshProUGUI TrophiesText;
     public TextMeshProUGUI ApplesText;
     public TextMeshProUGUI EnemiesText;
-
-
 
 
     public void AskToConfirmVeganMode()
@@ -25,6 +25,10 @@ public class StatsManager : MonoBehaviour
     {
         MalnourishedConfirmation.SetActive(true);
 
+    }
+    public void ASkToConfirmBossRush()
+    {
+        BossRushConfirmation.SetActive(true);
     }
 
     public void BeginVeganMode()
@@ -40,6 +44,11 @@ public class StatsManager : MonoBehaviour
         PlayerPrefs.SetInt("MalnourishedLives", 3); // give player 3 lives
         SceneManager.LoadScene("Tutorial_01");
     }
+    public void BeginBossRush()
+    {
+        PlayerPrefs.SetInt("BossRush", 1);
+        SceneManager.LoadScene("W1BOSS");      
+    }
 
     public void DenyVeganConfirmation()
     {
@@ -48,6 +57,10 @@ public class StatsManager : MonoBehaviour
     public void DenyMalnourishedConfirmation()
     {
         MalnourishedConfirmation.SetActive(false);
+    }
+    public void DenyBossRush()
+    {
+        BossRushConfirmation.SetActive(false);
     }
 
     private void Update()

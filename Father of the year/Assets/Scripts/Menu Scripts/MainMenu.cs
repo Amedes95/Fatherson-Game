@@ -162,6 +162,11 @@ public class MainMenu : MonoBehaviour
         PlayerPrefs.SetFloat("VeganTimer", 0);
         PlayerPrefs.SetInt("Party Run", 0); // cancel party run, no cheating
         PlayerPrefs.SetInt("PartyModeON", 0);
+        PlayerPrefs.SetInt("MalnourishedMode", 0); // cancel if quit, no cheaters
+        PlayerPrefs.SetInt("MalnourishedLives", 0);
+        PlayerPrefs.SetInt("BossRush", 0); // cancel boss rush, no cheaters
+
+
         SettingsButton.playOnAwake = false;
         Time.timeScale = 1f;
     }

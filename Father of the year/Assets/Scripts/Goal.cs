@@ -60,6 +60,7 @@ public class Goal : MonoBehaviour
     {
         if (collision.tag == "Player" && PauseMenu.GameIsPaused == false && PlayerHealth.Dead == false)
         {
+
             /// Unlocks Noobie Achievement
             if (PlayerPrefs.GetInt("Noobie") == 0)
             {
@@ -108,6 +109,8 @@ public class Goal : MonoBehaviour
                 }
 
             }
+            // show best time?
+
             if (SpecialCredits)
             {
                 VictoryScreen.ExitToHub();

@@ -27,6 +27,8 @@ public class VictoryMenu : MonoBehaviour
     public GameObject ExitButton;
     public GameObject MalnourishedText;
 
+    public GameObject RestartButtonBoss;
+
 
     private void Awake()
     {
@@ -68,6 +70,16 @@ public class VictoryMenu : MonoBehaviour
             ReplayButton.SetActive(false);
             ExitButton.SetActive(false);
             MalnourishedText.SetActive(true);
+        }
+        if (PlayerPrefs.GetInt("BossRush") == 1)
+        {
+            ReplayButton.SetActive(false);
+            RestartButtonBoss.SetActive(true);
+        }
+        else
+        {
+            ReplayButton.SetActive(true);
+            RestartButtonBoss.SetActive(false);
         }
 
         var Vinny = Transition1.vignette.settings;
@@ -119,7 +131,37 @@ public class VictoryMenu : MonoBehaviour
                 }
                 else
                 {
-                    SceneManager.LoadScene(NextLevel);
+                    if (PlayerPrefs.GetInt("BossRush") == 1) // if boss rush is enabled
+                    {
+                        if (SceneManager.GetActiveScene().name == "W1BOSS")
+                        {
+                            SceneManager.LoadScene("W2BOSS");
+                        }
+                        else if (SceneManager.GetActiveScene().name == "W2BOSS")
+                        {
+                            SceneManager.LoadScene("W3BOSS");
+                        }
+                        else if (SceneManager.GetActiveScene().name == "W3BOSS")
+                        {
+                            SceneManager.LoadScene("W4BOSS");
+                        }
+                        else if (SceneManager.GetActiveScene().name == "W4BOSS")
+                        {
+                            SceneManager.LoadScene("W5BOSS");
+                        }
+                        else if (SceneManager.GetActiveScene().name == "W5BOSS")
+                        {
+                            SceneManager.LoadScene("W6BOSS");
+                        }
+                        else if (SceneManager.GetActiveScene().name == "W6BOSS")
+                        {
+                            SceneManager.LoadScene("EndCredits");
+                        }
+                    }
+                    else // not boss rush
+                    {
+                        SceneManager.LoadScene(NextLevel);
+                    }
                 }
             }
         }
