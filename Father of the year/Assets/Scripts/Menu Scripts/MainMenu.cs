@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 
 public class MainMenu : MonoBehaviour
@@ -51,11 +52,23 @@ public class MainMenu : MonoBehaviour
     public GameObject BossConfirm;
     public StatsManager StatScreen;
     public UIControllerSupport BackButton;
+    public Button MoreButton;
+    public GameObject LockedImage;
 
     public float CameraSpeed;
 
     private void Update()
     {
+        if (PlayerPrefs.GetInt("GameCompleted") == 1)
+        {
+            MoreButton.interactable = true;
+            LockedImage.SetActive(false);
+        }
+        else // game not beaten
+        {
+            MoreButton.interactable = false;
+            LockedImage.SetActive(true);
+        }
         if (Input.GetButtonDown("Cancel"))
         {
             if (EditingSounds)

@@ -57,6 +57,8 @@ public class CreditsManager : MonoBehaviour
 
     private void Awake()
     {
+
+        PlayerPrefs.SetInt("GameCompleted", 1);
         Time.timeScale = 1f;
         /// Unlocks Carnist Achievement
         if (PlayerPrefs.GetInt("Carnist") == 0 && PlayerPrefs.GetInt("VeganMode") == 1)
