@@ -15,6 +15,8 @@ public class LevelInfo : MonoBehaviour
     public GameObject LockedSymbol;
 
     public TextMeshPro BestTime;
+    float BestTIme;
+
 
     public float GoldStandard;
     //public float SilverStandard;
@@ -38,7 +40,13 @@ public class LevelInfo : MonoBehaviour
         //// for completion
         if (PlayerPrefs.GetFloat(SceneToLoad) != 0)
         {
-            BestTime.text = PlayerPrefs.GetFloat(SceneToLoad).ToString("F2"); // update best time text (F2 rounds the string to 2 decimals)
+            BestTIme = PlayerPrefs.GetFloat(SceneToLoad); // update best time
+            string hours = Mathf.Floor(BestTIme / 60 / 60).ToString("00");
+            string minutes = Mathf.Floor((BestTIme / 60) % 60).ToString("00");
+            string seconds = (BestTIme % 60).ToString("00");
+
+            BestTime.text = hours + ":" + minutes + ":" + seconds;
+
             CompletedTrophy.SetActive(true); // Display Trophy if beaten!
 
             // How do you stack up?

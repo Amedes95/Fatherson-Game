@@ -21,7 +21,7 @@ public class Debugger : MonoBehaviour
             foreach (GameObject Level in CurrentWorld.LevelsWithinWorld)
             {
                 string LevelID = Level.GetComponent<LevelInfo>().SceneToLoad;
-                PlayerPrefs.SetFloat(LevelID, 420);
+                PlayerPrefs.SetFloat(LevelID, 260);
             }
         }
         PauseMenu.Restart();

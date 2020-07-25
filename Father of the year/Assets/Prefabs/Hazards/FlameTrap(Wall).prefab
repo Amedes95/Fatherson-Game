@@ -10,7 +10,7 @@ PrefabInstance:
     - target: {fileID: 5554201361082858117, guid: 2272d582b3b644e499832803684cbfe3,
         type: 3}
       propertyPath: m_Name
-      value: FlameTrap (1)
+      value: FlameTrap(Wall)
       objectReference: {fileID: 0}
     - target: {fileID: 5554201361082858117, guid: 2272d582b3b644e499832803684cbfe3,
         type: 3}
@@ -81,6 +81,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Offset.y
       value: -0.08002933
+      objectReference: {fileID: 0}
+    - target: {fileID: 5554201361082858112, guid: 2272d582b3b644e499832803684cbfe3,
+        type: 3}
+      propertyPath: m_Size.x
+      value: 0.16018975
+      objectReference: {fileID: 0}
+    - target: {fileID: 5554201361082858112, guid: 2272d582b3b644e499832803684cbfe3,
+        type: 3}
+      propertyPath: m_Offset.x
+      value: 0.0000011511147
       objectReference: {fileID: 0}
     - target: {fileID: 5554201361338786996, guid: 2272d582b3b644e499832803684cbfe3,
         type: 3}
