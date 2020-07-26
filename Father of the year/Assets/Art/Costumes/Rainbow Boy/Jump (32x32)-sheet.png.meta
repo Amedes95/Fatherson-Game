@@ -1,40 +1,25 @@
 fileFormatVersion: 2
-guid: 19dc2663887169d4ab870aa9fcc00d7b
+guid: 14d0aea054c6a9e4883eafe50d36ea81
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -6367560908665664636
-    second: Idle (32x32)_0
+      213: -8040526720384675867
+    second: Jump (32x32)-sheet_0
   - first:
-      213: -6056987297122131021
-    second: Idle (32x32)_1
+      213: 5817574988350891263
+    second: Jump (32x32)-sheet_1
   - first:
-      213: 8416797952724722639
-    second: Idle (32x32)_2
+      213: 46346690920073542
+    second: Jump (32x32)-sheet_2
   - first:
-      213: 4883129791460916795
-    second: Idle (32x32)_3
+      213: 3581962230548433669
+    second: Jump (32x32)-sheet_3
   - first:
-      213: 4278371960119211202
-    second: Idle (32x32)_4
+      213: 4388268100656658494
+    second: Jump (32x32)-sheet_4
   - first:
-      213: 8644832591467991550
-    second: Idle (32x32)_5
-  - first:
-      213: -7152759390613953277
-    second: Idle (32x32)_6
-  - first:
-      213: 6456874251884481089
-    second: Idle (32x32)_7
-  - first:
-      213: -2526832996998184344
-    second: Idle (32x32)_8
-  - first:
-      213: 4392827059107796345
-    second: Idle (32x32)_9
-  - first:
-      213: -1363835404106015672
-    second: Idle (32x32)_10
+      213: 239726698697274666
+    second: Jump (32x32)-sheet_5
   externalObjects: {}
   serializedVersion: 10
   mipmaps:
@@ -143,232 +128,127 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Idle (32x32)_0
+      name: Jump (32x32)-sheet_0
       rect:
         serializedVersion: 2
-        x: 6
+        x: 5
         y: 0
-        width: 21
-        height: 25
-      alignment: 9
-      pivot: {x: 0.52380955, y: 0.48}
+        width: 22
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 003cd9ddd2e27254aaa622f71888f3a5
-      internalID: -6367560908665664636
+      spriteID: c40d6693d7cc0e2459b2506c2e0fe621
+      internalID: -8040526720384675867
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Idle (32x32)_1
+      name: Jump (32x32)-sheet_1
       rect:
         serializedVersion: 2
-        x: 38
+        x: 37
         y: 0
-        width: 21
-        height: 25
-      alignment: 9
-      pivot: {x: 0.52380955, y: 0.48}
+        width: 22
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 74c3e8d0ff2bca94da92f872e32d2e22
-      internalID: -6056987297122131021
+      spriteID: f3b402ecb93543a47971cc07bb7cee42
+      internalID: 5817574988350891263
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Idle (32x32)_2
+      name: Jump (32x32)-sheet_2
       rect:
         serializedVersion: 2
-        x: 70
+        x: 69
         y: 0
-        width: 21
-        height: 25
-      alignment: 9
-      pivot: {x: 0.52380955, y: 0.48}
+        width: 22
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 29b574a8223120849a31030e1c688469
-      internalID: 8416797952724722639
+      spriteID: 423190fbd2f348d42aa8631bc91e2d12
+      internalID: 46346690920073542
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Idle (32x32)_3
+      name: Jump (32x32)-sheet_3
       rect:
         serializedVersion: 2
-        x: 102
+        x: 101
         y: 0
-        width: 21
-        height: 26
-      alignment: 9
-      pivot: {x: 0.52380955, y: 0.4615385}
+        width: 22
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: af5fa1b56c75a994ebcc5349718474e0
-      internalID: 4883129791460916795
+      spriteID: 13620c1e7723a76439616b8a77b713b0
+      internalID: 3581962230548433669
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Idle (32x32)_4
+      name: Jump (32x32)-sheet_4
       rect:
         serializedVersion: 2
-        x: 134
+        x: 133
         y: 0
-        width: 21
-        height: 26
-      alignment: 9
-      pivot: {x: 0.52380955, y: 0.4615385}
+        width: 22
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: eab3e21e4aef5444181b7143640b6215
-      internalID: 4278371960119211202
+      spriteID: d358711bb830c194ca046f0fb7ba09f1
+      internalID: 4388268100656658494
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Idle (32x32)_5
+      name: Jump (32x32)-sheet_5
       rect:
         serializedVersion: 2
-        x: 166
+        x: 165
         y: 0
-        width: 21
-        height: 27
-      alignment: 9
-      pivot: {x: 0.52380955, y: 0.44444445}
+        width: 22
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b6858eb77ed33e64b98b5364554270ee
-      internalID: 8644832591467991550
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Idle (32x32)_6
-      rect:
-        serializedVersion: 2
-        x: 198
-        y: 0
-        width: 21
-        height: 27
-      alignment: 9
-      pivot: {x: 0.52380955, y: 0.44444445}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 462ab220831a1a246b22105128732fb1
-      internalID: -7152759390613953277
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Idle (32x32)_7
-      rect:
-        serializedVersion: 2
-        x: 230
-        y: 0
-        width: 21
-        height: 27
-      alignment: 9
-      pivot: {x: 0.52380955, y: 0.44444445}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 4c43eb4a8e601e74fb41f91b43ca3945
-      internalID: 6456874251884481089
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Idle (32x32)_8
-      rect:
-        serializedVersion: 2
-        x: 262
-        y: 0
-        width: 21
-        height: 27
-      alignment: 9
-      pivot: {x: 0.52380955, y: 0.44444445}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 29c00b6de54c31747869edbaec4a2cfa
-      internalID: -2526832996998184344
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Idle (32x32)_9
-      rect:
-        serializedVersion: 2
-        x: 294
-        y: 0
-        width: 21
-        height: 26
-      alignment: 9
-      pivot: {x: 0.52380955, y: 0.4615385}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 3a1875f0689df344bb40cf511951f40f
-      internalID: 4392827059107796345
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Idle (32x32)_10
-      rect:
-        serializedVersion: 2
-        x: 326
-        y: 0
-        width: 21
-        height: 26
-      alignment: 9
-      pivot: {x: 0.52380955, y: 0.4615385}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 08182048462c0f44a8e2ce6e450e1fd2
-      internalID: -1363835404106015672
+      spriteID: 20705e4c32b3c9c479ba2efa537f04c7
+      internalID: 239726698697274666
       vertices: []
       indices: 
       edges: []

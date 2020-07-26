@@ -78,6 +78,51 @@ public class CostumeInfo : MonoBehaviour
                 LockedSymbol.SetActive(true);
             }
         }
+        else if (CostumeName == "Rainbow Boy") // unlocks Rainbow Boy after completing a full world in party mode
+        {
+            if (PlayerPrefs.GetInt("Disco Fever") == 1)
+            {
+                Locked = false;
+                gameObject.GetComponent<SpriteRenderer>().enabled = true;
+                LockedSymbol.SetActive(false);
+            }
+            else
+            {
+                Locked = true;
+                gameObject.GetComponent<SpriteRenderer>().enabled = false;
+                LockedSymbol.SetActive(true);
+            }
+        }
+        else if (CostumeName == "Hopps") // unlocks Hopps after beating Vegan mode
+        {
+            if (PlayerPrefs.GetInt("Carnist") == 1)
+            {
+                Locked = false;
+                gameObject.GetComponent<SpriteRenderer>().enabled = true;
+                LockedSymbol.SetActive(false);
+            }
+            else
+            {
+                Locked = true;
+                gameObject.GetComponent<SpriteRenderer>().enabled = false;
+                LockedSymbol.SetActive(true);
+            }
+        }
+        else if (CostumeName == "g o r F") // unlocks GORF after failing 100 times
+        {
+            if (PlayerPrefs.GetInt("Lucky 200") == 1)
+            {
+                Locked = false;
+                gameObject.GetComponent<SpriteRenderer>().enabled = true;
+                LockedSymbol.SetActive(false);
+            }
+            else
+            {
+                Locked = true;
+                gameObject.GetComponent<SpriteRenderer>().enabled = false;
+                LockedSymbol.SetActive(true);
+            }
+        }
 
     }
 

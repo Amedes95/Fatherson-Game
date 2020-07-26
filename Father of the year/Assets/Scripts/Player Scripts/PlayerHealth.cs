@@ -59,13 +59,13 @@ public class PlayerHealth : MonoBehaviour
             Boombox Boombox = GameObject.FindGameObjectWithTag("LevelBoombox").GetComponent<Boombox>();
             Boombox.UnlockCheevo("20th time's the charm");
         }
-        /// die 100 times achievement
-        if (PlayerPrefs.GetInt("Lucky 100") == 0 && DeathCount == 100)
+        /// die 200 times achievement
+        if (PlayerPrefs.GetInt("Lucky 200") == 0 && DeathCount == 200)
         {
-            PlayerPrefs.SetInt("Lucky 100", 1);
-            Debug.Log("Lucky 100");
+            PlayerPrefs.SetInt("Lucky 200", 1);
+            Debug.Log("Lucky 200");
             Boombox Boombox = GameObject.FindGameObjectWithTag("LevelBoombox").GetComponent<Boombox>();
-            Boombox.UnlockCheevo("Lucky 100");
+            Boombox.UnlockCheevo("Lucky 200");
         }
 
         Debug.Log(DeathCount);
