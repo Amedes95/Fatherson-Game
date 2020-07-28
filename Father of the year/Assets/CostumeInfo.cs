@@ -123,6 +123,21 @@ public class CostumeInfo : MonoBehaviour
                 LockedSymbol.SetActive(true);
             }
         }
+        else if (CostumeName == "Igorrr") // unlocks Igorrr after completing boss rush
+        {
+            if (PlayerPrefs.GetInt("Indigestible") == 1)
+            {
+                Locked = false;
+                gameObject.GetComponent<SpriteRenderer>().enabled = true;
+                LockedSymbol.SetActive(false);
+            }
+            else
+            {
+                Locked = true;
+                gameObject.GetComponent<SpriteRenderer>().enabled = false;
+                LockedSymbol.SetActive(true);
+            }
+        }
 
     }
 
