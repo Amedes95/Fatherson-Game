@@ -11,6 +11,8 @@ public class VisualsScreen : MonoBehaviour
     public GameObject OnSymbol;
     public GameObject OffSymbolParty;
     public GameObject OnSymbolParty;
+    public GameObject OffOldTime;
+    public GameObject OnOldTime;
 
     public PostProcessingProfile Transition1;
 
@@ -46,6 +48,17 @@ public class VisualsScreen : MonoBehaviour
             OffSymbolParty.SetActive(true);
             OnSymbolParty.SetActive(false);
         }
+        //settings for old Mode
+        if (PlayerPrefs.GetInt("OldTimeyON") == 1) // old mode time
+        {
+            OnOldTime.SetActive(true);
+            OffOldTime.SetActive(false);
+        }
+        else // disabled
+        {
+            OffOldTime.SetActive(true);
+            OnOldTime.SetActive(false);
+        }
     }
 
     public void ToggleChroma()
@@ -62,6 +75,11 @@ public class VisualsScreen : MonoBehaviour
 
     public void TogglePartyMode()
     {
+        if (PlayerPrefs.GetInt("OldTimeyON") == 1)
+        {
+            ToggleOldTimerMode();
+        }
+        PlayerPrefs.SetInt("OldTimeyON", 0); // toggle off old timey mode
         if (PlayerPrefs.GetInt("PartyModeON") == 1) // turn party off... :(
         {
             PlayerPrefs.SetInt("PartyModeON", 0);
@@ -74,6 +92,28 @@ public class VisualsScreen : MonoBehaviour
             Hue.basic.hueShift = 180;
             
         }
+    }
+    public void ToggleOldTimerMode()
+    {
+        if (PlayerPrefs.GetInt("PartyModeON") == 1) // toggle off party mode
+        {
+            TogglePartyMode();
+        }
 
+        if (PlayerPrefs.GetInt("OldTimeyON") == 1)
+        {
+            PlayerPrefs.SetInt("OldTimeyON", 0);
+            PlayerPrefs.SetInt("Party Run", 0); // cancel party run
+            var Grainy = Transition1.grain.settings;
+            Grainy.intensity = 0;
+            Grainy.size = 3;
+            Transition1.grain.settings = Grainy;
+        }
+        else
+        {
+            PlayerPrefs.SetInt("OldTimeyON", 1);
+            var Hue = Transition1.colorGrading.settings;
+            Hue.basic.hueShift = 7;
+        }
     }
 }

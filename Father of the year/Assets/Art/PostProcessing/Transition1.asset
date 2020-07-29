@@ -82,7 +82,7 @@ MonoBehaviour:
     m_Settings:
       shutterAngle: 360
       sampleCount: 4
-      frameBlending: 0
+      frameBlending: 1
   eyeAdaptation:
     m_Enabled: 0
     m_Settings:
@@ -114,24 +114,24 @@ MonoBehaviour:
     m_Settings:
       tonemapping:
         tonemapper: 2
-        neutralBlackIn: 0.061
-        neutralWhiteIn: 1
-        neutralBlackOut: -0.08
-        neutralWhiteOut: 1
-        neutralWhiteLevel: 20
-        neutralWhiteClip: 1.92
+        neutralBlackIn: 0.1
+        neutralWhiteIn: 9.8
+        neutralBlackOut: 0
+        neutralWhiteOut: 9.9
+        neutralWhiteLevel: 3.8
+        neutralWhiteClip: 10
       basic:
         postExposure: 0
-        temperature: 26
-        tint: -5
-        hueShift: 30
-        saturation: 2
-        contrast: 2
+        temperature: 100
+        tint: 100
+        hueShift: -1274.75
+        saturation: 0
+        contrast: 1.01
       channelMixer:
-        red: {x: 2, y: -2, z: -2}
-        green: {x: -2, y: 2, z: -2}
-        blue: {x: -2, y: -2, z: 2}
-        currentEditingChannel: 2
+        red: {x: 1, y: 0, z: 0}
+        green: {x: 0, y: 1, z: 0}
+        blue: {x: 0, y: 0, z: 1}
+        currentEditingChannel: 0
       colorWheels:
         mode: 1
         log:

@@ -675,7 +675,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 52f6f133a0215044581a1f0e5f36e137, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AchievementToUnlock: 
 --- !u!1 &434348703
 GameObject:
   m_ObjectHideFlags: 0
@@ -2222,6 +2221,17 @@ PrefabInstance:
       propertyPath: m_SortingOrder
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1745692824, guid: a057a5e90eac2ec4b91ead49d885cec6, type: 3}
+      propertyPath: profile
+      value: 
+      objectReference: {fileID: 11400000, guid: c2f1824c2e9aa5a4085ce361c3f59724,
+        type: 2}
+    - target: {fileID: 6470873159845765522, guid: a057a5e90eac2ec4b91ead49d885cec6,
+        type: 3}
+      propertyPath: Transition1
+      value: 
+      objectReference: {fileID: 11400000, guid: c2f1824c2e9aa5a4085ce361c3f59724,
+        type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a057a5e90eac2ec4b91ead49d885cec6, type: 3}
 --- !u!1 &1410228360 stripped
