@@ -10,6 +10,10 @@ using UnityEngine.SceneManagement;
 public class Boombox : MonoBehaviour
 {
     public AudioClip LevelMusic;
+    public AudioClip PartyMixtape;
+    public AudioClip OldTImeyMusic;
+    public AudioClip NormalMusic;
+
     BackgroundMusic BGMusic;
     public GameObject BGPrefab;
     public static bool EditorMode;
@@ -29,6 +33,15 @@ public class Boombox : MonoBehaviour
     // Start is called before the first frame update
     void Awake()
     {
+        NormalMusic = LevelMusic;
+        if (PlayerPrefs.GetInt("PartyModeON") == 1)
+        {
+            LevelMusic = PartyMixtape;
+        }
+        else if (PlayerPrefs.GetInt("OldTimeyON") == 1)
+        {
+            LevelMusic = OldTImeyMusic;
+        }
         QualitySettings.vSyncCount = 0;
         Application.targetFrameRate = 60;
         if (GameObject.FindGameObjectWithTag("BGMusic") == null)
@@ -46,7 +59,20 @@ public class Boombox : MonoBehaviour
     }
 
     private void Update()
-    {  
+    {
+        if (PlayerPrefs.GetInt("PartyModeON") == 1)
+        {
+            LevelMusic = PartyMixtape;
+        }
+        else if (PlayerPrefs.GetInt("OldTimeyON") == 1)
+        {
+            LevelMusic = OldTImeyMusic;
+        }
+        else if(PlayerPrefs.GetInt("PartyModeON") == 0 && PlayerPrefs.GetInt("OldTimeyON") == 0)
+        {
+            LevelMusic = NormalMusic;
+        }
+
         //Get Joystick Names
         string[] temp = Input.GetJoystickNames();
 
@@ -155,6 +181,25 @@ public class Boombox : MonoBehaviour
         //PlayerPrefs.SetInt(CheevoName, 1); // updates player prefs with unlock
         CheevoText.text = "Achievement Unlocked: " + CheevoName;
         gameObject.GetComponentInChildren<Animator>().SetTrigger("Unlock");
+    }
+
+    public void UpdateSound()
+    {
+        Debug.Log("Updating Sound");
+        if (PlayerPrefs.GetInt("PartyModeON") == 1)
+        {
+            LevelMusic = PartyMixtape;
+        }
+        else if (PlayerPrefs.GetInt("OldTimeyON") == 1)
+        {
+            LevelMusic = OldTImeyMusic;
+        }
+        else if (PlayerPrefs.GetInt("PartyModeON") == 0 && PlayerPrefs.GetInt("OldTimeyON") == 0)
+        {
+            LevelMusic = NormalMusic;
+        }
+        BGMusic.CompareSongs();
+
     }
 
 }

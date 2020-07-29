@@ -34,14 +34,13 @@ public class BackgroundMusic : MonoBehaviour
 
     public void CompareSongs()
     {
-        if (LevelMusic == GameObject.FindGameObjectWithTag("LevelBoombox").GetComponent<Boombox>().LevelMusic)
+        if (LevelMusic == GameObject.FindGameObjectWithTag("LevelBoombox").GetComponent<Boombox>().LevelMusic) // if the music I am currently playing is the same as the one in the level, do nothing
         {
             //Debug.Log("TheSame");
         }
-        else
+        else // if the music I am playing is different than the one supposed to be playing in the level
         {
-            //Debug.Log("NotTheSame");
-            LevelMusic = GameObject.FindGameObjectWithTag("LevelBoombox").GetComponent<Boombox>().LevelMusic;
+            LevelMusic = GameObject.FindGameObjectWithTag("LevelBoombox").GetComponent<Boombox>().LevelMusic; // take my music and play the level music instead
             GameMusicPlayer.clip = LevelMusic;
             GameMusicPlayer.Play();
         }

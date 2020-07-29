@@ -188,6 +188,7 @@ public class MainMenu : MonoBehaviour
     {
         Application.Quit();
         PlayerPrefs.SetInt("PartyModeON", 0); // always turns party mode off upon exiting the game
+        PlayerPrefs.SetInt("OldTimeyON", 0); // always turn off old timey mode when quitting too
         PlayerPrefs.SetFloat("GameBegun", 0);
 
     }

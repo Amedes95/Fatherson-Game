@@ -89,9 +89,11 @@ public class VisualsScreen : MonoBehaviour
         {
             PlayerPrefs.SetInt("PartyModeON", 1); // Part on baby
             var Hue = Transition1.colorGrading.settings;
-            Hue.basic.hueShift = 180;
-            
+            Hue.basic.hueShift = 180;            
         }
+        // helps change the music
+        Boombox CurrentBoombox = GameObject.FindGameObjectWithTag("LevelBoombox").GetComponent<Boombox>();
+        CurrentBoombox.UpdateSound();
     }
     public void ToggleOldTimerMode()
     {
@@ -115,5 +117,8 @@ public class VisualsScreen : MonoBehaviour
             var Hue = Transition1.colorGrading.settings;
             Hue.basic.hueShift = 7;
         }
+        // helps change the music
+        Boombox CurrentBoombox = GameObject.FindGameObjectWithTag("LevelBoombox").GetComponent<Boombox>();
+        CurrentBoombox.UpdateSound();
     }
 }
