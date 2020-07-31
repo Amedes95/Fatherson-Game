@@ -66,6 +66,7 @@ public class Collectible : MonoBehaviour
 
             }
 
+
             Consumed = true;
         }
     }

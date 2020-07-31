@@ -206,6 +206,9 @@ public class MainMenu : MonoBehaviour
 
         SettingsButton.playOnAwake = false;
         Time.timeScale = 1f;
+
+        VisualsScreen.Partying = false;
+        VisualsScreen.BeingOld = false;
     }
 
     public void Start()

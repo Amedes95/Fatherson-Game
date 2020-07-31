@@ -5,6 +5,7 @@ using UnityEngine;
 public class DiscoBall : MonoBehaviour
 {
     public GameObject Disco;
+    public CircleCollider2D Killzone;
 
     // Start is called before the first frame update
     void Start()
@@ -21,5 +22,6 @@ public class DiscoBall : MonoBehaviour
     public void DestroyDiscoBall()
     {
         Disco.GetComponent<SpriteRenderer>().enabled = false;
+        Killzone.enabled = false;
     }
 }

@@ -40,7 +40,7 @@ public class FinalLevel : MonoBehaviour
                 }
 
                 /// Unlocks Party Crasher Achievement
-                if (PlayerPrefs.GetInt("Party Crasher") == 0 && PlayerPrefs.GetInt("PartyModeON") == 1)
+                if (PlayerPrefs.GetInt("Party Crasher") == 0 && PlayerPrefs.GetInt("PartyModeON") == 1 && SceneManager.GetActiveScene().name != "PartyEnd") // dont unlock in party world
                 {
                     PlayerPrefs.SetInt("Party Crasher", 1);
                     Debug.Log("Party Crasher Unlocked");
@@ -64,7 +64,7 @@ public class FinalLevel : MonoBehaviour
                     Boombox.UnlockCheevo("Spoiled Appetite");
                 }
                 /// Unlocks Party Crasher Achievement
-                if (PlayerPrefs.GetInt("Party Crasher") == 0 && PlayerPrefs.GetInt("PartyModeON") == 1)
+                if (PlayerPrefs.GetInt("Party Crasher") == 0 && PlayerPrefs.GetInt("PartyModeON") == 1 && SceneManager.GetActiveScene().name != "PartyEnd") // dont unlock in party world
                 {
                     PlayerPrefs.SetInt("Party Crasher", 1);
                     Debug.Log("Party Crasher Unlocked");
@@ -161,6 +161,19 @@ public class FinalLevel : MonoBehaviour
                     Boombox.UnlockCheevo("Party Crasher");
                 }
             }
+
+            if (SceneManager.GetActiveScene().name == "PartyEnd")
+            {
+                PlayerPrefs.SetInt("PartyUnlocked", 1);
+                // unlock achievement here for unlocking party mode
+            }
+            if (SceneManager.GetActiveScene().name == "OldTimeyEnd")
+            {
+                PlayerPrefs.SetInt("OldTimeyUnlocked", 1);
+                // unlock achievement here for old timey mode
+            }
+
+
             // unlocks Vegetarian achievement
             if (PlayerPrefs.GetInt("Vegetarian") == 0 && PlayerPrefs.GetInt("Flawless Run") == 0)
             {

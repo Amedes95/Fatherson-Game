@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.PostProcessing;
+using UnityEngine.UI;
 
 
 public class VisualsScreen : MonoBehaviour
@@ -17,9 +18,59 @@ public class VisualsScreen : MonoBehaviour
     public PostProcessingProfile Transition1;
 
 
+    // party / old timey worlds
+    public static bool Partying;
+    public static bool BeingOld;
+
+    public Button PartyModeButton;
+    public GameObject LockSymbolParty;
+
+    public Button OldTimeyModeButton;
+    public GameObject LockSymbolOld;
+
+
     private void Awake()
     {
         var Hue = Transition1.colorGrading.settings;
+
+        if (Partying || BeingOld)
+        {
+            PartyModeButton.interactable = false;
+            OldTimeyModeButton.interactable = false;
+            LockSymbolOld.SetActive(true);
+            LockSymbolParty.SetActive(true);
+        }
+        else
+        {
+            PartyModeButton.interactable = true;
+            OldTimeyModeButton.interactable = true;
+            LockSymbolOld.SetActive(false);
+            LockSymbolParty.SetActive(false);
+        }
+
+        // unlock party mode in visual settings
+        if (PlayerPrefs.GetInt("PartyUnlocked") == 0)
+        {
+            PartyModeButton.interactable = false;
+            LockSymbolParty.SetActive(true);
+        }
+        else if (PlayerPrefs.GetInt("PartyUnlocked") == 1 && !Partying)
+        {
+            PartyModeButton.interactable = true;
+            LockSymbolParty.SetActive(false);
+        }
+
+        // unlocks old timer mode when achievement is unlocked
+        if (PlayerPrefs.GetInt("OldTimeyUnlocked") == 0)
+        {
+            OldTimeyModeButton.interactable = false;
+            LockSymbolOld.SetActive(true);
+        }
+        else if (PlayerPrefs.GetInt("OldTimeyUnlocked") == 1 && !BeingOld)
+        {
+            OldTimeyModeButton.interactable = true;
+            LockSymbolOld.SetActive(false);
+        }
     }
 
     // Update is called once per frame

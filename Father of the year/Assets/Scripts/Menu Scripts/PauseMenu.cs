@@ -53,6 +53,8 @@ public class PauseMenu : MonoBehaviour
     public GameObject RestartButton;
     public GameObject RestartButtonBoss;
 
+
+
     // Start is called before the first frame update
     void Awake()
     {
@@ -66,6 +68,7 @@ public class PauseMenu : MonoBehaviour
         var Blurry = Transition1.depthOfField.settings;
         Blurry.focalLength = 0f;
         Transition1.depthOfField.settings = Blurry;
+
 
     }
 

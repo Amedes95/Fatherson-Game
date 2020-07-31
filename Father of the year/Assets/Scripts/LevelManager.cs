@@ -76,6 +76,9 @@ public class LevelManager : MonoBehaviour
     // Start is called before the first frame update
     void Awake()
     {
+        VisualsScreen.Partying = false;
+        VisualsScreen.BeingOld = false;
+
         PlayerPrefs.SetInt("Flawless Run", 1); // voids achievement if exited.  Only resets on start of level 1
         PlayerPrefs.SetInt("Party Run", 0); // cancel party run, no cheating
         PlayerPrefs.SetInt("VeganMode", 0); // cancel vegan mode if exited
