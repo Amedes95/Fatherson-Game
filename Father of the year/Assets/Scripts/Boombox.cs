@@ -198,6 +198,10 @@ public class Boombox : MonoBehaviour
         {
             LevelMusic = NormalMusic;
         }
+        if (BGMusic == null)
+        {
+            BGMusic = GameObject.FindGameObjectWithTag("BGMusic").GetComponent<BackgroundMusic>();
+        }
         BGMusic.CompareSongs();
 
     }

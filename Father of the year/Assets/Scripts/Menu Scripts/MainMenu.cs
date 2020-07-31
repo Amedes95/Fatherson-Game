@@ -187,10 +187,9 @@ public class MainMenu : MonoBehaviour
     public void ExitGame() // Closes the game (builds only)
     {
         Application.Quit();
-        PlayerPrefs.SetInt("PartyModeON", 0); // always turns party mode off upon exiting the game
-        PlayerPrefs.SetInt("OldTimeyON", 0); // always turn off old timey mode when quitting too
+        //PlayerPrefs.SetInt("PartyModeON", 0); // always turns party mode off upon exiting the game
+        //PlayerPrefs.SetInt("OldTimeyON", 0); // always turn off old timey mode when quitting too
         PlayerPrefs.SetFloat("GameBegun", 0);
-
     }
 
     private void Awake()
@@ -284,6 +283,9 @@ public class MainMenu : MonoBehaviour
         PlayerPrefs.SetFloat("GameBegun", 1);
         MusicSettingsMenu.GetComponentInParent<SoundManager>().RevertSFXVolume();
         MusicSettingsMenu.GetComponentInParent<SoundManager>().RevertToDefault();
+        // helps change the music
+        Boombox CurrentBoombox = GameObject.FindGameObjectWithTag("LevelBoombox").GetComponent<Boombox>();
+        CurrentBoombox.UpdateSound();
     }
 
     public void LoadSoundSettings() // from settings to sound settings
