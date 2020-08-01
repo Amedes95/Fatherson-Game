@@ -2859,6 +2859,26 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3302911736048267727, guid: 22716dd167dcc4242ac8c5caca16cc37,
+        type: 3}
+      propertyPath: SecretLevel
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3302911736048267727, guid: 22716dd167dcc4242ac8c5caca16cc37,
+        type: 3}
+      propertyPath: SecretLevelReturnWorld
+      value: W2L08
+      objectReference: {fileID: 0}
+    - target: {fileID: 3302911734819652063, guid: 22716dd167dcc4242ac8c5caca16cc37,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 221
+      objectReference: {fileID: 0}
+    - target: {fileID: 3302911734819652062, guid: 22716dd167dcc4242ac8c5caca16cc37,
+        type: 3}
+      propertyPath: m_text
+      value: Leave
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 22716dd167dcc4242ac8c5caca16cc37, type: 3}
 --- !u!1001 &1947083833

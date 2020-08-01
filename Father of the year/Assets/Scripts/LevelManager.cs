@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using TMPro;
 using UnityEngine.EventSystems;
+using UnityEngine.PostProcessing;
 
 public class LevelManager : MonoBehaviour
 {
@@ -72,6 +73,9 @@ public class LevelManager : MonoBehaviour
     public GameObject SpaceBarText;
     public GameObject AText;
 
+    public PostProcessingProfile Transition1;
+
+
 
     // Start is called before the first frame update
     void Awake()
@@ -88,6 +92,16 @@ public class LevelManager : MonoBehaviour
         PlayerPrefs.SetInt("MalnourishedLives", 0);
 
         PlayerPrefs.SetInt("BossRush", 0); // cancel boss rush
+
+        if (PlayerPrefs.GetInt("PartyModeON") == 1 && PlayerPrefs.GetInt("PartyModeUnlocked") == 0)
+        {
+            TogglePartyMode();
+        }
+        else if (PlayerPrefs.GetInt("OldTimeyON") == 1 && PlayerPrefs.GetInt("OldTimeyUnlocked") == 0)
+        {
+            ToggleOldTimerMode();
+        }
+
 
         WorldHubAudioSource = gameObject.GetComponent<AudioSource>();
         PauseScreen = GameObject.FindGameObjectWithTag("PauseCanvas").GetComponent<PauseMenu>();
@@ -435,6 +449,55 @@ public class LevelManager : MonoBehaviour
         WorldsList.Add(World6);
 
 
+    }
+
+    public void TogglePartyMode()
+    {
+        if (PlayerPrefs.GetInt("OldTimeyON") == 1)
+        {
+            ToggleOldTimerMode();
+        }
+        PlayerPrefs.SetInt("OldTimeyON", 0); // toggle off old timey mode
+        if (PlayerPrefs.GetInt("PartyModeON") == 1) // turn party off... :(
+        {
+            PlayerPrefs.SetInt("PartyModeON", 0);
+            PlayerPrefs.SetInt("Party Run", 0); // cancel party run, no cheating
+        }
+        else
+        {
+            PlayerPrefs.SetInt("PartyModeON", 1); // Part on baby
+            var Hue = Transition1.colorGrading.settings;
+            Hue.basic.hueShift = 180;
+        }
+        // helps change the music
+        Boombox CurrentBoombox = GameObject.FindGameObjectWithTag("LevelBoombox").GetComponent<Boombox>();
+        CurrentBoombox.UpdateSound();
+    }
+    public void ToggleOldTimerMode()
+    {
+        if (PlayerPrefs.GetInt("PartyModeON") == 1) // toggle off party mode
+        {
+            TogglePartyMode();
+        }
+
+        if (PlayerPrefs.GetInt("OldTimeyON") == 1)
+        {
+            PlayerPrefs.SetInt("OldTimeyON", 0);
+            PlayerPrefs.SetInt("Party Run", 0); // cancel party run
+            var Grainy = Transition1.grain.settings;
+            Grainy.intensity = 0;
+            Grainy.size = 3;
+            Transition1.grain.settings = Grainy;
+        }
+        else
+        {
+            PlayerPrefs.SetInt("OldTimeyON", 1);
+            var Hue = Transition1.colorGrading.settings;
+            Hue.basic.hueShift = 7;
+        }
+        // helps change the music
+        Boombox CurrentBoombox = GameObject.FindGameObjectWithTag("LevelBoombox").GetComponent<Boombox>();
+        CurrentBoombox.UpdateSound();
     }
 
 

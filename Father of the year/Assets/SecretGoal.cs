@@ -27,7 +27,7 @@ public class SecretGoal : MonoBehaviour
         if (Partying)
         {
             VisualsScreen.Partying = true;
-
+            PlayerPrefs.SetString("ExitedLevel", "W2L08");
         }
         else if (BeingOld)
         {
@@ -75,11 +75,20 @@ public class SecretGoal : MonoBehaviour
             if (PartyPortal) // party portal, yeah baby
             {
                 VictoryScreen.NextLevel = "Party01";
+                /// Unlocks Party Animal Achievement
+                if (PlayerPrefs.GetInt("Party Animal") == 0 && PlayerPrefs.GetInt("PartyModeON") == 1)
+                {
+                    PlayerPrefs.SetInt("Party Animal", 1);
+                    Debug.Log("Party Animal Unlocked");
+                    Boombox Boombox = GameObject.FindGameObjectWithTag("LevelBoombox").GetComponent<Boombox>();
+                    Boombox.UnlockCheevo("Party Animal");
+                }
             }
             gameObject.GetComponent<Animator>().SetTrigger("Complete");
             Boombox.SetVibrationIntensity(.5f, .25f, .25f);
             collision.gameObject.SetActive(false);
             VictoryScreen.LoadNextLevel();
+
         }
 
     }

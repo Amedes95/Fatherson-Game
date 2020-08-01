@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.PostProcessing;
 using UnityEngine.UI;
+using TMPro;
 
 
 public class VisualsScreen : MonoBehaviour
@@ -27,6 +28,9 @@ public class VisualsScreen : MonoBehaviour
 
     public Button OldTimeyModeButton;
     public GameObject LockSymbolOld;
+
+    public TextMeshProUGUI PartyText;
+    public TextMeshProUGUI OldText;
 
 
     private void Awake()
@@ -53,8 +57,13 @@ public class VisualsScreen : MonoBehaviour
         {
             PartyModeButton.interactable = false;
             LockSymbolParty.SetActive(true);
+            PartyText.text = "?????";
         }
-        else if (PlayerPrefs.GetInt("PartyUnlocked") == 1 && !Partying)
+        else
+        {
+            PartyText.text = "Party Mode";
+        }
+        if (PlayerPrefs.GetInt("PartyUnlocked") == 1 && !Partying)
         {
             PartyModeButton.interactable = true;
             LockSymbolParty.SetActive(false);
@@ -65,8 +74,13 @@ public class VisualsScreen : MonoBehaviour
         {
             OldTimeyModeButton.interactable = false;
             LockSymbolOld.SetActive(true);
+            OldText.text = "?????";
         }
-        else if (PlayerPrefs.GetInt("OldTimeyUnlocked") == 1 && !BeingOld)
+        else
+        {
+            OldText.text = "Retro";
+        }
+        if (PlayerPrefs.GetInt("OldTimeyUnlocked") == 1 && !BeingOld)
         {
             OldTimeyModeButton.interactable = true;
             LockSymbolOld.SetActive(false);

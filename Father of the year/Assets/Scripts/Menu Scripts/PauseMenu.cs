@@ -53,6 +53,8 @@ public class PauseMenu : MonoBehaviour
     public GameObject RestartButton;
     public GameObject RestartButtonBoss;
 
+    public bool SecretLevel;
+    public string SecretLevelReturnWorld;
 
 
     // Start is called before the first frame update
@@ -185,7 +187,14 @@ public class PauseMenu : MonoBehaviour
             Vinny.intensity += ShadowValueUp;
             if (Vinny.intensity >= 1)
             {
-                SceneManager.LoadScene("WorldHub");
+                if (SecretLevel)
+                {
+                    SceneManager.LoadScene(SecretLevelReturnWorld);
+                }
+                else
+                {
+                    SceneManager.LoadScene("WorldHub");
+                }
             }
         }
         else
@@ -301,7 +310,6 @@ public class PauseMenu : MonoBehaviour
         VictoryScreen.gameObject.SetActive(false);
         PauseScreen.SetActive(false);
         Preloader.SetActive(false);
-
     }
 
     public void ExitToMenu()

@@ -4410,7 +4410,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 6130, y: 117}
+  m_AnchoredPosition: {x: 6138, y: -83}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!95 &155392314
@@ -4445,9 +4445,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   AchievementTitle: Party Crasher
-  AchievementDescription: Defeat any boss with party mode enabled
+  AchievementDescription: Unlocked Party setting
   Locked: 0
-  Secret: 0
+  Secret: 1
   LockedSymbol: {fileID: 980325223}
 --- !u!114 &155392316
 MonoBehaviour:
@@ -34075,6 +34075,8 @@ MonoBehaviour:
   LockSymbolParty: {fileID: 0}
   OldTimeyModeButton: {fileID: 0}
   LockSymbolOld: {fileID: 0}
+  PartyText: {fileID: 0}
+  OldText: {fileID: 0}
 --- !u!114 &1184011969
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -34497,6 +34499,8 @@ MonoBehaviour:
   LockSymbolParty: {fileID: 1722870441}
   OldTimeyModeButton: {fileID: 137352690}
   LockSymbolOld: {fileID: 2078235721}
+  PartyText: {fileID: 111623892}
+  OldText: {fileID: 268639255}
 --- !u!114 &1209942372
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -37044,7 +37048,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   AchievementTitle: Disco Fever
-  AchievementDescription: Complete an entire world in party mode
+  AchievementDescription: Defeat any boss while party mode is enabled
   Locked: 0
   Secret: 0
   LockedSymbol: {fileID: 116520665}
@@ -136569,7 +136573,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   AchievementTitle: Party Animal
-  AchievementDescription: Complete any level with party mode enabled
+  AchievementDescription: Discover the secret of the spiders
   Locked: 0
   Secret: 0
   LockedSymbol: {fileID: 296890479}
@@ -137958,7 +137962,7 @@ RectTransform:
   m_GameObject: {fileID: 1722870441}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1.713605, y: 0.32129934, z: 1.2812}
+  m_LocalScale: {x: 1.5936527, y: 0.2988084, z: 1.191516}
   m_Children: []
   m_Father: {fileID: 1140292095}
   m_RootOrder: 3
@@ -148631,7 +148635,7 @@ RectTransform:
   m_GameObject: {fileID: 2078235721}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1.7136118, y: 0.3213, z: 1.2812026}
+  m_LocalScale: {x: 1.593659, y: 0.298809, z: 1.1915184}
   m_Children: []
   m_Father: {fileID: 137352685}
   m_RootOrder: 3

@@ -15,7 +15,7 @@ public class FinalLevel : MonoBehaviour
             if (SceneManager.GetActiveScene().name == "Tutorial_20") // if its the last level of the tutorial
             {
                 PlayerPrefs.SetInt("Tutorial_Complete", 1);
-                /// Unlocks BAby Steps Achievement
+                /// Unlocks Baby Steps Achievement
                 if (PlayerPrefs.GetInt("Baby steps") == 0)
                 {
                     PlayerPrefs.SetInt("Baby steps", 1);
@@ -38,16 +38,14 @@ public class FinalLevel : MonoBehaviour
                     Boombox Boombox = GameObject.FindGameObjectWithTag("LevelBoombox").GetComponent<Boombox>();
                     Boombox.UnlockCheevo("Flea Flee");
                 }
-
-                /// Unlocks Party Crasher Achievement
-                if (PlayerPrefs.GetInt("Party Crasher") == 0 && PlayerPrefs.GetInt("PartyModeON") == 1 && SceneManager.GetActiveScene().name != "PartyEnd") // dont unlock in party world
+                /// Unlocks Disco Fever Achievement
+                if (PlayerPrefs.GetInt("Disco Fever") == 0 && PlayerPrefs.GetInt("PartyModeON") == 1)
                 {
-                    PlayerPrefs.SetInt("Party Crasher", 1);
-                    Debug.Log("Party Crasher Unlocked");
+                    PlayerPrefs.SetInt("Disco Fever", 1);
+                    Debug.Log("Disco Fever Unlocked");
                     Boombox Boombox = GameObject.FindGameObjectWithTag("LevelBoombox").GetComponent<Boombox>();
-                    Boombox.UnlockCheevo("Party Crasher");
+                    Boombox.UnlockCheevo("Disco Fever");
                 }
-
             }
             if (SceneManager.GetActiveScene().name == "TurnipRescue") // turnip rescued, unlock new world
             {
@@ -63,18 +61,31 @@ public class FinalLevel : MonoBehaviour
                     Boombox Boombox = GameObject.FindGameObjectWithTag("LevelBoombox").GetComponent<Boombox>();
                     Boombox.UnlockCheevo("Spoiled Appetite");
                 }
-                /// Unlocks Party Crasher Achievement
-                if (PlayerPrefs.GetInt("Party Crasher") == 0 && PlayerPrefs.GetInt("PartyModeON") == 1 && SceneManager.GetActiveScene().name != "PartyEnd") // dont unlock in party world
+                /// Unlocks Disco Fever Achievement
+                if (PlayerPrefs.GetInt("Disco Fever") == 0 && PlayerPrefs.GetInt("PartyModeON") == 1)
                 {
-                    PlayerPrefs.SetInt("Party Crasher", 1);
-                    Debug.Log("Party Crasher Unlocked");
+                    PlayerPrefs.SetInt("Disco Fever", 1);
+                    Debug.Log("Disco Fever Unlocked");
                     Boombox Boombox = GameObject.FindGameObjectWithTag("LevelBoombox").GetComponent<Boombox>();
-                    Boombox.UnlockCheevo("Party Crasher");
+                    Boombox.UnlockCheevo("Disco Fever");
                 }
             }
             if (SceneManager.GetActiveScene().name == "CornRescue") // rescue corn, unlock new world
             {
                 PlayerPrefs.SetInt("World3_Complete", 1);
+            }
+            /// Unlocks Party Crasher Achievement
+            if (SceneManager.GetActiveScene().name == "PartyEnd") // unlock in party world
+            {
+                if (PlayerPrefs.GetInt("Party Crasher") == 0)
+                {
+                    PlayerPrefs.SetInt("Party Crasher", 1);
+                    Debug.Log("Party Crasher Unlocked");
+                    Boombox Boombox = GameObject.FindGameObjectWithTag("LevelBoombox").GetComponent<Boombox>();
+                    Boombox.UnlockCheevo("Party Crasher");
+                    PlayerPrefs.SetInt("PartyUnlocked", 1);
+                }
+
             }
             if (SceneManager.GetActiveScene().name == "W3BOSS") // w3 boss beaten, unlock cheevo
             {
@@ -86,13 +97,13 @@ public class FinalLevel : MonoBehaviour
                     Boombox Boombox = GameObject.FindGameObjectWithTag("LevelBoombox").GetComponent<Boombox>();
                     Boombox.UnlockCheevo("Fungus Among Us");
                 }
-                /// Unlocks Party Crasher Achievement
-                if (PlayerPrefs.GetInt("Party Crasher") == 0 && PlayerPrefs.GetInt("PartyModeON") == 1)
+                /// Unlocks Disco Fever Achievement
+                if (PlayerPrefs.GetInt("Disco Fever") == 0 && PlayerPrefs.GetInt("PartyModeON") == 1)
                 {
-                    PlayerPrefs.SetInt("Party Crasher", 1);
-                    Debug.Log("Party Crasher Unlocked");
+                    PlayerPrefs.SetInt("Disco Fever", 1);
+                    Debug.Log("Disco Fever Unlocked");
                     Boombox Boombox = GameObject.FindGameObjectWithTag("LevelBoombox").GetComponent<Boombox>();
-                    Boombox.UnlockCheevo("Party Crasher");
+                    Boombox.UnlockCheevo("Disco Fever");
                 }
             }
             if (SceneManager.GetActiveScene().name == "TomatoRescue") // rescue tomato, unlock new world
@@ -109,13 +120,13 @@ public class FinalLevel : MonoBehaviour
                     Boombox Boombox = GameObject.FindGameObjectWithTag("LevelBoombox").GetComponent<Boombox>();
                     Boombox.UnlockCheevo("Ghastly Escape");
                 }
-                /// Unlocks Party Crasher Achievement
-                if (PlayerPrefs.GetInt("Party Crasher") == 0 && PlayerPrefs.GetInt("PartyModeON") == 1)
+                /// Unlocks Disco Fever Achievement
+                if (PlayerPrefs.GetInt("Disco Fever") == 0 && PlayerPrefs.GetInt("PartyModeON") == 1)
                 {
-                    PlayerPrefs.SetInt("Party Crasher", 1);
-                    Debug.Log("Party Crasher Unlocked");
+                    PlayerPrefs.SetInt("Disco Fever", 1);
+                    Debug.Log("Disco Fever Unlocked");
                     Boombox Boombox = GameObject.FindGameObjectWithTag("LevelBoombox").GetComponent<Boombox>();
-                    Boombox.UnlockCheevo("Party Crasher");
+                    Boombox.UnlockCheevo("Disco Fever");
                 }
             }
             if (SceneManager.GetActiveScene().name == "PotatoRescue") // rescue potato, unlock new world
@@ -132,13 +143,13 @@ public class FinalLevel : MonoBehaviour
                     Boombox Boombox = GameObject.FindGameObjectWithTag("LevelBoombox").GetComponent<Boombox>();
                     Boombox.UnlockCheevo("Frostbitten");
                 }
-                /// Unlocks Party Crasher Achievement
-                if (PlayerPrefs.GetInt("Party Crasher") == 0 && PlayerPrefs.GetInt("PartyModeON") == 1)
+                /// Unlocks Disco Fever Achievement
+                if (PlayerPrefs.GetInt("Disco Fever") == 0 && PlayerPrefs.GetInt("PartyModeON") == 1)
                 {
-                    PlayerPrefs.SetInt("Party Crasher", 1);
-                    Debug.Log("Party Crasher Unlocked");
+                    PlayerPrefs.SetInt("Disco Fever", 1);
+                    Debug.Log("Disco Fever Unlocked");
                     Boombox Boombox = GameObject.FindGameObjectWithTag("LevelBoombox").GetComponent<Boombox>();
-                    Boombox.UnlockCheevo("Party Crasher");
+                    Boombox.UnlockCheevo("Disco Fever");
                 }
             }
             if (SceneManager.GetActiveScene().name == "W6BOSS") // w6 boss beaten
@@ -152,20 +163,14 @@ public class FinalLevel : MonoBehaviour
                     Boombox Boombox = GameObject.FindGameObjectWithTag("LevelBoombox").GetComponent<Boombox>();
                     Boombox.UnlockCheevo("Hippidy Hoppidy");
                 }
-                /// Unlocks Party Crasher Achievement
-                if (PlayerPrefs.GetInt("Party Crasher") == 0 && PlayerPrefs.GetInt("PartyModeON") == 1)
+                /// Unlocks Disco Fever Achievement
+                if (PlayerPrefs.GetInt("Disco Fever") == 0 && PlayerPrefs.GetInt("PartyModeON") == 1)
                 {
-                    PlayerPrefs.SetInt("Party Crasher", 1);
-                    Debug.Log("Party Crasher Unlocked");
+                    PlayerPrefs.SetInt("Disco Fever", 1);
+                    Debug.Log("Disco Fever Unlocked");
                     Boombox Boombox = GameObject.FindGameObjectWithTag("LevelBoombox").GetComponent<Boombox>();
-                    Boombox.UnlockCheevo("Party Crasher");
+                    Boombox.UnlockCheevo("Disco Fever");
                 }
-            }
-
-            if (SceneManager.GetActiveScene().name == "PartyEnd")
-            {
-                PlayerPrefs.SetInt("PartyUnlocked", 1);
-                // unlock achievement here for unlocking party mode
             }
             if (SceneManager.GetActiveScene().name == "OldTimeyEnd")
             {

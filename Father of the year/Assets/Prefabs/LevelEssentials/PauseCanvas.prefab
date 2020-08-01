@@ -9380,15 +9380,15 @@ RectTransform:
   m_GameObject: {fileID: 4782834347972758332}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1.9171067, y: 0.39898026, z: 1.7810252}
+  m_LocalScale: {x: 1.4602985, y: 0.30391124, z: 1.3566425}
   m_Children: []
   m_Father: {fileID: 7881243776477376239}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 100, y: 100}
+  m_AnchoredPosition: {x: 0.0011914, y: 0.000026539}
+  m_SizeDelta: {x: 109.57, y: 98.713}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &3958733226478403308
 CanvasRenderer:
@@ -9924,12 +9924,12 @@ MonoBehaviour:
   OffOldTime: {fileID: 2119433951168155485}
   OnOldTime: {fileID: 8239871095176682928}
   Transition1: {fileID: 11400000, guid: c2f1824c2e9aa5a4085ce361c3f59724, type: 2}
-  Partying: 0
-  BeingOld: 0
   PartyModeButton: {fileID: 5144959794723883001}
   LockSymbolParty: {fileID: 4782834347972758332}
   OldTimeyModeButton: {fileID: 5009030579281780144}
   LockSymbolOld: {fileID: 7249300736276238973}
+  PartyText: {fileID: 3865539453526552708}
+  OldText: {fileID: 1331528707211074501}
 --- !u!1 &5300117298244737411
 GameObject:
   m_ObjectHideFlags: 0
@@ -13252,8 +13252,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.4, y: 0}
-  m_SizeDelta: {x: 100, y: 100}
+  m_AnchoredPosition: {x: -0.000084877014, y: 0.00042224}
+  m_SizeDelta: {x: 83.46, y: 75.194}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1218188378188684667
 CanvasRenderer:
