@@ -66,16 +66,8 @@ public class Goal : MonoBehaviour
             {
                 PlayerPrefs.SetInt("Noobie", 1);
                 Debug.Log("Noobie Unlocked");
-                Boombox Boombox = GameObject.FindGameObjectWithTag("LevelBoombox").GetComponent<Boombox>();
-                Boombox.UnlockCheevo("Noobie");
-            }
-            /// Unlocks Party Animal Achievement
-            if (PlayerPrefs.GetInt("Party Animal") == 0 && PlayerPrefs.GetInt("PartyModeON") == 1)
-            {
-                PlayerPrefs.SetInt("Party Animal", 1);
-                Debug.Log("Party Animal Unlocked");
-                Boombox Boombox = GameObject.FindGameObjectWithTag("LevelBoombox").GetComponent<Boombox>();
-                Boombox.UnlockCheevo("Party Animal");
+                BackgroundMusic BGMusic = GameObject.FindGameObjectWithTag("BGMusic").GetComponent<BackgroundMusic>();
+                BGMusic.UnlockCheevo("Noobie");
             }
             ///// Unlocks Disco Fever Achievement
             //if (PlayerPrefs.GetInt("Disco Fever") == 0 && PlayerPrefs.GetInt("PartyModeON") == 1 && PlayerPrefs.GetInt("Party Run") == 1 && EndPartyPortal)

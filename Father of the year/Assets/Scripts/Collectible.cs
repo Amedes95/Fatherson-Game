@@ -39,16 +39,16 @@ public class Collectible : MonoBehaviour
                 {
                     PlayerPrefs.SetInt("Doctor Repellent", 1);
                     Debug.Log("Doctor Repellent");
-                    Boombox Boombox = GameObject.FindGameObjectWithTag("LevelBoombox").GetComponent<Boombox>();
-                    Boombox.UnlockCheevo("Doctor Repellent");
+                    BackgroundMusic BGMusic = GameObject.FindGameObjectWithTag("BGMusic").GetComponent<BackgroundMusic>();
+                    BGMusic.UnlockCheevo("Doctor Repellent");
                 }
                 // nutritious! achievement
                 if (PlayerPrefs.GetInt("Nutritious!") == 0 && ApplesEaten >= 50)
                 {
                     PlayerPrefs.SetInt("Nutritious!", 1);
                     Debug.Log("Nutritious! Unlocked");
-                    Boombox Boombox = GameObject.FindGameObjectWithTag("LevelBoombox").GetComponent<Boombox>();
-                    Boombox.UnlockCheevo("Nutritious!");
+                    BackgroundMusic BGMusic = GameObject.FindGameObjectWithTag("BGMusic").GetComponent<BackgroundMusic>();
+                    BGMusic.UnlockCheevo("Nutritious!");
                 }
             }
             else
@@ -60,8 +60,8 @@ public class Collectible : MonoBehaviour
                 {
                     PlayerPrefs.SetInt("Sugar Rush!", 1);
                     Debug.Log("Sugar Rush! Unlocked");
-                    Boombox Boombox = GameObject.FindGameObjectWithTag("LevelBoombox").GetComponent<Boombox>();
-                    Boombox.UnlockCheevo("Sugar Rush!");
+                    BackgroundMusic BGMusic = GameObject.FindGameObjectWithTag("BGMusic").GetComponent<BackgroundMusic>();
+                    BGMusic.UnlockCheevo("Sugar Rush!");
                 }
 
             }

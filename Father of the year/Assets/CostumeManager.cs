@@ -73,8 +73,8 @@ public class CostumeManager : MonoBehaviour
             {
                 PlayerPrefs.SetInt("Fashionable", 1);
                 Debug.Log("Fashionable Unlocked");
-                Boombox Boombox = GameObject.FindGameObjectWithTag("LevelBoombox").GetComponent<Boombox>();
-                Boombox.UnlockCheevo("Fashionable");
+                BackgroundMusic BGMusic = GameObject.FindGameObjectWithTag("BGMusic").GetComponent<BackgroundMusic>();
+                BGMusic.UnlockCheevo("Fashionable");
             }
         }
     }

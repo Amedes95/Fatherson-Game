@@ -65,8 +65,8 @@ public class CreditsManager : MonoBehaviour
         {
             PlayerPrefs.SetInt("Carnist", 1);
             Debug.Log("Carnist Unlocked");
-            Boombox Boombox = GameObject.FindGameObjectWithTag("LevelBoombox").GetComponent<Boombox>();
-            Boombox.UnlockCheevo("Carnist");
+            BackgroundMusic BGMusic = GameObject.FindGameObjectWithTag("BGMusic").GetComponent<BackgroundMusic>();
+            BGMusic.UnlockCheevo("Carnist");
         }
 
         if (PlayerPrefs.GetFloat("VeganTimer") <= 7200 && PlayerPrefs.GetInt("VeganMode") == 1) // if credits are reached under 2 hours
@@ -76,8 +76,8 @@ public class CreditsManager : MonoBehaviour
             {
                 PlayerPrefs.SetInt("Fast Food", 1);
                 Debug.Log("Fast Food Unlocked");
-                Boombox Boombox = GameObject.FindGameObjectWithTag("LevelBoombox").GetComponent<Boombox>();
-                Boombox.UnlockCheevo("Fast Food");
+                BackgroundMusic BGMusic = GameObject.FindGameObjectWithTag("BGMusic").GetComponent<BackgroundMusic>();
+                BGMusic.UnlockCheevo("Fast Food");
             }
         }
         if (PlayerPrefs.GetFloat("Insatiable Appetite") <= 7200 && PlayerPrefs.GetInt("MalnourishedMode") == 1) // if credits are reached during malnourished mode
@@ -87,8 +87,8 @@ public class CreditsManager : MonoBehaviour
             {
                 PlayerPrefs.SetInt("Insatiable Appetite", 1);
                 Debug.Log("Insatiable Appetite");
-                Boombox Boombox = GameObject.FindGameObjectWithTag("LevelBoombox").GetComponent<Boombox>();
-                Boombox.UnlockCheevo("Insatiable Appetite");
+                BackgroundMusic BGMusic = GameObject.FindGameObjectWithTag("BGMusic").GetComponent<BackgroundMusic>();
+                BGMusic.UnlockCheevo("Insatiable Appetite");
             }
         }
         if (PlayerPrefs.GetInt("BossRush") == 1)
@@ -98,8 +98,8 @@ public class CreditsManager : MonoBehaviour
             {
                 PlayerPrefs.SetInt("Indigestible", 1);
                 Debug.Log("Indigestible");
-                Boombox Boombox = GameObject.FindGameObjectWithTag("LevelBoombox").GetComponent<Boombox>();
-                Boombox.UnlockCheevo("Indigestible");
+                BackgroundMusic BGMusic = GameObject.FindGameObjectWithTag("BGMusic").GetComponent<BackgroundMusic>();
+                BGMusic.UnlockCheevo("Indigestible");
             }
         }
 

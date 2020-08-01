@@ -93,8 +93,9 @@ public class LevelManager : MonoBehaviour
 
         PlayerPrefs.SetInt("BossRush", 0); // cancel boss rush
 
-        if (PlayerPrefs.GetInt("PartyModeON") == 1 && PlayerPrefs.GetInt("PartyModeUnlocked") == 0)
+        if (PlayerPrefs.GetInt("PartyModeON") == 1 && PlayerPrefs.GetInt("PartyUnlocked") == 0)
         {
+            Debug.Log("Toggle");
             TogglePartyMode();
         }
         else if (PlayerPrefs.GetInt("OldTimeyON") == 1 && PlayerPrefs.GetInt("OldTimeyUnlocked") == 0)

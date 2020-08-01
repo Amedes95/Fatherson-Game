@@ -47,8 +47,8 @@ public class PlayerHealth : MonoBehaviour
         {
             PlayerPrefs.SetInt("Let's try that again", 1);
             Debug.Log("Let's try that again");
-            Boombox Boombox = GameObject.FindGameObjectWithTag("LevelBoombox").GetComponent<Boombox>();
-            Boombox.UnlockCheevo("Let's try that again");
+            BackgroundMusic BGMusic = GameObject.FindGameObjectWithTag("BGMusic").GetComponent<BackgroundMusic>();
+            BGMusic.UnlockCheevo("Let's try that again");
         }
 
         /// die 20 times achievement
@@ -56,16 +56,16 @@ public class PlayerHealth : MonoBehaviour
         {
             PlayerPrefs.SetInt("20th time's the charm", 1);
             Debug.Log("20th time's the charm");
-            Boombox Boombox = GameObject.FindGameObjectWithTag("LevelBoombox").GetComponent<Boombox>();
-            Boombox.UnlockCheevo("20th time's the charm");
+            BackgroundMusic BGMusic = GameObject.FindGameObjectWithTag("BGMusic").GetComponent<BackgroundMusic>();
+            BGMusic.UnlockCheevo("20th time's the charm");
         }
         /// die 200 times achievement
         if (PlayerPrefs.GetInt("Lucky 200") == 0 && DeathCount == 200)
         {
             PlayerPrefs.SetInt("Lucky 200", 1);
             Debug.Log("Lucky 200");
-            Boombox Boombox = GameObject.FindGameObjectWithTag("LevelBoombox").GetComponent<Boombox>();
-            Boombox.UnlockCheevo("Lucky 200");
+            BackgroundMusic BGMusic = GameObject.FindGameObjectWithTag("BGMusic").GetComponent<BackgroundMusic>();
+            BGMusic.UnlockCheevo("Lucky 200");
         }
 
         Debug.Log(DeathCount);

@@ -178,9 +178,12 @@ public class Boombox : MonoBehaviour
 
     public void UnlockCheevo(string CheevoName)
     {
-        //PlayerPrefs.SetInt(CheevoName, 1); // updates player prefs with unlock
-        CheevoText.text = "Achievement Unlocked: " + CheevoName;
-        gameObject.GetComponentInChildren<Animator>().SetTrigger("Unlock");
+        //BackgroundMusic BGMusic = GameObject.FindGameObjectWithTag("BGMusic").GetComponent<BackgroundMusic>();
+        BGMusic.UnlockCheevo(CheevoName);
+
+        //CheevoText.text = "Achievement Unlocked: " + CheevoName;
+        //gameObject.GetComponentInChildren<Animator>().SetTrigger("Unlock");
+
     }
 
     public void UpdateSound()
@@ -199,6 +202,10 @@ public class Boombox : MonoBehaviour
             LevelMusic = NormalMusic;
         }
         if (BGMusic != null)
+        {
+            BGMusic = GameObject.FindGameObjectWithTag("BGMusic").GetComponent<BackgroundMusic>();
+        }
+        else
         {
             BGMusic = GameObject.FindGameObjectWithTag("BGMusic").GetComponent<BackgroundMusic>();
         }

@@ -99,24 +99,24 @@ public class BonkableHead : MonoBehaviour
                         {
                             PlayerPrefs.SetInt("Bonk!", 1);
                             Debug.Log("Bonk! Unlocked");
-                            Boombox Boombox = GameObject.FindGameObjectWithTag("LevelBoombox").GetComponent<Boombox>();
-                            Boombox.UnlockCheevo("Bonk!");
+                            BackgroundMusic BGMusic = GameObject.FindGameObjectWithTag("BGMusic").GetComponent<BackgroundMusic>();
+                            BGMusic.UnlockCheevo("Bonk!");
                         }
                         /// Unlocks Bonk Expert Achievement
                         if (PlayerPrefs.GetInt("Bonk Expert") == 0 && EnemiesKilled >= 60)
                         {
                             PlayerPrefs.SetInt("Bonk Expert", 1);
                             Debug.Log("Bonk Expert Unlocked");
-                            Boombox Boombox = GameObject.FindGameObjectWithTag("LevelBoombox").GetComponent<Boombox>();
-                            Boombox.UnlockCheevo("Bonk Expert");
+                            BackgroundMusic BGMusic = GameObject.FindGameObjectWithTag("BGMusic").GetComponent<BackgroundMusic>();
+                            BGMusic.UnlockCheevo("Bonk Expert");
                         }
                         /// Unlocks Absolutely Bonkers Achievement
                         if (PlayerPrefs.GetInt("Absolutely Bonkers") == 0 && EnemiesKilled >= 100)
                         {
                             PlayerPrefs.SetInt("Absolutely Bonkers", 1);
                             Debug.Log("Absolutely Bonkers Unlocked");
-                            Boombox Boombox = GameObject.FindGameObjectWithTag("LevelBoombox").GetComponent<Boombox>();
-                            Boombox.UnlockCheevo("Absolutely Bonkers");
+                            BackgroundMusic BGMusic = GameObject.FindGameObjectWithTag("BGMusic").GetComponent<BackgroundMusic>();
+                            BGMusic.UnlockCheevo("Absolutely Bonkers");
                         }
                         Debug.Log(EnemiesKilled);
                     }

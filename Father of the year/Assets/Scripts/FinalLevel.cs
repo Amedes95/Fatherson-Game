@@ -20,8 +20,8 @@ public class FinalLevel : MonoBehaviour
                 {
                     PlayerPrefs.SetInt("Baby steps", 1);
                     Debug.Log("Baby steps Unlocked");
-                    Boombox Boombox = GameObject.FindGameObjectWithTag("LevelBoombox").GetComponent<Boombox>();
-                    Boombox.UnlockCheevo("Baby steps");
+                    BackgroundMusic BGMusic = GameObject.FindGameObjectWithTag("BGMusic").GetComponent<BackgroundMusic>();
+                    BGMusic.UnlockCheevo("Baby steps");
                 }
             }
             if (SceneManager.GetActiveScene().name == "CarrotRescue") // rescue carrot, unlock new world
@@ -35,16 +35,16 @@ public class FinalLevel : MonoBehaviour
                 {
                     PlayerPrefs.SetInt("Flea Flee", 1);
                     Debug.Log("Flea Flee Unlocked");
-                    Boombox Boombox = GameObject.FindGameObjectWithTag("LevelBoombox").GetComponent<Boombox>();
-                    Boombox.UnlockCheevo("Flea Flee");
+                    BackgroundMusic BGMusic = GameObject.FindGameObjectWithTag("BGMusic").GetComponent<BackgroundMusic>();
+                    BGMusic.UnlockCheevo("Flea Flee");
                 }
                 /// Unlocks Disco Fever Achievement
                 if (PlayerPrefs.GetInt("Disco Fever") == 0 && PlayerPrefs.GetInt("PartyModeON") == 1)
                 {
                     PlayerPrefs.SetInt("Disco Fever", 1);
                     Debug.Log("Disco Fever Unlocked");
-                    Boombox Boombox = GameObject.FindGameObjectWithTag("LevelBoombox").GetComponent<Boombox>();
-                    Boombox.UnlockCheevo("Disco Fever");
+                    BackgroundMusic BGMusic = GameObject.FindGameObjectWithTag("BGMusic").GetComponent<BackgroundMusic>();
+                    BGMusic.UnlockCheevo("Disco Fever");
                 }
             }
             if (SceneManager.GetActiveScene().name == "TurnipRescue") // turnip rescued, unlock new world
@@ -58,16 +58,16 @@ public class FinalLevel : MonoBehaviour
                 {
                     PlayerPrefs.SetInt("Spoiled Appetite", 1);
                     Debug.Log("Spoiled Appetite");
-                    Boombox Boombox = GameObject.FindGameObjectWithTag("LevelBoombox").GetComponent<Boombox>();
-                    Boombox.UnlockCheevo("Spoiled Appetite");
+                    BackgroundMusic BGMusic = GameObject.FindGameObjectWithTag("BGMusic").GetComponent<BackgroundMusic>();
+                    BGMusic.UnlockCheevo("Spoiled Appetite");
                 }
                 /// Unlocks Disco Fever Achievement
                 if (PlayerPrefs.GetInt("Disco Fever") == 0 && PlayerPrefs.GetInt("PartyModeON") == 1)
                 {
                     PlayerPrefs.SetInt("Disco Fever", 1);
                     Debug.Log("Disco Fever Unlocked");
-                    Boombox Boombox = GameObject.FindGameObjectWithTag("LevelBoombox").GetComponent<Boombox>();
-                    Boombox.UnlockCheevo("Disco Fever");
+                    BackgroundMusic BGMusic = GameObject.FindGameObjectWithTag("BGMusic").GetComponent<BackgroundMusic>();
+                    BGMusic.UnlockCheevo("Disco Fever");
                 }
             }
             if (SceneManager.GetActiveScene().name == "CornRescue") // rescue corn, unlock new world
@@ -81,8 +81,8 @@ public class FinalLevel : MonoBehaviour
                 {
                     PlayerPrefs.SetInt("Party Crasher", 1);
                     Debug.Log("Party Crasher Unlocked");
-                    Boombox Boombox = GameObject.FindGameObjectWithTag("LevelBoombox").GetComponent<Boombox>();
-                    Boombox.UnlockCheevo("Party Crasher");
+                    BackgroundMusic BGMusic = GameObject.FindGameObjectWithTag("BGMusic").GetComponent<BackgroundMusic>();
+                    BGMusic.UnlockCheevo("Party Crasher");
                     PlayerPrefs.SetInt("PartyUnlocked", 1);
                 }
 
@@ -94,16 +94,16 @@ public class FinalLevel : MonoBehaviour
                 {
                     PlayerPrefs.SetInt("Fungus Among Us", 1);
                     Debug.Log("Fungus Among Us");
-                    Boombox Boombox = GameObject.FindGameObjectWithTag("LevelBoombox").GetComponent<Boombox>();
-                    Boombox.UnlockCheevo("Fungus Among Us");
+                    BackgroundMusic BGMusic = GameObject.FindGameObjectWithTag("BGMusic").GetComponent<BackgroundMusic>();
+                    BGMusic.UnlockCheevo("Fungus Among Us");
                 }
                 /// Unlocks Disco Fever Achievement
                 if (PlayerPrefs.GetInt("Disco Fever") == 0 && PlayerPrefs.GetInt("PartyModeON") == 1)
                 {
                     PlayerPrefs.SetInt("Disco Fever", 1);
                     Debug.Log("Disco Fever Unlocked");
-                    Boombox Boombox = GameObject.FindGameObjectWithTag("LevelBoombox").GetComponent<Boombox>();
-                    Boombox.UnlockCheevo("Disco Fever");
+                    BackgroundMusic BGMusic = GameObject.FindGameObjectWithTag("BGMusic").GetComponent<BackgroundMusic>();
+                    BGMusic.UnlockCheevo("Disco Fever");
                 }
             }
             if (SceneManager.GetActiveScene().name == "TomatoRescue") // rescue tomato, unlock new world
@@ -117,16 +117,16 @@ public class FinalLevel : MonoBehaviour
                 {
                     PlayerPrefs.SetInt("Ghastly Escape", 1);
                     Debug.Log("Ghastly Escape");
-                    Boombox Boombox = GameObject.FindGameObjectWithTag("LevelBoombox").GetComponent<Boombox>();
-                    Boombox.UnlockCheevo("Ghastly Escape");
+                    BackgroundMusic BGMusic = GameObject.FindGameObjectWithTag("BGMusic").GetComponent<BackgroundMusic>();
+                    BGMusic.UnlockCheevo("Ghastly Escape");
                 }
                 /// Unlocks Disco Fever Achievement
                 if (PlayerPrefs.GetInt("Disco Fever") == 0 && PlayerPrefs.GetInt("PartyModeON") == 1)
                 {
                     PlayerPrefs.SetInt("Disco Fever", 1);
                     Debug.Log("Disco Fever Unlocked");
-                    Boombox Boombox = GameObject.FindGameObjectWithTag("LevelBoombox").GetComponent<Boombox>();
-                    Boombox.UnlockCheevo("Disco Fever");
+                    BackgroundMusic BGMusic = GameObject.FindGameObjectWithTag("BGMusic").GetComponent<BackgroundMusic>();
+                    BGMusic.UnlockCheevo("Disco Fever");
                 }
             }
             if (SceneManager.GetActiveScene().name == "PotatoRescue") // rescue potato, unlock new world
@@ -140,16 +140,16 @@ public class FinalLevel : MonoBehaviour
                 {
                     PlayerPrefs.SetInt("Frostbitten", 1);
                     Debug.Log("Frostbitten");
-                    Boombox Boombox = GameObject.FindGameObjectWithTag("LevelBoombox").GetComponent<Boombox>();
-                    Boombox.UnlockCheevo("Frostbitten");
+                    BackgroundMusic BGMusic = GameObject.FindGameObjectWithTag("BGMusic").GetComponent<BackgroundMusic>();
+                    BGMusic.UnlockCheevo("Frostbitten");
                 }
                 /// Unlocks Disco Fever Achievement
                 if (PlayerPrefs.GetInt("Disco Fever") == 0 && PlayerPrefs.GetInt("PartyModeON") == 1)
                 {
                     PlayerPrefs.SetInt("Disco Fever", 1);
                     Debug.Log("Disco Fever Unlocked");
-                    Boombox Boombox = GameObject.FindGameObjectWithTag("LevelBoombox").GetComponent<Boombox>();
-                    Boombox.UnlockCheevo("Disco Fever");
+                    BackgroundMusic BGMusic = GameObject.FindGameObjectWithTag("BGMusic").GetComponent<BackgroundMusic>();
+                    BGMusic.UnlockCheevo("Disco Fever");
                 }
             }
             if (SceneManager.GetActiveScene().name == "W6BOSS") // w6 boss beaten
@@ -160,16 +160,16 @@ public class FinalLevel : MonoBehaviour
                 {
                     PlayerPrefs.SetInt("Hippidy Hoppidy", 1);
                     Debug.Log("Hippidy Hoppidy");
-                    Boombox Boombox = GameObject.FindGameObjectWithTag("LevelBoombox").GetComponent<Boombox>();
-                    Boombox.UnlockCheevo("Hippidy Hoppidy");
+                    BackgroundMusic BGMusic = GameObject.FindGameObjectWithTag("BGMusic").GetComponent<BackgroundMusic>();
+                    BGMusic.UnlockCheevo("Hippidy Hoppidy");
                 }
                 /// Unlocks Disco Fever Achievement
                 if (PlayerPrefs.GetInt("Disco Fever") == 0 && PlayerPrefs.GetInt("PartyModeON") == 1)
                 {
                     PlayerPrefs.SetInt("Disco Fever", 1);
                     Debug.Log("Disco Fever Unlocked");
-                    Boombox Boombox = GameObject.FindGameObjectWithTag("LevelBoombox").GetComponent<Boombox>();
-                    Boombox.UnlockCheevo("Disco Fever");
+                    BackgroundMusic BGMusic = GameObject.FindGameObjectWithTag("BGMusic").GetComponent<BackgroundMusic>();
+                    BGMusic.UnlockCheevo("Disco Fever");
                 }
             }
             if (SceneManager.GetActiveScene().name == "OldTimeyEnd")
@@ -184,8 +184,8 @@ public class FinalLevel : MonoBehaviour
             {
                 PlayerPrefs.SetInt("Vegetarian", 1);
                 Debug.Log("Vegetarian");
-                Boombox Boombox = GameObject.FindGameObjectWithTag("LevelBoombox").GetComponent<Boombox>();
-                Boombox.UnlockCheevo("Vegetarian");
+                BackgroundMusic BGMusic = GameObject.FindGameObjectWithTag("BGMusic").GetComponent<BackgroundMusic>();
+                BGMusic.UnlockCheevo("Vegetarian");
             }
 
 
@@ -200,8 +200,8 @@ public class FinalLevel : MonoBehaviour
                 {
                     PlayerPrefs.SetInt("Snake charmer", 1);
                     Debug.Log("Snake charmer Unlocked");
-                    Boombox Boombox = GameObject.FindGameObjectWithTag("LevelBoombox").GetComponent<Boombox>();
-                    Boombox.UnlockCheevo("Snake charmer");
+                    BackgroundMusic BGMusic = GameObject.FindGameObjectWithTag("BGMusic").GetComponent<BackgroundMusic>();
+                    BGMusic.UnlockCheevo("Snake charmer");
                 }
             }
             else if (WorldNumber == 2)
@@ -211,8 +211,8 @@ public class FinalLevel : MonoBehaviour
                 {
                     PlayerPrefs.SetInt("World Wide Web", 1);
                     Debug.Log("World Wide Web Unlocked");
-                    Boombox Boombox = GameObject.FindGameObjectWithTag("LevelBoombox").GetComponent<Boombox>();
-                    Boombox.UnlockCheevo("World Wide Web");
+                    BackgroundMusic BGMusic = GameObject.FindGameObjectWithTag("BGMusic").GetComponent<BackgroundMusic>();
+                    BGMusic.UnlockCheevo("World Wide Web");
                 }
             }
             else if (WorldNumber == 3)
@@ -222,8 +222,8 @@ public class FinalLevel : MonoBehaviour
                 {
                     PlayerPrefs.SetInt("Synthetic Scientist", 1);
                     Debug.Log("Synthetic Scientist Unlocked");
-                    Boombox Boombox = GameObject.FindGameObjectWithTag("LevelBoombox").GetComponent<Boombox>();
-                    Boombox.UnlockCheevo("Synthetic Scientist");
+                    BackgroundMusic BGMusic = GameObject.FindGameObjectWithTag("BGMusic").GetComponent<BackgroundMusic>();
+                    BGMusic.UnlockCheevo("Synthetic Scientist");
                 }
             }
             else if (WorldNumber == 4)
@@ -233,8 +233,8 @@ public class FinalLevel : MonoBehaviour
                 {
                     PlayerPrefs.SetInt("Hot Topic", 1);
                     Debug.Log("Hot Topic Unlocked");
-                    Boombox Boombox = GameObject.FindGameObjectWithTag("LevelBoombox").GetComponent<Boombox>();
-                    Boombox.UnlockCheevo("Hot Topic");
+                    BackgroundMusic BGMusic = GameObject.FindGameObjectWithTag("BGMusic").GetComponent<BackgroundMusic>();
+                    BGMusic.UnlockCheevo("Hot Topic");
                 }
             }
             else if (WorldNumber == 5)
@@ -244,8 +244,8 @@ public class FinalLevel : MonoBehaviour
                 {
                     PlayerPrefs.SetInt("Cold Shoulder", 1);
                     Debug.Log("Cold Shoulder");
-                    Boombox Boombox = GameObject.FindGameObjectWithTag("LevelBoombox").GetComponent<Boombox>();
-                    Boombox.UnlockCheevo("Cold Shoulder");
+                    BackgroundMusic BGMusic = GameObject.FindGameObjectWithTag("BGMusic").GetComponent<BackgroundMusic>();
+                    BGMusic.UnlockCheevo("Cold Shoulder");
                 }
             }
             else if (WorldNumber == 6)
@@ -255,8 +255,8 @@ public class FinalLevel : MonoBehaviour
                 {
                     PlayerPrefs.SetInt("The End?", 1);
                     Debug.Log("The End?");
-                    Boombox Boombox = GameObject.FindGameObjectWithTag("LevelBoombox").GetComponent<Boombox>();
-                    Boombox.UnlockCheevo("The End?");
+                    BackgroundMusic BGMusic = GameObject.FindGameObjectWithTag("BGMusic").GetComponent<BackgroundMusic>();
+                    BGMusic.UnlockCheevo("The End?");
                 }
             }
         }

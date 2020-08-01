@@ -112,16 +112,16 @@ public class LevelInfo : MonoBehaviour
         {
             PlayerPrefs.SetInt("Oooh Shiny!", 1);
             Debug.Log("Oooh Shiny! Unlocked");
-            Boombox Boombox = GameObject.FindGameObjectWithTag("LevelBoombox").GetComponent<Boombox>();
-            Boombox.UnlockCheevo("Oooh Shiny!");
+            BackgroundMusic BGMusic = GameObject.FindGameObjectWithTag("BGMusic").GetComponent<BackgroundMusic>();
+            BGMusic.UnlockCheevo("Oooh Shiny!");
         }
         /// Unlocks Gold Medalist Achievement
         if (PlayerPrefs.GetInt("Gold Medalist") == 0 && GoldMedalsEarned >= 140)
         {
             PlayerPrefs.SetInt("Gold Medalist", 1);
             Debug.Log("Gold Medalist Unlocked");
-            Boombox Boombox = GameObject.FindGameObjectWithTag("LevelBoombox").GetComponent<Boombox>();
-            Boombox.UnlockCheevo("Gold Medalist");
+            BackgroundMusic BGMusic = GameObject.FindGameObjectWithTag("BGMusic").GetComponent<BackgroundMusic>();
+            BGMusic.UnlockCheevo("Gold Medalist");
         }
     }
 

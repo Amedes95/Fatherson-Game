@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using TMPro;
 
 public class BackgroundMusic : MonoBehaviour
 {
@@ -9,6 +10,8 @@ public class BackgroundMusic : MonoBehaviour
     //public GameObject BGMusicPrefab;
     AudioSource GameMusicPlayer;
     public AudioClip LevelMusic;
+    public TextMeshProUGUI CheevoText;
+
 
     // Start is called before the first frame update
     void Awake()
@@ -49,5 +52,12 @@ public class BackgroundMusic : MonoBehaviour
     private void Update()
     {
         GameMusicPlayer.volume = PlayerPrefs.GetFloat("MusicVolume"); // saves those settings baby
+    }
+
+    public void UnlockCheevo(string CheevoName)
+    {
+        CheevoText.text = "Achievement Unlocked: " + CheevoName;
+        gameObject.GetComponentInChildren<Animator>().SetTrigger("Unlock");
+
     }
 }
