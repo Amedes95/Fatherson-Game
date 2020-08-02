@@ -229,8 +229,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9023562269681031325}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.004800002, y: -0.036000013, z: 0}
-  m_LocalScale: {x: 0.069381356, y: 0.066873595, z: 0.066873595}
+  m_LocalPosition: {x: 0.004800002, y: -0.023, z: 0}
+  m_LocalScale: {x: 0.078685395, y: 0.075841345, z: 0.075841345}
   m_Children: []
   m_Father: {fileID: 9023562269993795423}
   m_RootOrder: 2
@@ -247,6 +247,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d47d4a895ae59414e912ab6a978b8b2a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  LavaSource: 0
+  PoolOfLava: 0
 --- !u!58 &9023562269681031327
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -389,6 +391,8 @@ MonoBehaviour:
   AlwaysShort: 0
   AlwaysMedium: 0
   AlwaysLong: 0
+  NeverShort: 0
+  NeverLong: 0
   flipDirection: 0
   randomJumpHeight: 0
 --- !u!50 &9023562269993795411
@@ -455,7 +459,7 @@ Transform:
   m_GameObject: {fileID: 9023562270099898391}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0.0051999385, y: -0.010400004, z: 0}
-  m_LocalScale: {x: 0.1012841, y: 0.1012841, z: 0.1012841}
+  m_LocalScale: {x: 0.18357743, y: 0.1012841, z: 0.1012841}
   m_Children: []
   m_Father: {fileID: 9023562269993795423}
   m_RootOrder: 1
@@ -477,6 +481,10 @@ MonoBehaviour:
     type: 3}
   bonkTimer: 0
   OnTrampoline: 0
+  CurrentHP: 0
+  MaxHP: 0
+  Stunable: 0
+  DeactivateNotDestroy: 0
 --- !u!61 &9023562270099898473
 BoxCollider2D:
   m_ObjectHideFlags: 0

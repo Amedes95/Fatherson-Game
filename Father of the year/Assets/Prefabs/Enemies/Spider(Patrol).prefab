@@ -44,6 +44,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d47d4a895ae59414e912ab6a978b8b2a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  LavaSource: 0
+  PoolOfLava: 0
 --- !u!58 &4862350684365054490
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -109,6 +111,10 @@ MonoBehaviour:
     type: 3}
   bonkTimer: 0
   OnTrampoline: 0
+  CurrentHP: 0
+  MaxHP: 0
+  Stunable: 0
+  DeactivateNotDestroy: 0
 --- !u!61 &4862350685806327194
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -122,7 +128,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.062288746, y: 0.30079505}
+  m_Offset: {x: -0.1832204, y: 0.30079505}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -133,7 +139,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.89465773, y: 0.44265026}
+  m_Size: {x: 1.1365211, y: 0.44265026}
   m_EdgeRadius: 0
 --- !u!1 &4862350685869066189
 GameObject:
@@ -261,6 +267,8 @@ MonoBehaviour:
   AlwaysShort: 0
   AlwaysMedium: 0
   AlwaysLong: 0
+  NeverShort: 0
+  NeverLong: 0
   flipDirection: 0
   randomJumpHeight: 0
 --- !u!58 &4862350685869066185

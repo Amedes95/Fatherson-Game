@@ -28,17 +28,18 @@ public class Boombox : MonoBehaviour
 
     public TextMeshProUGUI CheevoText;
     float VeganTimer;
+    public bool KeepNormalMusic;
 
 
     // Start is called before the first frame update
     void Awake()
     {
         NormalMusic = LevelMusic;
-        if (PlayerPrefs.GetInt("PartyModeON") == 1)
+        if (PlayerPrefs.GetInt("PartyModeON") == 1 && KeepNormalMusic == false)
         {
             LevelMusic = PartyMixtape;
         }
-        else if (PlayerPrefs.GetInt("OldTimeyON") == 1)
+        else if (PlayerPrefs.GetInt("OldTimeyON") == 1 && KeepNormalMusic == false)
         {
             LevelMusic = OldTImeyMusic;
         }
@@ -68,7 +69,7 @@ public class Boombox : MonoBehaviour
         {
             LevelMusic = OldTImeyMusic;
         }
-        else if(PlayerPrefs.GetInt("PartyModeON") == 0 && PlayerPrefs.GetInt("OldTimeyON") == 0)
+        else if(PlayerPrefs.GetInt("PartyModeON") == 0 && PlayerPrefs.GetInt("OldTimeyON") == 0 && KeepNormalMusic == false)
         {
             LevelMusic = NormalMusic;
         }
@@ -189,15 +190,15 @@ public class Boombox : MonoBehaviour
     public void UpdateSound()
     {
         Debug.Log("Updating Sound");
-        if (PlayerPrefs.GetInt("PartyModeON") == 1)
+        if (PlayerPrefs.GetInt("PartyModeON") == 1 && KeepNormalMusic == false)
         {
             LevelMusic = PartyMixtape;
         }
-        else if (PlayerPrefs.GetInt("OldTimeyON") == 1)
+        else if (PlayerPrefs.GetInt("OldTimeyON") == 1 && KeepNormalMusic == false)
         {
             LevelMusic = OldTImeyMusic;
         }
-        else if (PlayerPrefs.GetInt("PartyModeON") == 0 && PlayerPrefs.GetInt("OldTimeyON") == 0)
+        else if ((PlayerPrefs.GetInt("PartyModeON") == 0 && PlayerPrefs.GetInt("OldTimeyON") == 0) || KeepNormalMusic == true)
         {
             LevelMusic = NormalMusic;
         }
