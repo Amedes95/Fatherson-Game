@@ -4132,7 +4132,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
-    m_Mode: 4
+    m_Mode: 3
     m_SelectOnUp: {fileID: 0}
     m_SelectOnDown: {fileID: 1140292088}
     m_SelectOnLeft: {fileID: 1603703558}
@@ -15042,7 +15042,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
-    m_Mode: 4
+    m_Mode: 3
     m_SelectOnUp: {fileID: 1603703558}
     m_SelectOnDown: {fileID: 0}
     m_SelectOnLeft: {fileID: 1603703558}
@@ -32533,7 +32533,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
-    m_Mode: 4
+    m_Mode: 3
     m_SelectOnUp: {fileID: 137352690}
     m_SelectOnDown: {fileID: 476446702}
     m_SelectOnLeft: {fileID: 1603703558}
@@ -86706,7 +86706,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
-    m_Mode: 4
+    m_Mode: 3
     m_SelectOnUp: {fileID: 137352690}
     m_SelectOnDown: {fileID: 476446702}
     m_SelectOnLeft: {fileID: 0}
@@ -150695,5 +150695,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1685168281068595209, guid: dc6fb55e61d90d94cbb4618f701368ef,
         type: 3}
+    - target: {fileID: 1865342226574635077, guid: dc6fb55e61d90d94cbb4618f701368ef,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: dc6fb55e61d90d94cbb4618f701368ef, type: 3}

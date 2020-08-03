@@ -245,7 +245,7 @@ PrefabInstance:
     - target: {fileID: 4284295574517526958, guid: df153f6aa0c2b554fbe0ea555c7182d3,
         type: 3}
       propertyPath: LevelNumberDisplay
-      value: Secret 01
+      value: Secret 08
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: df153f6aa0c2b554fbe0ea555c7182d3, type: 3}
@@ -1196,6 +1196,11 @@ PrefabInstance:
       propertyPath: VictoryMenu
       value: 
       objectReference: {fileID: 1947083834}
+    - target: {fileID: 19677182290878142, guid: 67af531bc452e684fbe82f5fc9027d07,
+        type: 3}
+      propertyPath: VeganAlternativeLevel
+      value: Party09
+      objectReference: {fileID: 0}
     - target: {fileID: 19677184046853023, guid: 67af531bc452e684fbe82f5fc9027d07,
         type: 3}
       propertyPath: m_Mesh
@@ -42727,7 +42732,7 @@ PrefabInstance:
     - target: {fileID: 7472411387764395205, guid: 20b20a7763791de48978cdb88ee458a5,
         type: 3}
       propertyPath: NextLevel
-      value: Party02
+      value: Party09
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 20b20a7763791de48978cdb88ee458a5, type: 3}
