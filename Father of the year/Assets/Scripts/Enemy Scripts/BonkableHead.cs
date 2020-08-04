@@ -44,7 +44,11 @@ public class BonkableHead : MonoBehaviour
                     collision.GetComponentInParent<Animator>().SetTrigger("Jump");
                     //Debug.Log("Bonk");
                     PlayerMovement.BounceBuffer = .1f; // new 3/22/20
-                    PlayerMovement.JustBounced = true;
+                    if (PlayerMovement.JustBounced == false)
+                    {
+                        PlayerMovement.JustBounced = true;
+                        collision.GetComponentInParent<Rigidbody2D>().AddForce(Vector2.up * PlayerMovement.jumpForce * 150);
+                    }
                     Boombox.SetVibrationIntensity(.1f, .25f, .75f);
                     if (bonkTimer > 0)
                     {
@@ -52,7 +56,6 @@ public class BonkableHead : MonoBehaviour
                     }
                     collision.GetComponentInParent<Rigidbody2D>().velocity = new Vector2(collision.GetComponentInParent<Rigidbody2D>().velocity.x, 0);
                     CurrentlyBonking = true;
-                    collision.GetComponentInParent<Rigidbody2D>().AddForce(Vector2.up * PlayerMovement.jumpForce * 150);
                     bonkTimer = .2f;
 
                     if (Killable)  // kill when bonked or reduce health
@@ -181,6 +184,16 @@ public class BonkableHead : MonoBehaviour
         if (collision.tag == "Feet")
         {
             CurrentlyBonking = false;
+            PlayerMovement.JustBounced = false;
+        }
+    }
+
+    private void OnTriggerStay2D(Collider2D collision)
+    {
+        if (collision.tag == "Feet")
+        {
+            CurrentlyBonking = true;
+            PlayerMovement.JustBounced = true;
         }
     }
 
