@@ -28,18 +28,11 @@ public class SecretGoal : MonoBehaviour
         {
             VisualsScreen.Partying = true;
             PlayerPrefs.SetString("ExitedLevel", "W2L08");
-            ///// Unlocks Party Animal Achievement
-            //if (PlayerPrefs.GetInt("Party Animal") == 0)
-            //{
-            //    PlayerPrefs.SetInt("Party Animal", 1);
-            //    Debug.Log("Party Animal Unlocked");
-            //    BackgroundMusic BGMusic = GameObject.FindGameObjectWithTag("BGMusic").GetComponent<BackgroundMusic>();
-            //    BGMusic.UnlockCheevo("Party Animal");
-            //}
         }
         else if (BeingOld)
         {
             VisualsScreen.BeingOld = true;
+            PlayerPrefs.SetString("ExitedLevel", "W4L09");
 
         }
         if (PlayerPrefs.GetInt("PartyModeON") == 0 && Partying)
@@ -62,20 +55,13 @@ public class SecretGoal : MonoBehaviour
         }
         else if (OldTimeyPortal)
         {
-            VisualsScreen.BeingOld = false;
-            if (BeingOld)
+            if (VisualsScreen.BeingOld == true)
             {
                 ToggleOldTimerMode();
             }
+            VisualsScreen.BeingOld = false;
         }
     }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.tag == "Player")
@@ -91,6 +77,10 @@ public class SecretGoal : MonoBehaviour
                     BackgroundMusic BGMusic = GameObject.FindGameObjectWithTag("BGMusic").GetComponent<BackgroundMusic>();
                     BGMusic.UnlockCheevo("Party Animal");
                 }
+            }
+            else if (OldTimeyPortal) // huh, what that sonny?
+            {
+                VictoryScreen.NextLevel = "Retro01";
             }
             gameObject.GetComponent<Animator>().SetTrigger("Complete");
             Boombox.SetVibrationIntensity(.5f, .25f, .25f);

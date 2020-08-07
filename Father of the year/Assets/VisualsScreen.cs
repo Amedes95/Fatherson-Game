@@ -63,7 +63,7 @@ public class VisualsScreen : MonoBehaviour
         {
             PartyText.text = "Party Mode";
         }
-        if (PlayerPrefs.GetInt("PartyUnlocked") == 1 && !Partying)
+        if (PlayerPrefs.GetInt("PartyUnlocked") == 1 && !Partying && !BeingOld)
         {
             PartyModeButton.interactable = true;
             LockSymbolParty.SetActive(false);
@@ -80,7 +80,7 @@ public class VisualsScreen : MonoBehaviour
         {
             OldText.text = "Retro";
         }
-        if (PlayerPrefs.GetInt("OldTimeyUnlocked") == 1 && !BeingOld)
+        if (PlayerPrefs.GetInt("OldTimeyUnlocked") == 1 && !BeingOld && !Partying)
         {
             OldTimeyModeButton.interactable = true;
             LockSymbolOld.SetActive(false);
