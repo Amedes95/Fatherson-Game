@@ -69,15 +69,6 @@ public class Goal : MonoBehaviour
                 BackgroundMusic BGMusic = GameObject.FindGameObjectWithTag("BGMusic").GetComponent<BackgroundMusic>();
                 BGMusic.UnlockCheevo("Noobie");
             }
-            ///// Unlocks Disco Fever Achievement
-            //if (PlayerPrefs.GetInt("Disco Fever") == 0 && PlayerPrefs.GetInt("PartyModeON") == 1 && PlayerPrefs.GetInt("Party Run") == 1 && EndPartyPortal)
-            //{
-            //    PlayerPrefs.SetInt("Disco Fever", 1);
-            //    Debug.Log("Disco Fever Unlocked");
-            //    Boombox Boombox = GameObject.FindGameObjectWithTag("LevelBoombox").GetComponent<Boombox>();
-            //    Boombox.UnlockCheevo("Disco Fever");
-            //}
-
             collision.GetComponent<Collector>().AddToFruitStash();
             collision.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeAll;
             gameObject.GetComponent<Animator>().SetTrigger("Complete");

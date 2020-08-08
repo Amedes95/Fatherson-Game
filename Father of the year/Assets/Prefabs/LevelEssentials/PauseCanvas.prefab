@@ -2779,7 +2779,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Old Timey
+  m_text: Fossilized
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: e9d22510c2ced154dacf8091eb4f326a, type: 2}
   m_sharedMaterial: {fileID: 5874269020919152811, guid: e9d22510c2ced154dacf8091eb4f326a,
@@ -2849,10 +2849,10 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: -95.42784, w: 0}
   m_textInfo:
     textComponent: {fileID: 1331528707211074501}
-    characterCount: 9
+    characterCount: 10
     spriteCount: 0
-    spaceCount: 1
-    wordCount: 2
+    spaceCount: 0
+    wordCount: 1
     linkCount: 0
     lineCount: 1
     pageCount: 1
@@ -7349,6 +7349,8 @@ MonoBehaviour:
   BossRushDisplay: {fileID: 4812555528459622279}
   RestartButton: {fileID: 3302911734369077652}
   RestartButtonBoss: {fileID: 8452785076901765962}
+  SecretLevel: 0
+  SecretLevelReturnWorld: 
 --- !u!82 &5428371491708502274
 AudioSource:
   m_ObjectHideFlags: 0

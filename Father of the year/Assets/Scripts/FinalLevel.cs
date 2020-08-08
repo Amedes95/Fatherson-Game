@@ -87,6 +87,19 @@ public class FinalLevel : MonoBehaviour
                 }
 
             }
+            /// Unlocks Party Crasher Achievement
+            if (SceneManager.GetActiveScene().name == "RetroEnd") // unlock in retro world
+            {
+                if (PlayerPrefs.GetInt("Fossilized") == 0)
+                {
+                    PlayerPrefs.SetInt("Fossilized", 1);
+                    Debug.Log("Fossilized Unlocked");
+                    BackgroundMusic BGMusic = GameObject.FindGameObjectWithTag("BGMusic").GetComponent<BackgroundMusic>();
+                    BGMusic.UnlockCheevo("Fossilized");
+                    PlayerPrefs.SetInt("OldTimeyUnlocked", 1);
+                }
+
+            }
             if (SceneManager.GetActiveScene().name == "W3BOSS") // w3 boss beaten, unlock cheevo
             {
                 /// Unlocks Fungus Among Us Achievement
@@ -163,14 +176,14 @@ public class FinalLevel : MonoBehaviour
                     BackgroundMusic BGMusic = GameObject.FindGameObjectWithTag("BGMusic").GetComponent<BackgroundMusic>();
                     BGMusic.UnlockCheevo("Hippidy Hoppidy");
                 }
-                /// Unlocks Disco Fever Achievement
-                if (PlayerPrefs.GetInt("Disco Fever") == 0 && PlayerPrefs.GetInt("PartyModeON") == 1)
-                {
-                    PlayerPrefs.SetInt("Disco Fever", 1);
-                    Debug.Log("Disco Fever Unlocked");
-                    BackgroundMusic BGMusic = GameObject.FindGameObjectWithTag("BGMusic").GetComponent<BackgroundMusic>();
-                    BGMusic.UnlockCheevo("Disco Fever");
-                }
+                ///// Unlocks Disco Fever Achievement
+                //if (PlayerPrefs.GetInt("Disco Fever") == 0 && PlayerPrefs.GetInt("PartyModeON") == 1)
+                //{
+                //    PlayerPrefs.SetInt("Disco Fever", 1);
+                //    Debug.Log("Disco Fever Unlocked");
+                //    BackgroundMusic BGMusic = GameObject.FindGameObjectWithTag("BGMusic").GetComponent<BackgroundMusic>();
+                //    BGMusic.UnlockCheevo("Disco Fever");
+                //}
             }
             if (SceneManager.GetActiveScene().name == "OldTimeyEnd")
             {

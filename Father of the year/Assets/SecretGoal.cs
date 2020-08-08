@@ -81,6 +81,14 @@ public class SecretGoal : MonoBehaviour
             else if (OldTimeyPortal) // huh, what that sonny?
             {
                 VictoryScreen.NextLevel = "Retro01";
+                /// Unlocks Fossilized Achievement
+                if (PlayerPrefs.GetInt("Pyroclastic") == 0)
+                {
+                    PlayerPrefs.SetInt("Pyroclastic", 1);
+                    Debug.Log("Pyroclastic");
+                    BackgroundMusic BGMusic = GameObject.FindGameObjectWithTag("BGMusic").GetComponent<BackgroundMusic>();
+                    BGMusic.UnlockCheevo("Pyroclastic");
+                }
             }
             gameObject.GetComponent<Animator>().SetTrigger("Complete");
             Boombox.SetVibrationIntensity(.5f, .25f, .25f);

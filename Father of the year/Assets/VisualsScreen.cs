@@ -78,7 +78,7 @@ public class VisualsScreen : MonoBehaviour
         }
         else
         {
-            OldText.text = "Retro";
+            OldText.text = "Fossilized";
         }
         if (PlayerPrefs.GetInt("OldTimeyUnlocked") == 1 && !BeingOld && !Partying)
         {
