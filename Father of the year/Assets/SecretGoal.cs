@@ -12,6 +12,7 @@ public class SecretGoal : MonoBehaviour
 
     public bool PartyPortal;
     public bool OldTimeyPortal;
+    public bool GoldPortal;
 
     public bool Partying;
     public bool BeingOld;
@@ -60,6 +61,10 @@ public class SecretGoal : MonoBehaviour
                 ToggleOldTimerMode();
             }
             VisualsScreen.BeingOld = false;
+        }
+        else if (GoldPortal)
+        {
+
         }
     }
     private void OnTriggerEnter2D(Collider2D collision)
