@@ -62,10 +62,6 @@ public class SecretGoal : MonoBehaviour
             }
             VisualsScreen.BeingOld = false;
         }
-        else if (GoldPortal)
-        {
-
-        }
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -93,6 +89,18 @@ public class SecretGoal : MonoBehaviour
                     Debug.Log("Pyroclastic");
                     BackgroundMusic BGMusic = GameObject.FindGameObjectWithTag("BGMusic").GetComponent<BackgroundMusic>();
                     BGMusic.UnlockCheevo("Pyroclastic");
+                }
+            }
+            else if (GoldPortal) // SHINY!
+            {
+                VictoryScreen.NextLevel = "Gold01";
+                // unlocks Jackpot! achievement
+                if (PlayerPrefs.GetInt("Jackpot!") == 0)
+                {
+                    PlayerPrefs.SetInt("Jackpot!", 1);
+                    Debug.Log("Jackpot!");
+                    BackgroundMusic BGMusic = GameObject.FindGameObjectWithTag("BGMusic").GetComponent<BackgroundMusic>();
+                    BGMusic.UnlockCheevo("Jackpot!");
                 }
             }
             gameObject.GetComponent<Animator>().SetTrigger("Complete");

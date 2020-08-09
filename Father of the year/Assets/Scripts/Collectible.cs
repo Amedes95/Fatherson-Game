@@ -12,6 +12,9 @@ public class Collectible : MonoBehaviour
     int ApplesEaten;
     int LollipopsEaten;
 
+    public bool Apple;
+    public bool GoldCoin;
+
     public bool NegatesLava;
 
     private void Awake()
@@ -29,10 +32,17 @@ public class Collectible : MonoBehaviour
             collision.GetComponent<Collector>().FruitFromLevel += Value; // The players current fruit plus the value of the fruit obtained
             if (!NegatesLava)
             {
-                PlayerMovement.jumpCount = 1;
-                collision.GetComponent<PlayerMovement>().SpawnDoubleJumpParticles();
+                if (Apple)
+                {
+                    PlayerMovement.jumpCount = 1;
+                    collision.GetComponent<PlayerMovement>().SpawnDoubleJumpParticles();
+                    PlayerPrefs.SetInt("ApplesEaten", ApplesEaten += 1);
+                }
+                else if (GoldCoin)
+                {
+                    GoldenDoor.CoinsToCollect -= 1;
+                }
 
-                PlayerPrefs.SetInt("ApplesEaten", ApplesEaten += 1);
 
                 // an apple a day achievement
                 if (PlayerPrefs.GetInt("Doctor Repellent") == 0 && ApplesEaten >= 10)
@@ -75,13 +85,17 @@ public class Collectible : MonoBehaviour
     {
         if (Consumed)
         {
-            RespawnDelay -= Time.smoothDeltaTime;
-            if (RespawnDelay <= 0)
+            if (Respawnable)
             {
-                GetComponent<Animator>().SetTrigger("Respawn");
-                Consumed = false;
-                RespawnDelay = RespawnDelayStart;
+                RespawnDelay -= Time.smoothDeltaTime;
+                if (RespawnDelay <= 0)
+                {
+                    GetComponent<Animator>().SetTrigger("Respawn");
+                    Consumed = false;
+                    RespawnDelay = RespawnDelayStart;
+                }
             }
+
         }
     }
 }
