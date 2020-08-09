@@ -1,7 +1,19 @@
 fileFormatVersion: 2
 guid: 7258a6077a3ff3f4e8afa18be209d4fb
 TextureImporter:
-  internalIDToNameTable: []
+  internalIDToNameTable:
+  - first:
+      213: 4303423874142921733
+    second: Blink (54x52)_0
+  - first:
+      213: 7370585508839877132
+    second: Blink (54x52)_1
+  - first:
+      213: 18105601139653782
+    second: Blink (54x52)_2
+  - first:
+      213: 4110720337494812178
+    second: Blink (54x52)_3
   externalObjects: {}
   serializedVersion: 10
   mipmaps:
@@ -108,7 +120,91 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: Blink (54x52)_0
+      rect:
+        serializedVersion: 2
+        x: 6
+        y: 4
+        width: 43
+        height: 43
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2357a7710e7bea84bb80be15a3f14674
+      internalID: 4303423874142921733
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Blink (54x52)_1
+      rect:
+        serializedVersion: 2
+        x: 60
+        y: 4
+        width: 43
+        height: 43
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d13e052604b14414ab7642e1aa00f12f
+      internalID: 7370585508839877132
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Blink (54x52)_2
+      rect:
+        serializedVersion: 2
+        x: 114
+        y: 4
+        width: 43
+        height: 43
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 90933b34d7c4f7646b2210bbaf7345d1
+      internalID: 18105601139653782
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Blink (54x52)_3
+      rect:
+        serializedVersion: 2
+        x: 168
+        y: 4
+        width: 43
+        height: 43
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4e6a564c5feeeeb4495149e3f68bce25
+      internalID: 4110720337494812178
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []

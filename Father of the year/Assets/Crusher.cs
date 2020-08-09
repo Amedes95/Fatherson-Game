@@ -8,9 +8,11 @@ public class Crusher : MonoBehaviour
     public bool Horizontal;
     public bool Vertical;
     public float MoveSpeed;
-    bool moving;
+    public bool moving;
     Transform Player;
     bool SightBlocked;
+    public GameObject DustParticles;
+    public static GameObject ParticlesClone;
 
 
 
@@ -27,51 +29,72 @@ public class Crusher : MonoBehaviour
             {
                 if (Horizontal)
                 {
-                    if (gameObject.GetComponentInParent<Rigidbody2D>().velocity.y == 0 && gameObject.GetComponentInParent<Rigidbody2D>().velocity.x == 0)
+                    if (transform.parent.position.x < collision.transform.position.x) // Im left of the player
                     {
-                        moving = true;
-                        if (transform.parent.position.x < collision.transform.position.x) // Im left of the player
-                        {
-                            transform.parent.GetComponentInParent<Rigidbody2D>().velocity = Vector2.right * MoveSpeed;
-                        }
-                        else if (transform.parent.position.x > collision.transform.position.x) // im to the right of the player
-                        {
-                            transform.parent.GetComponentInParent<Rigidbody2D>().velocity = Vector2.left * MoveSpeed;
-                        }
+                        transform.parent.GetComponentInParent<Rigidbody2D>().velocity = Vector2.right * MoveSpeed;
+                    }
+                    else if (transform.parent.position.x > collision.transform.position.x) // im to the right of the player
+                    {
+                        transform.parent.GetComponentInParent<Rigidbody2D>().velocity = Vector2.left * MoveSpeed;
                     }
 
                 }
                 else if (Vertical)
                 {
-                    if (gameObject.GetComponentInParent<Rigidbody2D>().velocity.x == 0 && gameObject.GetComponentInParent<Rigidbody2D>().velocity.y == 0)
+                    if (transform.parent.position.y < collision.transform.position.y) // im below the player
                     {
-                        moving = true;
-                        if (transform.parent.position.y < collision.transform.position.y) // im below the player
-                        {
-                            transform.parent.GetComponentInParent<Rigidbody2D>().velocity = Vector2.up * MoveSpeed;
-                        }
-                        else if (transform.parent.position.y > collision.transform.position.y) // im above the player
-                        {
-                            transform.parent.GetComponentInParent<Rigidbody2D>().velocity = Vector2.down * MoveSpeed;
-                        }
+                        transform.parent.GetComponentInParent<Rigidbody2D>().velocity = Vector2.up * MoveSpeed;
+                    }
+                    else if (transform.parent.position.y > collision.transform.position.y) // im above the player
+                    {
+                        transform.parent.GetComponentInParent<Rigidbody2D>().velocity = Vector2.down * MoveSpeed;
                     }
 
                 }
+                gameObject.GetComponentInParent<Animator>().SetBool("Moving", true);
             }
-            
+
         }
     }
-    private void Update()
+    private void FixedUpdate()
     {
         Raycasting();
-        if (transform.parent.GetComponent<Rigidbody2D>().velocity.x == 0 || transform.parent.GetComponent<Rigidbody2D>().velocity.y == 0)
+        if (transform.parent.GetComponent<Rigidbody2D>().velocity.x == 0 && transform.parent.GetComponent<Rigidbody2D>().velocity.y == 0) // not moving at all
         {
             moving = false;
+            transform.parent.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeAll;
         }
+        else if (transform.parent.GetComponent<Rigidbody2D>().velocity.x == 0 && transform.parent.GetComponent<Rigidbody2D>().velocity.y != 0) // moving vertically
+        {
+            moving = true;
+            transform.parent.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeRotation;
+        }
+        else if (transform.parent.GetComponent<Rigidbody2D>().velocity.x != 0 && transform.parent.GetComponent<Rigidbody2D>().velocity.y == 0) // horizontally
+        {
+            moving = true;
+            transform.parent.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeRotation;
+        }
+        //Debug.Log(moving);
 
         if (moving == false)
         {
+            if (gameObject.GetComponentInParent<AudioSource>().enabled == false) // if audio source is off, toggle it on
+            {
+                // this triggers when it collides with a wall
+                gameObject.GetComponentInParent<Animator>().SetBool("Moving", false);
+                gameObject.GetComponentInParent<Animator>().SetTrigger("Smack");
+
+                gameObject.GetComponentInParent<AudioSource>().enabled = true;
+                ParticlesClone = Instantiate(DustParticles, transform.parent.position, Quaternion.identity);
+                Destroy(ParticlesClone, 3f);
+            }
+
             gameObject.GetComponent<BoxCollider2D>().enabled = true;
+        }
+        else
+        {
+            gameObject.GetComponent<BoxCollider2D>().enabled = false;
+            gameObject.GetComponentInParent<AudioSource>().enabled = false;
         }
 
     }
