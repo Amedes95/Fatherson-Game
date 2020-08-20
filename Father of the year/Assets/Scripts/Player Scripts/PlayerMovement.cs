@@ -87,7 +87,7 @@ public class PlayerMovement : MonoBehaviour
         InvincibilityTimer = 0f;
         wallJumping = false;
         isFloating = false;
-
+        JumpDetector.OnGround = false;
 
 
 
