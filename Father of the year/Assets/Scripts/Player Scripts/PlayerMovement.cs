@@ -468,6 +468,23 @@ public class PlayerMovement : MonoBehaviour
                 Jump();
             }
         }
+
+        ////Face direction of horizontal movement
+        if (playerBody.velocity.x > 1f)
+        {
+            if (transform.localScale.x < 0)
+            {
+                FlipCharacter();
+            }
+        }
+
+        if (playerBody.velocity.x < -1f)
+        {
+            if (transform.localScale.x > 0)
+            {
+                FlipCharacter();
+            }
+        }
     }
 
     public void SwitchFloatValue(bool variable)
@@ -492,7 +509,7 @@ public class PlayerMovement : MonoBehaviour
         jumpForce = CalculateJumpForce(playerBody.gravityScale, jumpHeight);
         if (KeepWithPlatform.OnPlatform) //make this universal for all moving platforms
         {
-            playerBody.velocity= new Vector2(playerBody.velocity.x, 0);
+            playerBody.velocity = new Vector2(playerBody.velocity.x, 0);
         }
         if (Trampoline.IsBouncing == false) // and not bonking? 
         {
@@ -518,6 +535,7 @@ public class PlayerMovement : MonoBehaviour
             }
 
         }
+        Boombox.SetVibrationIntensity(.1f, .25f, .75f); // vibrate a lil bit ;)
         Boombox.SetVibrationIntensity(.1f, .25f, .75f); // vibrate a lil bit ;)
     }
 
@@ -587,6 +605,14 @@ public class PlayerMovement : MonoBehaviour
         {
             JumpInput = "Jump";
         }
+        if (jumpCount > 0)
+        {
+            gameObject.GetComponent<Animator>().SetBool("DoubleJumpActive", true);
+        }
+        else
+        {
+            gameObject.GetComponent<Animator>().SetBool("DoubleJumpActive", false);
+        }
 
         if (PlayerHealth.Dead == false && PauseMenu.GameIsPaused == false && FreezePlayer.Frozen == false) // Only allow inputs if alive
         {
@@ -596,7 +622,7 @@ public class PlayerMovement : MonoBehaviour
 
                 jumpKeyHeld = true;
 
-                if (JumpDetector.OnGround && !recentlyJumped && jumpBuffer < 0) // Checks to see if player is on ground before jumping
+                if (JumpDetector.OnGround && !recentlyJumped && jumpBuffer < 0 && jumpCount == 0) // Checks to see if player is on ground before jumping
                 {
                     Jump();
                 }
@@ -607,7 +633,7 @@ public class PlayerMovement : MonoBehaviour
                 }
                 else if (!JumpDetector.OnGround && jumpCount > 0) //Double jump
                 {
-                    gameObject.GetComponent<Animator>().SetBool("DoubleJumpActive", true);
+                    Debug.Log("Double Jump!");
                     playerBody.velocity = new Vector2(playerBody.velocity.x, 0);
                     wallJumping = false;
                     Jump();
@@ -615,7 +641,7 @@ public class PlayerMovement : MonoBehaviour
                     jumpAudioBox.PlayDoubleJumpSound();
 
                 }
-                if (isFloating)
+                if (isFloating && jumpCount == 0)
                 {
                     Jump();
                 }
@@ -628,23 +654,6 @@ public class PlayerMovement : MonoBehaviour
             }
 
 
-
-            ////Face direction of horizontal movement
-            if (playerBody.velocity.x > 1f)
-            {
-                if (transform.localScale.x < 0)
-                {
-                    FlipCharacter();
-                }
-            }
-
-            if (playerBody.velocity.x < -1f)
-            {
-                if (transform.localScale.x > 0)
-                {
-                    FlipCharacter();
-                }
-            }
         }
         if (FreezePlayer.Frozen)
         {

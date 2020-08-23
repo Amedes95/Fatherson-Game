@@ -15,7 +15,7 @@ public class CrusherSFX : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Debug.Log(gameObject.GetComponent<Rigidbody2D>().velocity);
+        //Debug.Log(gameObject.GetComponent<Rigidbody2D>().velocity);
     }
 
 }

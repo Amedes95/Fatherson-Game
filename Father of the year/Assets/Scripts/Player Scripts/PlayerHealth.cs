@@ -68,7 +68,7 @@ public class PlayerHealth : MonoBehaviour
             BGMusic.UnlockCheevo("Lucky 200");
         }
 
-        Debug.Log(DeathCount);
+        //Debug.Log(DeathCount);
         
 
     }
