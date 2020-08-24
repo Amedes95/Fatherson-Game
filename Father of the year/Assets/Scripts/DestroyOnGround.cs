@@ -7,13 +7,21 @@ public class DestroyOnGround : MonoBehaviour
     public GameObject ImpactParticlePrefab;
     public static GameObject ParticleClone;
     public bool SpinMe;
+    public bool Child;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.tag == "Ground")
         {
             SpawnImpactParticles();
-            Destroy(gameObject);
+            if (Child) // child of the gameobject
+            {
+                Destroy(gameObject.transform.parent.gameObject);
+            }
+            else
+            {
+                Destroy(gameObject);
+            }
         }
         else if (collision.tag == "Enemy")
         {

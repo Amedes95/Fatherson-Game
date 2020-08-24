@@ -29,6 +29,10 @@ public class SpiritBoss : MonoBehaviour
     public GameObject CoinPrefab;
     public static GameObject CoinClone;
 
+    public GameObject Flash;
+    public static GameObject FlashClone;
+    bool SightBlocked;
+
 
 
     // Start is called before the first frame update
@@ -38,9 +42,16 @@ public class SpiritBoss : MonoBehaviour
         Player = GameObject.FindGameObjectWithTag("Player");
     }
 
+    public void Raycasting() // Checks to see if there are walls between the enemy and player
+    {
+        Debug.DrawLine(transform.position, Player.transform.position, Color.green);
+        SightBlocked = Physics2D.Linecast(transform.position, Player.transform.position, 1 << LayerMask.NameToLayer("Ground"));
+    }
+
     // Update is called once per frame
     void FixedUpdate()
     {
+        Raycasting();
         if (Player.activeInHierarchy)
         {
             if (Player.transform.position.x < transform.position.x) // if the player is to the left of the boss
@@ -186,6 +197,17 @@ public class SpiritBoss : MonoBehaviour
         coinCounter = 4;
         FlameCounter = 4;
         CoinSpawnRate = 2.5f;
+    }
+
+    public void SpawnFlash()
+    {
+        FlashClone = Instantiate(Flash, transform.position, Quaternion.identity);
+        Destroy(FlashClone, 3f);
+    }
+
+    public void PlayNoise()
+    {
+        gameObject.GetComponent<AudioSource>().Play();
     }
 
 }
