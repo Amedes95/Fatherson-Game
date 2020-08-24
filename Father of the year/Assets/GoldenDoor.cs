@@ -13,6 +13,8 @@ public class GoldenDoor : MonoBehaviour
     public float CointNeeded;
     public static float CoinsToCollect;
 
+    public bool BossDoor;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -26,7 +28,13 @@ public class GoldenDoor : MonoBehaviour
         CoinCount.text = CoinsToCollect.ToString();
         if (CoinsToCollect <= 0) // all coins required to open door are collected
         {
+            if (BossDoor)
+            {
+                GameObject Portal = GameObject.FindGameObjectWithTag("SecretGoal");
+                Portal.GetComponent<CapsuleCollider2D>().enabled = true;
+            }
             UnlockDoor(); // poof, ya did it
+
         }
     }
 

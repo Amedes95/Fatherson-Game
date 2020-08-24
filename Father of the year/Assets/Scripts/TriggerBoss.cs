@@ -9,6 +9,7 @@ public class TriggerBoss : MonoBehaviour
     public bool IceSkeleton;
     public bool Cyclops;
     public bool Bunny;
+    public bool Spirit;
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.tag == "Player")
@@ -41,6 +42,11 @@ public class TriggerBoss : MonoBehaviour
             if (Bunny)
             {
                 gameObject.GetComponentInParent<BunnyBoss>().Wakeup();
+                gameObject.SetActive(false);
+            }
+            if (Spirit)
+            {
+                gameObject.GetComponentInParent<SpiritBoss>().Wakeup();
                 gameObject.SetActive(false);
             }
 

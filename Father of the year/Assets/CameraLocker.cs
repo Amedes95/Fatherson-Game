@@ -41,7 +41,7 @@ public class CameraLocker : MonoBehaviour
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        if (collision.tag == "Player")
+        if (collision.tag == "Player" && collision.gameObject.activeInHierarchy)
         {
             Camera.GetComponent<CameraFollower>().FocusZone = collision.gameObject;
             //Camera.GetComponent<Camera>().orthographicSize = DefaultZoon;

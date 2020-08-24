@@ -25,7 +25,7 @@ public class FlyingEnemy : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         xMove = (Player.position.x - gameObject.transform.position.x);
         yMove = (Player.position.y - gameObject.transform.position.y);
