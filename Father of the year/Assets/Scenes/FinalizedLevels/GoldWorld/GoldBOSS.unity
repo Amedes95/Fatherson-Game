@@ -103461,6 +103461,71 @@ PrefabInstance:
       propertyPath: NextLevel
       value: GoldEnd
       objectReference: {fileID: 0}
+    - target: {fileID: 4457717594240765798, guid: 20b20a7763791de48978cdb88ee458a5,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4457717593483846657, guid: 20b20a7763791de48978cdb88ee458a5,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5395264030024140530, guid: 20b20a7763791de48978cdb88ee458a5,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4457717594927611326, guid: 20b20a7763791de48978cdb88ee458a5,
+        type: 3}
+      propertyPath: m_Navigation.m_Mode
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1739004669124251069, guid: 20b20a7763791de48978cdb88ee458a5,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 351
+      objectReference: {fileID: 0}
+    - target: {fileID: 6308444133425018047, guid: 20b20a7763791de48978cdb88ee458a5,
+        type: 3}
+      propertyPath: m_text
+      value: You did it!
+      objectReference: {fileID: 0}
+    - target: {fileID: 6308444133425018047, guid: 20b20a7763791de48978cdb88ee458a5,
+        type: 3}
+      propertyPath: m_textInfo.characterCount
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 6308444133425018047, guid: 20b20a7763791de48978cdb88ee458a5,
+        type: 3}
+      propertyPath: m_textInfo.spaceCount
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6308444133425018047, guid: 20b20a7763791de48978cdb88ee458a5,
+        type: 3}
+      propertyPath: m_textInfo.wordCount
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5562969546123003690, guid: 20b20a7763791de48978cdb88ee458a5,
+        type: 3}
+      propertyPath: m_text
+      value: Continue
+      objectReference: {fileID: 0}
+    - target: {fileID: 5562969546123003690, guid: 20b20a7763791de48978cdb88ee458a5,
+        type: 3}
+      propertyPath: m_textInfo.characterCount
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 5562969546123003690, guid: 20b20a7763791de48978cdb88ee458a5,
+        type: 3}
+      propertyPath: m_textInfo.spaceCount
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5562969546123003690, guid: 20b20a7763791de48978cdb88ee458a5,
+        type: 3}
+      propertyPath: m_textInfo.wordCount
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 20b20a7763791de48978cdb88ee458a5, type: 3}
 --- !u!1 &1947083834 stripped

@@ -87,8 +87,8 @@ public class FinalLevel : MonoBehaviour
                 }
 
             }
-            /// Unlocks Party Crasher Achievement
-            if (SceneManager.GetActiveScene().name == "RetroEnd") // unlock in retro world
+            /// Unlocks Fossilized Achievement
+            if (SceneManager.GetActiveScene().name == "RetroEnd") // unlock by beating retro world
             {
                 if (PlayerPrefs.GetInt("Fossilized") == 0)
                 {
@@ -176,19 +176,18 @@ public class FinalLevel : MonoBehaviour
                     BackgroundMusic BGMusic = GameObject.FindGameObjectWithTag("BGMusic").GetComponent<BackgroundMusic>();
                     BGMusic.UnlockCheevo("Hippidy Hoppidy");
                 }
-                ///// Unlocks Disco Fever Achievement
-                //if (PlayerPrefs.GetInt("Disco Fever") == 0 && PlayerPrefs.GetInt("PartyModeON") == 1)
-                //{
-                //    PlayerPrefs.SetInt("Disco Fever", 1);
-                //    Debug.Log("Disco Fever Unlocked");
-                //    BackgroundMusic BGMusic = GameObject.FindGameObjectWithTag("BGMusic").GetComponent<BackgroundMusic>();
-                //    BGMusic.UnlockCheevo("Disco Fever");
-                //}
             }
-            if (SceneManager.GetActiveScene().name == "OldTimeyEnd")
+            if (SceneManager.GetActiveScene().name == "GoldEnd") // unlocked by beating gold world
             {
-                PlayerPrefs.SetInt("OldTimeyUnlocked", 1);
-                // unlock achievement here for old timey mode
+                PlayerPrefs.SetInt("GoldWorld_Complete", 1);
+                // unlocks Ancient Evil achievement
+                if (PlayerPrefs.GetInt("Ancient Evil") == 0)
+                {
+                    PlayerPrefs.SetInt("Ancient Evil", 1);
+                    Debug.Log("Ancient Evil");
+                    BackgroundMusic BGMusic = GameObject.FindGameObjectWithTag("BGMusic").GetComponent<BackgroundMusic>();
+                    BGMusic.UnlockCheevo("Ancient Evil");
+                }
             }
 
 
