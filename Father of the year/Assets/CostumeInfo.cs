@@ -18,9 +18,9 @@ public class CostumeInfo : MonoBehaviour
             LockedSymbol.SetActive(false);
         }
 
-        if (CostumeName == "Golden Frog") // unlocks golden frog based on achievement unlock
+        if (CostumeName == "Golden Frog") // unlocks golden frog after beating geode world
         {
-            if (PlayerPrefs.GetInt("Gold Medalist") == 1)
+            if (PlayerPrefs.GetInt("Ancient Evil") == 1)
             {
                 Locked = false;
                 gameObject.GetComponent<SpriteRenderer>().enabled = true;

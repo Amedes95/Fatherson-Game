@@ -73,7 +73,7 @@ public class PartyMode : MonoBehaviour
         {
             Transition1.colorGrading.enabled = false;
             var Grainy = Transition1.grain.settings;
-            Grainy.intensity = 0;
+            //Grainy.intensity = 0;
             Grainy.size = 3;
             Transition1.grain.settings = Grainy;
         }

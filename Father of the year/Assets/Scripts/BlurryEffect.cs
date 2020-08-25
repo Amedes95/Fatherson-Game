@@ -9,7 +9,7 @@ public class BlurryEffect : MonoBehaviour
 
 
     // Start is called before the first frame update
-    void Start()
+    void OnEnable()
     {
         var BlurryScreen = Transition1.depthOfField.settings;
         BlurryScreen.focalLength = 300;

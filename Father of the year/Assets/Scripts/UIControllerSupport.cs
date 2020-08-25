@@ -8,6 +8,7 @@ using UnityEngine.SceneManagement;
 public class UIControllerSupport : MonoBehaviour
 {
     public GameObject InitialHighlight;
+    public bool SpecialMalnourished;
 
 
     // Start is called before the first frame update
@@ -20,6 +21,22 @@ public class UIControllerSupport : MonoBehaviour
                 EventSystem.current.SetSelectedGameObject(null);
             }
             EventSystem.current.SetSelectedGameObject(InitialHighlight);
+        }
+    }
+
+    private void Awake()
+    {
+        if (SpecialMalnourished)
+        {
+            FindFocus();
+            if (EventSystem.current.currentSelectedGameObject == null && Boombox.ControllerModeEnabled)
+            {
+                EventSystem.current.SetSelectedGameObject(InitialHighlight);
+            }
+            else if (EventSystem.current.currentSelectedGameObject != null && Boombox.ControllerModeEnabled == false)
+            {
+                EventSystem.current.SetSelectedGameObject(null);
+            }
         }
     }
 

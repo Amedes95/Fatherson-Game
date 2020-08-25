@@ -47,6 +47,7 @@ public class DeathCanvas : MonoBehaviour
             SpaceBarText.SetActive(true);
             PressStartText.SetActive(false);
         }
+
         if (PlayerPrefs.GetInt("MalnourishedMode") == 1)
         {
             MalnourishedDisplay.SetActive(true);
@@ -54,11 +55,16 @@ public class DeathCanvas : MonoBehaviour
             if (PlayerPrefs.GetInt("MalnourishedLives") <= 0)
             {
                 MalnourishedButton.SetActive(true);
+                RespawnButton.SetActive(false);
+                MalnourishedButton.GetComponent<UIControllerSupport>().FindFocus();
             }
         }
         else
         {
             MalnourishedDisplay.SetActive(false);
+            RespawnButton.SetActive(true);
+            RespawnButton.GetComponent<UIControllerSupport>().FindFocus();
+
         }
 
 
@@ -69,10 +75,10 @@ public class DeathCanvas : MonoBehaviour
         //// film grain stuff ////////
         var Grainy = Transition1.grain.settings;
         Grainy.intensity -= .03f;
-        if (Grainy.intensity <= 0f)
-        {
-            Grainy.intensity = 0f;
-        }
+        //if (Grainy.intensity <= 0f)
+        //{
+        //    Grainy.intensity = 0f;
+        //}
         Transition1.grain.settings = Grainy;
         //////////////////
 
@@ -85,15 +91,11 @@ public class DeathCanvas : MonoBehaviour
             {
                 DeathMenu.SetActive(true);
             }
-            if (Input.GetKeyDown(KeyCode.Space) || Input.GetButtonDown("Pause")) // make them wait...
+            if (Input.GetKeyDown(KeyCode.Space) || Input.GetButtonDown("Pause"))
             {
                 if (PlayerPrefs.GetInt("MalnourishedMode") == 1 && PlayerPrefs.GetInt("MalnourishedLives") > 0)
                 {
                     ReloadScene();
-                }
-                else if (PlayerPrefs.GetInt("BossRush") == 1) // if you try to restart boss rush, start the mode over
-                {
-                    SceneManager.LoadScene("W1BOSS");
                 }
                 else if (PlayerPrefs.GetInt("MalnourishedMode") == 0 && PlayerPrefs.GetInt("BossRush") == 0)
                 {
@@ -142,7 +144,14 @@ public class DeathCanvas : MonoBehaviour
         Grainy.intensity = 1f;
         Transition1.grain.settings = Grainy;
 
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        if (PlayerPrefs.GetInt("BossRush") == 1) // if you try to restart boss rush, start the mode over
+        {
+            SceneManager.LoadScene("W1BOSS");
+        }
+        else
+        {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        }
     }
 
     public void GiveUp()

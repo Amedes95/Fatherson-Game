@@ -171,10 +171,10 @@ public class VisualsScreen : MonoBehaviour
         {
             PlayerPrefs.SetInt("OldTimeyON", 0);
             PlayerPrefs.SetInt("Party Run", 0); // cancel party run
-            var Grainy = Transition1.grain.settings;
-            Grainy.intensity = 0;
-            Grainy.size = 3;
-            Transition1.grain.settings = Grainy;
+            //var Grainy = Transition1.grain.settings;
+            //Grainy.intensity = 0;
+            //Grainy.size = 3;
+            //Transition1.grain.settings = Grainy;
         }
         else
         {
