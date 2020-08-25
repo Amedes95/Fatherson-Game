@@ -63,8 +63,7 @@ public class DeathCanvas : MonoBehaviour
         {
             MalnourishedDisplay.SetActive(false);
             RespawnButton.SetActive(true);
-            RespawnButton.GetComponent<UIControllerSupport>().FindFocus();
-
+            //RespawnButton.GetComponent<UIControllerSupport>().FindFocus();
         }
 
 

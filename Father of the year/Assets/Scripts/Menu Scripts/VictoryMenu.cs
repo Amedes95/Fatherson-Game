@@ -23,6 +23,7 @@ public class VictoryMenu : MonoBehaviour
     public GameObject SpaceBarText;
 
     public bool SpecialVictory;
+    public GameObject NextButton;
     public GameObject ReplayButton;
     public GameObject ExitButton;
     public GameObject MalnourishedText;
@@ -52,7 +53,6 @@ public class VictoryMenu : MonoBehaviour
             StaticSource.clip = StaticNoise;
             StaticSource.Play();
         }
-
     }
 
     private void Update()
@@ -107,6 +107,7 @@ public class VictoryMenu : MonoBehaviour
         if (GoalReached)
         {
             VictoryScreen.SetActive(true);
+            //NextButton.GetComponent<UIControllerSupport>().FindFocus();
             if (Input.GetKeyDown(KeyCode.Space) || Input.GetButtonDown("Pause"))
             {
                 LoadNextLevel();

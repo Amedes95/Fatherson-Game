@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 7778547660546202112}
   - component: {fileID: 2520329314155214217}
   - component: {fileID: 1416441935427593024}
+  - component: {fileID: 8508687294988867531}
   m_Layer: 5
   m_Name: ReplayButton(Boss)
   m_TagString: Untagged
@@ -91,7 +92,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
-    m_Mode: 4
+    m_Mode: 6
     m_SelectOnUp: {fileID: 4457717594927611326}
     m_SelectOnDown: {fileID: 3118030507295609594}
     m_SelectOnLeft: {fileID: 0}
@@ -285,6 +286,18 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &8508687294988867531
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8496228152481672}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3bb925d59510017408fdb93ad715c7c9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &508353969418909424
 GameObject:
   m_ObjectHideFlags: 0
@@ -1153,6 +1166,7 @@ GameObject:
   - component: {fileID: 3959942669038310770}
   - component: {fileID: 2696642062671848925}
   - component: {fileID: 3881971256390877382}
+  - component: {fileID: 4388598855121808598}
   m_Layer: 5
   m_Name: ReplayButton
   m_TagString: Untagged
@@ -1229,7 +1243,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
-    m_Mode: 4
+    m_Mode: 6
     m_SelectOnUp: {fileID: 4457717594927611326}
     m_SelectOnDown: {fileID: 3118030507295609594}
     m_SelectOnLeft: {fileID: 0}
@@ -1423,6 +1437,18 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &4388598855121808598
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4457717593483846657}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3bb925d59510017408fdb93ad715c7c9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &4457717593823603074
 GameObject:
   m_ObjectHideFlags: 0
@@ -1619,6 +1645,7 @@ MonoBehaviour:
   StaticNoise: {fileID: 8300000, guid: 2fde927c833b18e439565812c6212855, type: 3}
   SpaceBarText: {fileID: 3369295654944611160}
   SpecialVictory: 0
+  NextButton: {fileID: 4457717594927611324}
   ReplayButton: {fileID: 4457717593483846657}
   ExitButton: {fileID: 5395264030024140530}
   MalnourishedText: {fileID: 8783070974263595404}
@@ -1681,6 +1708,7 @@ GameObject:
   - component: {fileID: 6464024465686113993}
   - component: {fileID: 4842271523040449516}
   - component: {fileID: 845301940016851962}
+  - component: {fileID: 6264965312914348021}
   m_Layer: 5
   m_Name: NextButton
   m_TagString: Untagged
@@ -1759,7 +1787,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
-    m_Mode: 4
+    m_Mode: 6
     m_SelectOnUp: {fileID: 0}
     m_SelectOnDown: {fileID: 4457717593483846659}
     m_SelectOnLeft: {fileID: 0}
@@ -1813,6 +1841,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   InitialHighlight: {fileID: 4457717594927611324}
+  SpecialMalnourished: 0
 --- !u!114 &6464024465686113993
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1966,6 +1995,18 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &6264965312914348021
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4457717594927611324}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3bb925d59510017408fdb93ad715c7c9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &4457717595231652361
 GameObject:
   m_ObjectHideFlags: 0
@@ -2058,6 +2099,7 @@ GameObject:
   - component: {fileID: 6119235289230269477}
   - component: {fileID: 7673645713575329106}
   - component: {fileID: 2493761671013143684}
+  - component: {fileID: 948981727359739573}
   m_Layer: 5
   m_Name: ExitButton
   m_TagString: Untagged
@@ -2134,7 +2176,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
-    m_Mode: 4
+    m_Mode: 6
     m_SelectOnUp: {fileID: 4457717593483846659}
     m_SelectOnDown: {fileID: 0}
     m_SelectOnLeft: {fileID: 0}
@@ -2328,6 +2370,18 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
+--- !u!114 &948981727359739573
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5395264030024140530}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3bb925d59510017408fdb93ad715c7c9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &5917614137941674805
 GameObject:
   m_ObjectHideFlags: 0
