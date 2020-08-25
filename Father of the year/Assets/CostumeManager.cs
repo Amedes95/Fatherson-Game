@@ -24,6 +24,8 @@ public class CostumeManager : MonoBehaviour
 
     public GameObject CharacterSelectScreen;
 
+    int CostumeCount;
+
 
 
 
@@ -40,6 +42,7 @@ public class CostumeManager : MonoBehaviour
     private void Awake()
     {
         CostumeIndex = PlayerPrefs.GetInt("CostumeIndex");
+
     }
 
     private void OnEnable()
@@ -47,6 +50,19 @@ public class CostumeManager : MonoBehaviour
         CharacterSelectScreen.SetActive(true);
         CostumeIndex = PlayerPrefs.GetInt("CostumeIndex");
         ToggleVsibility();
+
+        if (PlayerPrefs.GetInt("Ancient Evil") == 1 && PlayerPrefs.GetInt("Flea Flee") == 1 && PlayerPrefs.GetInt("Fungus Among Us") == 1 && PlayerPrefs.GetInt("Ghastly Escape") == 1 && PlayerPrefs.GetInt("Party Crasher") == 1 && PlayerPrefs.GetInt("Carnist") == 1 && PlayerPrefs.GetInt("Lucky 200") == 1 && PlayerPrefs.GetInt("Indigestible") == 1) // oops hard code, fuck it
+        {
+            /// Unlocks Fashion Statement Achievement
+            if (PlayerPrefs.GetInt("Fashion Statement") == 0)
+            {
+                PlayerPrefs.SetInt("Fashion Statement", 1);
+                Debug.Log("Fashion Statement Unlocked");
+                BackgroundMusic BGMusic = GameObject.FindGameObjectWithTag("BGMusic").GetComponent<BackgroundMusic>();
+                BGMusic.UnlockCheevo("Fashion Statement");
+            }
+        }
+
     }
     private void OnDisable()
     {
@@ -99,14 +115,14 @@ public class CostumeManager : MonoBehaviour
         {
             CostumeIndex++;
             AbleToNavigate = false;
-            Debug.Log(CostumeIndex);
+            //Debug.Log(CostumeIndex);
             ToggleVsibility();
         }
         else
         {
             CostumeIndex = 0;
             AbleToNavigate = false;
-            Debug.Log(CostumeIndex);
+            //Debug.Log(CostumeIndex);
             ToggleVsibility();
         }
     }
@@ -117,14 +133,14 @@ public class CostumeManager : MonoBehaviour
         {
             CostumeIndex--;
             AbleToNavigate = false;
-            Debug.Log(CostumeIndex);
+            //Debug.Log(CostumeIndex);
             ToggleVsibility();
         }
         else
         {
             CostumeIndex = CostumesList.Count -1;
             AbleToNavigate = false;
-            Debug.Log(CostumeIndex);
+            //Debug.Log(CostumeIndex);
             ToggleVsibility();
         }
     }
@@ -146,7 +162,6 @@ public class CostumeManager : MonoBehaviour
     {
         CurrentCostume = CostumesList[CostumeIndex];
 
-
         foreach (GameObject costume in CostumesList)
         {
             if (costume != CurrentCostume)
@@ -167,5 +182,6 @@ public class CostumeManager : MonoBehaviour
                 }
             }
         }
+
     }
 }

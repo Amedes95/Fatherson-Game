@@ -80,7 +80,7 @@ public class CostumeInfo : MonoBehaviour
         }
         else if (CostumeName == "Rainbow Boy") // unlocks Rainbow Boy after completing a full world in party mode
         {
-            if (PlayerPrefs.GetInt("Disco Fever") == 1)
+            if (PlayerPrefs.GetInt("Party Crasher") == 1)
             {
                 Locked = false;
                 gameObject.GetComponent<SpriteRenderer>().enabled = true;

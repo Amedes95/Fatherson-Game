@@ -975,7 +975,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &9762316
 Transform:
   m_ObjectHideFlags: 0
@@ -2986,6 +2986,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   InitialHighlight: {fileID: 108146417}
+  SpecialMalnourished: 0
 --- !u!114 &108146420
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5395,6 +5396,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   InitialHighlight: {fileID: 231769504}
+  SpecialMalnourished: 0
 --- !u!114 &177840822
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5740,7 +5742,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &179891444
 Transform:
   m_ObjectHideFlags: 0
@@ -6588,6 +6590,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   InitialHighlight: {fileID: 231769504}
+  SpecialMalnourished: 0
 --- !u!114 &231769507
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10078,6 +10081,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   InitialHighlight: {fileID: 1947218657}
+  SpecialMalnourished: 0
 --- !u!114 &322575797
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12088,6 +12092,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   InitialHighlight: {fileID: 389941702}
+  SpecialMalnourished: 0
 --- !u!114 &389941705
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13302,6 +13307,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   InitialHighlight: {fileID: 410110069}
+  SpecialMalnourished: 0
 --- !u!114 &410110073
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16637,6 +16643,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   InitialHighlight: {fileID: 1947218657}
+  SpecialMalnourished: 0
 --- !u!114 &489915557
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -18128,7 +18135,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &548599432
 Transform:
   m_ObjectHideFlags: 0
@@ -18596,6 +18603,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   InitialHighlight: {fileID: 231769504}
+  SpecialMalnourished: 0
 --- !u!114 &568521542
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -19905,7 +19913,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   CostumeName: Pink Man
   SecretName: Earn "Snake Charmer" achievement
-  Locked: 0
+  Locked: 1
   LockedSymbol: {fileID: 625102929}
 --- !u!212 &578327387
 SpriteRenderer:
@@ -20654,6 +20662,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   InitialHighlight: {fileID: 585469301}
+  SpecialMalnourished: 0
 --- !u!1 &588035752
 GameObject:
   m_ObjectHideFlags: 0
@@ -21035,7 +21044,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &625102930
 Transform:
   m_ObjectHideFlags: 0
@@ -22106,7 +22115,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   CostumeName: Mask Dude
   SecretName: Earn "Hot Topic" achievement
-  Locked: 0
+  Locked: 1
   LockedSymbol: {fileID: 1319804868}
 --- !u!95 &663985252
 Animator:
@@ -23891,7 +23900,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   CostumeName: Golden Frog
   SecretName: Earn "Gold Medalist" achievement
-  Locked: 0
+  Locked: 1
   LockedSymbol: {fileID: 179891443}
 --- !u!212 &703571674
 SpriteRenderer:
@@ -24155,6 +24164,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   InitialHighlight: {fileID: 706869611}
+  SpecialMalnourished: 0
 --- !u!114 &706869614
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -25346,7 +25356,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &786565889
 Transform:
   m_ObjectHideFlags: 0
@@ -27232,6 +27242,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   InitialHighlight: {fileID: 879046210}
+  SpecialMalnourished: 0
 --- !u!1 &891602670
 GameObject:
   m_ObjectHideFlags: 0
@@ -32614,6 +32625,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   InitialHighlight: {fileID: 1107851348}
+  SpecialMalnourished: 0
 --- !u!114 &1107851351
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -32885,7 +32897,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1109747505
 Transform:
   m_ObjectHideFlags: 0
@@ -33751,6 +33763,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   InitialHighlight: {fileID: 1142390687}
+  SpecialMalnourished: 0
 --- !u!114 &1142390690
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -34063,6 +34076,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   InitialHighlight: {fileID: 1142618895}
+  SpecialMalnourished: 0
 --- !u!114 &1142618898
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -36866,6 +36880,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   InitialHighlight: {fileID: 1947218657}
+  SpecialMalnourished: 0
 --- !u!114 &1269913506
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -37686,6 +37701,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   InitialHighlight: {fileID: 1290932284}
+  SpecialMalnourished: 0
 --- !u!114 &1290932287
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -40254,7 +40270,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1313786290
 Transform:
   m_ObjectHideFlags: 0
@@ -40408,7 +40424,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1319804869
 Transform:
   m_ObjectHideFlags: 0
@@ -40539,7 +40555,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   CostumeName: Igorrr
   SecretName: Earn "Indigestible" achievement
-  Locked: 0
+  Locked: 1
   LockedSymbol: {fileID: 786565888}
 --- !u!212 &1320368559
 SpriteRenderer:
@@ -40648,6 +40664,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   InitialHighlight: {fileID: 1326888135}
+  SpecialMalnourished: 0
 --- !u!114 &1326888138
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -43557,7 +43574,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   CostumeName: g o r F
   SecretName: Earn "Lucky 200" achievement
-  Locked: 0
+  Locked: 1
   LockedSymbol: {fileID: 1109747504}
 --- !u!212 &1413412506
 SpriteRenderer:
@@ -45786,8 +45803,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   CostumeName: Rainbow Boy
-  SecretName: Earn "Disco Fever" achievement
-  Locked: 0
+  SecretName: Earn "Party Crasherr" achievement
+  Locked: 1
   LockedSymbol: {fileID: 1313786289}
 --- !u!212 &1509170902
 SpriteRenderer:
@@ -88099,6 +88116,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   InitialHighlight: {fileID: 1603703551}
+  SpecialMalnourished: 0
 --- !u!114 &1603703554
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -137629,7 +137647,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   CostumeName: Virtual Guy
   SecretName: Earn "Synthetic Scientist" achievement
-  Locked: 0
+  Locked: 1
   LockedSymbol: {fileID: 548599431}
 --- !u!95 &1665143917
 Animator:
@@ -138687,6 +138705,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   InitialHighlight: {fileID: 1700844965}
+  SpecialMalnourished: 0
 --- !u!1 &1704345273
 GameObject:
   m_ObjectHideFlags: 0
@@ -141486,7 +141505,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   CostumeName: Hopps
   SecretName: Earn "Carnist" achievement
-  Locked: 0
+  Locked: 1
   LockedSymbol: {fileID: 9762315}
 --- !u!212 &1781928985
 SpriteRenderer:
@@ -147516,6 +147535,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   InitialHighlight: {fileID: 1947218657}
+  SpecialMalnourished: 0
 --- !u!114 &1947218660
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -149225,6 +149245,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   InitialHighlight: {fileID: 2004627597}
+  SpecialMalnourished: 0
 --- !u!1 &2010644952
 GameObject:
   m_ObjectHideFlags: 0
@@ -151852,6 +151873,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   InitialHighlight: {fileID: 2118486793}
+  SpecialMalnourished: 0
 --- !u!1 &2118645957
 GameObject:
   m_ObjectHideFlags: 0
