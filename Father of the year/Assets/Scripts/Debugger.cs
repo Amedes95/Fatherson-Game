@@ -27,6 +27,39 @@ public class Debugger : MonoBehaviour
         PauseMenu.Restart();
     }
 
+    public void UnlockAllTrophies()
+    {
+
+        LevelManager.UnlockAllWorlds();
+
+        foreach (GameObject World in LevelManager.WorldsList)
+        {
+            ListofLevels CurrentWorld = World.GetComponent<ListofLevels>();
+            foreach (GameObject Level in CurrentWorld.LevelsWithinWorld)
+            {
+                string LevelID = Level.GetComponent<LevelInfo>().SceneToLoad;
+                PlayerPrefs.SetFloat(LevelID, 1);
+            }
+        }
+        PauseMenu.Restart();
+    }
+    public void LockAllTrophies()
+    {
+
+        LevelManager.UnlockAllWorlds();
+
+        foreach (GameObject World in LevelManager.WorldsList)
+        {
+            ListofLevels CurrentWorld = World.GetComponent<ListofLevels>();
+            foreach (GameObject Level in CurrentWorld.LevelsWithinWorld)
+            {
+                string LevelID = Level.GetComponent<LevelInfo>().SceneToLoad;
+                PlayerPrefs.SetFloat(LevelID, 260);
+            }
+        }
+        PauseMenu.Restart();
+    }
+
     private void Update()
     {
         if (BuggerActive == false)

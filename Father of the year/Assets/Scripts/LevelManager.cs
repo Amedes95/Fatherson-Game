@@ -75,6 +75,10 @@ public class LevelManager : MonoBehaviour
 
     public PostProcessingProfile Transition1;
 
+    public int GoldMedalsEarned;
+    float MinorDelay = .2f;
+
+
 
 
     // Start is called before the first frame update
@@ -291,6 +295,15 @@ public class LevelManager : MonoBehaviour
                 NavigateTimer = .2f;
             }
         }
+        if (MinorDelay > 0)
+        {
+            MinorDelay -= Time.smoothDeltaTime;
+            if (MinorDelay <= 0)
+            {
+                CheckForGolds();
+                MinorDelay = 0;
+            }
+        }
     }
 
     public void ResetBGs()
@@ -499,6 +512,47 @@ public class LevelManager : MonoBehaviour
         // helps change the music
         Boombox CurrentBoombox = GameObject.FindGameObjectWithTag("LevelBoombox").GetComponent<Boombox>();
         CurrentBoombox.UpdateSound();
+    }
+
+    public void CheckForGolds()
+    {
+        GoldMedalsEarned = 0;
+
+        foreach (GameObject World in WorldsList)
+        {
+            //Debug.Log("Worlds:" + World);
+            List<GameObject> WorldLevels = World.GetComponent<ListofLevels>().LevelsWithinWorld;
+            foreach (GameObject Level in WorldLevels)
+            {
+                //Debug.Log("levels:" + Level.name);
+
+                if (Level.GetComponent<LevelInfo>().GoldTierAchieved)
+                {
+                    //PlayerPrefs.SetInt("GoldMedalsEarned", GoldMedalsEarned);
+                    GoldMedalsEarned += 1;
+                }
+
+            }
+        }
+
+        /// Unlocks Oooh Shiny! Achievement
+        if (PlayerPrefs.GetInt("Oooh Shiny!") == 0 && GoldMedalsEarned >= 1)
+        {
+            PlayerPrefs.SetInt("Oooh Shiny!", 1);
+            Debug.Log("Oooh Shiny! Unlocked");
+            BackgroundMusic BGMusic = GameObject.FindGameObjectWithTag("BGMusic").GetComponent<BackgroundMusic>();
+            BGMusic.UnlockCheevo("Oooh Shiny!");
+        }
+        /// Unlocks Gold Medalist Achievement
+        if (PlayerPrefs.GetInt("Gold Medalist") == 0 && GoldMedalsEarned >= 140)
+        {
+            PlayerPrefs.SetInt("Gold Medalist", 1);
+            Debug.Log("Gold Medalist Unlocked");
+            BackgroundMusic BGMusic = GameObject.FindGameObjectWithTag("BGMusic").GetComponent<BackgroundMusic>();
+            BGMusic.UnlockCheevo("Gold Medalist");
+        }
+        PlayerPrefs.SetInt("GoldMedalsEarned", GoldMedalsEarned);
+        //Debug.Log(GoldMedalsEarned);
     }
 
 

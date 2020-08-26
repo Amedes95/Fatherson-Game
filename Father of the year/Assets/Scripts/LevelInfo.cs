@@ -22,7 +22,7 @@ public class LevelInfo : MonoBehaviour
     //public float SilverStandard;
     public float BronzeStandard;
 
-    bool GoldTierAchieved;
+    public bool GoldTierAchieved;
     bool SilverTierAchieved;
     bool BronzeTierAchieved;
     public static int GoldMedalsEarned;
@@ -90,6 +90,13 @@ public class LevelInfo : MonoBehaviour
         if (Unlocked)
         {
             LockedSymbol.SetActive(false);
+            //// GOLD?
+            if (PlayerPrefs.GetFloat(SceneToLoad) <= GoldStandard && PlayerPrefs.GetFloat(SceneToLoad) != 0) // if your time is faster than the set gold standard
+            {
+                GoldTierAchieved = true;
+                //PlayerPrefs.SetInt("GoldMedalsEarned", GoldMedalsEarned += 1);
+                //Debug.Log(GoldMedalsEarned);
+            }
         }
         else
         {
@@ -97,31 +104,12 @@ public class LevelInfo : MonoBehaviour
         }
     }
 
-    private void Awake()
+    private void Start()
     {
-
         //// GOLD?
         if (PlayerPrefs.GetFloat(SceneToLoad) <= GoldStandard && PlayerPrefs.GetFloat(SceneToLoad) != 0) // if your time is faster than the set gold standard
         {
-            PlayerPrefs.SetInt("GoldMedalsEarned", GoldMedalsEarned += 1);
-            //Debug.Log("gold trophy");
-        }
-
-        /// Unlocks Oooh Shiny! Achievement
-        if (PlayerPrefs.GetInt("Oooh Shiny!") == 0 && GoldMedalsEarned >= 1)
-        {
-            PlayerPrefs.SetInt("Oooh Shiny!", 1);
-            Debug.Log("Oooh Shiny! Unlocked");
-            BackgroundMusic BGMusic = GameObject.FindGameObjectWithTag("BGMusic").GetComponent<BackgroundMusic>();
-            BGMusic.UnlockCheevo("Oooh Shiny!");
-        }
-        /// Unlocks Gold Medalist Achievement
-        if (PlayerPrefs.GetInt("Gold Medalist") == 0 && GoldMedalsEarned >= 140)
-        {
-            PlayerPrefs.SetInt("Gold Medalist", 1);
-            Debug.Log("Gold Medalist Unlocked");
-            BackgroundMusic BGMusic = GameObject.FindGameObjectWithTag("BGMusic").GetComponent<BackgroundMusic>();
-            BGMusic.UnlockCheevo("Gold Medalist");
+            GoldTierAchieved = true;
         }
     }
 
