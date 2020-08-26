@@ -310,9 +310,15 @@ public class PlayerMovement : MonoBehaviour
             }
 
             ///// Rise and fall velocity clamps
-            if ((playerVelocity.y > riseSpeedCap) || (playerVelocity.y < fallSpeedCap))
+            if (((playerVelocity.y > riseSpeedCap)))
             {
-                playerVelocity = new Vector2(playerVelocity.x, Mathf.Clamp(playerVelocity.y, -fallSpeedCap, riseSpeedCap + .5f));
+                Debug.Log(playerVelocity.y);
+                playerVelocity = new Vector2(playerVelocity.x, riseSpeedCap);
+                //playerVelocity = new Vector2(playerVelocity.x, Mathf.Clamp(playerVelocity.y, -fallSpeedCap, riseSpeedCap));
+            }
+            else if ((playerVelocity.y < fallSpeedCap))
+            {
+                playerVelocity = new Vector2(playerVelocity.x, -fallSpeedCap);
             }
 
             ///// Movement left and right
@@ -641,7 +647,7 @@ public class PlayerMovement : MonoBehaviour
                     jumpAudioBox.PlayDoubleJumpSound();
 
                 }
-                if (isFloating && jumpCount == 0)
+                if (isFloating && jumpCount == 0 && JumpDetector.OnGround == false)
                 {
                     Jump();
                 }
