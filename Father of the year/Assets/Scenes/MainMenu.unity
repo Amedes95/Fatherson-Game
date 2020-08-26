@@ -2285,7 +2285,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   AchievementTitle: Jackpot!
   AchievementDescription: Discover Geode world
-  Locked: 0
+  Locked: 1
   Secret: 1
   LockedSymbol: {fileID: 933590113}
 --- !u!114 &73339820
@@ -3893,7 +3893,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   AchievementTitle: Fast Food
   AchievementDescription: Complete Vegan mode within 2 hours
-  Locked: 0
+  Locked: 1
   Secret: 0
   LockedSymbol: {fileID: 1719472642}
 --- !u!114 &122443327
@@ -4858,7 +4858,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   AchievementTitle: Party Crasher
   AchievementDescription: Unlocked Party setting
-  Locked: 0
+  Locked: 1
   Secret: 1
   LockedSymbol: {fileID: 980325223}
 --- !u!114 &155392316
@@ -8501,7 +8501,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   AchievementTitle: The End?
   AchievementDescription: Complete The End
-  Locked: 0
+  Locked: 1
   Secret: 1
   LockedSymbol: {fileID: 1575836658}
 --- !u!114 &271305632
@@ -10411,7 +10411,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   AchievementTitle: Oooh Shiny!
   AchievementDescription: Obtained a gold tropy on any level
-  Locked: 0
+  Locked: 1
   Secret: 0
   LockedSymbol: {fileID: 258518341}
 --- !u!114 &326744251
@@ -10524,7 +10524,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   AchievementTitle: Spoiled Appetite
   AchievementDescription: Defeat The Devourer
-  Locked: 0
+  Locked: 1
   Secret: 1
   LockedSymbol: {fileID: 1891443147}
 --- !u!114 &328100917
@@ -10676,7 +10676,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -407, y: 119.99999}
+  m_AnchoredPosition: {x: 2105, y: -197}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &330991759
@@ -10729,7 +10729,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   AchievementTitle: Snake Charmer
   AchievementDescription: Complete World 1
-  Locked: 0
+  Locked: 1
   Secret: 1
   LockedSymbol: {fileID: 1696744331}
 --- !u!95 &330991762
@@ -13113,7 +13113,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   AchievementTitle: Insatiable Appetite
   AchievementDescription: Complete Malnourished mode
-  Locked: 0
+  Locked: 1
   Secret: 0
   LockedSymbol: {fileID: 939715016}
 --- !u!114 &407329840
@@ -18507,7 +18507,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   AchievementTitle: Gold Medalist
   AchievementDescription: Earn every gold trophy in every world
-  Locked: 0
+  Locked: 1
   Secret: 0
   LockedSymbol: {fileID: 111021306}
 --- !u!114 &555519928
@@ -19733,7 +19733,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   AchievementTitle: Flea Flee
   AchievementDescription: Defeat The Great Flea
-  Locked: 0
+  Locked: 1
   Secret: 1
   LockedSymbol: {fileID: 1781377668}
 --- !u!114 &578060272
@@ -23794,7 +23794,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   AchievementTitle: Ancient Evil
   AchievementDescription: Released the spirit within the ancient tomb
-  Locked: 0
+  Locked: 1
   Secret: 1
   LockedSymbol: {fileID: 1175316403}
 --- !u!114 &701158861
@@ -24901,7 +24901,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   AchievementTitle: Doctor Repellent
   AchievementDescription: Comsume 10 apples
-  Locked: 0
+  Locked: 1
   Secret: 0
   LockedSymbol: {fileID: 1522372552}
 --- !u!114 &743599920
@@ -28074,7 +28074,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 119.99999}
+  m_AnchoredPosition: {x: 2512, y: -197}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &960278381
@@ -28127,7 +28127,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   AchievementTitle: Baby steps
   AchievementDescription: Complete world 0
-  Locked: 0
+  Locked: 1
   Secret: 1
   LockedSymbol: {fileID: 983146259}
 --- !u!95 &960278384
@@ -29034,7 +29034,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   AchievementTitle: Couch Potato
   AchievementDescription: Earn every achievement
-  Locked: 0
+  Locked: 1
   Secret: 0
   LockedSymbol: {fileID: 328591162}
 --- !u!114 &993757056
@@ -29149,7 +29149,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   AchievementTitle: Vegetarian
   AchievementDescription: Complete an entire world without failing once
-  Locked: 0
+  Locked: 1
   Secret: 0
   LockedSymbol: {fileID: 635609164}
 --- !u!114 &995057197
@@ -30021,7 +30021,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   AchievementTitle: Let's try that again
   AchievementDescription: Fail for the first time
-  Locked: 0
+  Locked: 1
   Secret: 1
   LockedSymbol: {fileID: 196952926}
 --- !u!114 &1010878199
@@ -30134,7 +30134,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   AchievementTitle: Lucky 200
   AchievementDescription: Fail 200 times
-  Locked: 0
+  Locked: 1
   Secret: 1
   LockedSymbol: {fileID: 1667192357}
 --- !u!114 &1013724041
@@ -31742,7 +31742,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   AchievementTitle: World Wide Web
   AchievementDescription: Complete World 2
-  Locked: 0
+  Locked: 1
   Secret: 1
   LockedSymbol: {fileID: 1713479838}
 --- !u!114 &1086123998
@@ -35294,7 +35294,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   AchievementTitle: Sugar Rush!
   AchievementDescription: Consume 15 lollipops
-  Locked: 0
+  Locked: 1
   Secret: 0
   LockedSymbol: {fileID: 1525005551}
 --- !u!114 &1204521206
@@ -35952,7 +35952,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   AchievementTitle: Synthetic Scientist
   AchievementDescription: Complete World 3
-  Locked: 0
+  Locked: 1
   Secret: 1
   LockedSymbol: {fileID: 969198425}
 --- !u!114 &1215070183
@@ -36784,7 +36784,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   AchievementTitle: Fashionable
   AchievementDescription: Changed your costume
-  Locked: 0
+  Locked: 1
   Secret: 1
   LockedSymbol: {fileID: 461266234}
 --- !u!114 &1265770034
@@ -38263,7 +38263,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   AchievementTitle: Pyroclastic
   AchievementDescription: Dig up a relic of the past
-  Locked: 0
+  Locked: 1
   Secret: 0
   LockedSymbol: {fileID: 116520665}
 --- !u!114 &1300656365
@@ -41396,7 +41396,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   AchievementTitle: Bonk!
   AchievementDescription: Bonk 20 enemies
-  Locked: 0
+  Locked: 1
   Secret: 0
   LockedSymbol: {fileID: 2147052492}
 --- !u!114 &1349609766
@@ -41985,7 +41985,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   AchievementTitle: Frostbitten
   AchievementDescription: Defeat The Frostbite Knight
-  Locked: 0
+  Locked: 1
   Secret: 1
   LockedSymbol: {fileID: 1706290875}
 --- !u!114 &1361421085
@@ -42918,7 +42918,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   AchievementTitle: Indigestible
   AchievementDescription: Complete Boss Rush
-  Locked: 0
+  Locked: 1
   Secret: 0
   LockedSymbol: {fileID: 673685046}
 --- !u!114 &1385488095
@@ -86545,7 +86545,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   AchievementTitle: Hippidy Hoppidy
   AchievementDescription: Defeated Doctor Hopps
-  Locked: 0
+  Locked: 1
   Secret: 1
   LockedSymbol: {fileID: 1581310651}
 --- !u!114 &1557234626
@@ -86664,7 +86664,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   AchievementTitle: Cold Shoulder
   AchievementDescription: Complete World 5
-  Locked: 0
+  Locked: 1
   Secret: 1
   LockedSymbol: {fileID: 2014255507}
 --- !u!114 &1559832798
@@ -138244,7 +138244,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   AchievementTitle: Fossilized
   AchievementDescription: Unlocked Fossilized setting
-  Locked: 0
+  Locked: 1
   Secret: 1
   LockedSymbol: {fileID: 84858968}
 --- !u!114 &1656405094
@@ -139245,7 +139245,7 @@ GameObject:
   - component: {fileID: 1698083910}
   - component: {fileID: 1698083909}
   m_Layer: 0
-  m_Name: Party Animal
+  m_Name: Web of secrets
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -139307,9 +139307,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 69c79e73b13e3a84abb4859e879d22ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AchievementTitle: Party Animal
-  AchievementDescription: Discover the secret of the spiders
-  Locked: 0
+  AchievementTitle: Web of Secrets
+  AchievementDescription: Discover the spider cave
+  Locked: 1
   Secret: 0
   LockedSymbol: {fileID: 296890479}
 --- !u!114 &1698083911
@@ -139766,7 +139766,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   AchievementTitle: Carnist
   AchievementDescription: Complete Vegan Mode
-  Locked: 0
+  Locked: 1
   Secret: 0
   LockedSymbol: {fileID: 1729267409}
 --- !u!114 &1705020395
@@ -140097,7 +140097,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   AchievementTitle: Fashion Statement
   AchievementDescription: Collect all costumes
-  Locked: 0
+  Locked: 1
   Secret: 1
   LockedSymbol: {fileID: 1877093918}
 --- !u!114 &1713224748
@@ -140896,7 +140896,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   AchievementTitle: Absolutely Bonkers
   AchievementDescription: Bonk 100 enemies
-  Locked: 0
+  Locked: 1
   Secret: 0
   LockedSymbol: {fileID: 1156884266}
 --- !u!114 &1723629115
@@ -141316,7 +141316,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 407, y: 119.99999}
+  m_AnchoredPosition: {x: 2919, y: -197}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1738064140
@@ -141369,7 +141369,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   AchievementTitle: Noobie
   AchievementDescription: Complete your first level
-  Locked: 0
+  Locked: 1
   Secret: 0
   LockedSymbol: {fileID: 158508589}
 --- !u!95 &1738064143
@@ -141467,7 +141467,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   AchievementTitle: Nutritious!
   AchievementDescription: Comsume 50 apples
-  Locked: 0
+  Locked: 1
   Secret: 0
   LockedSymbol: {fileID: 1241891504}
 --- !u!114 &1743249019
@@ -142788,7 +142788,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   AchievementTitle: Fungus Among Us
   AchievementDescription: Deafeat The Fungi 5
-  Locked: 0
+  Locked: 1
   Secret: 1
   LockedSymbol: {fileID: 551966102}
 --- !u!114 &1787469986
@@ -144574,7 +144574,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   AchievementTitle: 20th time's the charm
   AchievementDescription: Fail 20 times
-  Locked: 0
+  Locked: 1
   Secret: 1
   LockedSymbol: {fileID: 1307111780}
 --- !u!114 &1829044635
@@ -148150,16 +148150,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5981030734712421035, guid: b5bdddb827a561143a0adac71f74a341,
-        type: 3}
-      propertyPath: m_SortingLayerID
-      value: 1512684217
-      objectReference: {fileID: 0}
-    - target: {fileID: 5981030734712421035, guid: b5bdddb827a561143a0adac71f74a341,
-        type: 3}
-      propertyPath: m_SortingLayer
-      value: 5
-      objectReference: {fileID: 0}
     - target: {fileID: 5981030734712421032, guid: b5bdddb827a561143a0adac71f74a341,
         type: 3}
       propertyPath: m_Enabled
@@ -148169,6 +148159,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Constraints
       value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 5981030734712421035, guid: b5bdddb827a561143a0adac71f74a341,
+        type: 3}
+      propertyPath: m_SortingLayerID
+      value: 1512684217
+      objectReference: {fileID: 0}
+    - target: {fileID: 5981030734712421035, guid: b5bdddb827a561143a0adac71f74a341,
+        type: 3}
+      propertyPath: m_SortingLayer
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 227443779, guid: b5bdddb827a561143a0adac71f74a341, type: 3}
       propertyPath: m_Controller
@@ -149776,7 +149776,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   AchievementTitle: Bonk Expert
   AchievementDescription: Bonk 60 enemies
-  Locked: 0
+  Locked: 1
   Secret: 0
   LockedSymbol: {fileID: 2027069632}
 --- !u!114 &1986470470
@@ -151495,7 +151495,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   AchievementTitle: Ghastly Escape
   AchievementDescription: Escaped The Ghost
-  Locked: 0
+  Locked: 1
   Secret: 1
   LockedSymbol: {fileID: 1031286542}
 --- !u!114 &2058134814
@@ -152904,7 +152904,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   AchievementTitle: Hot Topic
   AchievementDescription: Complete World 4
-  Locked: 0
+  Locked: 1
   Secret: 1
   LockedSymbol: {fileID: 1485831152}
 --- !u!114 &2118645961

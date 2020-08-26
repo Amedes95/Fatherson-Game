@@ -51,6 +51,7 @@ public class CostumeManager : MonoBehaviour
         CostumeIndex = PlayerPrefs.GetInt("CostumeIndex");
         ToggleVsibility();
 
+        // achievement for unlocking all costumes
         if (PlayerPrefs.GetInt("Ancient Evil") == 1 && PlayerPrefs.GetInt("Flea Flee") == 1 && PlayerPrefs.GetInt("Fungus Among Us") == 1 && PlayerPrefs.GetInt("Ghastly Escape") == 1 && PlayerPrefs.GetInt("Party Crasher") == 1 && PlayerPrefs.GetInt("Carnist") == 1 && PlayerPrefs.GetInt("Lucky 200") == 1 && PlayerPrefs.GetInt("Indigestible") == 1) // oops hard code, fuck it
         {
             /// Unlocks Fashion Statement Achievement

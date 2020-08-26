@@ -70,13 +70,13 @@ public class SecretGoal : MonoBehaviour
             if (PartyPortal) // party portal, yeah baby
             {
                 VictoryScreen.NextLevel = "Party01";
-                /// Unlocks Party Animal Achievement
-                if (PlayerPrefs.GetInt("Party Animal") == 0)
+                /// Unlocks Web of Secrets Achievement
+                if (PlayerPrefs.GetInt("Web of Secrets") == 0)
                 {
-                    PlayerPrefs.SetInt("Party Animal", 1);
-                    Debug.Log("Party Animal Unlocked");
+                    PlayerPrefs.SetInt("Web of Secrets", 1);
+                    Debug.Log("Web of Secrets Unlocked");
                     BackgroundMusic BGMusic = GameObject.FindGameObjectWithTag("BGMusic").GetComponent<BackgroundMusic>();
-                    BGMusic.UnlockCheevo("Party Animal");
+                    BGMusic.UnlockCheevo("Web of Secrets");
                 }
             }
             else if (OldTimeyPortal) // huh, what that sonny?

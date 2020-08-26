@@ -22,6 +22,8 @@ public class AchievementManager : MonoBehaviour
     int LeftIndex;
     int RightIndex;
 
+    float NavigateTimer = .2f;
+    bool AbleToNavigate;
 
 
     // Start is called before the first frame update
@@ -29,6 +31,7 @@ public class AchievementManager : MonoBehaviour
     {
         PrimaryIndex = 0;
         ToggleVisibility();
+        CheckCompletion();
     }
 
     // Update is called once per frame
@@ -49,15 +52,28 @@ public class AchievementManager : MonoBehaviour
             AchievementNameText.text = PrimaryHighlight.GetComponent<AchievementInfo>().AchievementTitle;
         }
 
+
+        // debug tool
         if (Input.GetKeyDown(KeyCode.Space))
         {
             PlayerPrefs.SetInt(PrimaryHighlight.GetComponent<AchievementInfo>().AchievementTitle, 1);
             ToggleVisibility();
         }
+        if ((Input.GetKey(KeyCode.RightArrow) || Input.GetKey(KeyCode.D)) && AbleToNavigate)
+        {
+            ScrollRight();
+            AbleToNavigate = false;
+        }
+        else if ((Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.A)) && AbleToNavigate)
+        {
+            ScrollLeft();
+            AbleToNavigate = false;
+        }
     }
 
     public void ScrollRight()
     {
+
         if (PrimaryIndex != Achievements.Count - 1) // if you are not the last in the list
         {
             PrimaryIndex += 1;
@@ -105,10 +121,6 @@ public class AchievementManager : MonoBehaviour
             LeftHighlight = Achievements[Achievements.Count - 2];
         }
 
-        //PrimaryHighlight.transform.localScale = MainHighlightPos.transform.localScale;
-        //LeftHighlight.transform.localScale = LeftPreviewPos.transform.localScale;
-        //RightHighlight.transform.localScale = RightPreviewPos.transform.localScale;
-
         foreach (GameObject Achievement in Achievements)
         {
             if (Achievement == LeftHighlight || Achievement == RightHighlight || Achievement == PrimaryHighlight)
@@ -128,11 +140,52 @@ public class AchievementManager : MonoBehaviour
                 Achievement.SetActive(false);
             }
         }
-        Debug.Log(PrimaryHighlight);
+        //Debug.Log(PrimaryHighlight);
         PrimaryHighlight.GetComponent<Animator>().SetBool("Active", true);
 
 
     }
 
+
+    private void FixedUpdate()
+    {
+        if (AbleToNavigate == false)
+        {
+            NavigateTimer -= Time.smoothDeltaTime;
+            if (NavigateTimer <= 0)
+            {
+                AbleToNavigate = true;
+                NavigateTimer = .2f;
+            }
+        }
+    }
+
+    public void CheckCompletion()
+    {
+        int CheevosUnlocked = 0; // fresh count
+
+        foreach (GameObject Cheevo in Achievements) // cycle all cheevos
+        {
+            if (PlayerPrefs.GetInt(Cheevo.GetComponent<AchievementInfo>().AchievementTitle) == 1) // am i unlocked? yes? + 1
+            {
+                CheevosUnlocked += 1;
+            }
+        }
+
+
+
+        Debug.Log(CheevosUnlocked);
+        if (CheevosUnlocked >= 38)
+        {
+            /// Unlocks Couch Potato Achievement
+            if (PlayerPrefs.GetInt("Couch Potato") == 0)
+            {
+                PlayerPrefs.SetInt("Couch Potato", 1);
+                Debug.Log("Couch Potato");
+                BackgroundMusic BGMusic = GameObject.FindGameObjectWithTag("BGMusic").GetComponent<BackgroundMusic>();
+                BGMusic.UnlockCheevo("Couch Potato");
+            }
+        }
+    }
 
 }

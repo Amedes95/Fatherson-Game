@@ -57,6 +57,8 @@ public class Debugger : MonoBehaviour
                 PlayerPrefs.SetFloat(LevelID, 260);
             }
         }
+        PlayerPrefs.SetInt("GoldMedalsEarned", 0);
+        PlayerPrefs.SetInt("Gold Medalist", 0);
         PauseMenu.Restart();
     }
 
