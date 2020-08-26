@@ -38,14 +38,6 @@ public class FinalLevel : MonoBehaviour
                     BackgroundMusic BGMusic = GameObject.FindGameObjectWithTag("BGMusic").GetComponent<BackgroundMusic>();
                     BGMusic.UnlockCheevo("Flea Flee");
                 }
-                /// Unlocks Disco Fever Achievement
-                if (PlayerPrefs.GetInt("Disco Fever") == 0 && PlayerPrefs.GetInt("PartyModeON") == 1)
-                {
-                    PlayerPrefs.SetInt("Disco Fever", 1);
-                    Debug.Log("Disco Fever Unlocked");
-                    BackgroundMusic BGMusic = GameObject.FindGameObjectWithTag("BGMusic").GetComponent<BackgroundMusic>();
-                    BGMusic.UnlockCheevo("Disco Fever");
-                }
             }
             if (SceneManager.GetActiveScene().name == "TurnipRescue") // turnip rescued, unlock new world
             {
@@ -60,14 +52,6 @@ public class FinalLevel : MonoBehaviour
                     Debug.Log("Spoiled Appetite");
                     BackgroundMusic BGMusic = GameObject.FindGameObjectWithTag("BGMusic").GetComponent<BackgroundMusic>();
                     BGMusic.UnlockCheevo("Spoiled Appetite");
-                }
-                /// Unlocks Disco Fever Achievement
-                if (PlayerPrefs.GetInt("Disco Fever") == 0 && PlayerPrefs.GetInt("PartyModeON") == 1)
-                {
-                    PlayerPrefs.SetInt("Disco Fever", 1);
-                    Debug.Log("Disco Fever Unlocked");
-                    BackgroundMusic BGMusic = GameObject.FindGameObjectWithTag("BGMusic").GetComponent<BackgroundMusic>();
-                    BGMusic.UnlockCheevo("Disco Fever");
                 }
             }
             if (SceneManager.GetActiveScene().name == "CornRescue") // rescue corn, unlock new world
@@ -110,14 +94,6 @@ public class FinalLevel : MonoBehaviour
                     BackgroundMusic BGMusic = GameObject.FindGameObjectWithTag("BGMusic").GetComponent<BackgroundMusic>();
                     BGMusic.UnlockCheevo("Fungus Among Us");
                 }
-                /// Unlocks Disco Fever Achievement
-                if (PlayerPrefs.GetInt("Disco Fever") == 0 && PlayerPrefs.GetInt("PartyModeON") == 1)
-                {
-                    PlayerPrefs.SetInt("Disco Fever", 1);
-                    Debug.Log("Disco Fever Unlocked");
-                    BackgroundMusic BGMusic = GameObject.FindGameObjectWithTag("BGMusic").GetComponent<BackgroundMusic>();
-                    BGMusic.UnlockCheevo("Disco Fever");
-                }
             }
             if (SceneManager.GetActiveScene().name == "TomatoRescue") // rescue tomato, unlock new world
             {
@@ -133,14 +109,6 @@ public class FinalLevel : MonoBehaviour
                     BackgroundMusic BGMusic = GameObject.FindGameObjectWithTag("BGMusic").GetComponent<BackgroundMusic>();
                     BGMusic.UnlockCheevo("Ghastly Escape");
                 }
-                /// Unlocks Disco Fever Achievement
-                if (PlayerPrefs.GetInt("Disco Fever") == 0 && PlayerPrefs.GetInt("PartyModeON") == 1)
-                {
-                    PlayerPrefs.SetInt("Disco Fever", 1);
-                    Debug.Log("Disco Fever Unlocked");
-                    BackgroundMusic BGMusic = GameObject.FindGameObjectWithTag("BGMusic").GetComponent<BackgroundMusic>();
-                    BGMusic.UnlockCheevo("Disco Fever");
-                }
             }
             if (SceneManager.GetActiveScene().name == "PotatoRescue") // rescue potato, unlock new world
             {
@@ -155,14 +123,6 @@ public class FinalLevel : MonoBehaviour
                     Debug.Log("Frostbitten");
                     BackgroundMusic BGMusic = GameObject.FindGameObjectWithTag("BGMusic").GetComponent<BackgroundMusic>();
                     BGMusic.UnlockCheevo("Frostbitten");
-                }
-                /// Unlocks Disco Fever Achievement
-                if (PlayerPrefs.GetInt("Disco Fever") == 0 && PlayerPrefs.GetInt("PartyModeON") == 1)
-                {
-                    PlayerPrefs.SetInt("Disco Fever", 1);
-                    Debug.Log("Disco Fever Unlocked");
-                    BackgroundMusic BGMusic = GameObject.FindGameObjectWithTag("BGMusic").GetComponent<BackgroundMusic>();
-                    BGMusic.UnlockCheevo("Disco Fever");
                 }
             }
             if (SceneManager.GetActiveScene().name == "W6BOSS") // w6 boss beaten
