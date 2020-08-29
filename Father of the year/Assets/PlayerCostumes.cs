@@ -14,6 +14,9 @@ public class PlayerCostumes : MonoBehaviour
     public AnimatorOverrideController InvertedOverride;
     public AnimatorOverrideController CyclopsOverride;
     public AnimatorOverrideController BonesOverride;
+    public AnimatorOverrideController GrampsOverride;
+    public AnimatorOverrideController FrostOverride;
+
 
 
 
@@ -71,9 +74,17 @@ public class PlayerCostumes : MonoBehaviour
         {
             CurrentAnimator.runtimeAnimatorController = CyclopsOverride;
         }
-        else if (PlayerPrefs.GetInt("CostumeIndex") == 9) // Bones
+        else if (PlayerPrefs.GetInt("CostumeIndex") == 9) // Famine
         {
             CurrentAnimator.runtimeAnimatorController = BonesOverride;
+        }
+        else if (PlayerPrefs.GetInt("CostumeIndex") == 10) // Gramps
+        {
+            CurrentAnimator.runtimeAnimatorController = GrampsOverride;
+        }
+        else if (PlayerPrefs.GetInt("CostumeIndex") == 11) // Frost
+        {
+            CurrentAnimator.runtimeAnimatorController = FrostOverride;
         }
     }
 }

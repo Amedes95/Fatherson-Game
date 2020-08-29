@@ -1,0 +1,415 @@
+fileFormatVersion: 2
+guid: 8317c4e3680fd9b498202cd15b05db8c
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 4106829706670097883
+    second: Run-(32x32)_0
+  - first:
+      213: -6721352399907733404
+    second: Run-(32x32)_1
+  - first:
+      213: -273563260252964284
+    second: Run-(32x32)_2
+  - first:
+      213: -6460687866756920428
+    second: Run-(32x32)_3
+  - first:
+      213: -8500460498225220197
+    second: Run-(32x32)_4
+  - first:
+      213: -5809557771669204545
+    second: Run-(32x32)_5
+  - first:
+      213: 1414727793212118619
+    second: Run-(32x32)_6
+  - first:
+      213: 2414129368935898221
+    second: Run-(32x32)_7
+  - first:
+      213: 292576661018502970
+    second: Run-(32x32)_8
+  - first:
+      213: -6800025557846797848
+    second: Run-(32x32)_9
+  - first:
+      213: -2029474239027551092
+    second: Run-(32x32)_10
+  - first:
+      213: -3942608919945944493
+    second: Run-(32x32)_11
+  externalObjects: {}
+  serializedVersion: 10
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: -1
+    mipBias: -100
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: iPhone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Run-(32x32)_0
+      rect:
+        serializedVersion: 2
+        x: 6
+        y: 3
+        width: 24
+        height: 28
+      alignment: 9
+      pivot: {x: 0.5, y: 0.4285715}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 219ada43ca84d5d42b7a49bbdbdea4d4
+      internalID: 4106829706670097883
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Run-(32x32)_1
+      rect:
+        serializedVersion: 2
+        x: 38
+        y: 4
+        width: 24
+        height: 28
+      alignment: 9
+      pivot: {x: 0.50227517, y: 0.42857155}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c6421eae9fba7e6498337352ae3d89f1
+      internalID: -6721352399907733404
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Run-(32x32)_2
+      rect:
+        serializedVersion: 2
+        x: 70
+        y: 4
+        width: 24
+        height: 28
+      alignment: 9
+      pivot: {x: 0.5045497, y: 0.4285715}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3c2aa3a9dcbe1df44b8a7244c81562eb
+      internalID: -273563260252964284
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Run-(32x32)_3
+      rect:
+        serializedVersion: 2
+        x: 102
+        y: 2
+        width: 24
+        height: 28
+      alignment: 9
+      pivot: {x: 0.5000003, y: 0.4285715}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 38bc5417701795244abc8c8eab18cde4
+      internalID: -6460687866756920428
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Run-(32x32)_4
+      rect:
+        serializedVersion: 2
+        x: 133
+        y: 0
+        width: 26
+        height: 28
+      alignment: 9
+      pivot: {x: 0.5000006, y: 0.4285715}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e575dfb8362b40b42920df7a159cbacb
+      internalID: -8500460498225220197
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Run-(32x32)_5
+      rect:
+        serializedVersion: 2
+        x: 165
+        y: 0
+        width: 26
+        height: 28
+      alignment: 9
+      pivot: {x: 0.5000006, y: 0.4285715}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 17638001453a7894b9179168fc50ea92
+      internalID: -5809557771669204545
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Run-(32x32)_6
+      rect:
+        serializedVersion: 2
+        x: 197
+        y: 3
+        width: 25
+        height: 28
+      alignment: 9
+      pivot: {x: 0.5000006, y: 0.4285715}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2485f91389d056e48961661e96534f30
+      internalID: 1414727793212118619
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Run-(32x32)_7
+      rect:
+        serializedVersion: 2
+        x: 229
+        y: 4
+        width: 25
+        height: 28
+      alignment: 9
+      pivot: {x: 0.5043683, y: 0.4285715}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c4dacbd8fe9296e4fbd8330aaa26b660
+      internalID: 2414129368935898221
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Run-(32x32)_8
+      rect:
+        serializedVersion: 2
+        x: 261
+        y: 4
+        width: 25
+        height: 28
+      alignment: 9
+      pivot: {x: 0.50218385, y: 0.4285715}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 632c99d0edf8c94429613d6811a0c5ee
+      internalID: 292576661018502970
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Run-(32x32)_9
+      rect:
+        serializedVersion: 2
+        x: 293
+        y: 2
+        width: 25
+        height: 28
+      alignment: 9
+      pivot: {x: 0.5000012, y: 0.4285715}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0e6a3cc15f0043449882ef8e0eb3c73d
+      internalID: -6800025557846797848
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Run-(32x32)_10
+      rect:
+        serializedVersion: 2
+        x: 325
+        y: 0
+        width: 26
+        height: 28
+      alignment: 9
+      pivot: {x: 0.5, y: 0.4285715}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4e33a37c7566f7b459ee2a5954fc5f26
+      internalID: -2029474239027551092
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Run-(32x32)_11
+      rect:
+        serializedVersion: 2
+        x: 357
+        y: 0
+        width: 26
+        height: 28
+      alignment: 9
+      pivot: {x: 0.5, y: 0.4285715}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3e71fa25ab7089a46b9c952005989bde
+      internalID: -3942608919945944493
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

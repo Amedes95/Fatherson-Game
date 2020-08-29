@@ -78,6 +78,22 @@ public class CostumeInfo : MonoBehaviour
                 LockedSymbol.SetActive(true);
             }
         }
+        else if (CostumeName == "Frost") // unlocks frost after completing world 5 boss
+        {
+            if (PlayerPrefs.GetInt("Frostbitten") == 1)
+            {
+                Locked = false;
+                gameObject.GetComponent<SpriteRenderer>().enabled = true;
+                LockedSymbol.SetActive(false);
+            }
+            else
+            {
+                Locked = true;
+                gameObject.GetComponent<SpriteRenderer>().enabled = false;
+                LockedSymbol.SetActive(true);
+            }
+        }
+
         else if (CostumeName == "Rainbow Boy") // unlocks Rainbow Boy after completing party world
         {
             if (PlayerPrefs.GetInt("Party Crasher") == 1)
@@ -93,9 +109,9 @@ public class CostumeInfo : MonoBehaviour
                 LockedSymbol.SetActive(true);
             }
         }
-        else if (CostumeName == "Hopps") // unlocks Hopps after beating Vegan mode
+        else if (CostumeName == "Hopps") // unlocks Hopps after beating Vegan mode under 2 hours
         {
-            if (PlayerPrefs.GetInt("Carnist") == 1)
+            if (PlayerPrefs.GetInt("Fast Food") == 1)
             {
                 Locked = false;
                 gameObject.GetComponent<SpriteRenderer>().enabled = true;
@@ -138,9 +154,24 @@ public class CostumeInfo : MonoBehaviour
                 LockedSymbol.SetActive(true);
             }
         }
-        else if (CostumeName == "Bones") // unlocks bones after completing malnourished mode
+        else if (CostumeName == "Famine") // unlocks bones after completing malnourished mode
         {
             if (PlayerPrefs.GetInt("Insatiable Appetite") == 1)
+            {
+                Locked = false;
+                gameObject.GetComponent<SpriteRenderer>().enabled = true;
+                LockedSymbol.SetActive(false);
+            }
+            else
+            {
+                Locked = true;
+                gameObject.GetComponent<SpriteRenderer>().enabled = false;
+                LockedSymbol.SetActive(true);
+            }
+        }
+        else if (CostumeName == "Gramps") // unlocks gramps after completing retro world
+        {
+            if (PlayerPrefs.GetInt("Fossilized") == 1)
             {
                 Locked = false;
                 gameObject.GetComponent<SpriteRenderer>().enabled = true;
