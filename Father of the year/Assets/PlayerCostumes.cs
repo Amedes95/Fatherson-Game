@@ -13,6 +13,8 @@ public class PlayerCostumes : MonoBehaviour
     public AnimatorOverrideController BunnyOverride;
     public AnimatorOverrideController InvertedOverride;
     public AnimatorOverrideController CyclopsOverride;
+    public AnimatorOverrideController BonesOverride;
+
 
 
 
@@ -68,6 +70,10 @@ public class PlayerCostumes : MonoBehaviour
         else if (PlayerPrefs.GetInt("CostumeIndex") == 8) // Igorrr
         {
             CurrentAnimator.runtimeAnimatorController = CyclopsOverride;
+        }
+        else if (PlayerPrefs.GetInt("CostumeIndex") == 9) // Bones
+        {
+            CurrentAnimator.runtimeAnimatorController = BonesOverride;
         }
     }
 }

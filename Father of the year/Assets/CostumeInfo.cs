@@ -78,7 +78,7 @@ public class CostumeInfo : MonoBehaviour
                 LockedSymbol.SetActive(true);
             }
         }
-        else if (CostumeName == "Rainbow Boy") // unlocks Rainbow Boy after completing a full world in party mode
+        else if (CostumeName == "Rainbow Boy") // unlocks Rainbow Boy after completing party world
         {
             if (PlayerPrefs.GetInt("Party Crasher") == 1)
             {
@@ -108,7 +108,7 @@ public class CostumeInfo : MonoBehaviour
                 LockedSymbol.SetActive(true);
             }
         }
-        else if (CostumeName == "g o r F") // unlocks GORF after failing 100 times
+        else if (CostumeName == "g o r F") // unlocks GORF after failing 200 times
         {
             if (PlayerPrefs.GetInt("Lucky 200") == 1)
             {
@@ -126,6 +126,21 @@ public class CostumeInfo : MonoBehaviour
         else if (CostumeName == "Igorrr") // unlocks Igorrr after completing boss rush
         {
             if (PlayerPrefs.GetInt("Indigestible") == 1)
+            {
+                Locked = false;
+                gameObject.GetComponent<SpriteRenderer>().enabled = true;
+                LockedSymbol.SetActive(false);
+            }
+            else
+            {
+                Locked = true;
+                gameObject.GetComponent<SpriteRenderer>().enabled = false;
+                LockedSymbol.SetActive(true);
+            }
+        }
+        else if (CostumeName == "Bones") // unlocks bones after completing malnourished mode
+        {
+            if (PlayerPrefs.GetInt("Insatiable Appetite") == 1)
             {
                 Locked = false;
                 gameObject.GetComponent<SpriteRenderer>().enabled = true;
