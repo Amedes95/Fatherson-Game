@@ -52,7 +52,7 @@ public class CostumeManager : MonoBehaviour
         ToggleVsibility();
 
         // achievement for unlocking all costumes
-        if (PlayerPrefs.GetInt("Ancient Evil") == 1 && PlayerPrefs.GetInt("Flea Flee") == 1 && PlayerPrefs.GetInt("Fungus Among Us") == 1 && PlayerPrefs.GetInt("Ghastly Escape") == 1 && PlayerPrefs.GetInt("Party Crasher") == 1 && PlayerPrefs.GetInt("Fast Food") == 1 && PlayerPrefs.GetInt("Lucky 200") == 1 && PlayerPrefs.GetInt("Indigestible") == 1 && PlayerPrefs.GetInt("Insatiable Appetite") == 1 && PlayerPrefs.GetInt("Frostbitten") == 1 && PlayerPrefs.GetInt("Fossilized") == 1) // oops hard code, fuck it
+        if (PlayerPrefs.GetInt("Ancient Evil") == 1 && PlayerPrefs.GetInt("Flea Flee") == 1 && PlayerPrefs.GetInt("Fungus Among Us") == 1 && PlayerPrefs.GetInt("Ghastly Escape") == 1 && PlayerPrefs.GetInt("Party Crasher") == 1 && PlayerPrefs.GetInt("Fast Food") == 1 && PlayerPrefs.GetInt("Lucky 200") == 1 && PlayerPrefs.GetInt("Indigestible") == 1 && PlayerPrefs.GetInt("Insatiable Appetite") == 1 && PlayerPrefs.GetInt("Frostbitten") == 1 && PlayerPrefs.GetInt("Fossilized") == 1 && PlayerPrefs.GetInt("Spoiled Appetite") == 1) // oops hard code, fuck it
         {
             /// Unlocks Fashion Statement Achievement
             if (PlayerPrefs.GetInt("Fashion Statement") == 0)

@@ -27,7 +27,7 @@ public class CreditsManager : MonoBehaviour
     private void Update()
     {
         Camera.transform.position = Vector3.MoveTowards(Camera.transform.position, CurrentDestination.position, CameraSpeed); // constantly move the camera to the "Current Destination"
-        if (WatchingOutro && (Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.Escape) || Input.GetButtonDown("Pause")) && Camera.transform.position != CurrentDestination.position && GoalParent.transform.localPosition.y != 9.5) // skips intro
+        if (( Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.Escape) || Input.GetButtonDown("Pause")) && GoalParent.transform.localPosition.y != 9.5 && Skipping == false) // skips intro
         {
             SkipCanvas.SetActive(true);
         }

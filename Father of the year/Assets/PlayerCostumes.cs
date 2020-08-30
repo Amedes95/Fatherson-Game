@@ -16,6 +16,8 @@ public class PlayerCostumes : MonoBehaviour
     public AnimatorOverrideController BonesOverride;
     public AnimatorOverrideController GrampsOverride;
     public AnimatorOverrideController FrostOverride;
+    public AnimatorOverrideController CavityOverride;
+
 
 
 
@@ -85,6 +87,10 @@ public class PlayerCostumes : MonoBehaviour
         else if (PlayerPrefs.GetInt("CostumeIndex") == 11) // Frost
         {
             CurrentAnimator.runtimeAnimatorController = FrostOverride;
+        }
+        else if (PlayerPrefs.GetInt("CostumeIndex") == 12) // Cavity
+        {
+            CurrentAnimator.runtimeAnimatorController = CavityOverride;
         }
     }
 }

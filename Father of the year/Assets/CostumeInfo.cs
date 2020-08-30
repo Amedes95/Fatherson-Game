@@ -33,7 +33,7 @@ public class CostumeInfo : MonoBehaviour
                 LockedSymbol.SetActive(true);
             }
         }
-        else if (CostumeName == "Pink Man") // unlocks pink man after completing world 1
+        else if (CostumeName == "Pink Man") // unlocks pink man after completing world 1 boss
         {
             if (PlayerPrefs.GetInt("Flea Flee") == 1)
             {
@@ -172,6 +172,21 @@ public class CostumeInfo : MonoBehaviour
         else if (CostumeName == "Gramps") // unlocks gramps after completing retro world
         {
             if (PlayerPrefs.GetInt("Fossilized") == 1)
+            {
+                Locked = false;
+                gameObject.GetComponent<SpriteRenderer>().enabled = true;
+                LockedSymbol.SetActive(false);
+            }
+            else
+            {
+                Locked = true;
+                gameObject.GetComponent<SpriteRenderer>().enabled = false;
+                LockedSymbol.SetActive(true);
+            }
+        }
+        else if (CostumeName == "Cavity") // unlocks Cavity after beating world 2 boss
+        {
+            if (PlayerPrefs.GetInt("Spoiled Appetite") == 1)
             {
                 Locked = false;
                 gameObject.GetComponent<SpriteRenderer>().enabled = true;
