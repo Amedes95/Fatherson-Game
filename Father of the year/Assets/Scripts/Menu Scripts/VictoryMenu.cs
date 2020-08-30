@@ -108,7 +108,7 @@ public class VictoryMenu : MonoBehaviour
         {
             VictoryScreen.SetActive(true);
             //NextButton.GetComponent<UIControllerSupport>().FindFocus();
-            if (Input.GetKeyDown(KeyCode.Space) || Input.GetButtonDown("Pause"))
+            if ((Input.GetKeyDown(KeyCode.Space) || Input.GetButtonDown("Pause")) && SceneManager.GetActiveScene().name != "EndCredits")
             {
                 LoadNextLevel();
             }
