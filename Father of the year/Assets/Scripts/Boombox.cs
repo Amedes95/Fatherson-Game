@@ -31,6 +31,7 @@ public class Boombox : MonoBehaviour
     public TextMeshProUGUI CheevoText;
     float VeganTimer;
     public bool KeepNormalMusic;
+    string[] temp;
 
 
     // Start is called before the first frame update
@@ -77,54 +78,18 @@ public class Boombox : MonoBehaviour
         }
 
         //Get Joystick Names
-        string[] temp = Input.GetJoystickNames();
+        temp = Input.GetJoystickNames();
 
         //Check whether array contains anything
         if (temp.Length > 0)
         {
-            //Iterate over every element
-            for (int i = 0; i < temp.Length; ++i)
-            {
-
-                //Check if the string is empty or not
-                if (!string.IsNullOrEmpty(temp[i]))
-                {
-                    //Not empty, controller temp[i] is connected
-                    ControllerModeEnabled = true;
-                    Cursor.visible = false;
-                    Cursor.lockState = CursorLockMode.Locked;
-                    //Debug.Log("Controller Used:" + temp[i].ToString());
-
-                    // This is a shitty way of identifying what controller you have, but it works
-                    if (temp[i].ToString() == "Controller (Xbox One For Windows)") // xbox
-                    {
-                        //Debug.Log("That's an xbox controller plugged in");
-                        PS4Enabled = false;
-                    }
-                    else if (temp[i].ToString() == "Wireless Controller") // ps4
-                    {
-                        //Debug.Log("PS4 Plugged");
-                        PS4Enabled = true;
-                    }
-                    else
-                    {
-                        XboxEnabled = true;
-                    }
-
-                }
-                else
-                {
-                    ControllerModeEnabled = false;
-                    Cursor.visible = true;
-                    Cursor.lockState = CursorLockMode.None;
-                    //If it is empty, controller i is disconnected
-                    //where i indicates the controller number
-                }
-            }
+            CheckControllers();
         }
 
         if (ControllerModeEnabled) // controller is physically plugged in
         {
+            Cursor.visible = false;
+            Cursor.lockState = CursorLockMode.Locked;
             RumbleEnabled = true; // always enable if controller is physically plugged in
 
             if (RumbleEnabled && PlayerPrefs.GetFloat("RumbleToggled") == 1 && PauseMenu.GameIsPaused == false) // but we don't enable rumnble unless it is toggled on
@@ -144,13 +109,13 @@ public class Boombox : MonoBehaviour
                     }
                 }
             }
-
-
         }
         else
         {
-            RumbleEnabled = false;
+            Cursor.visible = true;
+            Cursor.lockState = CursorLockMode.None;
         }
+
     }
 
     private void FixedUpdate()
@@ -226,5 +191,35 @@ public class Boombox : MonoBehaviour
         BGMusic.CompareSongs();
 
     }
+
+    public void CheckControllers()
+    {
+        for (int i = 0; i < temp.Length; ++i) // go through the inputs
+        {
+            if (temp[i].ToString() == "Controller (Xbox One For Windows)") // xbox controller match
+            {
+                ControllerModeEnabled = true;
+                Debug.Log("Xbox Controller connected");
+                PS4Enabled = false;
+                break;
+            }
+            else if (temp[i].ToString() == "Wireless Controller") // ps4 controller match
+            {
+                ControllerModeEnabled = true;
+                Debug.Log("ps4 Controller connected");
+                PS4Enabled = true;
+                break;
+            }
+            else // neither ps4 or xbox
+            {
+                ControllerModeEnabled = false;
+                Debug.Log("No controller connected");
+                PS4Enabled = false;
+                RumbleEnabled = false;
+            }
+        }
+
+    }
+
 
 }

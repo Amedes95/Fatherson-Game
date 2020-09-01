@@ -117,8 +117,9 @@ public class PlayerMovement : MonoBehaviour
             {
                 JumpInput = "PS4Jump";
             }
-            else if (Boombox.PS4Enabled == false) // everything but ps4
+            else // everything but ps4
             {
+                Debug.Log("Xbox jump");
                 JumpInput = "JumpController";
             }
         }
@@ -617,7 +618,7 @@ public class PlayerMovement : MonoBehaviour
             {
                 JumpInput = "PS4Jump";
             }
-            else if (Boombox.PS4Enabled == false) // everything but ps4
+            else // everything but ps4
             {
                 JumpInput = "JumpController";
             }
