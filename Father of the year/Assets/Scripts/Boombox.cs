@@ -19,6 +19,8 @@ public class Boombox : MonoBehaviour
     public static bool EditorMode;
 
     public static bool ControllerModeEnabled;
+    public static bool XboxEnabled;
+    public static bool PS4Enabled;
 
     public static float vibrateDuration = 0f;
     public static float LowSpeed;
@@ -83,6 +85,7 @@ public class Boombox : MonoBehaviour
             //Iterate over every element
             for (int i = 0; i < temp.Length; ++i)
             {
+
                 //Check if the string is empty or not
                 if (!string.IsNullOrEmpty(temp[i]))
                 {
@@ -93,9 +96,19 @@ public class Boombox : MonoBehaviour
                     //Debug.Log("Controller Used:" + temp[i].ToString());
 
                     // This is a shitty way of identifying what controller you have, but it works
-                    if (temp[i].ToString() == "Controller (Xbox One For Windows)")
+                    if (temp[i].ToString() == "Controller (Xbox One For Windows)") // xbox
                     {
                         //Debug.Log("That's an xbox controller plugged in");
+                        PS4Enabled = false;
+                    }
+                    else if (temp[i].ToString() == "Wireless Controller") // ps4
+                    {
+                        //Debug.Log("PS4 Plugged");
+                        PS4Enabled = true;
+                    }
+                    else
+                    {
+                        XboxEnabled = true;
                     }
 
                 }

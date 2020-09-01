@@ -72,6 +72,9 @@ public class LevelManager : MonoBehaviour
 
     public GameObject SpaceBarText;
     public GameObject AText;
+    public GameObject XText;
+    StandaloneInputModule Inputs;
+
 
     public PostProcessingProfile Transition1;
 
@@ -155,8 +158,21 @@ public class LevelManager : MonoBehaviour
         {
             NavAxis = "UINavigateHorizontal";
             VerticalAxis = "UINavigateVertical";
+            if (Boombox.PS4Enabled)
+            {
+                Inputs = GameObject.FindGameObjectWithTag("EventSystem").GetComponent<StandaloneInputModule>();
+                Inputs.submitButton = "PS4Submit";
+                AText.SetActive(false);
+                XText.SetActive(true);
+            }
+            else
+            {
+                Inputs = GameObject.FindGameObjectWithTag("EventSystem").GetComponent<StandaloneInputModule>();
+                Inputs.submitButton = "Submit";
+                AText.SetActive(true);
+                XText.SetActive(false);
+            }
             SpaceBarText.SetActive(false);
-            AText.SetActive(true);
         }
         else
         {
@@ -164,6 +180,9 @@ public class LevelManager : MonoBehaviour
             VerticalAxis = "UINavigate2Vertical";
             SpaceBarText.SetActive(true);
             AText.SetActive(false);
+            XText.SetActive(false);
+            Inputs = GameObject.FindGameObjectWithTag("EventSystem").GetComponent<StandaloneInputModule>();
+            Inputs.submitButton = "Submit";
         }
 
         ActiveWorld = WorldsList[WorldIndex];
@@ -251,7 +270,7 @@ public class LevelManager : MonoBehaviour
 
 
             // loads scene when space is press and camera is at new pos
-            if ((Input.GetButtonDown("Submit")) && Camera.transform.position == NewPos)
+            if ((Input.GetButtonDown(Inputs.submitButton.ToString())) && Camera.transform.position == NewPos)
             {
                 if (ActiveWorld.GetComponent<ListofLevels>().LevelsWithinWorld[LevelIndex].GetComponent<LevelInfo>().Unlocked)
                 {

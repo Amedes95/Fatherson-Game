@@ -10,6 +10,7 @@ public class ControlScreen : MonoBehaviour
 {
 
     public GameObject XboxButtons;
+    public GameObject PS4Buttons;
     public GameObject MouseButtons;
 
     public GameObject RumbleOn;
@@ -27,7 +28,14 @@ public class ControlScreen : MonoBehaviour
             ControllerConnected.SetActive(true);
             ControllerDisconnected.SetActive(false);
             ToggleButton.enabled = true;
-            XboxButtons.SetActive(true);
+            if (Boombox.PS4Enabled)
+            {
+                PS4Buttons.SetActive(true);
+            }
+            else
+            {
+                XboxButtons.SetActive(true);
+            }
             MouseButtons.SetActive(false);
             if (PlayerPrefs.GetFloat("RumbleToggled") == 1) // disconnected but still on
             {
@@ -42,6 +50,7 @@ public class ControlScreen : MonoBehaviour
             ToggleButton.enabled = false;
             MouseButtons.SetActive(true);
             XboxButtons.SetActive(false);
+            PS4Buttons.SetActive(false);
 
             RumbleOn.SetActive(false);
             RumbleOff.SetActive(true);

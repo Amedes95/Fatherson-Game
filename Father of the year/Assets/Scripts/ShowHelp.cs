@@ -14,6 +14,10 @@ public class ShowHelp : MonoBehaviour
 
     bool TouchingZone;
 
+    public GameObject XboxJumpButton;
+    public GameObject PS4JumpButton;
+    public bool ControllerSpecial;
+
 
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -78,6 +82,19 @@ public class ShowHelp : MonoBehaviour
                     InfoBubble.SetBool("ControllerActive", true);
                     ControllerBubble.SetBool("ControllerActive", true);
                     ControllerBubble.SetBool("Helping", true);
+                    if (ControllerSpecial)
+                    {
+                        if (Boombox.PS4Enabled)
+                        {
+                            XboxJumpButton.SetActive(false);
+                            PS4JumpButton.SetActive(true);
+                        }
+                        else
+                        {
+                            XboxJumpButton.SetActive(true);
+                            PS4JumpButton.SetActive(false);
+                        }
+                    }
                 }
                 else
                 {

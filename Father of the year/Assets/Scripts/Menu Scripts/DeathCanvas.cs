@@ -18,6 +18,7 @@ public class DeathCanvas : MonoBehaviour
 
     public GameObject SpaceBarText;
     public GameObject PressStartText;
+    public GameObject PressOptionsText;
 
     public GameObject MalnourishedDisplay;
     public TextMeshProUGUI DeathCountDisplay;
@@ -40,12 +41,22 @@ public class DeathCanvas : MonoBehaviour
         if (Boombox.ControllerModeEnabled)
         {
             SpaceBarText.SetActive(false);
-            PressStartText.SetActive(true);
+            if (Boombox.PS4Enabled)
+            {
+                PressOptionsText.SetActive(true);
+                PressStartText.SetActive(false);
+            }
+            else
+            {
+                PressOptionsText.SetActive(false);
+                PressStartText.SetActive(true);
+            }
         }
         else
         {
             SpaceBarText.SetActive(true);
             PressStartText.SetActive(false);
+            PressOptionsText.SetActive(false);
         }
 
         if (PlayerPrefs.GetInt("MalnourishedMode") == 1)
@@ -90,7 +101,7 @@ public class DeathCanvas : MonoBehaviour
             {
                 DeathMenu.SetActive(true);
             }
-            if (Input.GetKeyDown(KeyCode.Space) || Input.GetButtonDown("Pause"))
+            if (Input.GetKeyDown(KeyCode.Space) || Input.GetButtonDown("Pause") || Input.GetButtonDown("PS4Pause"))
             {
                 if (PlayerPrefs.GetInt("MalnourishedMode") == 1 && PlayerPrefs.GetInt("MalnourishedLives") > 0)
                 {

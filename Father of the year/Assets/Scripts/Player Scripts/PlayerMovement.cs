@@ -113,9 +113,16 @@ public class PlayerMovement : MonoBehaviour
         // Detect the method of input we should be referencing
         if (Boombox.ControllerModeEnabled)
         {
-            JumpInput = "JumpController";
+            if (Boombox.PS4Enabled) // ps4
+            {
+                JumpInput = "PS4Jump";
+            }
+            else if (Boombox.PS4Enabled == false) // everything but ps4
+            {
+                JumpInput = "JumpController";
+            }
         }
-        else
+        else // no controller, use keyboard
         {
             JumpInput = "Jump";
         }
@@ -603,9 +610,17 @@ public class PlayerMovement : MonoBehaviour
 
     private void Update()
     {
+        // Detect the method of input we should be referencing
         if (Boombox.ControllerModeEnabled)
         {
-            JumpInput = "JumpController";
+            if (Boombox.PS4Enabled) // ps4
+            {
+                JumpInput = "PS4Jump";
+            }
+            else if (Boombox.PS4Enabled == false) // everything but ps4
+            {
+                JumpInput = "JumpController";
+            }
         }
         else
         {

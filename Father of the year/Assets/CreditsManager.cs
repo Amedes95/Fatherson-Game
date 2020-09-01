@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.EventSystems;
 
 
 public class CreditsManager : MonoBehaviour
@@ -23,11 +24,36 @@ public class CreditsManager : MonoBehaviour
     public GameObject Credits;
     bool Skipping;
     public GameObject GoalParent;
+    StandaloneInputModule Inputs;
+
 
     private void Update()
     {
+        if (Boombox.ControllerModeEnabled)
+        {
+            if (Boombox.PS4Enabled)
+            {
+                Inputs = GameObject.FindGameObjectWithTag("EventSystem").GetComponent<StandaloneInputModule>();
+                Inputs.submitButton = "PS4Submit";
+                Inputs.cancelButton = "PS4Cancel";
+            }
+            else
+            {
+                Inputs = GameObject.FindGameObjectWithTag("EventSystem").GetComponent<StandaloneInputModule>();
+                Inputs.cancelButton = "Cancel";
+                Inputs.submitButton = "Submit";
+            }
+        }
+        else
+        {
+            Inputs = GameObject.FindGameObjectWithTag("EventSystem").GetComponent<StandaloneInputModule>();
+            Inputs.cancelButton = "Cancel";
+            Inputs.submitButton = "Submit";
+        }
+
+
         Camera.transform.position = Vector3.MoveTowards(Camera.transform.position, CurrentDestination.position, CameraSpeed); // constantly move the camera to the "Current Destination"
-        if (( Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.Escape) || Input.GetButtonDown("Pause")) && GoalParent.transform.localPosition.y != 9.5 && Skipping == false) // skips intro
+        if (( Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.Escape) || Input.GetButtonDown("Pause") || Input.GetButtonDown("PS4Pause")) && GoalParent.transform.localPosition.y != 9.5 && Skipping == false) // skips intro
         {
             SkipCanvas.SetActive(true);
         }

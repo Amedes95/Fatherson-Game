@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using UnityEngine.EventSystems;
 
 
 public class MainMenu : MonoBehaviour
@@ -56,6 +57,8 @@ public class MainMenu : MonoBehaviour
     public GameObject LockedImage;
 
     public float CameraSpeed;
+    StandaloneInputModule Inputs;
+
 
     private void Update()
     {
@@ -69,7 +72,29 @@ public class MainMenu : MonoBehaviour
             MoreButton.interactable = false;
             LockedImage.SetActive(true);
         }
-        if (Input.GetButtonDown("Cancel"))
+        if (Boombox.ControllerModeEnabled)
+        {
+            if (Boombox.PS4Enabled)
+            {
+                Inputs = GameObject.FindGameObjectWithTag("EventSystem").GetComponent<StandaloneInputModule>();
+                Inputs.submitButton = "PS4Submit";
+                Inputs.cancelButton = "PS4Cancel";
+            }
+            else
+            {
+                Inputs = GameObject.FindGameObjectWithTag("EventSystem").GetComponent<StandaloneInputModule>();
+                Inputs.cancelButton = "Cancel";
+                Inputs.submitButton = "Submit";
+            }
+        }
+        else
+        {
+            Inputs = GameObject.FindGameObjectWithTag("EventSystem").GetComponent<StandaloneInputModule>();
+            Inputs.cancelButton = "Cancel";
+            Inputs.submitButton = "Submit";
+        }
+
+        if (Input.GetButtonDown(Inputs.cancelButton.ToString()))
         {
             if (EditingSounds)
             {
@@ -129,7 +154,7 @@ public class MainMenu : MonoBehaviour
 
 
         Camera.transform.position = Vector3.MoveTowards(Camera.transform.position, CurrentDestination.position, CameraSpeed); // constantly move the camera to the "Current Destination"
-        if (WatchingIntro && (Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.Escape) || Input.GetButtonDown("Pause")) && Camera.transform.position != CurrentDestination.position) // skips intro
+        if (WatchingIntro && (Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.Escape) || Input.GetButtonDown("Pause") || Input.GetButtonDown("PS4Pause")) && Camera.transform.position != CurrentDestination.position) // skips intro
         {
             SkipCanvas.SetActive(true);
         }

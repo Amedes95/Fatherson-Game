@@ -6,6 +6,7 @@ using UnityEngine.PostProcessing;
 using TMPro;
 using UnityEngine.InputSystem;
 using UnityEngine.UIElements;
+using UnityEngine.EventSystems;
 
 
 public class PauseMenu : MonoBehaviour
@@ -56,6 +57,10 @@ public class PauseMenu : MonoBehaviour
     public bool SecretLevel;
     public string SecretLevelReturnWorld;
 
+    string CancelInput;
+    StandaloneInputModule Inputs;
+
+
 
     // Start is called before the first frame update
     void Awake()
@@ -70,8 +75,6 @@ public class PauseMenu : MonoBehaviour
         var Blurry = Transition1.depthOfField.settings;
         Blurry.focalLength = 0f;
         Transition1.depthOfField.settings = Blurry;
-
-
     }
 
     private void Start()
@@ -125,11 +128,31 @@ public class PauseMenu : MonoBehaviour
 
         if (Boombox.ControllerModeEnabled)
         {
-            PauseInput = "Pause";
+            if (Boombox.PS4Enabled)
+            {
+                PauseInput = "PS4Pause";
+
+                Inputs = GameObject.FindGameObjectWithTag("EventSystem").GetComponent<StandaloneInputModule>();
+                Inputs.submitButton = "PS4Submit";
+                Inputs.cancelButton = "PS4Cancel";
+                CancelInput = "PS4Cancel";
+            }
+            else
+            {
+                Inputs = GameObject.FindGameObjectWithTag("EventSystem").GetComponent<StandaloneInputModule>();
+                PauseInput = "Pause";
+                Inputs.cancelButton = "Cancel";
+                CancelInput = "Cancel";
+                Inputs.submitButton = "Submit";
+            }
         }
         else
         {
             PauseInput = "Escape";
+            Inputs = GameObject.FindGameObjectWithTag("EventSystem").GetComponent<StandaloneInputModule>();
+            Inputs.cancelButton = "Cancel";
+            Inputs.submitButton = "Submit";
+            CancelInput = "Cancel";
         }
 
         if (Boombox.ControllerModeEnabled)
@@ -143,7 +166,7 @@ public class PauseMenu : MonoBehaviour
             ControllerDisconnected.SetActive(true);
         }
 
-        if (Input.GetButtonDown("Cancel"))
+        if (Input.GetButtonDown(Inputs.cancelButton.ToString()))
         {
 
             if (EditingAudio)
