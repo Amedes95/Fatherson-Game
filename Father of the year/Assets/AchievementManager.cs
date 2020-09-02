@@ -53,12 +53,12 @@ public class AchievementManager : MonoBehaviour
         }
 
 
-        // debug tool
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            PlayerPrefs.SetInt(PrimaryHighlight.GetComponent<AchievementInfo>().AchievementTitle, 1);
-            ToggleVisibility();
-        }
+        //// debug tool
+        //if (Input.GetKeyDown(KeyCode.Space))
+        //{
+        //    PlayerPrefs.SetInt(PrimaryHighlight.GetComponent<AchievementInfo>().AchievementTitle, 1);
+        //    ToggleVisibility();
+        //}
         if ((Input.GetKey(KeyCode.RightArrow) || Input.GetKey(KeyCode.D)) && AbleToNavigate)
         {
             ScrollRight();
