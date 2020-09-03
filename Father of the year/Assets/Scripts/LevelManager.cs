@@ -158,12 +158,24 @@ public class LevelManager : MonoBehaviour
         {
             NavAxis = "UINavigateHorizontal";
             VerticalAxis = "UINavigateVertical";
+
             if (Boombox.PS4Enabled)
             {
-                Inputs = GameObject.FindGameObjectWithTag("EventSystem").GetComponent<StandaloneInputModule>();
-                Inputs.submitButton = "PS4Submit";
                 AText.SetActive(false);
                 XText.SetActive(true);
+
+                if (Application.platform != (RuntimePlatform.LinuxPlayer) && Application.platform != (RuntimePlatform.LinuxEditor)) // don't change for Linux
+                {
+                    Inputs = GameObject.FindGameObjectWithTag("EventSystem").GetComponent<StandaloneInputModule>();
+                    Inputs.submitButton = "PS4Submit";
+                }
+                else
+                {
+                    Inputs = GameObject.FindGameObjectWithTag("EventSystem").GetComponent<StandaloneInputModule>();
+                    Inputs.submitButton = "Submit";
+                }
+
+
             }
             else
             {

@@ -76,9 +76,19 @@ public class MainMenu : MonoBehaviour
         {
             if (Boombox.PS4Enabled)
             {
-                Inputs = GameObject.FindGameObjectWithTag("EventSystem").GetComponent<StandaloneInputModule>();
-                Inputs.submitButton = "PS4Submit";
-                Inputs.cancelButton = "PS4Cancel";
+                if (Application.platform != (RuntimePlatform.LinuxPlayer) && Application.platform != (RuntimePlatform.LinuxEditor)) // if not Linux, change controls
+                {
+                    Inputs = GameObject.FindGameObjectWithTag("EventSystem").GetComponent<StandaloneInputModule>();
+                    Inputs.submitButton = "PS4Submit";
+                    Inputs.cancelButton = "PS4Cancel";
+                }
+                else // using Linux, make default
+                {
+                    Inputs = GameObject.FindGameObjectWithTag("EventSystem").GetComponent<StandaloneInputModule>();
+                    Inputs.submitButton = "Submit";
+                    Inputs.cancelButton = "Cancel";
+                }
+
             }
             else
             {

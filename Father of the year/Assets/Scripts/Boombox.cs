@@ -79,12 +79,16 @@ public class Boombox : MonoBehaviour
 
         //Get Joystick Names
         temp = Input.GetJoystickNames();
-        
 
+        Debug.Log("LENGTH:" + temp.Length);
         //Check whether array contains anything
         if (temp.Length > 0)
         {
             CheckControllers();
+        }
+        else
+        {
+            ControllerModeEnabled = false;
         }
 
         if (ControllerModeEnabled) // controller is physically plugged in

@@ -25,6 +25,7 @@ public class DeathCanvas : MonoBehaviour
     public GameObject MalnourishedButton;
 
     public TextMeshProUGUI RespawnText;
+    string PauseInput;
 
 
     public PostProcessingProfile Transition1; // For film grain
@@ -92,7 +93,28 @@ public class DeathCanvas : MonoBehaviour
         Transition1.grain.settings = Grainy;
         //////////////////
 
-
+        if (Boombox.ControllerModeEnabled)
+        {
+            if (Boombox.PS4Enabled) // ps4
+            {
+                if (Application.platform != (RuntimePlatform.LinuxPlayer) && Application.platform != (RuntimePlatform.LinuxEditor)) // don't change controls for Linux drivers
+                {
+                    PauseInput = "PS4Pause";
+                }
+                else
+                {
+                    PauseInput = "Pause";
+                }
+            }
+            else
+            {
+                PauseInput = "Pause";
+            }
+        }
+        else
+        {
+            PauseInput = "Pause";
+        }
 
         // activated death screen when player dies
         if (PlayerHealth.Dead)
@@ -101,7 +123,7 @@ public class DeathCanvas : MonoBehaviour
             {
                 DeathMenu.SetActive(true);
             }
-            if (Input.GetKeyDown(KeyCode.Space) || Input.GetButtonDown("Pause") || Input.GetButtonDown("PS4Pause"))
+            if (Input.GetKeyDown(KeyCode.Space) || Input.GetButtonDown(PauseInput))
             {
                 if (PlayerPrefs.GetInt("MalnourishedMode") == 1 && PlayerPrefs.GetInt("MalnourishedLives") > 0)
                 {

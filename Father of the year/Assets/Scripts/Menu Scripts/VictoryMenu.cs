@@ -29,6 +29,7 @@ public class VictoryMenu : MonoBehaviour
     public GameObject MalnourishedText;
 
     public GameObject RestartButtonBoss;
+    string PauseInput;
 
 
     private void Awake()
@@ -104,11 +105,35 @@ public class VictoryMenu : MonoBehaviour
         }
         ////////////////////////////////////
 
+        if (Boombox.ControllerModeEnabled)
+        {
+            if (Boombox.PS4Enabled) // ps4
+            {
+                if (Application.platform != (RuntimePlatform.LinuxPlayer) && Application.platform != (RuntimePlatform.LinuxEditor)) // don't change controls for Linux drivers
+                {
+                    PauseInput = "PS4Pause";
+                }
+                else
+                {
+                    PauseInput = "Pause";
+                }
+            }
+            else
+            {
+                PauseInput = "Pause";
+            }
+        }
+        else
+        {
+            PauseInput = "Pause";
+        }
+
+
         if (GoalReached)
         {
             VictoryScreen.SetActive(true);
             //NextButton.GetComponent<UIControllerSupport>().FindFocus();
-            if ((Input.GetKeyDown(KeyCode.Space) || Input.GetButtonDown("Pause") || Input.GetButtonDown("PS4Pause")) && SceneManager.GetActiveScene().name != "EndCredits")
+            if ((Input.GetKeyDown(KeyCode.Space) || Input.GetButtonDown(PauseInput) && SceneManager.GetActiveScene().name != "EndCredits"))
             {
                 LoadNextLevel();
             }

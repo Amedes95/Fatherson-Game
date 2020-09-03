@@ -115,9 +115,13 @@ public class PlayerMovement : MonoBehaviour
         {
             if (Boombox.PS4Enabled) // ps4
             {
-                if (Application.platform != (RuntimePlatform.LinuxPlayer) || Application.platform != (RuntimePlatform.LinuxEditor)) // don't change controls for Linux drivers
+                if (Application.platform != (RuntimePlatform.LinuxPlayer) && Application.platform != (RuntimePlatform.LinuxEditor)) // don't change controls for Linux drivers
                 {
                     JumpInput = "PS4Jump";
+                }
+                else
+                {
+                    JumpInput = "JumpController";
                 }
             }
             else // everything but ps4
@@ -619,7 +623,14 @@ public class PlayerMovement : MonoBehaviour
         {
             if (Boombox.PS4Enabled) // ps4
             {
-                JumpInput = "PS4Jump";
+                if (Application.platform != (RuntimePlatform.LinuxPlayer) && Application.platform != (RuntimePlatform.LinuxEditor)) // don't change controls for Linux drivers
+                {
+                    JumpInput = "PS4Jump";
+                }
+                else
+                {
+                    JumpInput = "JumpController";
+                }
             }
             else // everything but ps4
             {

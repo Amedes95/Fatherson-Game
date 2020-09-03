@@ -130,12 +130,24 @@ public class PauseMenu : MonoBehaviour
         {
             if (Boombox.PS4Enabled)
             {
-                PauseInput = "PS4Pause";
+                if (Application.platform != (RuntimePlatform.LinuxPlayer) && Application.platform != (RuntimePlatform.LinuxEditor)) // if not Linux, change controls
+                {
+                    PauseInput = "PS4Pause";
 
-                Inputs = GameObject.FindGameObjectWithTag("EventSystem").GetComponent<StandaloneInputModule>();
-                Inputs.submitButton = "PS4Submit";
-                Inputs.cancelButton = "PS4Cancel";
-                CancelInput = "PS4Cancel";
+                    Inputs = GameObject.FindGameObjectWithTag("EventSystem").GetComponent<StandaloneInputModule>();
+                    Inputs.submitButton = "PS4Submit";
+                    Inputs.cancelButton = "PS4Cancel";
+                    CancelInput = "PS4Cancel";
+                }
+                else // If Linux
+                {
+                    Inputs = GameObject.FindGameObjectWithTag("EventSystem").GetComponent<StandaloneInputModule>();
+                    PauseInput = "Pause";
+                    Inputs.cancelButton = "Cancel";
+                    CancelInput = "Cancel";
+                    Inputs.submitButton = "Submit";
+                }
+
             }
             else
             {
