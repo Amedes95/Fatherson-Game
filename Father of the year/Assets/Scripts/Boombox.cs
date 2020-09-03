@@ -81,6 +81,7 @@ public class Boombox : MonoBehaviour
         temp = Input.GetJoystickNames();
 
         Debug.Log("LENGTH:" + temp.Length);
+        Debug.Log("CONTROLER NAME: " + temp.ToString());
         //Check whether array contains anything
         if (temp.Length > 0)
         {
