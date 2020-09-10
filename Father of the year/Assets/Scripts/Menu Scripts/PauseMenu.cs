@@ -57,7 +57,6 @@ public class PauseMenu : MonoBehaviour
     public bool SecretLevel;
     public string SecretLevelReturnWorld;
 
-    string CancelInput;
     StandaloneInputModule Inputs;
 
 
@@ -137,14 +136,12 @@ public class PauseMenu : MonoBehaviour
                     Inputs = GameObject.FindGameObjectWithTag("EventSystem").GetComponent<StandaloneInputModule>();
                     Inputs.submitButton = "PS4Submit";
                     Inputs.cancelButton = "PS4Cancel";
-                    CancelInput = "PS4Cancel";
                 }
                 else // If Linux
                 {
                     Inputs = GameObject.FindGameObjectWithTag("EventSystem").GetComponent<StandaloneInputModule>();
                     PauseInput = "Pause";
                     Inputs.cancelButton = "Cancel";
-                    CancelInput = "Cancel";
                     Inputs.submitButton = "Submit";
                 }
 
@@ -154,7 +151,6 @@ public class PauseMenu : MonoBehaviour
                 Inputs = GameObject.FindGameObjectWithTag("EventSystem").GetComponent<StandaloneInputModule>();
                 PauseInput = "Pause";
                 Inputs.cancelButton = "Cancel";
-                CancelInput = "Cancel";
                 Inputs.submitButton = "Submit";
             }
         }
@@ -164,7 +160,6 @@ public class PauseMenu : MonoBehaviour
             Inputs = GameObject.FindGameObjectWithTag("EventSystem").GetComponent<StandaloneInputModule>();
             Inputs.cancelButton = "Cancel";
             Inputs.submitButton = "Submit";
-            CancelInput = "Cancel";
         }
 
         if (Boombox.ControllerModeEnabled)

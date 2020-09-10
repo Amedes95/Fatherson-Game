@@ -6,7 +6,6 @@ public class SpiritBoss : MonoBehaviour
 {
     Animator BossAnim;
     GameObject Player;
-    int FaceDirection;
     Vector2 FloatDirection;
     public float FloatSpeed;
     public bool Floating;
@@ -57,12 +56,10 @@ public class SpiritBoss : MonoBehaviour
             if (Player.transform.position.x < transform.position.x) // if the player is to the left of the boss
             {
                 transform.localScale = new Vector2(Mathf.Abs(transform.localScale.x), transform.localScale.y);
-                FaceDirection = -1;
             }
             else if (Player.transform.position.x > transform.position.x) // right of boss
             {
                 transform.localScale = new Vector2(-Mathf.Abs(transform.localScale.x), transform.localScale.y);
-                FaceDirection = 1;
             }
 
         }

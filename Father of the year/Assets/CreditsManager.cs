@@ -11,7 +11,6 @@ public class CreditsManager : MonoBehaviour
     public GameObject SkipCanvas;
 
     bool AtCreditsArea;
-    bool WatchingOutro;
 
     GameObject Camera;
     Transform CurrentDestination; // this one gets set by the others
@@ -150,7 +149,6 @@ public class CreditsManager : MonoBehaviour
         CreditsScreen.SetActive(false);
         Camera = GameObject.FindGameObjectWithTag("MainCamera");
 
-        WatchingOutro = true;
         CameraSpeed = .05f;
         Camera.transform.position = IntroDestination.position; // start the camera at the beginning for now, maybe put something in later that doesn't play after the first time
         LoadOutroSequenec();
@@ -167,7 +165,6 @@ public class CreditsManager : MonoBehaviour
     public void SkipOutro()
     {
         Skipping = true;
-        WatchingOutro = false;
         Camera.transform.position = CurrentDestination.position;
         SkipCanvas.SetActive(false);
         LoadOutroSequenec();
