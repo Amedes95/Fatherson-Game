@@ -32,6 +32,8 @@ public class Boombox : MonoBehaviour
     float VeganTimer;
     public bool KeepNormalMusic;
     string[] temp;
+    public Texture2D CursorTexture;
+    public Texture2D CursorTexture2;
 
 
     // Start is called before the first frame update
@@ -60,7 +62,9 @@ public class Boombox : MonoBehaviour
             BGMusic = GameObject.FindGameObjectWithTag("BGMusic").GetComponent<BackgroundMusic>();
             BGMusic.CompareSongs();
         }
+        Cursor.SetCursor(CursorTexture, Vector2.zero, CursorMode.ForceSoftware);
     }
+
 
     private void Update()
     {
@@ -75,6 +79,14 @@ public class Boombox : MonoBehaviour
         else if(PlayerPrefs.GetInt("PartyModeON") == 0 && PlayerPrefs.GetInt("OldTimeyON") == 0 && KeepNormalMusic == false)
         {
             LevelMusic = NormalMusic;
+        }
+        if (Input.GetMouseButton(0))
+        {
+            Cursor.SetCursor(CursorTexture2, Vector2.zero, CursorMode.ForceSoftware);
+        }
+        else if (Input.GetMouseButtonUp(0))
+        {
+            Cursor.SetCursor(CursorTexture, Vector2.zero, CursorMode.ForceSoftware);
         }
 
         //Get Joystick Names
