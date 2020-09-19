@@ -16,12 +16,12 @@ public class FinalLevel : MonoBehaviour
             {
                 PlayerPrefs.SetInt("Tutorial_Complete", 1);
                 /// Unlocks Baby Steps Achievement
-                if (PlayerPrefs.GetInt("Baby steps") == 0)
+                if (PlayerPrefs.GetInt("Baby Steps") == 0)
                 {
                     PlayerPrefs.SetInt("Baby steps", 1);
-                    Debug.Log("Baby steps Unlocked");
+                    Debug.Log("Baby Steps Unlocked");
                     BackgroundMusic BGMusic = GameObject.FindGameObjectWithTag("BGMusic").GetComponent<BackgroundMusic>();
-                    BGMusic.UnlockCheevo("Baby steps");
+                    BGMusic.UnlockCheevo("Baby Steps");
                 }
             }
             if (SceneManager.GetActiveScene().name == "CarrotRescue") // rescue carrot, unlock new world

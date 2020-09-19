@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using Steamworks;
 
 public class AchievementInfo : MonoBehaviour
 {
@@ -17,7 +18,16 @@ public class AchievementInfo : MonoBehaviour
     {
         Locked = true;
         LockedSymbol.SetActive(true);
-
+        if (PlayerPrefs.GetInt(AchievementTitle) == 1)
+        {
+            SteamUserStats.SetAchievement(AchievementTitle); // If you DO have the achievement lcoally but steam doesn't think so, update it here
+            SteamUserStats.StoreStats();
+        }
+        else
+        {
+            SteamUserStats.ClearAchievement(AchievementTitle); // if you DONT have the achievement locally but steam says you do, remove it from steam
+            SteamUserStats.StoreStats();
+        }
     }
 
     // Update is called once per frame

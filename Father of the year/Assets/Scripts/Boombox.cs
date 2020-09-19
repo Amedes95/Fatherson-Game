@@ -92,8 +92,8 @@ public class Boombox : MonoBehaviour
         //Get Joystick Names
         temp = Input.GetJoystickNames();
 
-        Debug.Log("LENGTH:" + temp.Length);
-        Debug.Log("CONTROLER NAME: " + temp.ToString());
+        //Debug.Log("LENGTH:" + temp.Length);
+        //Debug.Log("CONTROLER NAME: " + temp.ToString());
         //Check whether array contains anything
         if (temp.Length > 0)
         {
@@ -185,7 +185,7 @@ public class Boombox : MonoBehaviour
 
     public void UpdateSound()
     {
-        Debug.Log("Updating Sound");
+        //Debug.Log("Updating Sound");
         if (PlayerPrefs.GetInt("PartyModeON") == 1 && KeepNormalMusic == false)
         {
             LevelMusic = PartyMixtape;
@@ -217,14 +217,14 @@ public class Boombox : MonoBehaviour
             if (temp[i].ToString() == "Controller (Xbox One For Windows)" || temp[i].ToString() == "XInput Controller") // xbox controller match
             {
                 ControllerModeEnabled = true;
-                Debug.Log("Xbox Controller connected");
+                //Debug.Log("Xbox Controller connected");
                 PS4Enabled = false;
                 break;
             }
             else if (temp[i].ToString() == "Wireless Controller" || temp[i].ToString() == "PS4 Controller") // ps4 controller match
             {
                 ControllerModeEnabled = true;
-                Debug.Log("ps4 Controller connected");
+                //Debug.Log("ps4 Controller connected");
                 PS4Enabled = true;
                 break;
             }

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using TMPro;
+using Steamworks;
 
 public class BackgroundMusic : MonoBehaviour
 {
@@ -58,6 +59,16 @@ public class BackgroundMusic : MonoBehaviour
     {
         CheevoText.text = "Achievement Unlocked: " + CheevoName;
         gameObject.GetComponentInChildren<Animator>().SetTrigger("Unlock");
+        if (SteamManager.Initialized) // initialized steam only
+        {
+            UnlockSteamCheevo(CheevoName);
+        }
+    }
 
+    public void UnlockSteamCheevo(string SteamName)
+    {
+        SteamUserStats.SetAchievement(SteamName);
+        SteamUserStats.StoreStats();
+        Debug.Log("Steam cheevo unlocked");
     }
 }

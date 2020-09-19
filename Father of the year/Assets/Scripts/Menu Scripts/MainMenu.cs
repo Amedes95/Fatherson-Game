@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
+using Steamworks;
 
 
 public class MainMenu : MonoBehaviour
@@ -244,6 +245,7 @@ public class MainMenu : MonoBehaviour
 
         VisualsScreen.Partying = false;
         VisualsScreen.BeingOld = false;
+        ScanCheevos();
     }
 
     public void Start()
@@ -324,6 +326,15 @@ public class MainMenu : MonoBehaviour
         // helps change the music
         Boombox CurrentBoombox = GameObject.FindGameObjectWithTag("LevelBoombox").GetComponent<Boombox>();
         CurrentBoombox.UpdateSound();
+
+        // wipe Steam achievements
+        List<GameObject> Cheevos = AchievementMenu.GetComponent<AchievementManager>().Achievements; // get achievement list (39 totatl)
+        foreach (GameObject Achievement in Cheevos)
+        {
+            string CheevoName = Achievement.GetComponent<AchievementInfo>().AchievementTitle; // get ID
+            SteamUserStats.ClearAchievement(CheevoName); // clear cheevo
+            SteamUserStats.StoreStats();
+        }
     }
 
     public void LoadSoundSettings() // from settings to sound settings
@@ -417,6 +428,24 @@ public class MainMenu : MonoBehaviour
         CurrentDestination = BonusGamesDestination;
         CameraSpeed = .4f;
         StatsMenu.SetActive(false);
+    }
+
+    public void ScanCheevos() // on awake, scan achievments to resolve offline/online desync
+    {
+        List<GameObject> Achievements = AchievementMenu.GetComponent<AchievementManager>().Achievements;
+        foreach (GameObject Cheevo in Achievements)
+        {
+            if (PlayerPrefs.GetInt(Cheevo.GetComponent<AchievementInfo>().AchievementTitle) == 1)
+            {
+                SteamUserStats.SetAchievement(Cheevo.GetComponent<AchievementInfo>().AchievementTitle); // If you DO have the achievement lcoally but steam doesn't think so, update it here
+                SteamUserStats.StoreStats();
+            }
+            else
+            {
+                SteamUserStats.ClearAchievement(Cheevo.GetComponent<AchievementInfo>().AchievementTitle); // if you DONT have the achievement locally but steam says you do, remove it from steam
+                SteamUserStats.StoreStats();
+            }
+        }
     }
 
 }
