@@ -108,7 +108,7 @@ public class Boombox : MonoBehaviour
         {
             Cursor.visible = false;
             Cursor.lockState = CursorLockMode.Locked;
-            RumbleEnabled = true; // always enable if controller is physically plugged in
+            //RumbleEnabled = true; // always enable if controller is physically plugged in
 
             if (RumbleEnabled && PlayerPrefs.GetFloat("RumbleToggled") == 1 && PauseMenu.GameIsPaused == false) // but we don't enable rumnble unless it is toggled on
             {

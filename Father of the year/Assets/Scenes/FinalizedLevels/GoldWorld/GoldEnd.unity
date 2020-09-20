@@ -63843,12 +63843,6 @@ PrefabInstance:
       propertyPath: m_Tiles.Array.data[791].second.m_ColliderType
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 159540086302401809, guid: 94ece9c099684bc4da8db7a011b652d7,
-        type: 3}
-      propertyPath: LandingEffect
-      value: 
-      objectReference: {fileID: 4406549245856049026, guid: 65cf0f4de0e144fcbbfd11faacd22f7b,
-        type: 3}
     - target: {fileID: 6235015435459387152, guid: 94ece9c099684bc4da8db7a011b652d7,
         type: 3}
       propertyPath: m_Tiles.Array.size
@@ -66169,6 +66163,12 @@ PrefabInstance:
       propertyPath: m_ChunkCullingBounds.y
       value: 0.03333336
       objectReference: {fileID: 0}
+    - target: {fileID: 159540086302401809, guid: 94ece9c099684bc4da8db7a011b652d7,
+        type: 3}
+      propertyPath: LandingEffect
+      value: 
+      objectReference: {fileID: 4406549245856049026, guid: 65cf0f4de0e144fcbbfd11faacd22f7b,
+        type: 3}
     - target: {fileID: 8456522891211701621, guid: 94ece9c099684bc4da8db7a011b652d7,
         type: 3}
       propertyPath: m_Origin.x
@@ -66721,7 +66721,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1c6d7147989d5034b9fb5ce3737d08c5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  WorldNumber: 6
+  WorldNumber: 7
 --- !u!1 &1644575539
 GameObject:
   m_ObjectHideFlags: 0
@@ -67607,6 +67607,16 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4457717593483846657, guid: 20b20a7763791de48978cdb88ee458a5,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5395264030024140530, guid: 20b20a7763791de48978cdb88ee458a5,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4457717593483846658, guid: 20b20a7763791de48978cdb88ee458a5,
         type: 3}
       propertyPath: m_Enabled
@@ -67661,16 +67671,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_text
       value: Continue
-      objectReference: {fileID: 0}
-    - target: {fileID: 4457717593483846657, guid: 20b20a7763791de48978cdb88ee458a5,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5395264030024140530, guid: 20b20a7763791de48978cdb88ee458a5,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4691900190686227805, guid: 20b20a7763791de48978cdb88ee458a5,
         type: 3}

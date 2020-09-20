@@ -76,22 +76,24 @@ public class ControlScreen : MonoBehaviour
 
     public void ToggleRumble()
     {
-        if (PlayerPrefs.GetFloat("RumbleToggled") == 1 && Gamepad.current != null)
+        if (PlayerPrefs.GetFloat("RumbleToggled") == 1)
         {
             Boombox.SetVibrationIntensity(0f, .25f, .25f);
             PlayerPrefs.SetFloat("RumbleToggled", 0);
 
             RumbleOn.SetActive(false);
             RumbleOff.SetActive(true);
+            Debug.Log("Turning off rumble");
 
         }
-        else if (PlayerPrefs.GetFloat("RumbleToggled") == 0 && Gamepad.current != null)
+        else if (PlayerPrefs.GetFloat("RumbleToggled") == 0)
         {
             RumbleOn.SetActive(true);
             RumbleOff.SetActive(false);
 
             PlayerPrefs.SetFloat("RumbleToggled", 1);
             Boombox.SetVibrationIntensity(.1f, .25f, .25f);
+            Debug.Log("Turning on rumble");
         }
     }
 
