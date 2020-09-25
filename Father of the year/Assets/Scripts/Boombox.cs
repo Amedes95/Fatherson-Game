@@ -214,14 +214,15 @@ public class Boombox : MonoBehaviour
     {
         for (int i = 0; i < temp.Length; ++i) // go through the inputs
         {
-            if (temp[i].ToString() == "Controller (Xbox One For Windows)" || temp[i].ToString() == "XInput Controller") // xbox controller match
+            String ControllerName = temp[i].ToString();
+            if (ControllerName == "Controller (Xbox One For Windows)" || ControllerName == "XInput Controller") // xbox controller match
             {
                 ControllerModeEnabled = true;
                 //Debug.Log("Xbox Controller connected");
                 PS4Enabled = false;
                 break;
             }
-            else if (temp[i].ToString() == "Wireless Controller" || temp[i].ToString() == "PS4 Controller") // ps4 controller match
+            else if (ControllerName == "Wireless Controller" || ControllerName == "PS4 Controller") // ps4 controller match
             {
                 ControllerModeEnabled = true;
                 //Debug.Log("ps4 Controller connected");
