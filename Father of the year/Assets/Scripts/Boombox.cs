@@ -214,7 +214,7 @@ public class Boombox : MonoBehaviour
     {
         for (int i = 0; i < temp.Length; ++i) // go through the inputs
         {
-            String ControllerName = temp[i].ToString();
+            string ControllerName = temp[i].ToString();
             if (ControllerName == "Controller (Xbox One For Windows)" || ControllerName == "XInput Controller") // xbox controller match
             {
                 ControllerModeEnabled = true;
