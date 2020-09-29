@@ -95,14 +95,24 @@ public class Boombox : MonoBehaviour
         //Debug.Log("LENGTH:" + temp.Length);
         //Debug.Log("CONTROLER NAME: " + temp.ToString());
         //Check whether array contains anything
+
         if (temp.Length > 0)
         {
             CheckControllers();
         }
         else
         {
-            ControllerModeEnabled = false;
+            if (Gamepad.current != null)
+            {
+                ControllerModeEnabled = true;
+                Debug.Log(Gamepad.current.displayName);
+            }
+            else
+            {
+                ControllerModeEnabled = false;
+            }
         }
+
 
         if (ControllerModeEnabled) // controller is physically plugged in
         {
