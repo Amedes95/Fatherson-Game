@@ -126,7 +126,7 @@ public class PlayerMovement : MonoBehaviour
             }
             else // everything but ps4
             {
-                Debug.Log("Xbox jump");
+                //Debug.Log("Xbox jump");
                 JumpInput = "JumpController";
             }
         }

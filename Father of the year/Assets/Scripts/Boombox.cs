@@ -26,12 +26,10 @@ public class Boombox : MonoBehaviour
     public static float LowSpeed;
     public static float HighSpeed;
 
-    bool RumbleEnabled;
-
     public TextMeshProUGUI CheevoText;
     float VeganTimer;
     public bool KeepNormalMusic;
-    string[] temp;
+    //string[] temp;
     public Texture2D CursorTexture;
     public Texture2D CursorTexture2;
 
@@ -63,6 +61,9 @@ public class Boombox : MonoBehaviour
             BGMusic.CompareSongs();
         }
         Cursor.SetCursor(CursorTexture, Vector2.zero, CursorMode.ForceSoftware);
+
+
+
     }
 
 
@@ -89,29 +90,9 @@ public class Boombox : MonoBehaviour
             Cursor.SetCursor(CursorTexture, Vector2.zero, CursorMode.ForceSoftware);
         }
 
-        //Get Joystick Names
-        temp = Input.GetJoystickNames();
+        CheckControllers();
 
-        //Debug.Log("LENGTH:" + temp.Length);
-        //Debug.Log("CONTROLER NAME: " + temp.ToString());
-        //Check whether array contains anything
 
-        if (temp.Length > 0)
-        {
-            CheckControllers();
-        }
-        else
-        {
-            if (Gamepad.current != null)
-            {
-                ControllerModeEnabled = true;
-                Debug.Log(Gamepad.current.displayName);
-            }
-            else
-            {
-                ControllerModeEnabled = false;
-            }
-        }
 
 
         if (ControllerModeEnabled) // controller is physically plugged in
@@ -120,13 +101,18 @@ public class Boombox : MonoBehaviour
             Cursor.lockState = CursorLockMode.Locked;
             //RumbleEnabled = true; // always enable if controller is physically plugged in
 
-            if (RumbleEnabled && PlayerPrefs.GetFloat("RumbleToggled") == 1 && PauseMenu.GameIsPaused == false) // but we don't enable rumnble unless it is toggled on
+            if (PlayerPrefs.GetFloat("RumbleToggled") == 1 && PauseMenu.GameIsPaused == false) // but we don't enable rumnble unless it is toggled on
             {
-                if (vibrateDuration > 0 && RumbleEnabled) // something was called to vibrate
+                if (vibrateDuration > 0) // something was called to vibrate
                 {
-                    Gamepad.current.ResumeHaptics();
-                    vibrateDuration -= Time.smoothDeltaTime; // count down duration
-                    VibrateController(); // vibrate while counting down
+                    if (Gamepad.current != null)
+                    {
+                        Gamepad.current.ResumeHaptics();
+                        vibrateDuration -= Time.smoothDeltaTime; // count down duration
+                        VibrateController(); // vibrate while counting down
+                    }
+
+
                 }
                 else if (vibrateDuration <= 0)
                 {
@@ -222,6 +208,8 @@ public class Boombox : MonoBehaviour
 
     public void CheckControllers()
     {
+        string[] temp = Input.GetJoystickNames();
+
         for (int i = 0; i < temp.Length; ++i) // go through the inputs
         {
             if (temp[i].ToString() == "Controller (Xbox One For Windows)" || temp[i].ToString() == "XInput Controller") // xbox controller match
@@ -229,21 +217,20 @@ public class Boombox : MonoBehaviour
                 ControllerModeEnabled = true;
                 //Debug.Log("Xbox Controller connected");
                 PS4Enabled = false;
-                break;
+                return;
             }
             else if (temp[i].ToString() == "Wireless Controller" || temp[i].ToString() == "PS4 Controller") // ps4 controller match
             {
                 ControllerModeEnabled = true;
                 //Debug.Log("ps4 Controller connected");
                 PS4Enabled = true;
-                break;
+                return;
             }
             else // neither ps4 or xbox
             {
                 ControllerModeEnabled = false;
                 Debug.Log("No controller connected");
                 PS4Enabled = false;
-                RumbleEnabled = false;
             }
         }
 
