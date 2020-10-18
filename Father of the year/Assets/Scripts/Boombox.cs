@@ -5,6 +5,7 @@ using UnityEngine.InputSystem;
 using TMPro;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using Steamworks;
 
 
 public class Boombox : MonoBehaviour
@@ -61,7 +62,8 @@ public class Boombox : MonoBehaviour
             BGMusic.CompareSongs();
         }
         Cursor.SetCursor(CursorTexture, Vector2.zero, CursorMode.ForceSoftware);
-
+        SteamController.Init();
+        SteamInput.Init();
 
 
     }
@@ -84,14 +86,25 @@ public class Boombox : MonoBehaviour
         if (Input.GetMouseButton(0))
         {
             Cursor.SetCursor(CursorTexture2, Vector2.zero, CursorMode.ForceSoftware);
+            ControllerModeEnabled = false;
         }
         else if (Input.GetMouseButtonUp(0))
         {
             Cursor.SetCursor(CursorTexture, Vector2.zero, CursorMode.ForceSoftware);
         }
 
-        CheckControllers();
+        //CheckControllers();
+        if (Input.GetAxis("ControllerHorizontal") != 0 || Input.GetButtonDown("JumpController") || Input.GetButtonDown("Pause") || Input.GetButtonDown("Cancel"))
+        {
+            ControllerModeEnabled = true;
+        }
+        else if (Input.GetAxis("Horizontal") != 0 || Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.Escape) || Input.GetButtonDown("Jump"))
+        {
+            ControllerModeEnabled = false;
+        }
 
+        //CheckSteamControllers();
+        CheckControllers();
 
 
 
@@ -235,6 +248,30 @@ public class Boombox : MonoBehaviour
         }
 
     }
+    //public void CheckSteamControllers()
+    //{
+
+    //    ControllerHandle_t[] controllerHandles = new ControllerHandle_t[16];
+    //    SteamController.GetConnectedControllers(controllerHandles);
+    //    if (controllerHandles[0] != null)
+    //    {
+    //        InputHandle_t inputHandle = SteamInput.GetControllerForGamepadIndex(0);
+    //        ESteamInputType inputType = SteamInput.GetInputTypeForHandle(inputHandle);
+    //        if (inputType == ESteamInputType.k_ESteamInputType_PS4Controller || inputType == ESteamInputType.k_ESteamInputType_PS3Controller) // ps4 connected
+    //        {
+    //            PS4Enabled = true;
+    //            Debug.Log("Ps4 Enabled");
+    //        }
+    //        else if (inputType == ESteamInputType.k_ESteamInputType_XBoxOneController || inputType == ESteamInputType.k_ESteamInputType_XBox360Controller) // xbox connected
+    //        {
+    //            PS4Enabled = false;
+    //            Debug.Log("Xbox Enabled");
+    //        }
+    //    }
+
+
+
+    //}
 
 
 }
