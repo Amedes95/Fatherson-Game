@@ -63,7 +63,7 @@ public class MainMenu : MonoBehaviour
 
     private void Update()
     {
-        if (PlayerPrefs.GetInt("GameCompleted") == 1)
+        if (PlayerData.GameCompleted == 1)
         {
             MoreButton.interactable = true;
             LockedImage.SetActive(false);
@@ -317,7 +317,7 @@ public class MainMenu : MonoBehaviour
         BrowsingStats = true;
         CurrentDestination = StatsDestination;
 
-        PlayerPrefs.DeleteAll();
+        PlayerData.ClearData();
         ConfirmationMenu.SetActive(false);
 
         PlayerPrefs.SetFloat("GameBegun", 1);
@@ -328,7 +328,7 @@ public class MainMenu : MonoBehaviour
         CurrentBoombox.UpdateSound();
 
         // wipe Steam achievements
-        List<GameObject> Cheevos = AchievementMenu.GetComponent<AchievementManager>().Achievements; // get achievement list (39 totatl)
+        List<GameObject> Cheevos = AchievementMenu.GetComponent<AchievementManager>().Achievements; // get achievement list (39 total)
         foreach (GameObject Achievement in Cheevos)
         {
             string CheevoName = Achievement.GetComponent<AchievementInfo>().AchievementTitle; // get ID
@@ -435,7 +435,8 @@ public class MainMenu : MonoBehaviour
         List<GameObject> Achievements = AchievementMenu.GetComponent<AchievementManager>().Achievements;
         foreach (GameObject Cheevo in Achievements)
         {
-            if (PlayerPrefs.GetInt(Cheevo.GetComponent<AchievementInfo>().AchievementTitle) == 1)
+            string CheevoName = Cheevo.GetComponent<AchievementInfo>().AchievementTitle;
+            if (PlayerData.AchievementRecords.ContainsKey(CheevoName)) // check dictionary of unlocked achievements
             {
                 SteamUserStats.SetAchievement(Cheevo.GetComponent<AchievementInfo>().AchievementTitle); // If you DO have the achievement lcoally but steam doesn't think so, update it here
                 SteamUserStats.StoreStats();

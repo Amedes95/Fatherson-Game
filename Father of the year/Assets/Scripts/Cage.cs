@@ -16,13 +16,13 @@ public class Cage : MonoBehaviour
             gameObject.GetComponent<Animator>().SetTrigger("Break");
             BoxCollider.enabled = false;
             Trigger.enabled = false;
-            PlayerPrefs.SetString("ExitedLevel", WorldHubExitLevel);
+            PlayerData.ExitedLevel = WorldHubExitLevel;
             gameObject.GetComponent<AudioSource>().Play();
         }
     }
 
     private void Start()
     {
-        PlayerPrefs.SetString("ExitedLevel", WorldHubExitLevel);
+        PlayerData.ExitedLevel = WorldHubExitLevel;
     }
 }

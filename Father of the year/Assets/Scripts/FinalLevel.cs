@@ -14,11 +14,11 @@ public class FinalLevel : MonoBehaviour
         {
             if (SceneManager.GetActiveScene().name == "Tutorial_20") // if its the last level of the tutorial
             {
-                PlayerPrefs.SetInt("Tutorial_Complete", 1);
+                PlayerData.Tutorial_Complete = 1;
                 /// Unlocks Baby Steps Achievement
-                if (PlayerPrefs.GetInt("Baby Steps") == 0)
+                if (PlayerData.AchievementRecords.ContainsKey("Baby Steps") == false) // not already unlocked?
                 {
-                    PlayerPrefs.SetInt("Baby steps", 1);
+                    PlayerData.AchievementRecords.Add("Baby Steps", 1);
                     Debug.Log("Baby Steps Unlocked");
                     BackgroundMusic BGMusic = GameObject.FindGameObjectWithTag("BGMusic").GetComponent<BackgroundMusic>();
                     BGMusic.UnlockCheevo("Baby Steps");
@@ -26,14 +26,14 @@ public class FinalLevel : MonoBehaviour
             }
             if (SceneManager.GetActiveScene().name == "CarrotRescue") // rescue carrot, unlock new world
             {
-                PlayerPrefs.SetInt("World1_Complete", 1);
+                PlayerData.World1_Complete = 1;
             }
             if (SceneManager.GetActiveScene().name == "W1BOSS") // w1 boss beaten, unlock cheevo
             {
                 /// Unlocks Flea Flee! Achievement
-                if (PlayerPrefs.GetInt("Flea Flee") == 0)
+                if (PlayerData.AchievementRecords.ContainsKey("Flea Flee") == false) // not already unlocked?
                 {
-                    PlayerPrefs.SetInt("Flea Flee", 1);
+                    PlayerData.AchievementRecords.Add("Flea Flee", 1); // add to unlock dictionary
                     Debug.Log("Flea Flee Unlocked");
                     BackgroundMusic BGMusic = GameObject.FindGameObjectWithTag("BGMusic").GetComponent<BackgroundMusic>();
                     BGMusic.UnlockCheevo("Flea Flee");
@@ -41,14 +41,15 @@ public class FinalLevel : MonoBehaviour
             }
             if (SceneManager.GetActiveScene().name == "TurnipRescue") // turnip rescued, unlock new world
             {
-                PlayerPrefs.SetInt("World2_Complete", 1);
+                PlayerData.World2_Complete = 1;
+
             }
             if (SceneManager.GetActiveScene().name == "W2BOSS") // w2 boss beaten, unlock cheevo
             {
                 /// Unlocks Yee Haw! Achievement
-                if (PlayerPrefs.GetInt("Spoiled Appetite") == 0)
+                if (PlayerData.AchievementRecords.ContainsKey("Spoiled Appetite") == false) // not unlocked already?
                 {
-                    PlayerPrefs.SetInt("Spoiled Appetite", 1);
+                    PlayerData.AchievementRecords.Add("Spoiled Appetite", 1); // not unlocked already?
                     Debug.Log("Spoiled Appetite");
                     BackgroundMusic BGMusic = GameObject.FindGameObjectWithTag("BGMusic").GetComponent<BackgroundMusic>();
                     BGMusic.UnlockCheevo("Spoiled Appetite");
@@ -56,40 +57,41 @@ public class FinalLevel : MonoBehaviour
             }
             if (SceneManager.GetActiveScene().name == "CornRescue") // rescue corn, unlock new world
             {
-                PlayerPrefs.SetInt("World3_Complete", 1);
+                PlayerData.World3_Complete = 1;
+
             }
             /// Unlocks Party Crasher Achievement
             if (SceneManager.GetActiveScene().name == "PartyEnd") // unlock in party world
             {
-                if (PlayerPrefs.GetInt("Party Crasher") == 0)
+                if (PlayerData.AchievementRecords.ContainsKey("Party Crasher") == false) // not unlocked already?
                 {
-                    PlayerPrefs.SetInt("Party Crasher", 1);
+                    PlayerData.AchievementRecords.Add("Party Crasher", 1); // add to unlock dictionary
                     Debug.Log("Party Crasher Unlocked");
                     BackgroundMusic BGMusic = GameObject.FindGameObjectWithTag("BGMusic").GetComponent<BackgroundMusic>();
                     BGMusic.UnlockCheevo("Party Crasher");
-                    PlayerPrefs.SetInt("PartyUnlocked", 1);
+                    PlayerData.PartyUnlocked = 1;
                 }
 
             }
             /// Unlocks Fossilized Achievement
             if (SceneManager.GetActiveScene().name == "RetroEnd") // unlock by beating retro world
             {
-                if (PlayerPrefs.GetInt("Fossilized") == 0)
+                if (PlayerData.AchievementRecords.ContainsKey("Fossilized") == false) // not unlocked already?
                 {
-                    PlayerPrefs.SetInt("Fossilized", 1);
+                    PlayerData.AchievementRecords.Add("Fossilized", 1); //add to unlock dictionary
                     Debug.Log("Fossilized Unlocked");
                     BackgroundMusic BGMusic = GameObject.FindGameObjectWithTag("BGMusic").GetComponent<BackgroundMusic>();
                     BGMusic.UnlockCheevo("Fossilized");
-                    PlayerPrefs.SetInt("OldTimeyUnlocked", 1);
+                    PlayerData.OldTimeyUnlocked = 1;
                 }
 
             }
             if (SceneManager.GetActiveScene().name == "W3BOSS") // w3 boss beaten, unlock cheevo
             {
                 /// Unlocks Fungus Among Us Achievement
-                if (PlayerPrefs.GetInt("Fungus Among Us") == 0)
+                if (PlayerData.AchievementRecords.ContainsKey("Fungus Among Us") == false) // not unlocked already?
                 {
-                    PlayerPrefs.SetInt("Fungus Among Us", 1);
+                    PlayerData.AchievementRecords.Add("Fungus Among Us", 1); // add to unlock dictionary
                     Debug.Log("Fungus Among Us");
                     BackgroundMusic BGMusic = GameObject.FindGameObjectWithTag("BGMusic").GetComponent<BackgroundMusic>();
                     BGMusic.UnlockCheevo("Fungus Among Us");
@@ -97,14 +99,15 @@ public class FinalLevel : MonoBehaviour
             }
             if (SceneManager.GetActiveScene().name == "TomatoRescue") // rescue tomato, unlock new world
             {
-                PlayerPrefs.SetInt("World4_Complete", 1);
+                PlayerData.World4_Complete = 1;
+
             }
             if (SceneManager.GetActiveScene().name == "W4BOSS") // w4 boss beaten, unlock cheevo
             {
                 /// Unlocks Ghastly Escape Achievement
-                if (PlayerPrefs.GetInt("Ghastly Escape") == 0)
+                if (PlayerData.AchievementRecords.ContainsKey("Ghastly Escape") == false) // not unlocked already?
                 {
-                    PlayerPrefs.SetInt("Ghastly Escape", 1);
+                    PlayerData.AchievementRecords.Add("Ghastly Escape", 1); // add to unlock dictionary
                     Debug.Log("Ghastly Escape");
                     BackgroundMusic BGMusic = GameObject.FindGameObjectWithTag("BGMusic").GetComponent<BackgroundMusic>();
                     BGMusic.UnlockCheevo("Ghastly Escape");
@@ -112,14 +115,15 @@ public class FinalLevel : MonoBehaviour
             }
             if (SceneManager.GetActiveScene().name == "PotatoRescue") // rescue potato, unlock new world
             {
-                PlayerPrefs.SetInt("World5_Complete", 1);
+                PlayerData.World5_Complete = 1;
+
             }
             if (SceneManager.GetActiveScene().name == "W5BOSS") // w5 boss beaten, unlock cheevo
             {
                 /// Unlocks Frostbitten Achievement
-                if (PlayerPrefs.GetInt("Frostbitten") == 0)
+                if (PlayerData.AchievementRecords.ContainsKey("Frostbitten") == false) // not unlocked already?
                 {
-                    PlayerPrefs.SetInt("Frostbitten", 1);
+                    PlayerData.AchievementRecords.Add("Frostbitten", 1);
                     Debug.Log("Frostbitten");
                     BackgroundMusic BGMusic = GameObject.FindGameObjectWithTag("BGMusic").GetComponent<BackgroundMusic>();
                     BGMusic.UnlockCheevo("Frostbitten");
@@ -127,11 +131,11 @@ public class FinalLevel : MonoBehaviour
             }
             if (SceneManager.GetActiveScene().name == "W6BOSS") // w6 boss beaten
             {
-                PlayerPrefs.SetInt("World6_Complete", 1);
+                PlayerData.World6_Complete = 1;
                 /// Unlocks Hippidy Hoppidy Achievement
-                if (PlayerPrefs.GetInt("Hippidy Hoppidy") == 0)
+                if (PlayerData.AchievementRecords.ContainsKey("Hippidy Hoppidy") == false) // not unlocked already?
                 {
-                    PlayerPrefs.SetInt("Hippidy Hoppidy", 1);
+                    PlayerData.AchievementRecords.Add("Hippidy Hoppidy", 1); // add to unlock dictionary
                     Debug.Log("Hippidy Hoppidy");
                     BackgroundMusic BGMusic = GameObject.FindGameObjectWithTag("BGMusic").GetComponent<BackgroundMusic>();
                     BGMusic.UnlockCheevo("Hippidy Hoppidy");
@@ -139,11 +143,11 @@ public class FinalLevel : MonoBehaviour
             }
             if (SceneManager.GetActiveScene().name == "GoldEnd") // unlocked by beating gold world
             {
-                PlayerPrefs.SetInt("GoldWorld_Complete", 1);
+                PlayerData.GoldWorld_Complete = 1;
                 // unlocks Ancient Evil achievement
-                if (PlayerPrefs.GetInt("Ancient Evil") == 0)
+                if (PlayerData.AchievementRecords.ContainsKey("Ancient Evil") == false) // not unlocked already?
                 {
-                    PlayerPrefs.SetInt("Ancient Evil", 1);
+                    PlayerData.AchievementRecords.Add("Ancient Evil", 1); // add to unlock dictionary
                     Debug.Log("Ancient Evil");
                     BackgroundMusic BGMusic = GameObject.FindGameObjectWithTag("BGMusic").GetComponent<BackgroundMusic>();
                     BGMusic.UnlockCheevo("Ancient Evil");
@@ -152,9 +156,9 @@ public class FinalLevel : MonoBehaviour
 
 
             // unlocks Vegetarian achievement
-            if (PlayerPrefs.GetInt("Vegetarian") == 0 && PlayerPrefs.GetInt("Flawless Run") == 0)
+            if (PlayerData.AchievementRecords.ContainsKey("Vegetarian") == false && PlayerPrefs.GetInt("Flawless Run") == 0) // not unlocked already?
             {
-                PlayerPrefs.SetInt("Vegetarian", 1);
+                PlayerData.AchievementRecords.Add("Vegetarian", 1); // add to unlock dictionary
                 Debug.Log("Vegetarian");
                 BackgroundMusic BGMusic = GameObject.FindGameObjectWithTag("BGMusic").GetComponent<BackgroundMusic>();
                 BGMusic.UnlockCheevo("Vegetarian");
@@ -168,9 +172,9 @@ public class FinalLevel : MonoBehaviour
             if (WorldNumber == 1) // last non-boss level in world 1
             {
                 /// Unlocks Snake Charmer Achievement
-                if (PlayerPrefs.GetInt("Snake charmer") == 0)
+                if (PlayerData.AchievementRecords.ContainsKey("Snake charmer") == false) // not unlocked already?
                 {
-                    PlayerPrefs.SetInt("Snake charmer", 1);
+                    PlayerData.AchievementRecords.Add("Snake charmer", 1); // add to unlock dictionary
                     Debug.Log("Snake charmer Unlocked");
                     BackgroundMusic BGMusic = GameObject.FindGameObjectWithTag("BGMusic").GetComponent<BackgroundMusic>();
                     BGMusic.UnlockCheevo("Snake charmer");
@@ -179,9 +183,9 @@ public class FinalLevel : MonoBehaviour
             else if (WorldNumber == 2)
             {
                 /// Unlocks World Wide Web Achievement
-                if (PlayerPrefs.GetInt("World Wide Web") == 0)
+                if (PlayerData.AchievementRecords.ContainsKey("World Wide Web") == false) // not unlocked already?
                 {
-                    PlayerPrefs.SetInt("World Wide Web", 1);
+                    PlayerData.AchievementRecords.Add("World Wide Web", 1); // add to unlock dictionary
                     Debug.Log("World Wide Web Unlocked");
                     BackgroundMusic BGMusic = GameObject.FindGameObjectWithTag("BGMusic").GetComponent<BackgroundMusic>();
                     BGMusic.UnlockCheevo("World Wide Web");
@@ -190,9 +194,9 @@ public class FinalLevel : MonoBehaviour
             else if (WorldNumber == 3)
             {
                 /// Unlocks Synthetic Scientist Achievement
-                if (PlayerPrefs.GetInt("Synthetic Scientist") == 0)
+                if (PlayerData.AchievementRecords.ContainsKey("Synthetic Scientist") == false) // not unlocked already?
                 {
-                    PlayerPrefs.SetInt("Synthetic Scientist", 1);
+                    PlayerData.AchievementRecords.Add("Synthetic Scientist", 1); // add to unlock dictionary
                     Debug.Log("Synthetic Scientist Unlocked");
                     BackgroundMusic BGMusic = GameObject.FindGameObjectWithTag("BGMusic").GetComponent<BackgroundMusic>();
                     BGMusic.UnlockCheevo("Synthetic Scientist");
@@ -201,9 +205,9 @@ public class FinalLevel : MonoBehaviour
             else if (WorldNumber == 4)
             {
                 /// Unlocks Hot Topic Achievement
-                if (PlayerPrefs.GetInt("Hot Topic") == 0)
+                if (PlayerData.AchievementRecords.ContainsKey("Hot Topic") == false) // not unlocked already?
                 {
-                    PlayerPrefs.SetInt("Hot Topic", 1);
+                    PlayerData.AchievementRecords.Add("Hot Topic", 1); // add to unlock dictionary
                     Debug.Log("Hot Topic Unlocked");
                     BackgroundMusic BGMusic = GameObject.FindGameObjectWithTag("BGMusic").GetComponent<BackgroundMusic>();
                     BGMusic.UnlockCheevo("Hot Topic");
@@ -212,9 +216,9 @@ public class FinalLevel : MonoBehaviour
             else if (WorldNumber == 5)
             {
                 /// Unlocks Cold Shoulder Achievement
-                if (PlayerPrefs.GetInt("Cold Shoulder") == 0)
+                if (PlayerData.AchievementRecords.ContainsKey("Cold Shoulder") == false) // not unlocked already?
                 {
-                    PlayerPrefs.SetInt("Cold Shoulder", 1);
+                    PlayerData.AchievementRecords.Add("Cold Shoulder", 1); // add to unlock dictionary
                     Debug.Log("Cold Shoulder");
                     BackgroundMusic BGMusic = GameObject.FindGameObjectWithTag("BGMusic").GetComponent<BackgroundMusic>();
                     BGMusic.UnlockCheevo("Cold Shoulder");
@@ -223,9 +227,9 @@ public class FinalLevel : MonoBehaviour
             else if (WorldNumber == 6)
             {
                 /// Unlocks The End? Achievement
-                if (PlayerPrefs.GetInt("The End?") == 0)
+                if (PlayerData.AchievementRecords.ContainsKey("The End?") == false) // not unlocked already?
                 {
-                    PlayerPrefs.SetInt("The End?", 1);
+                    PlayerData.AchievementRecords.Add("The End?", 1); // add to unlock dictionary
                     Debug.Log("The End?");
                     BackgroundMusic BGMusic = GameObject.FindGameObjectWithTag("BGMusic").GetComponent<BackgroundMusic>();
                     BGMusic.UnlockCheevo("The End?");

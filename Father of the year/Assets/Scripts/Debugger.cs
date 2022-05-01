@@ -21,7 +21,11 @@ public class Debugger : MonoBehaviour
             foreach (GameObject Level in CurrentWorld.LevelsWithinWorld)
             {
                 string LevelID = Level.GetComponent<LevelInfo>().SceneToLoad;
-                PlayerPrefs.SetFloat(LevelID, 260);
+                if (PlayerData.PlayerTimeRecords.ContainsKey(LevelID))
+                {
+                    PlayerData.PlayerTimeRecords.Remove(LevelID);
+                }
+                PlayerData.PlayerTimeRecords.Add(LevelID, 260); // sets completion time to a slow 4min 20 seconds for all levels
             }
         }
         PauseMenu.Restart();
@@ -29,36 +33,30 @@ public class Debugger : MonoBehaviour
 
     public void UnlockAllTrophies()
     {
-
-        LevelManager.UnlockAllWorlds();
-
+        UnlockAllLevels();
         foreach (GameObject World in LevelManager.WorldsList)
         {
             ListofLevels CurrentWorld = World.GetComponent<ListofLevels>();
             foreach (GameObject Level in CurrentWorld.LevelsWithinWorld)
             {
                 string LevelID = Level.GetComponent<LevelInfo>().SceneToLoad;
-                PlayerPrefs.SetFloat(LevelID, 1);
+                if (PlayerData.PlayerTimeRecords.ContainsKey(LevelID))
+                {
+                    PlayerData.PlayerTimeRecords.Remove(LevelID);
+                }
+                PlayerData.PlayerTimeRecords.Add(LevelID, 1); // sets completion time to a speedy 1 second for all golds
             }
         }
         PauseMenu.Restart();
     }
     public void LockAllTrophies()
     {
-
-        LevelManager.UnlockAllWorlds();
-
-        foreach (GameObject World in LevelManager.WorldsList)
-        {
-            ListofLevels CurrentWorld = World.GetComponent<ListofLevels>();
-            foreach (GameObject Level in CurrentWorld.LevelsWithinWorld)
-            {
-                string LevelID = Level.GetComponent<LevelInfo>().SceneToLoad;
-                PlayerPrefs.SetFloat(LevelID, 260);
-            }
-        }
-        PlayerPrefs.SetInt("GoldMedalsEarned", 0);
-        PlayerPrefs.SetInt("Gold Medalist", 0);
+        LevelManager.LockAllWorlds();
+        PlayerData.PlayerTimeRecords.Clear();
+        PlayerData.AchievementRecords.Clear();
+        PlayerData.TotalGoldMedals = 0;
+        PlayerData.AchievementRecords.Remove("Gold Medalist");
+        PlayerData.AchievementRecords.Clear();
         PauseMenu.Restart();
     }
 

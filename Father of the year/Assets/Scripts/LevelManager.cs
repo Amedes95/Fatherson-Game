@@ -100,12 +100,12 @@ public class LevelManager : MonoBehaviour
 
         PlayerPrefs.SetInt("BossRush", 0); // cancel boss rush
 
-        if (PlayerPrefs.GetInt("PartyModeON") == 1 && PlayerPrefs.GetInt("PartyUnlocked") == 0)
+        if (PlayerPrefs.GetInt("PartyModeON") == 1 && PlayerData.PartyUnlocked == 0)
         {
             Debug.Log("Toggle");
             TogglePartyMode();
         }
-        else if (PlayerPrefs.GetInt("OldTimeyON") == 1 && PlayerPrefs.GetInt("OldTimeyUnlocked") == 0)
+        else if (PlayerPrefs.GetInt("OldTimeyON") == 1 && PlayerData.OldTimeyUnlocked == 0)
         {
             ToggleOldTimerMode();
         }
@@ -116,27 +116,27 @@ public class LevelManager : MonoBehaviour
         WorldIndex = 0;
         ActiveWorld = WorldsList[WorldIndex];
         /// unlocks levels
-        if (WorldsList.Contains(World1) == false && PlayerPrefs.GetInt("Tutorial_Complete") == 1)
+        if (WorldsList.Contains(World1) == false && PlayerData.Tutorial_Complete == 1)
         {
             WorldsList.Add(World1);
         }
-        if (WorldsList.Contains(World2) == false && PlayerPrefs.GetInt("World1_Complete") == 1)
+        if (WorldsList.Contains(World2) == false && PlayerData.World1_Complete == 1)
         {
             WorldsList.Add(World2);
         }
-        if (WorldsList.Contains(World3) == false && PlayerPrefs.GetInt("World2_Complete") == 1)
+        if (WorldsList.Contains(World3) == false && PlayerData.World2_Complete == 1)
         {
             WorldsList.Add(World3);
         }
-        if (WorldsList.Contains(World4) == false && PlayerPrefs.GetInt("World3_Complete") == 1)
+        if (WorldsList.Contains(World4) == false && PlayerData.World3_Complete == 1)
         {
             WorldsList.Add(World4);
         }
-        if (WorldsList.Contains(World5) == false && PlayerPrefs.GetInt("World4_Complete") == 1)
+        if (WorldsList.Contains(World5) == false && PlayerData.World4_Complete == 1)
         {
             WorldsList.Add(World5);
         }
-        if (WorldsList.Contains(World6) == false && PlayerPrefs.GetInt("World5_Complete") == 1)
+        if (WorldsList.Contains(World6) == false && PlayerData.World5_Complete == 1)
         {
             WorldsList.Add(World6);
         }
@@ -441,7 +441,7 @@ public class LevelManager : MonoBehaviour
 
     public void LoadCurrentWorld()
     {
-        string ExitedLevel = PlayerPrefs.GetString("ExitedLevel"); // we got this from the Goal script
+        string ExitedLevel = PlayerData.ExitedLevel; // we got this from the Goal script
         //Debug.Log(ExitedLevel);
         foreach (GameObject World in WorldsList) // check every level of every world
         {
@@ -477,14 +477,13 @@ public class LevelManager : MonoBehaviour
 
     public void UnlockAllWorlds()
     {
-        PlayerPrefs.SetInt("Tutorial_Complete", 1);
-        PlayerPrefs.SetInt("World1_Complete", 1);
-        PlayerPrefs.SetInt("World2_Complete", 1);
-        PlayerPrefs.SetInt("World3_Complete", 1);
-        PlayerPrefs.SetInt("World4_Complete", 1);
-        PlayerPrefs.SetInt("World5_Complete", 1);
-        PlayerPrefs.SetInt("World6_Complete", 1);
-
+        PlayerData.Tutorial_Complete = 1;
+        PlayerData.World1_Complete = 1;
+        PlayerData.World2_Complete = 1;
+        PlayerData.World3_Complete = 1;
+        PlayerData.World4_Complete = 1;
+        PlayerData.World5_Complete = 1;
+        PlayerData.World6_Complete = 1;
 
         WorldsList.Add(World1);
         WorldsList.Add(World2);
@@ -492,8 +491,24 @@ public class LevelManager : MonoBehaviour
         WorldsList.Add(World4);
         WorldsList.Add(World5);
         WorldsList.Add(World6);
+    }
 
+    public void LockAllWorlds()
+    {
+        PlayerData.Tutorial_Complete = 0;
+        PlayerData.World1_Complete = 0;
+        PlayerData.World2_Complete = 0;
+        PlayerData.World3_Complete = 0;
+        PlayerData.World4_Complete = 0;
+        PlayerData.World5_Complete = 0;
+        PlayerData.World6_Complete = 0;
 
+        WorldsList.Remove(World1);
+        WorldsList.Remove(World2);
+        WorldsList.Remove(World3);
+        WorldsList.Remove(World4);
+        WorldsList.Remove(World5);
+        WorldsList.Remove(World6);
     }
 
     public void TogglePartyMode()
@@ -510,7 +525,7 @@ public class LevelManager : MonoBehaviour
         }
         else
         {
-            PlayerPrefs.SetInt("PartyModeON", 1); // Part on baby
+            PlayerPrefs.SetInt("PartyModeON", 1); // Party on baby
             var Hue = Transition1.colorGrading.settings;
             Hue.basic.hueShift = 180;
         }
@@ -567,22 +582,22 @@ public class LevelManager : MonoBehaviour
         }
 
         /// Unlocks Oooh Shiny! Achievement
-        if (PlayerPrefs.GetInt("Oooh Shiny!") == 0 && GoldMedalsEarned >= 1)
+        if (PlayerData.AchievementRecords.ContainsKey("Oooh Shiny!") == false && GoldMedalsEarned >= 1) // not already unlocked?
         {
-            PlayerPrefs.SetInt("Oooh Shiny!", 1);
+            PlayerData.AchievementRecords.Add("Oooh Shiny!", 1); // add to unlock dictionary
             Debug.Log("Oooh Shiny! Unlocked");
             BackgroundMusic BGMusic = GameObject.FindGameObjectWithTag("BGMusic").GetComponent<BackgroundMusic>();
             BGMusic.UnlockCheevo("Oooh Shiny!");
         }
         /// Unlocks Gold Medalist Achievement
-        if (PlayerPrefs.GetInt("Gold Medalist") == 0 && GoldMedalsEarned >= 140)
+        if (PlayerData.AchievementRecords.ContainsKey("Gold Medalist") == false && GoldMedalsEarned >= 140) // not already unlocked?
         {
-            PlayerPrefs.SetInt("Gold Medalist", 1);
+            PlayerData.AchievementRecords.Add("Gold Medalist", 1);
             Debug.Log("Gold Medalist Unlocked");
             BackgroundMusic BGMusic = GameObject.FindGameObjectWithTag("BGMusic").GetComponent<BackgroundMusic>();
             BGMusic.UnlockCheevo("Gold Medalist");
         }
-        PlayerPrefs.SetInt("GoldMedalsEarned", GoldMedalsEarned);
+        PlayerData.TotalGoldMedals = GoldMedalsEarned; // store my medals please!
         //Debug.Log(GoldMedalsEarned);
     }
 

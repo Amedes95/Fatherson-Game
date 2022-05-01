@@ -38,9 +38,9 @@ public class LevelInfo : MonoBehaviour
 
 
         //// for completion
-        if (PlayerPrefs.GetFloat(SceneToLoad) != 0)
+        if (PlayerData.PlayerTimeRecords.ContainsKey(SceneToLoad)) // has this level been completed before?
         {
-            BestTIme = PlayerPrefs.GetFloat(SceneToLoad); // update best time
+            BestTIme = PlayerData.GetLevelBestTime(SceneToLoad); // update best time
             string hours = Mathf.Floor(BestTIme / 60 / 60).ToString("00");
             string minutes = Mathf.Floor((BestTIme / 60) % 60).ToString("00");
             string seconds = (BestTIme % 60).ToString("00");
@@ -52,19 +52,19 @@ public class LevelInfo : MonoBehaviour
             // How do you stack up?
 
             //// GOLD?
-            if (PlayerPrefs.GetFloat(SceneToLoad) <= GoldStandard) // if your time is faster than the set gold standard
+            if (PlayerData.GetLevelBestTime(SceneToLoad) <= GoldStandard) // if your time is faster than the set gold standard
             {
                 //Debug.Log("GOLD TIER" + PlayerPrefs.GetFloat(SceneToLoad).ToString("F2"));
                 CompletedTrophy.GetComponent<Animator>().SetTrigger("Gold");
             }
             //// SILVER?
-            else if (PlayerPrefs.GetFloat(SceneToLoad) > GoldStandard && PlayerPrefs.GetFloat(SceneToLoad) <= BronzeStandard)
+            else if (PlayerData.GetLevelBestTime(SceneToLoad) > GoldStandard && PlayerData.GetLevelBestTime(SceneToLoad) <= BronzeStandard)
             {
                 //Debug.Log("SILVER TIER" + PlayerPrefs.GetFloat(SceneToLoad).ToString("F2"));
                 CompletedTrophy.GetComponent<Animator>().SetTrigger("Silver");
             }
             //// BRONZE?
-            else if (PlayerPrefs.GetFloat(SceneToLoad) > BronzeStandard)
+            else if (PlayerData.GetLevelBestTime(SceneToLoad) > BronzeStandard)
             {
                 //Debug.Log("BRONZE TIER" + PlayerPrefs.GetFloat(SceneToLoad).ToString("F2"));
                 CompletedTrophy.GetComponent<Animator>().SetTrigger("Bronze");
@@ -91,7 +91,7 @@ public class LevelInfo : MonoBehaviour
         {
             LockedSymbol.SetActive(false);
             //// GOLD?
-            if (PlayerPrefs.GetFloat(SceneToLoad) <= GoldStandard && PlayerPrefs.GetFloat(SceneToLoad) != 0) // if your time is faster than the set gold standard
+            if (PlayerData.GetLevelBestTime(SceneToLoad) <= GoldStandard && PlayerData.PlayerTimeRecords.ContainsKey(SceneToLoad)) // if your time is faster than the set gold standard
             {
                 GoldTierAchieved = true;
                 //PlayerPrefs.SetInt("GoldMedalsEarned", GoldMedalsEarned += 1);
@@ -107,7 +107,7 @@ public class LevelInfo : MonoBehaviour
     private void Start()
     {
         //// GOLD?
-        if (PlayerPrefs.GetFloat(SceneToLoad) <= GoldStandard && PlayerPrefs.GetFloat(SceneToLoad) != 0) // if your time is faster than the set gold standard
+        if (PlayerData.GetLevelBestTime(SceneToLoad) <= GoldStandard && PlayerData.PlayerTimeRecords.ContainsKey(SceneToLoad)) // if your time is faster than the set gold standard
         {
             GoldTierAchieved = true;
         }

@@ -40,55 +40,55 @@ public class PlayerCostumes : MonoBehaviour
     {
 
         /// sets the player costume when loading into levels
-        if (PlayerPrefs.GetInt("CostumeIndex") == 0) // Ninja Frog
+        if (PlayerData.CostumeIndex == 0) // Ninja Frog
         {
             CurrentAnimator.runtimeAnimatorController = NinjaFrogOverride;
         }
-        else if (PlayerPrefs.GetInt("CostumeIndex") == 1) // Virtual guy
+        else if (PlayerData.CostumeIndex == 1) // Virtual guy
         {
             CurrentAnimator.runtimeAnimatorController = VirtualGuyOverride;
         }
-        else if (PlayerPrefs.GetInt("CostumeIndex") == 2) // Mask Dude
+        else if (PlayerData.CostumeIndex == 2) // Mask Dude
         {
             CurrentAnimator.runtimeAnimatorController = MaskDudeOverride;
         }
-        else if (PlayerPrefs.GetInt("CostumeIndex") == 3) // Pink Guy
+        else if (PlayerData.CostumeIndex == 3) // Pink Guy
         {
             CurrentAnimator.runtimeAnimatorController = PinkManOverride;
         }
-        else if (PlayerPrefs.GetInt("CostumeIndex") == 4) // Golden Frog
+        else if (PlayerData.CostumeIndex == 4) // Golden Frog
         {
             CurrentAnimator.runtimeAnimatorController = GoldenFrogOverride;
         }
-        else if (PlayerPrefs.GetInt("CostumeIndex") == 5) // Rainbow Boy
+        else if (PlayerData.CostumeIndex == 5) // Rainbow Boy
         {
             CurrentAnimator.runtimeAnimatorController = RainbowBoyOverride;
         }
-        else if (PlayerPrefs.GetInt("CostumeIndex") == 6) // Hopps
+        else if (PlayerData.CostumeIndex == 6) // Hopps
         {
             CurrentAnimator.runtimeAnimatorController = BunnyOverride;
         }
-        else if (PlayerPrefs.GetInt("CostumeIndex") == 7) // g o r F
+        else if (PlayerData.CostumeIndex == 7) // g o r F
         {
             CurrentAnimator.runtimeAnimatorController = InvertedOverride;
         }
-        else if (PlayerPrefs.GetInt("CostumeIndex") == 8) // Igorrr
+        else if (PlayerData.CostumeIndex == 8) // Igorrr
         {
             CurrentAnimator.runtimeAnimatorController = CyclopsOverride;
         }
-        else if (PlayerPrefs.GetInt("CostumeIndex") == 9) // Famine
+        else if (PlayerData.CostumeIndex == 9) // Famine
         {
             CurrentAnimator.runtimeAnimatorController = BonesOverride;
         }
-        else if (PlayerPrefs.GetInt("CostumeIndex") == 10) // Gramps
+        else if (PlayerData.CostumeIndex == 10) // Gramps
         {
             CurrentAnimator.runtimeAnimatorController = GrampsOverride;
         }
-        else if (PlayerPrefs.GetInt("CostumeIndex") == 11) // Frost
+        else if (PlayerData.CostumeIndex == 11) // Frost
         {
             CurrentAnimator.runtimeAnimatorController = FrostOverride;
         }
-        else if (PlayerPrefs.GetInt("CostumeIndex") == 12) // Cavity
+        else if (PlayerData.CostumeIndex == 12) // Cavity
         {
             CurrentAnimator.runtimeAnimatorController = CavityOverride;
         }

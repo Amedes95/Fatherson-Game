@@ -40,8 +40,8 @@ public class ListofLevels : MonoBehaviour
         LevelsWithinWorld[0].GetComponent<LevelInfo>().Unlocked = true; // update level 0 to be always unlocked
         for (int i = 1; i < LevelsWithinWorld.Count; i++)
         {
-
-            if (PlayerPrefs.GetFloat(LevelsWithinWorld[i-1].GetComponent<LevelInfo>().SceneToLoad) != 0) // If you have a time saved for the previous one, unlock me next
+            string SceneToLoad = LevelsWithinWorld[i - 1].GetComponent<LevelInfo>().SceneToLoad;
+            if (PlayerData.PlayerTimeRecords.ContainsKey(SceneToLoad)) // If you have a time saved for the previous one, unlock me next. Time will be lsited in dictionary
             {
                 LevelsWithinWorld[i].GetComponent<LevelInfo>().Unlocked = true;
                 //Debug.Log("New level unlocked");

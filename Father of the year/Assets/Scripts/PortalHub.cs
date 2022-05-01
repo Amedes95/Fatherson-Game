@@ -20,21 +20,21 @@ public class PortalHub : MonoBehaviour
     }
 
 
-    private void Update()
-    {
-        if (PlayerPrefs.GetInt(SceneToLoad) == 1) // 1 true, 0 false
-        {
-            CompleteSymbol.SetActive(true);
-        }
-        else
-        {
-            CompleteSymbol.SetActive(false);
-        }
-    }
+    //private void Update()
+    //{
+    //    if (PlayerPrefs.GetInt(SceneToLoad) == 1) // 1 true, 0 false
+    //    {
+    //        CompleteSymbol.SetActive(true);
+    //    }
+    //    else
+    //    {
+    //        CompleteSymbol.SetActive(false);
+    //    }
+    //}
 
     public void LoadLevel()
     {
-        PlayerPrefs.SetInt("CurrentWorld", WorldNumber); // update the current world for respawning later in the hub
+        PlayerData.CurrentWorld = WorldNumber; // update the current world for respawning later in the hub
         SceneManager.LoadScene(SceneToLoad);
     }
 }

@@ -20,7 +20,7 @@ public class CostumeInfo : MonoBehaviour
 
         if (CostumeName == "Golden Frog") // unlocks golden frog after beating geode world
         {
-            if (PlayerPrefs.GetInt("Ancient Evil") == 1)
+            if (PlayerData.AchievementRecords.ContainsKey("Ancient Evil")) // achievement is unlocked
             {
                 Locked = false;
                 gameObject.GetComponent<SpriteRenderer>().enabled = true;
@@ -35,7 +35,7 @@ public class CostumeInfo : MonoBehaviour
         }
         else if (CostumeName == "Pink Man") // unlocks pink man after completing world 1 boss
         {
-            if (PlayerPrefs.GetInt("Flea Flee") == 1)
+            if (PlayerData.AchievementRecords.ContainsKey("Flea Flee")) // achievement is unlocked
             {
                 Locked = false;
                 gameObject.GetComponent<SpriteRenderer>().enabled = true;
@@ -50,7 +50,7 @@ public class CostumeInfo : MonoBehaviour
         }
         else if (CostumeName == "Virtual Guy") // unlocks Virtual guy after completing world 3 boss
         {
-            if (PlayerPrefs.GetInt("Fungus Among Us") == 1)
+            if (PlayerData.AchievementRecords.ContainsKey("Fungus Among Us")) // achievement is unlocked
             {
                 Locked = false;
                 gameObject.GetComponent<SpriteRenderer>().enabled = true;
@@ -65,7 +65,7 @@ public class CostumeInfo : MonoBehaviour
         }
         else if (CostumeName == "Mask Dude") // unlocks mask dude after completing world 4 boss
         {
-            if (PlayerPrefs.GetInt("Ghastly Escape") == 1)
+            if (PlayerData.AchievementRecords.ContainsKey("Ghastly Escape")) // achievement is unlocked
             {
                 Locked = false;
                 gameObject.GetComponent<SpriteRenderer>().enabled = true;
@@ -80,7 +80,7 @@ public class CostumeInfo : MonoBehaviour
         }
         else if (CostumeName == "Frost") // unlocks frost after completing world 5 boss
         {
-            if (PlayerPrefs.GetInt("Frostbitten") == 1)
+            if (PlayerData.AchievementRecords.ContainsKey("Frostbitten")) // achievement is unlocked
             {
                 Locked = false;
                 gameObject.GetComponent<SpriteRenderer>().enabled = true;
@@ -96,7 +96,7 @@ public class CostumeInfo : MonoBehaviour
 
         else if (CostumeName == "Rainbow Boy") // unlocks Rainbow Boy after completing party world
         {
-            if (PlayerPrefs.GetInt("Party Crasher") == 1)
+            if (PlayerData.AchievementRecords.ContainsKey("Party Crasher")) // achievement is unlocked
             {
                 Locked = false;
                 gameObject.GetComponent<SpriteRenderer>().enabled = true;
@@ -111,7 +111,7 @@ public class CostumeInfo : MonoBehaviour
         }
         else if (CostumeName == "Hopps") // unlocks Hopps after beating Vegan mode under 2 hours
         {
-            if (PlayerPrefs.GetInt("Fast Food") == 1)
+            if (PlayerData.AchievementRecords.ContainsKey("Fast Food")) // achievement is unlocked
             {
                 Locked = false;
                 gameObject.GetComponent<SpriteRenderer>().enabled = true;
@@ -126,7 +126,7 @@ public class CostumeInfo : MonoBehaviour
         }
         else if (CostumeName == "g o r F") // unlocks GORF after failing 200 times
         {
-            if (PlayerPrefs.GetInt("Lucky 200") == 1)
+            if (PlayerData.AchievementRecords.ContainsKey("Lucky 200")) // achievement is unlocked
             {
                 Locked = false;
                 gameObject.GetComponent<SpriteRenderer>().enabled = true;
@@ -141,7 +141,7 @@ public class CostumeInfo : MonoBehaviour
         }
         else if (CostumeName == "Igorrr") // unlocks Igorrr after completing boss rush
         {
-            if (PlayerPrefs.GetInt("Indigestible") == 1)
+            if (PlayerData.AchievementRecords.ContainsKey("Indigestible")) // achievement is unlocked
             {
                 Locked = false;
                 gameObject.GetComponent<SpriteRenderer>().enabled = true;
@@ -156,7 +156,7 @@ public class CostumeInfo : MonoBehaviour
         }
         else if (CostumeName == "Famine") // unlocks bones after completing malnourished mode
         {
-            if (PlayerPrefs.GetInt("Insatiable Appetite") == 1)
+            if (PlayerData.AchievementRecords.ContainsKey("Insatiable Appetite")) // achievement is unlocked
             {
                 Locked = false;
                 gameObject.GetComponent<SpriteRenderer>().enabled = true;
@@ -171,7 +171,7 @@ public class CostumeInfo : MonoBehaviour
         }
         else if (CostumeName == "Gramps") // unlocks gramps after completing retro world
         {
-            if (PlayerPrefs.GetInt("Fossilized") == 1)
+            if (PlayerData.AchievementRecords.ContainsKey("Fossilized")) // achievement is unlocked
             {
                 Locked = false;
                 gameObject.GetComponent<SpriteRenderer>().enabled = true;
@@ -186,7 +186,7 @@ public class CostumeInfo : MonoBehaviour
         }
         else if (CostumeName == "Cavity") // unlocks Cavity after beating world 2 boss
         {
-            if (PlayerPrefs.GetInt("Spoiled Appetite") == 1)
+            if (PlayerData.AchievementRecords.ContainsKey("Spoiled Appetite")) // achievement is unlocked
             {
                 Locked = false;
                 gameObject.GetComponent<SpriteRenderer>().enabled = true;

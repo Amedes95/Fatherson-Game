@@ -29,7 +29,7 @@ public class BonkableHead : MonoBehaviour
     {
         CurrentlyBonking = false;
         CurrentHP = MaxHP;
-        EnemiesKilled = PlayerPrefs.GetInt("EnemiesKilled");
+        EnemiesKilled = PlayerData.EnemiesKilled;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -95,28 +95,28 @@ public class BonkableHead : MonoBehaviour
                         else
                         {
                             SpawnDeathParticles();
-                            PlayerPrefs.SetInt("EnemiesKilled", EnemiesKilled  += 1);
+                            PlayerData.EnemiesKilled = EnemiesKilled  += 1;
                         }
                         /// Unlocks Bonk! Achievement
-                        if (PlayerPrefs.GetInt("Bonk!") == 0 && EnemiesKilled >= 20)
+                        if (PlayerData.AchievementRecords.ContainsKey("Bonk!") == false && EnemiesKilled >= 20) // not unlocked already?
                         {
-                            PlayerPrefs.SetInt("Bonk!", 1);
+                            PlayerData.AchievementRecords.Add("Bonk!", 1); // add to unlock dictionary
                             Debug.Log("Bonk! Unlocked");
                             BackgroundMusic BGMusic = GameObject.FindGameObjectWithTag("BGMusic").GetComponent<BackgroundMusic>();
                             BGMusic.UnlockCheevo("Bonk!");
                         }
                         /// Unlocks Bonk Expert Achievement
-                        if (PlayerPrefs.GetInt("Bonk Expert") == 0 && EnemiesKilled >= 60)
+                        if (PlayerData.AchievementRecords.ContainsKey("Bonk Expert") == false && EnemiesKilled >= 60) // not unlocked already?
                         {
-                            PlayerPrefs.SetInt("Bonk Expert", 1);
+                            PlayerData.AchievementRecords.Add("Bonk Expert", 1); // add to unlock dictionary
                             Debug.Log("Bonk Expert Unlocked");
                             BackgroundMusic BGMusic = GameObject.FindGameObjectWithTag("BGMusic").GetComponent<BackgroundMusic>();
                             BGMusic.UnlockCheevo("Bonk Expert");
                         }
                         /// Unlocks Absolutely Bonkers Achievement
-                        if (PlayerPrefs.GetInt("Absolutely Bonkers") == 0 && EnemiesKilled >= 100)
+                        if (PlayerData.AchievementRecords.ContainsKey("Absolutely Bonkers") == false && EnemiesKilled >= 100) //not unlocked already?
                         {
-                            PlayerPrefs.SetInt("Absolutely Bonkers", 1);
+                            PlayerData.AchievementRecords.Add("Absolutely Bonkers", 1); // add to unlock dictionary
                             Debug.Log("Absolutely Bonkers Unlocked");
                             BackgroundMusic BGMusic = GameObject.FindGameObjectWithTag("BGMusic").GetComponent<BackgroundMusic>();
                             BGMusic.UnlockCheevo("Absolutely Bonkers");

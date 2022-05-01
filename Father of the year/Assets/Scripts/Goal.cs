@@ -31,8 +31,11 @@ public class Goal : MonoBehaviour
     // Start is called before the first frame update
     void Awake()
     {
-        PlayerPrefs.SetString("ExitedLevel", SceneManager.GetActiveScene().name); // lets keep track of what level you loaded into
-        BestTime = PlayerPrefs.GetFloat(SceneManager.GetActiveScene().name);
+        PlayerData.ExitedLevel = SceneManager.GetActiveScene().name; // lets keep track of what level you loaded into
+        if (PlayerData.PlayerTimeRecords.ContainsKey(SceneManager.GetActiveScene().name)) // does this level have a record?
+        {
+            BestTime = PlayerData.GetLevelBestTime(SceneManager.GetActiveScene().name); // retrive that best time if it exists
+        }
         SpeedRunning = true;
         CompletionTime = 0f;
         PulsingChroma = false;
@@ -63,9 +66,9 @@ public class Goal : MonoBehaviour
         {
 
             /// Unlocks Noobie Achievement
-            if (PlayerPrefs.GetInt("Noobie") == 0)
+            if (PlayerData.AchievementRecords.ContainsKey("Noobie") == false) // not already unlocked?
             {
-                PlayerPrefs.SetInt("Noobie", 1);
+                PlayerData.AchievementRecords.Add("Noobie", 1);
                 Debug.Log("Noobie Unlocked");
                 BackgroundMusic BGMusic = GameObject.FindGameObjectWithTag("BGMusic").GetComponent<BackgroundMusic>();
                 BGMusic.UnlockCheevo("Noobie");
@@ -78,17 +81,19 @@ public class Goal : MonoBehaviour
 
             ////// Compare best time with completion time for records
             SpeedRunning = false; // stop timer
-            if (PlayerPrefs.GetFloat(SceneManager.GetActiveScene().name) == 0f) // if its your first run
+            string ActiveSceneName = SceneManager.GetActiveScene().name;
+            if (PlayerData.PlayerTimeRecords.ContainsKey(ActiveSceneName) == false) // if its your first run and no record exists already
             {
-                PlayerPrefs.SetFloat(SceneManager.GetActiveScene().name, (float) CompletionTime); // update playerprefs with your best time!
-                Debug.Log("First timer" + PlayerPrefs.GetFloat(SceneManager.GetActiveScene().name));
+                PlayerData.PlayerTimeRecords.Add(ActiveSceneName, (float) CompletionTime); // update playerdata with your best time!
+                Debug.Log("First timer" + PlayerData.GetLevelBestTime(ActiveSceneName));
             }
-            else if (PlayerPrefs.GetFloat(SceneManager.GetActiveScene().name) != 0f) // did you do better?
+            else if (PlayerData.PlayerTimeRecords.ContainsKey(ActiveSceneName)) // did you do better? Check if entry exists already, then compare values
             {
-                if (CompletionTime < BestTime)
+                if (CompletionTime < BestTime) // level completed faster than previous record
                 {
-                    PlayerPrefs.SetFloat(SceneManager.GetActiveScene().name, (float)CompletionTime); // update playerprefs with your new best time!
-                    Debug.Log("New record" + PlayerPrefs.GetFloat(SceneManager.GetActiveScene().name));
+                    PlayerData.PlayerTimeRecords.Remove(ActiveSceneName); // remove old record, then add a new one with the same key
+                    PlayerData.PlayerTimeRecords.Add(ActiveSceneName, (float)CompletionTime); // update playerdata with your NEW best time!
+                    Debug.Log("New record" + PlayerData.GetLevelBestTime(ActiveSceneName));
                     // insert NEW BEST TIME sound effect here
                 }
 

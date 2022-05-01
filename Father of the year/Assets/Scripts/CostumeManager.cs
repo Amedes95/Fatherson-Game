@@ -32,7 +32,7 @@ public class CostumeManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        if (PlayerPrefs.GetInt("CostumeIndex") == 0)
+        if (PlayerData.CostumeIndex == 0)
         {
             CostumeIndex = 0;
         }
@@ -41,23 +41,23 @@ public class CostumeManager : MonoBehaviour
 
     private void Awake()
     {
-        CostumeIndex = PlayerPrefs.GetInt("CostumeIndex");
+        CostumeIndex = PlayerData.CostumeIndex;
 
     }
 
     private void OnEnable()
     {
         CharacterSelectScreen.SetActive(true);
-        CostumeIndex = PlayerPrefs.GetInt("CostumeIndex");
+        CostumeIndex = PlayerData.CostumeIndex;
         ToggleVsibility();
 
         // achievement for unlocking all costumes
-        if (PlayerPrefs.GetInt("Ancient Evil") == 1 && PlayerPrefs.GetInt("Flea Flee") == 1 && PlayerPrefs.GetInt("Fungus Among Us") == 1 && PlayerPrefs.GetInt("Ghastly Escape") == 1 && PlayerPrefs.GetInt("Party Crasher") == 1 && PlayerPrefs.GetInt("Fast Food") == 1 && PlayerPrefs.GetInt("Lucky 200") == 1 && PlayerPrefs.GetInt("Indigestible") == 1 && PlayerPrefs.GetInt("Insatiable Appetite") == 1 && PlayerPrefs.GetInt("Frostbitten") == 1 && PlayerPrefs.GetInt("Fossilized") == 1 && PlayerPrefs.GetInt("Spoiled Appetite") == 1) // oops hard code, fuck it
+        if (PlayerData.AchievementRecords.ContainsKey("Ancient Evil") && PlayerData.AchievementRecords.ContainsKey("Flea Flee") && PlayerData.AchievementRecords.ContainsKey("Fungus Among Us") && PlayerData.AchievementRecords.ContainsKey("Ghastly Escape") && PlayerData.AchievementRecords.ContainsKey("Party Crasher") && PlayerData.AchievementRecords.ContainsKey("Fast Food") && PlayerData.AchievementRecords.ContainsKey("Lucky 200") && PlayerData.AchievementRecords.ContainsKey("Indigestible") && PlayerData.AchievementRecords.ContainsKey("Insatiable Appetite") && PlayerData.AchievementRecords.ContainsKey("Frostbitten") && PlayerData.AchievementRecords.ContainsKey("Fossilized") && PlayerData.AchievementRecords.ContainsKey("Spoiled Appetite")) // oops hard code, fuck it
         {
             /// Unlocks Fashion Statement Achievement
-            if (PlayerPrefs.GetInt("Fashion Statement") == 0)
+            if (PlayerData.AchievementRecords.ContainsKey("Fashion Statement") == false) // not already unlocked?
             {
-                PlayerPrefs.SetInt("Fashion Statement", 1);
+                PlayerData.AchievementRecords.Add("Fashion Statement", 1); // add to unlock dictionary
                 Debug.Log("Fashion Statement Unlocked");
                 BackgroundMusic BGMusic = GameObject.FindGameObjectWithTag("BGMusic").GetComponent<BackgroundMusic>();
                 BGMusic.UnlockCheevo("Fashion Statement");
@@ -73,22 +73,22 @@ public class CostumeManager : MonoBehaviour
         }
         if (CurrentCostume.GetComponent<CostumeInfo>().Locked) // locked costumes
         {
-            PlayerPrefs.SetInt("CostumeIndex", 0); // default to normal costume if locked character is chosen
+            PlayerData.CostumeIndex = 0; // default to normal costume if locked character is chosen
         }
         else
         {
-            PlayerPrefs.SetInt("CostumeIndex", CostumeIndex); // 0, 1, etc..
+            PlayerData.CostumeIndex = CostumeIndex; // 0, 1, etc..
         }
 
 
 
         //achievement for changing costime once
-        if (PlayerPrefs.GetInt("CostumeIndex") != 0) // unlock if not default
+        if (PlayerData.CostumeIndex != 0) // unlock if not default
         {
             /// Unlocks Fashionable Achievement
-            if (PlayerPrefs.GetInt("Fashionable") == 0)
+            if (PlayerData.AchievementRecords.ContainsKey("Fashionable") == false) // not already unlocked?
             {
-                PlayerPrefs.SetInt("Fashionable", 1);
+                PlayerData.AchievementRecords.Add("Fashionable", 1); // add to unlock dictionary
                 Debug.Log("Fashionable Unlocked");
                 BackgroundMusic BGMusic = GameObject.FindGameObjectWithTag("BGMusic").GetComponent<BackgroundMusic>();
                 BGMusic.UnlockCheevo("Fashionable");
