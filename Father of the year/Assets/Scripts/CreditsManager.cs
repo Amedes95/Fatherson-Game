@@ -94,12 +94,12 @@ public class CreditsManager : MonoBehaviour
     private void Awake()
     {
 
-        PlayerData.GameCompleted = 1;
+        PlayerData.PD.GameCompleted = 1;
         Time.timeScale = 1f;
         /// Unlocks Carnist Achievement
-        if (PlayerData.AchievementRecords.ContainsKey("Carnist") == false && PlayerPrefs.GetInt("VeganMode") == 1) // not unlocked already?
+        if (PlayerData.PD.AchievementRecords.ContainsKey("Carnist") == false && PlayerPrefs.GetInt("VeganMode") == 1) // not unlocked already?
         {
-            PlayerData.AchievementRecords.Add("Carnist", 1); // add to unlock dictionary
+            PlayerData.PD.AchievementRecords.Add("Carnist", 1); // add to unlock dictionary
             Debug.Log("Carnist Unlocked");
             BackgroundMusic BGMusic = GameObject.FindGameObjectWithTag("BGMusic").GetComponent<BackgroundMusic>();
             BGMusic.UnlockCheevo("Carnist");
@@ -108,9 +108,9 @@ public class CreditsManager : MonoBehaviour
         if (PlayerPrefs.GetFloat("VeganTimer") <= 7200 && PlayerPrefs.GetInt("VeganMode") == 1) // if credits are reached under 2 hours
         {
             /// Unlocks Fast Food Achievement
-            if (PlayerData.AchievementRecords.ContainsKey("Fast Food") == false) // not unlocked already?
+            if (PlayerData.PD.AchievementRecords.ContainsKey("Fast Food") == false) // not unlocked already?
             {
-                PlayerData.AchievementRecords.Add("Fast Food", 1); // add to unlock dictionary
+                PlayerData.PD.AchievementRecords.Add("Fast Food", 1); // add to unlock dictionary
                 Debug.Log("Fast Food Unlocked");
                 BackgroundMusic BGMusic = GameObject.FindGameObjectWithTag("BGMusic").GetComponent<BackgroundMusic>();
                 BGMusic.UnlockCheevo("Fast Food");
@@ -119,9 +119,9 @@ public class CreditsManager : MonoBehaviour
         if (PlayerPrefs.GetFloat("Insatiable Appetite") <= 7200 && PlayerPrefs.GetInt("MalnourishedMode") == 1) // if credits are reached during malnourished mode
         {
             /// Unlocks Insatiable Appetite Achievement
-            if (PlayerData.AchievementRecords.ContainsKey("Insatiable Appetite") == false) // not unlocked already?
+            if (PlayerData.PD.AchievementRecords.ContainsKey("Insatiable Appetite") == false) // not unlocked already?
             {
-                PlayerData.AchievementRecords.Add("Insatiable Appetite", 1); // add to unlock dictionary
+                PlayerData.PD.AchievementRecords.Add("Insatiable Appetite", 1); // add to unlock dictionary
                 Debug.Log("Insatiable Appetite");
                 BackgroundMusic BGMusic = GameObject.FindGameObjectWithTag("BGMusic").GetComponent<BackgroundMusic>();
                 BGMusic.UnlockCheevo("Insatiable Appetite");
@@ -130,9 +130,9 @@ public class CreditsManager : MonoBehaviour
         if (PlayerPrefs.GetInt("BossRush") == 1)
         {
             /// Unlocks Indigestible Achievement
-            if (PlayerData.AchievementRecords.ContainsKey("Indigestible") == false) // not unlocked already?
+            if (PlayerData.PD.AchievementRecords.ContainsKey("Indigestible") == false) // not unlocked already?
             {
-                PlayerData.AchievementRecords.Add("Indigestible", 1); // add to unlock dictionary
+                PlayerData.PD.AchievementRecords.Add("Indigestible", 1); // add to unlock dictionary
                 Debug.Log("Indigestible");
                 BackgroundMusic BGMusic = GameObject.FindGameObjectWithTag("BGMusic").GetComponent<BackgroundMusic>();
                 BGMusic.UnlockCheevo("Indigestible");

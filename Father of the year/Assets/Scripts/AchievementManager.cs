@@ -166,7 +166,7 @@ public class AchievementManager : MonoBehaviour
 
         foreach (GameObject Cheevo in Achievements) // cycle all cheevos
         {
-            if (PlayerData.AchievementRecords.ContainsKey(Cheevo.GetComponent<AchievementInfo>().AchievementTitle)) // check unlock status. Am i unlocked? yes? + 1
+            if (PlayerData.PD.AchievementRecords.ContainsKey(Cheevo.GetComponent<AchievementInfo>().AchievementTitle)) // check unlock status. Am i unlocked? yes? + 1
             {
                 CheevosUnlocked += 1;
             }
@@ -178,9 +178,9 @@ public class AchievementManager : MonoBehaviour
         if (CheevosUnlocked >= 38)
         {
             /// Unlocks Couch Potato Achievement
-            if (PlayerData.AchievementRecords.ContainsKey("Couch Potato") == false) // not already in dictionary
+            if (PlayerData.PD.AchievementRecords.ContainsKey("Couch Potato") == false) // not already in dictionary
             {
-                PlayerData.AchievementRecords.Add("Couch Potato", 1); // 1 == unlocked
+                PlayerData.PD.AchievementRecords.Add("Couch Potato", 1); // 1 == unlocked
                 Debug.Log("Couch Potato");
                 BackgroundMusic BGMusic = GameObject.FindGameObjectWithTag("BGMusic").GetComponent<BackgroundMusic>();
                 BGMusic.UnlockCheevo("Couch Potato");

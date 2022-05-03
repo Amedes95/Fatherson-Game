@@ -9,14 +9,14 @@ public class Collector : MonoBehaviour
 
     private void Awake()
     {
-        TotalFruitCollected = PlayerData.FruitCollected; // returns the saved value of collected fruits
+        TotalFruitCollected = PlayerData.PD.FruitCollected; // returns the saved value of collected fruits
     }
 
     public void AddToFruitStash()
     {
-        TotalFruitCollected = PlayerData.FruitCollected; // returns the saved value of collected fruits
+        TotalFruitCollected = PlayerData.PD.FruitCollected; // returns the saved value of collected fruits
         TotalFruitCollected += FruitFromLevel;
-        PlayerData.FruitCollected = TotalFruitCollected;
+        PlayerData.PD.FruitCollected = TotalFruitCollected;
     }
 
 

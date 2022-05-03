@@ -53,7 +53,7 @@ public class VisualsScreen : MonoBehaviour
         }
 
         // unlock party mode in visual settings
-        if (PlayerData.PartyUnlocked == 0)
+        if (PlayerData.PD.PartyUnlocked == 0)
         {
             PartyModeButton.interactable = false;
             LockSymbolParty.SetActive(true);
@@ -63,14 +63,14 @@ public class VisualsScreen : MonoBehaviour
         {
             PartyText.text = "Party Mode";
         }
-        if (PlayerData.PartyUnlocked == 1 && !Partying && !BeingOld)
+        if (PlayerData.PD.PartyUnlocked == 1 && !Partying && !BeingOld)
         {
             PartyModeButton.interactable = true;
             LockSymbolParty.SetActive(false);
         }
 
         // unlocks old timer mode when achievement is unlocked
-        if (PlayerData.OldTimeyUnlocked == 0)
+        if (PlayerData.PD.OldTimeyUnlocked == 0)
         {
             OldTimeyModeButton.interactable = false;
             LockSymbolOld.SetActive(true);
@@ -80,7 +80,7 @@ public class VisualsScreen : MonoBehaviour
         {
             OldText.text = "Fossilized";
         }
-        if (PlayerData.OldTimeyUnlocked == 1 && !BeingOld && !Partying)
+        if (PlayerData.PD.OldTimeyUnlocked == 1 && !BeingOld && !Partying)
         {
             OldTimeyModeButton.interactable = true;
             LockSymbolOld.SetActive(false);

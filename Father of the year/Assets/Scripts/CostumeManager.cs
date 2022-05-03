@@ -32,7 +32,7 @@ public class CostumeManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        if (PlayerData.CostumeIndex == 0)
+        if (PlayerData.PD.CostumeIndex == 0)
         {
             CostumeIndex = 0;
         }
@@ -41,23 +41,23 @@ public class CostumeManager : MonoBehaviour
 
     private void Awake()
     {
-        CostumeIndex = PlayerData.CostumeIndex;
+        CostumeIndex = PlayerData.PD.CostumeIndex;
 
     }
 
     private void OnEnable()
     {
         CharacterSelectScreen.SetActive(true);
-        CostumeIndex = PlayerData.CostumeIndex;
+        CostumeIndex = PlayerData.PD.CostumeIndex;
         ToggleVsibility();
 
         // achievement for unlocking all costumes
-        if (PlayerData.AchievementRecords.ContainsKey("Ancient Evil") && PlayerData.AchievementRecords.ContainsKey("Flea Flee") && PlayerData.AchievementRecords.ContainsKey("Fungus Among Us") && PlayerData.AchievementRecords.ContainsKey("Ghastly Escape") && PlayerData.AchievementRecords.ContainsKey("Party Crasher") && PlayerData.AchievementRecords.ContainsKey("Fast Food") && PlayerData.AchievementRecords.ContainsKey("Lucky 200") && PlayerData.AchievementRecords.ContainsKey("Indigestible") && PlayerData.AchievementRecords.ContainsKey("Insatiable Appetite") && PlayerData.AchievementRecords.ContainsKey("Frostbitten") && PlayerData.AchievementRecords.ContainsKey("Fossilized") && PlayerData.AchievementRecords.ContainsKey("Spoiled Appetite")) // oops hard code, fuck it
+        if (PlayerData.PD.AchievementRecords.ContainsKey("Ancient Evil") && PlayerData.PD.AchievementRecords.ContainsKey("Flea Flee") && PlayerData.PD.AchievementRecords.ContainsKey("Fungus Among Us") && PlayerData.PD.AchievementRecords.ContainsKey("Ghastly Escape") && PlayerData.PD.AchievementRecords.ContainsKey("Party Crasher") && PlayerData.PD.AchievementRecords.ContainsKey("Fast Food") && PlayerData.PD.AchievementRecords.ContainsKey("Lucky 200") && PlayerData.PD.AchievementRecords.ContainsKey("Indigestible") && PlayerData.PD.AchievementRecords.ContainsKey("Insatiable Appetite") && PlayerData.PD.AchievementRecords.ContainsKey("Frostbitten") && PlayerData.PD.AchievementRecords.ContainsKey("Fossilized") && PlayerData.PD.AchievementRecords.ContainsKey("Spoiled Appetite")) // oops hard code, fuck it
         {
             /// Unlocks Fashion Statement Achievement
-            if (PlayerData.AchievementRecords.ContainsKey("Fashion Statement") == false) // not already unlocked?
+            if (PlayerData.PD.AchievementRecords.ContainsKey("Fashion Statement") == false) // not already unlocked?
             {
-                PlayerData.AchievementRecords.Add("Fashion Statement", 1); // add to unlock dictionary
+                PlayerData.PD.AchievementRecords.Add("Fashion Statement", 1); // add to unlock dictionary
                 Debug.Log("Fashion Statement Unlocked");
                 BackgroundMusic BGMusic = GameObject.FindGameObjectWithTag("BGMusic").GetComponent<BackgroundMusic>();
                 BGMusic.UnlockCheevo("Fashion Statement");
@@ -73,22 +73,22 @@ public class CostumeManager : MonoBehaviour
         }
         if (CurrentCostume.GetComponent<CostumeInfo>().Locked) // locked costumes
         {
-            PlayerData.CostumeIndex = 0; // default to normal costume if locked character is chosen
+            PlayerData.PD.CostumeIndex = 0; // default to normal costume if locked character is chosen
         }
         else
         {
-            PlayerData.CostumeIndex = CostumeIndex; // 0, 1, etc..
+            PlayerData.PD.CostumeIndex = CostumeIndex; // 0, 1, etc..
         }
 
 
 
         //achievement for changing costime once
-        if (PlayerData.CostumeIndex != 0) // unlock if not default
+        if (PlayerData.PD.CostumeIndex != 0) // unlock if not default
         {
             /// Unlocks Fashionable Achievement
-            if (PlayerData.AchievementRecords.ContainsKey("Fashionable") == false) // not already unlocked?
+            if (PlayerData.PD.AchievementRecords.ContainsKey("Fashionable") == false) // not already unlocked?
             {
-                PlayerData.AchievementRecords.Add("Fashionable", 1); // add to unlock dictionary
+                PlayerData.PD.AchievementRecords.Add("Fashionable", 1); // add to unlock dictionary
                 Debug.Log("Fashionable Unlocked");
                 BackgroundMusic BGMusic = GameObject.FindGameObjectWithTag("BGMusic").GetComponent<BackgroundMusic>();
                 BGMusic.UnlockCheevo("Fashionable");

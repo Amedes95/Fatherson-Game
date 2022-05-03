@@ -63,7 +63,7 @@ public class MainMenu : MonoBehaviour
 
     private void Update()
     {
-        if (PlayerData.GameCompleted == 1)
+        if (PlayerData.PD.GameCompleted == 1)
         {
             MoreButton.interactable = true;
             LockedImage.SetActive(false);
@@ -317,7 +317,7 @@ public class MainMenu : MonoBehaviour
         BrowsingStats = true;
         CurrentDestination = StatsDestination;
 
-        PlayerData.ClearData();
+        PlayerData.PD.ClearData();
         ConfirmationMenu.SetActive(false);
 
         PlayerPrefs.SetFloat("GameBegun", 1);
@@ -436,7 +436,7 @@ public class MainMenu : MonoBehaviour
         foreach (GameObject Cheevo in Achievements)
         {
             string CheevoName = Cheevo.GetComponent<AchievementInfo>().AchievementTitle;
-            if (PlayerData.AchievementRecords.ContainsKey(CheevoName)) // check dictionary of unlocked achievements
+            if (PlayerData.PD.AchievementRecords.ContainsKey(CheevoName)) // check dictionary of unlocked achievements
             {
                 SteamUserStats.SetAchievement(Cheevo.GetComponent<AchievementInfo>().AchievementTitle); // If you DO have the achievement lcoally but steam doesn't think so, update it here
                 SteamUserStats.StoreStats();

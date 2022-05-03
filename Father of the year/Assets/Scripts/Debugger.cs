@@ -21,11 +21,11 @@ public class Debugger : MonoBehaviour
             foreach (GameObject Level in CurrentWorld.LevelsWithinWorld)
             {
                 string LevelID = Level.GetComponent<LevelInfo>().SceneToLoad;
-                if (PlayerData.PlayerTimeRecords.ContainsKey(LevelID))
+                if (PlayerData.PD.PlayerTimeRecords.ContainsKey(LevelID))
                 {
-                    PlayerData.PlayerTimeRecords.Remove(LevelID);
+                    PlayerData.PD.PlayerTimeRecords.Remove(LevelID);
                 }
-                PlayerData.PlayerTimeRecords.Add(LevelID, 260); // sets completion time to a slow 4min 20 seconds for all levels
+                PlayerData.PD.PlayerTimeRecords.Add(LevelID, 260); // sets completion time to a slow 4min 20 seconds for all levels
             }
         }
         PauseMenu.Restart();
@@ -40,11 +40,11 @@ public class Debugger : MonoBehaviour
             foreach (GameObject Level in CurrentWorld.LevelsWithinWorld)
             {
                 string LevelID = Level.GetComponent<LevelInfo>().SceneToLoad;
-                if (PlayerData.PlayerTimeRecords.ContainsKey(LevelID))
+                if (PlayerData.PD.PlayerTimeRecords.ContainsKey(LevelID))
                 {
-                    PlayerData.PlayerTimeRecords.Remove(LevelID);
+                    PlayerData.PD.PlayerTimeRecords.Remove(LevelID);
                 }
-                PlayerData.PlayerTimeRecords.Add(LevelID, 1); // sets completion time to a speedy 1 second for all golds
+                PlayerData.PD.PlayerTimeRecords.Add(LevelID, 1); // sets completion time to a speedy 1 second for all golds
             }
         }
         PauseMenu.Restart();
@@ -52,11 +52,11 @@ public class Debugger : MonoBehaviour
     public void LockAllTrophies()
     {
         LevelManager.LockAllWorlds();
-        PlayerData.PlayerTimeRecords.Clear();
-        PlayerData.AchievementRecords.Clear();
-        PlayerData.TotalGoldMedals = 0;
-        PlayerData.AchievementRecords.Remove("Gold Medalist");
-        PlayerData.AchievementRecords.Clear();
+        PlayerData.PD.PlayerTimeRecords.Clear();
+        PlayerData.PD.AchievementRecords.Clear();
+        PlayerData.PD.TotalGoldMedals = 0;
+        PlayerData.PD.AchievementRecords.Remove("Gold Medalist");
+        PlayerData.PD.AchievementRecords.Clear();
         PauseMenu.Restart();
     }
 

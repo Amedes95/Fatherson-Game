@@ -18,7 +18,7 @@ public class AchievementInfo : MonoBehaviour
     {
         Locked = true;
         LockedSymbol.SetActive(true);
-        if (PlayerData.AchievementRecords.ContainsKey(AchievementTitle)) // is the achievement in the unlocked group?
+        if (PlayerData.PD.AchievementRecords.ContainsKey(AchievementTitle)) // is the achievement in the unlocked group?
         {
             SteamUserStats.SetAchievement(AchievementTitle); // If you DO have the achievement locally but steam doesn't think so, update it here
             SteamUserStats.StoreStats();
@@ -41,7 +41,7 @@ public class AchievementInfo : MonoBehaviour
         {
             LockedSymbol.SetActive(true);
         }
-        if (PlayerData.AchievementRecords.ContainsKey(AchievementTitle)) // is achievement in the unlocked dictionary?
+        if (PlayerData.PD.AchievementRecords.ContainsKey(AchievementTitle)) // is achievement in the unlocked dictionary?
         {
             Locked = false;
         }

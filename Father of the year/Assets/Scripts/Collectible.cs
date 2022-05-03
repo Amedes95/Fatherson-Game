@@ -20,8 +20,8 @@ public class Collectible : MonoBehaviour
     private void Awake()
     {
         RespawnDelayStart = RespawnDelay;
-        ApplesEaten = PlayerData.ApplesEaten;
-        LollipopsEaten = PlayerData.LollipopsEaten;
+        ApplesEaten = PlayerData.PD.ApplesEaten;
+        LollipopsEaten = PlayerData.PD.LollipopsEaten;
     }
 
     private void OnTriggerEnter2D(Collider2D collision) // Triggered when fruit is picked up by the player
@@ -36,7 +36,7 @@ public class Collectible : MonoBehaviour
                 {
                     PlayerMovement.jumpCount = 1;
                     collision.GetComponent<PlayerMovement>().SpawnDoubleJumpParticles();
-                    PlayerData.ApplesEaten = ApplesEaten += 1;
+                    PlayerData.PD.ApplesEaten = ApplesEaten += 1;
                 }
                 else if (GoldCoin)
                 {
@@ -45,17 +45,17 @@ public class Collectible : MonoBehaviour
 
 
                 // an apple a day achievement
-                if (PlayerData.AchievementRecords.ContainsKey("Doctor Repellent") == false && ApplesEaten >= 10) // not already unlocked?
+                if (PlayerData.PD.AchievementRecords.ContainsKey("Doctor Repellent") == false && ApplesEaten >= 10) // not already unlocked?
                 {
-                    PlayerData.AchievementRecords.Add("Doctor Repellent", 1); // add to unlock dictionary
+                    PlayerData.PD.AchievementRecords.Add("Doctor Repellent", 1); // add to unlock dictionary
                     Debug.Log("Doctor Repellent");
                     BackgroundMusic BGMusic = GameObject.FindGameObjectWithTag("BGMusic").GetComponent<BackgroundMusic>();
                     BGMusic.UnlockCheevo("Doctor Repellent");
                 }
                 // nutritious! achievement
-                if (PlayerData.AchievementRecords.ContainsKey("Nutritious!") == false && ApplesEaten >= 50) // not already unlocked?
+                if (PlayerData.PD.AchievementRecords.ContainsKey("Nutritious!") == false && ApplesEaten >= 50) // not already unlocked?
                 {
-                    PlayerData.AchievementRecords.Add("Nutritious!", 1); // add to unlock dictionary
+                    PlayerData.PD.AchievementRecords.Add("Nutritious!", 1); // add to unlock dictionary
                     Debug.Log("Nutritious! Unlocked");
                     BackgroundMusic BGMusic = GameObject.FindGameObjectWithTag("BGMusic").GetComponent<BackgroundMusic>();
                     BGMusic.UnlockCheevo("Nutritious!");
@@ -64,11 +64,11 @@ public class Collectible : MonoBehaviour
             else
             {
                 PlayerMovement.InvincibilityTimer = 8f;
-                PlayerData.LollipopsEaten = LollipopsEaten += 1;
+                PlayerData.PD.LollipopsEaten = LollipopsEaten += 1;
                 // Sugar Rush! achievement
-                if (PlayerData.AchievementRecords.ContainsKey("Sugar Rush!") == false && LollipopsEaten >= 15) // not already unlocked?
+                if (PlayerData.PD.AchievementRecords.ContainsKey("Sugar Rush!") == false && LollipopsEaten >= 15) // not already unlocked?
                 {
-                    PlayerData.AchievementRecords.Add("Sugar Rush!", 1); // add to unlock dictionary
+                    PlayerData.PD.AchievementRecords.Add("Sugar Rush!", 1); // add to unlock dictionary
                     Debug.Log("Sugar Rush! Unlocked");
                     BackgroundMusic BGMusic = GameObject.FindGameObjectWithTag("BGMusic").GetComponent<BackgroundMusic>();
                     BGMusic.UnlockCheevo("Sugar Rush!");

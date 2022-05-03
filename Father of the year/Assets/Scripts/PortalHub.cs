@@ -34,7 +34,7 @@ public class PortalHub : MonoBehaviour
 
     public void LoadLevel()
     {
-        PlayerData.CurrentWorld = WorldNumber; // update the current world for respawning later in the hub
+        PlayerData.PD.CurrentWorld = WorldNumber; // update the current world for respawning later in the hub
         SceneManager.LoadScene(SceneToLoad);
     }
 }

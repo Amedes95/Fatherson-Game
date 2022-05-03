@@ -18,7 +18,7 @@ public class Respawn : MonoBehaviour
         }
         else // in the hub
         {
-            CurrentWorld = PlayerData.CurrentWorld;
+            CurrentWorld = PlayerData.PD.CurrentWorld;
             GameObject[] Spawners = GameObject.FindGameObjectsWithTag("WorldSpawn");
             foreach (GameObject SpawnPoint in Spawners)
             {

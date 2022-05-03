@@ -28,12 +28,12 @@ public class SecretGoal : MonoBehaviour
         if (Partying)
         {
             VisualsScreen.Partying = true;
-            PlayerData.ExitedLevel = "W2L08";
+            PlayerData.PD.ExitedLevel = "W2L08";
         }
         else if (BeingOld)
         {
             VisualsScreen.BeingOld = true;
-            PlayerData.ExitedLevel = "W4L09";
+            PlayerData.PD.ExitedLevel = "W4L09";
 
         }
         if (PlayerPrefs.GetInt("PartyModeON") == 0 && Partying)
@@ -71,9 +71,9 @@ public class SecretGoal : MonoBehaviour
             {
                 VictoryScreen.NextLevel = "Party01";
                 /// Unlocks Web of Secrets Achievement
-                if (PlayerData.AchievementRecords.ContainsKey("Web of Secrets") == false) // not already unlocked?
+                if (PlayerData.PD.AchievementRecords.ContainsKey("Web of Secrets") == false) // not already unlocked?
                 {
-                    PlayerData.AchievementRecords.Add("Web of Secrets", 1); // add to unlock dictionary
+                    PlayerData.PD.AchievementRecords.Add("Web of Secrets", 1); // add to unlock dictionary
                     Debug.Log("Web of Secrets Unlocked");
                     BackgroundMusic BGMusic = GameObject.FindGameObjectWithTag("BGMusic").GetComponent<BackgroundMusic>();
                     BGMusic.UnlockCheevo("Web of Secrets");
@@ -83,9 +83,9 @@ public class SecretGoal : MonoBehaviour
             {
                 VictoryScreen.NextLevel = "Retro01";
                 /// Unlocks Fossilized Achievement
-                if (PlayerData.AchievementRecords.ContainsKey("Pyroclastic") == false) // not already unlocked?
+                if (PlayerData.PD.AchievementRecords.ContainsKey("Pyroclastic") == false) // not already unlocked?
                 {
-                    PlayerData.AchievementRecords.Add("Pyroclastic", 1); // add to unlock dictionary
+                    PlayerData.PD.AchievementRecords.Add("Pyroclastic", 1); // add to unlock dictionary
                     Debug.Log("Pyroclastic");
                     BackgroundMusic BGMusic = GameObject.FindGameObjectWithTag("BGMusic").GetComponent<BackgroundMusic>();
                     BGMusic.UnlockCheevo("Pyroclastic");
@@ -95,9 +95,9 @@ public class SecretGoal : MonoBehaviour
             {
                 VictoryScreen.NextLevel = "Gold01";
                 // unlocks Jackpot! achievement
-                if (PlayerData.AchievementRecords.ContainsKey("Jackpot!") == false) // not already unlocked?
+                if (PlayerData.PD.AchievementRecords.ContainsKey("Jackpot!") == false) // not already unlocked?
                 {
-                    PlayerData.AchievementRecords.Add("Jackpot!", 1); // add to unlock dictionary
+                    PlayerData.PD.AchievementRecords.Add("Jackpot!", 1); // add to unlock dictionary
                     Debug.Log("Jackpot!");
                     BackgroundMusic BGMusic = GameObject.FindGameObjectWithTag("BGMusic").GetComponent<BackgroundMusic>();
                     BGMusic.UnlockCheevo("Jackpot!");

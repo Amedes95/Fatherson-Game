@@ -69,10 +69,10 @@ public class StatsManager : MonoBehaviour
 
     private void Update()
     {
-        DeathsText.text = PlayerData.LifetimeDeaths.ToString();
-        TrophiesText.text = PlayerData.TotalGoldMedals.ToString();
-        ApplesText.text = PlayerData.ApplesEaten.ToString();
-        EnemiesText.text = PlayerData.EnemiesKilled.ToString();
+        DeathsText.text = PlayerData.PD.LifetimeDeaths.ToString();
+        TrophiesText.text = PlayerData.PD.TotalGoldMedals.ToString();
+        ApplesText.text = PlayerData.PD.ApplesEaten.ToString();
+        EnemiesText.text = PlayerData.PD.EnemiesKilled.ToString();
 
     }
 }

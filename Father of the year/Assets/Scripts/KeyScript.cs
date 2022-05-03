@@ -35,7 +35,7 @@ public class KeyScript : MonoBehaviour
     {
         if (GoldenKey) // door to Gold City. Teleports key to player at the start of the level.
         {
-            if (PlayerData.AchievementRecords.ContainsKey("Gold Medalist")) // achievement is unlocked?
+            if (PlayerData.PD.AchievementRecords.ContainsKey("Gold Medalist")) // achievement is unlocked?
             {
                 GameObject Player = GameObject.FindGameObjectWithTag("Player");
                 transform.position = Player.transform.position;
@@ -47,7 +47,7 @@ public class KeyScript : MonoBehaviour
     {
         if (GoldenKey)
         {
-            GoldTrophyCount.text = PlayerData.TotalGoldMedals.ToString();
+            GoldTrophyCount.text = PlayerData.PD.TotalGoldMedals.ToString();
         }
     }
 
