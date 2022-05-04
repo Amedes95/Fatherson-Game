@@ -188,4 +188,24 @@ public class AchievementManager : MonoBehaviour
         }
     }
 
+
+    public void BackupMyAchievements()
+    {
+        Debug.Log("backing up achievements!");
+        foreach (GameObject Cheevo in Achievements) // cycle all cheevos
+        {
+            if (PlayerPrefs.GetInt(Cheevo.GetComponent<AchievementInfo>().AchievementTitle) == 1) // check unlock status from player prefs
+            {
+                if (PlayerData.PD.AchievementRecords.ContainsKey(Cheevo.GetComponent<AchievementInfo>().AchievementTitle) == false) // don't do this if entry already exists
+                {
+                    PlayerData.PD.AchievementRecords.Add(Cheevo.GetComponent<AchievementInfo>().AchievementTitle, PlayerPrefs.GetInt(Cheevo.GetComponent<AchievementInfo>().AchievementTitle)); // take player pref data and put it into unlock dictionary
+                    BackgroundMusic BGMusic = GameObject.FindGameObjectWithTag("BGMusic").GetComponent<BackgroundMusic>();
+                    BGMusic.UnlockCheevo(Cheevo.GetComponent<AchievementInfo>().AchievementTitle);
+                }
+            }
+        }
+        PlayerData.PD.SavePlayer(); // Save please!
+
+    }
+
 }

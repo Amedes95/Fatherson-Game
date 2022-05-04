@@ -40,6 +40,7 @@ public class PlayerData
     public int LollipopsEaten;
     public int CostumeIndex;
     public int GameCompleted;
+    public List<LevelInfo> LevelDataList;
 
     public void ClearData()
     {
@@ -65,6 +66,8 @@ public class PlayerData
         LollipopsEaten = 0;
         CostumeIndex = 0;
         GameCompleted = 0;
+
+        SavePlayer();
     }
 
     public float GetLevelBestTime(string CurrentLevelName) // searches the dictionary of best times for the key, then outputs the value of that key
@@ -88,7 +91,7 @@ public class PlayerData
     public void SavePlayer()
     {
         SaveSystem.SavePlayer(this);
-        Debug.Log("saving game");
+        Debug.Log("saving game...");
     }
 
 
@@ -96,7 +99,8 @@ public class PlayerData
     public void LoadPlayer()
     {
         playerdata = SaveSystem.LoadPlayer();
-
+        Debug.Log("loading data...");
+        PD.SavePlayer(); // save everything one final time!
     }
 
     [MenuItem("Test/TestSave")]
@@ -108,6 +112,37 @@ public class PlayerData
     public static void TestLoad()
     {
         PD.LoadPlayer();
+    }
+
+    [MenuItem("Test/ClearSavedData")]
+    public static void ClearSavedData()
+    {
+        PD.ClearData();
+        Debug.Log("Clearing save data...");
+    }
+
+    [MenuItem("Test/DirtyBackupPlayerPrefs")]
+    public static void DirtyBackupPlayerPrefs()
+    {
+        PlayerPrefs.DeleteAll();
+        Debug.Log("Backup prefs dirtied");
+        PlayerPrefs.SetInt("SaveFileVersioning", 0);
+        PlayerPrefs.SetInt("LevelTimeBackup", 0);
+        PlayerPrefs.SetInt("AchievementBackups", 0);
+        // test player scenario
+        PlayerPrefs.SetFloat("Tutorial_01", 100);
+        PlayerPrefs.SetFloat("Tutorial_02", 200);
+        PlayerPrefs.SetFloat("Tutorial_03", 300);
+        PlayerPrefs.SetString("ExitedLevel", "Tutorial_04");
+        PlayerPrefs.SetInt("CurrentWorld", 0);
+        PlayerPrefs.SetInt("Bonk!", 1);
+        PlayerPrefs.SetInt("Jackpot!", 1);
+        PlayerPrefs.SetInt("Indigestible", 1);
+        PlayerPrefs.SetInt("Couch Potato", 1);
+        PlayerPrefs.SetInt("Vegetarian", 1);
+        PlayerPrefs.SetInt("Nutritious!", 1);
+        PlayerPrefs.SetInt("ApplesEaten", 5);
+        PlayerPrefs.SetInt("GameCompleted", 1);
     }
 
 }

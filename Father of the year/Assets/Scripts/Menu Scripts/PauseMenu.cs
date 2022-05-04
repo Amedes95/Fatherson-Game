@@ -279,6 +279,7 @@ public class PauseMenu : MonoBehaviour
     {
         if (!PlayerHealth.Dead)
         {
+            PlayerPrefs.SetInt("LevelTimeBackup", 1); // never speak of this again
             if (Gamepad.current != null)
             {
                 Gamepad.current.PauseHaptics();

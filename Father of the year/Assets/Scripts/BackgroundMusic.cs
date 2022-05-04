@@ -63,6 +63,7 @@ public class BackgroundMusic : MonoBehaviour
         {
             UnlockSteamCheevo(CheevoName);
         }
+        PlayerData.PD.SavePlayer();
     }
 
     public void UnlockSteamCheevo(string SteamName)

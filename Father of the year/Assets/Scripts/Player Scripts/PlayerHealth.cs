@@ -67,9 +67,9 @@ public class PlayerHealth : MonoBehaviour
             BackgroundMusic BGMusic = GameObject.FindGameObjectWithTag("BGMusic").GetComponent<BackgroundMusic>();
             BGMusic.UnlockCheevo("Lucky 200");
         }
-
+        PlayerData.PD.SavePlayer();
         //Debug.Log(DeathCount);
-        
+
 
     }
 }

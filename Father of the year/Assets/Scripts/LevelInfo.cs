@@ -111,6 +111,7 @@ public class LevelInfo : MonoBehaviour
         {
             GoldTierAchieved = true;
         }
+
     }
 
 }

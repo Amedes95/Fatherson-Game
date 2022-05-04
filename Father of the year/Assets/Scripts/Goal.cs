@@ -31,6 +31,7 @@ public class Goal : MonoBehaviour
     // Start is called before the first frame update
     void Awake()
     {
+        PlayerPrefs.SetInt("LevelTimeBackup", 1); // never speak of this again
         PlayerData.PD.ExitedLevel = SceneManager.GetActiveScene().name; // lets keep track of what level you loaded into
         if (PlayerData.PD.PlayerTimeRecords.ContainsKey(SceneManager.GetActiveScene().name)) // does this level have a record?
         {
@@ -123,6 +124,7 @@ public class Goal : MonoBehaviour
                 PlayerPrefs.SetInt("MalnourishedLives", MalnourishedLives);
                 Debug.Log("Malnourished lives" + PlayerPrefs.GetInt("MalnourishedLives"));
             }
+            PlayerData.PD.SavePlayer();
         }
     }
 

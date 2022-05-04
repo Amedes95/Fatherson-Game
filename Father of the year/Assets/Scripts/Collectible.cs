@@ -79,6 +79,7 @@ public class Collectible : MonoBehaviour
 
             Consumed = true;
         }
+        PlayerData.PD.SavePlayer();
     }
 
     private void FixedUpdate()

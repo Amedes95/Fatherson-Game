@@ -87,6 +87,7 @@ public class LevelManager : MonoBehaviour
     // Start is called before the first frame update
     void Awake()
     {
+        PlayerData.PD.SavePlayer();
         VisualsScreen.Partying = false;
         VisualsScreen.BeingOld = false;
 
@@ -227,6 +228,7 @@ public class LevelManager : MonoBehaviour
 
             if (Input.GetAxis(NavAxis) == -1 && AbleToNavigate) // shift left
             {
+                PlayerPrefs.SetInt("LevelTimeBackup", 1); // never speak of this again
                 if (LevelIndex > 0)
                 {
                     ActiveWorld.transform.Translate(Vector3.right * ShiftDistance);
@@ -243,6 +245,7 @@ public class LevelManager : MonoBehaviour
             //// Shifts world indexer up and down
             if (Input.GetAxis(VerticalAxis) == -1 && AbleToNavigate && Camera.transform.position == NewPos) // move down a world
             {
+                PlayerPrefs.SetInt("LevelTimeBackup", 1); // never speak of this again
                 if (WorldIndex > 0)
                 {
                     WorldIndex--;
@@ -257,6 +260,7 @@ public class LevelManager : MonoBehaviour
             }
             else if (Input.GetAxis(VerticalAxis) == 1 && AbleToNavigate && Camera.transform.position == NewPos) // moves up
             {
+                PlayerPrefs.SetInt("LevelTimeBackup", 1); // never speak of this again
                 if (WorldIndex < WorldsList.Count - 1)
                 {
                     WorldIndex++;

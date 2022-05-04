@@ -60,6 +60,8 @@ public class MainMenu : MonoBehaviour
     public float CameraSpeed;
     StandaloneInputModule Inputs;
 
+    public List<string> LevelScenes = new List<string>();
+
 
     private void Update()
     {
@@ -245,6 +247,29 @@ public class MainMenu : MonoBehaviour
 
         VisualsScreen.Partying = false;
         VisualsScreen.BeingOld = false;
+
+
+        PlayerData.PD.LoadPlayer();
+
+
+        if (PlayerPrefs.GetInt("LevelTimeBackup", 0) != 1) // will be false for old players. One time use case.
+        {
+            foreach (string scene in LevelScenes)
+            {
+                if (PlayerPrefs.HasKey(scene)) // score exists for that pref? back it up
+                {
+                    Debug.Log("Backing up level time for level" + scene + ": " + PlayerPrefs.GetFloat(scene));
+                    PlayerData.PD.PlayerTimeRecords.Add(scene, PlayerPrefs.GetFloat(scene)); //ex: W1_01 -> 90
+                }
+            }
+            PlayerData.PD.SavePlayer(); // update saves with pulled data
+            PlayerPrefs.SetInt("LevelTimeBackup", 1); // never speak of this again
+        }
+        if (PlayerPrefs.GetInt("AchievementBackups", 0) != 1) // will return false for players upgrading to new save system. One time use.
+        {
+            AchievementMenu.GetComponent<AchievementManager>().BackupMyAchievements();
+            PlayerPrefs.SetInt("AchievementBackups", 1); // never speak of this again
+        }
         ScanCheevos();
     }
 
@@ -317,6 +342,10 @@ public class MainMenu : MonoBehaviour
         BrowsingStats = true;
         CurrentDestination = StatsDestination;
 
+        PlayerPrefs.DeleteAll();
+        PlayerPrefs.SetInt("SaveFileVersioning", 0);
+        PlayerPrefs.SetInt("LevelTimeBackup", 0); // don't want to restore these!
+        PlayerPrefs.SetInt("AchievementBackups", 0);
         PlayerData.PD.ClearData();
         ConfirmationMenu.SetActive(false);
 
@@ -438,7 +467,7 @@ public class MainMenu : MonoBehaviour
             string CheevoName = Cheevo.GetComponent<AchievementInfo>().AchievementTitle;
             if (PlayerData.PD.AchievementRecords.ContainsKey(CheevoName)) // check dictionary of unlocked achievements
             {
-                SteamUserStats.SetAchievement(Cheevo.GetComponent<AchievementInfo>().AchievementTitle); // If you DO have the achievement lcoally but steam doesn't think so, update it here
+                SteamUserStats.SetAchievement(Cheevo.GetComponent<AchievementInfo>().AchievementTitle); // If you DO have the achievement locally but steam doesn't think so, update it here
                 SteamUserStats.StoreStats();
             }
             else
