@@ -259,7 +259,9 @@ public class MainMenu : MonoBehaviour
                 if (PlayerPrefs.HasKey(scene)) // score exists for that pref? back it up
                 {
                     Debug.Log("Backing up level time for level" + scene + ": " + PlayerPrefs.GetFloat(scene));
+                    PlayerData.PD.PlayerTimeRecords.Remove(scene); // scrap old one before adding new one if it exists for some reason?
                     PlayerData.PD.PlayerTimeRecords.Add(scene, PlayerPrefs.GetFloat(scene)); //ex: W1_01 -> 90
+
                 }
             }
             PlayerData.PD.SavePlayer(); // update saves with pulled data

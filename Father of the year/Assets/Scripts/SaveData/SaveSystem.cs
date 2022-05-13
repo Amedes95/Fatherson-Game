@@ -24,7 +24,7 @@ public static class SaveSystem
         PlayerData data;
 
         string path = Application.persistentDataPath + "/player.dat";
-        if (File.Exists(path))
+        if (File.Exists(path)) // should already exist on a new machine if cloud backup worked // TODO: re-unlock achievements
         {
             BinaryFormatter formatter = new BinaryFormatter();
             using (FileStream stream = new FileStream(path, FileMode.Open))
