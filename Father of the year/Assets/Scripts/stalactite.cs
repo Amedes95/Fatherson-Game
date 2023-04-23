@@ -22,6 +22,9 @@ public class stalactite : MonoBehaviour
     public GameObject ExplodeParticles;
     public static GameObject ExplodeParticlesClone;
     BoxCollider2D TriggerZone;
+    Rigidbody2D TheRock;
+    float StartingGravity;
+
 
     void Awake()
     {
@@ -30,6 +33,10 @@ public class stalactite : MonoBehaviour
         fallDelay += Random.Range(0f, 2f);
         GlintCopy = GlintFrequency;
         gameObject.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeAll;
+
+        TheRock = gameObject.GetComponent<Rigidbody2D>();
+        StartingGravity = TheRock.gravityScale;
+        TheRock.gravityScale = 0;
     }
 
     private void FixedUpdate()
@@ -60,6 +67,7 @@ public class stalactite : MonoBehaviour
             }
             else if (falling)
             {
+                TheRock.gravityScale = StartingGravity;
                 RaycastGround();
                 if (fallVelocity < -fallSpeedCap) //fall speed cap
                 {
@@ -104,6 +112,7 @@ public class stalactite : MonoBehaviour
     {
         walkedUnder = true;
         FallingDirt.Play();
+
         if (gameObject.activeInHierarchy)
         {
             StalactiteAudio.Play();

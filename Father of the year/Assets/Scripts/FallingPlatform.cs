@@ -19,12 +19,19 @@ public class FallingPlatform : MonoBehaviour
     public ParticleSystem FloatParticles;
     public BoxCollider2D Killzone;
 
+    Rigidbody2D ThePlatform;
+    float StartingGravity;
+
 
 
     // Start is called before the first frame update
     void Awake()
     {
-        gameObject.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeAll;
+        ThePlatform = GetComponent<Rigidbody2D>();
+        ThePlatform.constraints = RigidbodyConstraints2D.FreezeAll;
+        StartingGravity = ThePlatform.gravityScale;
+        ThePlatform.gravityScale = 0;
+
     }
 
     private void FixedUpdate()
@@ -63,6 +70,7 @@ public class FallingPlatform : MonoBehaviour
         }
         else if (falling)
         {
+            ThePlatform.gravityScale = StartingGravity;
             RayCastGround();
             if (fallVelocity < -fallSpeedCap) //fall speed cap
             {
